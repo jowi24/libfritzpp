@@ -23,3 +23,6 @@
 - Renamed Tools::GetPhoneSettings() to Tools::GetLocationSettings().
 - Added resolving of SIP[0-9] to real provider names.
 
+2008-12-19:
+- removed the port defines and replaced them by two new fields in class Config to allow easier unit testing
+

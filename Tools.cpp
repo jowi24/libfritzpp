@@ -238,7 +238,7 @@ std::string Tools::GetLang() {
 	// Workaround: "Try-and-Error"
 	if ( gConfig->getLang().size() == 0) {
 		Login();
-		tcpclient::HttpClient tc(gConfig->getUrl(), PORT_WWW);
+		tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
 		std::vector<std::string> langs;
 		langs.push_back("en");
 		langs.push_back("de");
@@ -269,7 +269,7 @@ void Tools::Login() {
 	std::string sMsg;
 
 	*dsyslog << __FILE__ << ": sending login request to fritz.box." << std::endl;
-	tcpclient::HttpClient tc( gConfig->getUrl(), PORT_WWW);
+	tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
 	tc   <<		"POST /cgi-bin/webcm HTTP/1.1\n"
 	<<  	"Content-Type: application/x-www-form-urlencoded\n"
 	<<  	"Content-Length: "
@@ -313,7 +313,7 @@ bool Tools::InitCall(std::string &number) {
 	try {
 		Login();
 		*isyslog << __FILE__ << ": sending call init request " << number.c_str() << std::endl;
-		tcpclient::HttpClient tc( gConfig->getUrl(), PORT_WWW);
+		tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
 		tc  <<	"POST /cgi-bin/webcm HTTP/1.1\n"
 		<<	"Content-Type: application/x-www-form-urlencoded\n"
 		<<	"Content-Length: "
@@ -373,7 +373,7 @@ void Tools::GetLocationSettings() {
 	std::string msg;
 	try {
 		Login();
-		tcpclient::HttpClient hc(gConfig->getUrl(), PORT_WWW);
+		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
 		hc << "GET /cgi-bin/webcm?getpage=../html/"
 		<<  Tools::GetLang()
 		<< "/menus/menu2.html&var%3Alang="
@@ -429,7 +429,7 @@ void Tools::GetSipSettings(){
 	std::string msg;
 	try {
 		Login();
-		tcpclient::HttpClient hc(gConfig->getUrl(), PORT_WWW);
+		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
 		hc << "GET /cgi-bin/webcm?getpage=../html/"
 		<<  Tools::GetLang()
 		<< "/menus/menu2.html&var%3Alang="
