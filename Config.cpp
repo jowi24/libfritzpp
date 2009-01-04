@@ -67,8 +67,8 @@ void Config::SetupLogging(std::ostream *d, std::ostream *i, std::ostream *e) {
 Config::Config( std::string url, std::string password) {
 	mConfig.url           = url;
 	mConfig.password      = password;
-	mConfig.ui_port  	  = 80;
-	mConfig.listener_port = 1012;
+	mConfig.uiPort  	  = 80;
+	mConfig.listenerPort = 1012;
 	CharSetConv::DetectCharset();
 }
 

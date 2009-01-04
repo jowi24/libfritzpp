@@ -196,7 +196,7 @@ bool Tools::MatchesMsnFilter(const std::string &number){
 	return false;
 }
 
-std::string Tools::GetLang() {
+std::string Tools::GetLang(bool login) {
 	// TODO: this does "not always" work for fw 29.04.67 (behaves indeterministically)
 	//	if ( gConfig->getLang().size() == 0) {
 	//		std::string sMsg;
@@ -236,8 +236,8 @@ std::string Tools::GetLang() {
 	//		}
 	//	}
 	// Workaround: "Try-and-Error"
-	if ( gConfig->getLang().size() == 0) {
-		Login();
+	if ( gConfig && gConfig->getLang().size() == 0) {
+		if (login) Login();
 		tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
 		std::vector<std::string> langs;
 		langs.push_back("en");
@@ -364,15 +364,15 @@ int Tools::CompareNormalized(std::string number1, std::string number2) {
 	return NormalizeNumber(number1).compare(NormalizeNumber(number2));
 }
 
-void Tools::GetLocationSettings() {
+void Tools::GetLocationSettings(bool login) {
 	// if countryCode or regionCode are already set, exit here...
-	if ( gConfig->getCountryCode().size() > 0 || gConfig->getRegionCode().size() > 0)
+	if ( !gConfig || gConfig->getCountryCode().size() > 0 || gConfig->getRegionCode().size() > 0)
 		return;
 	// ...otherwise get settings from Fritz!Box.
 	*dsyslog << __FILE__ << ": Looking up Phone Settings..." << std::endl;
 	std::string msg;
 	try {
-		Login();
+		if (login) Login();
 		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
 		hc << "GET /cgi-bin/webcm?getpage=../html/"
 		<<  Tools::GetLang()
