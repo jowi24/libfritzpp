@@ -95,7 +95,7 @@ public:
      ///< If ToCode is NULL, "UTF-8" is used.
   ~CharSetConv();
   const char *Convert(const char *From, char *To = NULL, size_t ToLength = 0);
-     ///< Converts the given Text from FromCode to ToCode (as set in the cosntructor).
+     ///< Converts the given Text from FromCode to ToCode (as set in the constructor).
      ///< If To is given, it is used to copy at most ToLength bytes of the result
      ///< (including the terminating 0) into that buffer. If To is not given,
      ///< the result is copied into a dynamically allocated buffer and is valid as
@@ -136,16 +136,17 @@ public:
 	Tools();
 	virtual ~Tools();
 	static bool MatchesMsnFilter(const std::string &number);
-	static std::string GetLang(bool login = true);
+	static std::string GetLang();
 	static void Login();
 	static bool InitCall(std::string &number);
 	static std::string NormalizeNumber(std::string number);
 	static int CompareNormalized(std::string number1, std::string number2);
-	static void GetLocationSettings(bool login = true);
+	static void GetLocationSettings();
 	static void GetSipSettings();
 	static pthread::Mutex* GetFritzBoxMutex() {return mutex;}
 	static std::string Tokenize(const std::string &buffer, const char delimiter, size_t pos);
 private:
+    static std::string CalculateLoginResponse(std::string challenge);
 	static std::string UrlEncode(std::string &s);
 	static pthread::Mutex* mutex;
 };

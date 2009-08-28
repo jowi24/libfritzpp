@@ -107,7 +107,7 @@ FonbookManager* FonbookManager::GetFonbookManager() {
 }
 
 void FonbookManager::DeleteFonbookManager() {
-	if (me){
+	if (me) {
 		*dsyslog << __FILE__ << ": deleting Fonbook Manager" << std::endl;
 		delete me;
 		me = NULL;
@@ -159,12 +159,20 @@ FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
 	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : NULL;
 }
 
+bool FonbookManager::AddFonbookEntry(FonbookEntry fe) {
+	return GetActiveFonbook() ? GetActiveFonbook()->AddFonbookEntry(fe) : false;
+}
+
 bool FonbookManager::isDisplayable() {
 	return GetActiveFonbook() ? GetActiveFonbook()->isDisplayable() : false;
 }
 
 bool FonbookManager::isInitialized() {
 	return GetActiveFonbook() ? GetActiveFonbook()->isInitialized() : false;
+}
+
+bool FonbookManager::isWriteable() {
+	return GetActiveFonbook() ? GetActiveFonbook()->isWriteable() : false;
 }
 
 void FonbookManager::setInitialized(bool isInitialized) {

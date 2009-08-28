@@ -19,11 +19,14 @@
  *
  */
 
+#include <openssl/md5.h>
 #include <string.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <langinfo.h>
 #include <sstream>
+#include <iostream>
+#include <iomanip>
 #include <TcpClient++.h>
 #include <errno.h>
 #include "Tools.h"
@@ -196,7 +199,7 @@ bool Tools::MatchesMsnFilter(const std::string &number){
 	return false;
 }
 
-std::string Tools::GetLang(bool login) {
+std::string Tools::GetLang() {
 	// TODO: this does "not always" work for fw 29.04.67 (behaves indeterministically)
 	//	if ( gConfig->getLang().size() == 0) {
 	//		std::string sMsg;
@@ -237,23 +240,30 @@ std::string Tools::GetLang(bool login) {
 	//	}
 	// Workaround: "Try-and-Error"
 	if ( gConfig && gConfig->getLang().size() == 0) {
-		if (login) Login();
-		tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
-		std::vector<std::string> langs;
-		langs.push_back("en");
-		langs.push_back("de");
-		langs.push_back("fr");
-		for (unsigned int p=0; p<langs.size(); p++) {
-			std::string sMsg;
-			tc << "GET /cgi-bin/webcm?getpage=../html/"
-			   << langs[p]
-			   << "/menus/menu2.html HTTP/1.1\n\n";
-			tc >> sMsg;
-			if (sMsg.find("<html>") != std::string::npos) {
-				gConfig->setLang(langs[p]);
-				*dsyslog << __FILE__ << ": interface language is " << gConfig->getLang().c_str() << std::endl;
-				return gConfig->getLang();
+		try {
+			Login();
+			std::vector<std::string> langs;
+			langs.push_back("en");
+			langs.push_back("de");
+			langs.push_back("fr");
+			for (unsigned int p=0; p<langs.size(); p++) {
+				std::string sMsg;
+				tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
+				tc << tcpclient::get
+				   << "/cgi-bin/webcm?getpage=../html/"
+				   << langs[p]
+				   << "/menus/menu2.html"
+				   << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
+				   << std::flush;
+				tc >> sMsg;
+				if (sMsg.find("<html>") != std::string::npos) {
+					gConfig->setLang(langs[p]);
+					*dsyslog << __FILE__ << ": interface language is " << gConfig->getLang().c_str() << std::endl;
+					return gConfig->getLang();
+				}
 			}
+		} catch (tcpclient::TcpException te) {
+			*esyslog << __FILE__ << ": Exception - " << te.what() << std::endl;
 		}
 		*dsyslog << __FILE__ << ": error parsing interface language, assuming 'de'" << std::endl;
 		gConfig->setLang("de");
@@ -261,30 +271,149 @@ std::string Tools::GetLang(bool login) {
 	return gConfig->getLang();
 }
 
+std::string Tools::CalculateLoginResponse(std::string challenge) {
+	std::string challengePwd = challenge + '-' + gConfig->getPassword();
+	// the box needs an md5 sum of the string "challenge-password"
+	// to make things worse, it needs this in UTF-16LE character set
+	// last but not least, for "compatibility" reasons (*LOL*) we have to replace
+	// every char > "0xFF 0x00" with "0x2e 0x00"
+	CharSetConv conv(NULL, "UTF-16LE");
+	char challengePwdConv[challengePwd.length()*2];
+	memcpy(challengePwdConv, conv.Convert(challengePwd.c_str()), challengePwd.length()*2);
+	for (size_t pos=1; pos < challengePwd.length()*2; pos+= 2)
+		if (challengePwdConv[pos] != 0x00) {
+			challengePwdConv[pos] = 0x00;
+			challengePwdConv[pos-1] = 0x2e;
+		}
+	unsigned char hash[16];
+	MD5((unsigned char*)challengePwdConv, challengePwd.length()*2, hash);
+	std::stringstream response;
+	response << challenge << '-';
+	for (size_t pos=0; pos < 16; pos++)
+		response << std::hex << std::setfill('0') << std::setw(2) << (unsigned int)hash[pos];
+	return response.str();
+}
+
 void Tools::Login() {
-	// no password, no login
-	if ( gConfig->getPassword().length() == 0)
+	*dsyslog << __FILE__ << ": logging in to fritz.box." << std::endl;
+
+	// detect if this Fritz!Box uses SIDs
+	*dsyslog << __FILE__ << ": requesting login_sid.xml from fritz.box." << std::endl;
+	std::string sXml;
+	try {
+		tcpclient::HttpClient tc( gConfig->getUrl(), PORT_WWW);
+		tc << tcpclient::get
+		   << "/cgi-bin/webcm?getpage=../html/login_sid.xml"
+		   << std::flush;
+		tc >> sXml;
+	} catch (tcpclient::TcpException te) {
+		*esyslog << __FILE__ << ": Exception - " << te.what() << std::endl;
 		return;
-
-	std::string sMsg;
-
-	*dsyslog << __FILE__ << ": sending login request to fritz.box." << std::endl;
-	tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-	tc   <<		"POST /cgi-bin/webcm HTTP/1.1\n"
-	<<  	"Content-Type: application/x-www-form-urlencoded\n"
-	<<  	"Content-Length: "
-	<<  	23 + UrlEncode(gConfig->getPassword()).size()
-	<<  	"\n\nlogin:command/password="
-	<<  	UrlEncode(gConfig->getPassword()) // append a newline here?
-	<<      "\n";
-	tc >> sMsg;
-
-	// determine if login was successful
-	if (sMsg.find("class=\"errorMessage\"") != std::string::npos) {
-		*esyslog << __FILE__ << ": login failed, check your password settings." << std::endl;
-		throw ToolsException(ToolsException::ERR_LOGIN_FAILED);
 	}
-	*dsyslog << __FILE__ << ": login successful." << std::endl;
+	if (sXml.find("<iswriteaccess>") != std::string::npos) { // login using SID
+		*dsyslog << __FILE__ << ": using new login scheme with SIDs" << std::endl;
+		// logout, drop old SID
+		*dsyslog << __FILE__ << ": dropping old SID" << std::endl;
+		try {
+			std::string sDummy;
+			tcpclient::HttpClient tc( gConfig->getUrl(), PORT_WWW);
+			tc << tcpclient::post
+			   << "/cgi-bin/webcm"
+			   << std::flush
+			   << "sid="
+			   << gConfig->getSid()
+			   << "&security:command/logout=abc"
+			   << std::flush;
+			tc >> sDummy;
+		} catch (tcpclient::TcpException te) {
+			*esyslog << __FILE__ << ": Exception - " << te.what() << std::endl;
+			return;
+		}
+		// check if no password is needed (SID is directly available)
+		size_t pwdFlag = sXml.find("<iswriteaccess>");
+		if (pwdFlag == std::string::npos) {
+			*esyslog << __FILE__ << ": Error - Expected <iswriteacess> not found in login_sid.xml." << std::endl;
+			return;
+		}
+		pwdFlag += 15;
+		if (sXml[pwdFlag] == '1') {
+			// extract SID
+			size_t sidStart = sXml.find("<SID>");
+			if (sidStart == std::string::npos) {
+				*esyslog << __FILE__ << ": Error - Expected <SID> not found in login_sid.xml." << std::endl;
+				return;
+			}
+			sidStart += 5;
+			// save SID
+			gConfig->setSid(sXml.substr(sidStart, 16));
+		} else {
+			// generate response out of challenge and password
+			size_t challengeStart = sXml.find("<Challenge>");
+			if (challengeStart == std::string::npos) {
+				*esyslog << __FILE__ << ": Error - Expected <Challenge> not found in login_sid.xml." << std::endl;
+				return;
+			}
+			challengeStart += 11;
+			size_t challengeStop = sXml.find("<", challengeStart);
+            std::string challenge = sXml.substr(challengeStart, challengeStop - challengeStart);
+            std::string response = CalculateLoginResponse(challenge);
+            // send response to box
+			std::string sMsg;
+			try {
+				tcpclient::HttpClient tc( gConfig->getUrl(), PORT_WWW);
+				tc << tcpclient::post
+				   << "/cgi-bin/webcm"
+				   << std::flush
+				   << "login:command/response="
+				   << response
+				   << "&getpage=../html/de/menus/menu2.html"
+				   << std::flush;
+				tc >> sMsg;
+			} catch (tcpclient::TcpException te) {
+				*esyslog << __FILE__ << ": Exception - " << te.what() << std::endl;
+				return;
+			}
+			// get SID out of sMsg
+			size_t sidStart = sMsg.find("name=\"sid\"");
+			if (sidStart == std::string::npos) {
+				*esyslog << __FILE__ << ": Error - Expected sid field not found." << std::endl;
+				return;
+			}
+			sidStart = sMsg.find("value=\"", sidStart + 10) + 7;
+			size_t sidStop = sMsg.find("\"", sidStart);
+			// save SID
+			gConfig->setSid(sMsg.substr(sidStart, sidStop-sidStart));
+			*dsyslog << __FILE__ << ": login successful." << std::endl;
+		}
+	} else { // login without SID
+		*dsyslog << __FILE__ << ": using old login scheme without SIDs" << std::endl;
+		// no password, no login
+		if ( gConfig->getPassword().length() == 0)
+			return;
+
+		std::string sMsg;
+
+		try {
+			tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
+			tc << tcpclient::post
+			   << "/cgi-bin/webcm"
+			   << std::flush
+			   << "login:command/password="
+			   << UrlEncode(gConfig->getPassword())
+			   << std::flush;
+			tc >> sMsg;
+		} catch (tcpclient::TcpException te) {
+			*esyslog << __FILE__ << ": Exception - " << te.what() << std::endl;
+			return;
+		}
+
+		// determine if login was successful
+		if (sMsg.find("class=\"errorMessage\"") != std::string::npos) {
+			*esyslog << __FILE__ << ": login failed, check your password settings." << std::endl;
+			throw ToolsException(ToolsException::ERR_LOGIN_FAILED);
+		}
+		*dsyslog << __FILE__ << ": login successful." << std::endl;
+	}
 }
 
 std::string Tools::UrlEncode(std::string &s_input) {
@@ -314,16 +443,15 @@ bool Tools::InitCall(std::string &number) {
 		Login();
 		*isyslog << __FILE__ << ": sending call init request " << number.c_str() << std::endl;
 		tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-		tc  <<	"POST /cgi-bin/webcm HTTP/1.1\n"
-		<<	"Content-Type: application/x-www-form-urlencoded\n"
-		<<	"Content-Length: "
-		<<	95 + number.length() + Tools::GetLang().length()
-		<<	"\n\n"
-		<<	"getpage=../html/"
-		<<  Tools::GetLang()
-		<< "/menus/menu2.html&var%3Apagename=fonbuch&var%3Amenu=home&telcfg%3Acommand/Dial="
-		<<	number
-		<<	"\n";
+		tc << tcpclient::post
+		   << "/cgi-bin/webcm"
+		   << std::flush
+		   << "getpage=../html/"
+		   << Tools::GetLang()
+		   << "/menus/menu2.html&var%3Apagename=fonbuch&var%3Amenu=home&telcfg%3Acommand/Dial="
+		   << number
+  	       << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
+		   <<	std::flush;
 		tc >> msg;
 		*isyslog << __FILE__ << ": call initiated." << std::endl;
 	} catch (tcpclient::TcpException te) {
@@ -334,7 +462,6 @@ bool Tools::InitCall(std::string &number) {
 }
 
 std::string Tools::NormalizeNumber(std::string number) {
-	GetLocationSettings();
 	// Only for Germany: Remove Call-By-Call Provider Selection Codes 010(0)xx
 	if ( gConfig->getCountryCode() == "49") {
 		if (number[0] == '0' && number[1] == '1' && number[2] == '0') {
@@ -364,21 +491,20 @@ int Tools::CompareNormalized(std::string number1, std::string number2) {
 	return NormalizeNumber(number1).compare(NormalizeNumber(number2));
 }
 
-void Tools::GetLocationSettings(bool login) {
-	// if countryCode or regionCode are already set, exit here...
-	if ( !gConfig || gConfig->getCountryCode().size() > 0 || gConfig->getRegionCode().size() > 0)
-		return;
-	// ...otherwise get settings from Fritz!Box.
+void Tools::GetLocationSettings() {
+//	get settings from Fritz!Box.
 	*dsyslog << __FILE__ << ": Looking up Phone Settings..." << std::endl;
 	std::string msg;
 	try {
-		if (login) Login();
-		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
-		hc << "GET /cgi-bin/webcm?getpage=../html/"
-		<<  Tools::GetLang()
-		<< "/menus/menu2.html&var%3Alang="
-		<<  Tools::GetLang()
-		<< "&var%3Apagename=sipoptionen&var%3Amenu=fon HTTP/1.1\n\n";
+		Login();
+		tcpclient::HttpClient hc(gConfig->getUrl(), PORT_WWW);
+		hc << tcpclient::get
+		   << "/cgi-bin/webcm?getpage=../html/"
+		   <<  Tools::GetLang()
+		   << "/menus/menu2.html&var%3Alang="
+		   <<  Tools::GetLang()
+		   << "&var%3Apagename=sipoptionen&var%3Amenu=fon"
+  	           << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
 		hc >> msg;
 	} catch (tcpclient::TcpException te) {
 		*esyslog << __FILE__ << ": cTcpException - " << te.what() << std::endl;
@@ -430,11 +556,14 @@ void Tools::GetSipSettings(){
 	try {
 		Login();
 		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
-		hc << "GET /cgi-bin/webcm?getpage=../html/"
-		<<  Tools::GetLang()
-		<< "/menus/menu2.html&var%3Alang="
-		<<  Tools::GetLang()
-		<< "&var%3Apagename=siplist&var%3Amenu=fon HTTP/1.1\n\n";
+		hc << tcpclient::get
+		   << "/cgi-bin/webcm?getpage=../html/"
+		   << Tools::GetLang()
+		   << "/menus/menu2.html&var%3Alang="
+		   << Tools::GetLang()
+		   << "&var%3Apagename=siplist&var%3Amenu=fon"
+		   << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
+		   << std::flush;
 		hc >> msg;
 	} catch (tcpclient::TcpException te) {
 		*esyslog << __FILE__ << ": cTcpException - " << te.what() << std::endl;

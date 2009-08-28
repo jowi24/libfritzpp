@@ -32,7 +32,9 @@ std::ostream *dsyslog = &std::clog;
 std::ostream *isyslog = &std::cout;
 std::ostream *esyslog = &std::cerr;
 
-void Config::Setup(std::string hostname, std::string password){
+void Config::Setup(std::string hostname, std::string password,
+		           bool *locationSettingsDetected,
+				   std::string *countryCode, std::string *regionCode) {
 	if (gConfig)
 		delete gConfig;
 	gConfig = new Config( hostname, password);
@@ -40,6 +42,22 @@ void Config::Setup(std::string hostname, std::string password){
 	Tools::GetLang();
 	// preload phone settings from Fritz!Box
 	Tools::GetLocationSettings();
+	if (gConfig->getCountryCode().empty() || gConfig->getRegionCode().empty()) {
+		if (locationSettingsDetected)
+			*locationSettingsDetected = false;
+		if (countryCode)
+			gConfig->setCountryCode(*countryCode);
+		if (regionCode)
+			gConfig->setRegionCode(*regionCode);
+	} else {
+		if (locationSettingsDetected)
+			*locationSettingsDetected = true;
+		if (countryCode)
+			*countryCode = gConfig->getCountryCode();
+		if (regionCode)
+			*regionCode  = gConfig->getRegionCode();
+	}
+
 	// fetch SIP provider names
 	Tools::GetSipSettings();
 }
@@ -65,9 +83,9 @@ void Config::SetupLogging(std::ostream *d, std::ostream *i, std::ostream *e) {
 }
 
 Config::Config( std::string url, std::string password) {
-	mConfig.url           = url;
-	mConfig.password      = password;
-	mConfig.uiPort  	  = 80;
+	mConfig.url          = url;
+	mConfig.password     = password;
+	mConfig.uiPort       = 80;
 	mConfig.listenerPort = 1012;
 	CharSetConv::DetectCharset();
 }

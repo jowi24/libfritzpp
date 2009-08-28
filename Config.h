@@ -38,7 +38,7 @@ namespace fritz {
  */
 class Config {
 
-protected:
+private:
 	struct sConfig{
 		std::string configDir;              			// path to plugins' config files (e.g., local phone book)
 		std::string lang;                   			// webinterface language
@@ -46,6 +46,7 @@ protected:
 		int         uiPort;								// the port of the fritz box web interface
 		int 		listenerPort;						// the port of the fritz box call monitor
 		std::string password;               			// fritz!box web interface password
+		std::string sid;                                // SID to access boxes with firmware >= xx.04.74
 		std::string countryCode;            			// fritz!box country-code
 		std::string regionCode;             			// fritz!box region-code
 		std::vector <std::string> sipNames;				// the SIP provider names
@@ -62,8 +63,13 @@ public:
 	 * This has to be the first call to libfritz++.
 	 * @param the hostname of the Fritz!Box device, defaults to fritz.box
 	 * @param the password of the Fritz!Box device, defaults to an empty one
+	 * @param indicates, whether auto-detection of location settings was successful
+	 * @param Sets the default value for countryCode. If locationSettingsDetected == true, this returns the detected countryCode.
+	 * @param Sets the default value for regionCode. If locationSettingsDetected == true, this returns the detected regionCode.
 	 */
-	void static Setup( std::string hostname="fritz.box", std::string password="" );
+	void static Setup( std::string hostname="fritz.box", std::string password="",
+			           bool *locationSettingsDetected = NULL,
+			           std::string *countryCode = NULL, std::string *regionCode = NULL);
 	/**
 	 * Establishes MSN filtering.
 	 * An MsnFilter enables the library to only notify the application on
@@ -92,9 +98,11 @@ public:
 	std::string &getLang( )                           { return mConfig.lang; }
 	void setLang( std::string l )                     { mConfig.lang = l; }
 	std::string &getUrl( )                            { return mConfig.url; }
-	int getUiPort( )								  { return mConfig.uiPort; }
-	int getListenerPort( )						      { return mConfig.listenerPort; }
+	int getUiPort( )				  { return mConfig.uiPort; }
+	int getListenerPort( )				  { return mConfig.listenerPort; }
 	std::string &getPassword( )                       { return mConfig.password; }
+	std::string &getSid( )                            { return mConfig.sid; }
+	void setSid(std::string sid)                      { mConfig.sid = sid; }
 	std::string &getCountryCode( )        	          { return mConfig.countryCode; }
 	void setCountryCode( std::string cc )             { mConfig.countryCode = cc; }
 	std::string &getRegionCode( )                     { return mConfig.regionCode; }
