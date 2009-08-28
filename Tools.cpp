@@ -505,6 +505,7 @@ void Tools::GetLocationSettings() {
 		   <<  Tools::GetLang()
 		   << "&var%3Apagename=sipoptionen&var%3Amenu=fon"
   	           << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
+                   << std::flush;
 		hc >> msg;
 	} catch (tcpclient::TcpException te) {
 		*esyslog << __FILE__ << ": cTcpException - " << te.what() << std::endl;
