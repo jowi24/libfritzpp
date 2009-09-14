@@ -180,6 +180,11 @@ void FonbookManager::setInitialized(bool isInitialized) {
 		GetActiveFonbook()->setInitialized(isInitialized);
 }
 
+void FonbookManager::Sort(FonbookEntry::eElements element, bool ascending){
+	if (GetActiveFonbook())
+		GetActiveFonbook()->Sort(element, ascending);
+}
+
 size_t FonbookManager::GetFonbookSize() {
 	return GetActiveFonbook() ? GetActiveFonbook()->GetFonbookSize() : 0;
 }

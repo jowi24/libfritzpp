@@ -33,13 +33,22 @@ class CallList;
 
 class CallEntry {
 public:
-	enum callType {
+	enum eCallType {
 		ALL      = 0,
 		INCOMING = 1,
 		MISSED   = 2,
 		OUTGOING = 3
 	};
-	callType    type;
+	enum eElements {
+		ELEM_TYPE,
+		ELEM_DATE,
+		ELEM_REMOTENAME,
+		ELEM_REMOTENUMBER,
+		ELEM_LOCALNAME,
+		ELEM_LOCALNUMBER,
+		ELEM_DURATION,
+	};
+	eCallType   type;
 	std::string date;
 	std::string time;
 	std::string remoteName;

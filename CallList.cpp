@@ -164,7 +164,7 @@ CallEntry *CallList::RetrieveEntry(CallEntry::callType type, size_t id) {
 	}
 }
 
-size_t CallList::GetSize(CallEntry::callType type) {
+size_t CallList::GetSize(CallEntry::eCallType type) {
 	switch (type) {
 	case CallEntry::ALL:
 		return callListAll.size();
@@ -192,6 +192,11 @@ size_t CallList::MissedCalls(time_t since) {
 		}
 	}
 	return missedCalls;
+}
+
+void CallList::Sort(CallEntry::eElements element, bool ascending) {
+	CallEntrySort ces(element, ascending);
+	std::sort(callListAll.begin(), callListAll.end(), ces); //TODO: other lists?
 }
 
 bool CallEntry::MatchesFilter() {

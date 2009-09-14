@@ -41,16 +41,21 @@ public:
 		TYPE_MOBILE,
 		TYPE_WORK
 	};
+	enum eElements {
+		ELEM_NAME   = 0,
+		ELEM_TYPE   = 1,
+		ELEM_NUMBER = 2,
+	};
 private:
 	std::string name;
 	std::string number;
 	eType type;
 public:
-	FonbookEntry(std::string &name, std::string &number, eType type = TYPE_NONE);
-	std::string &getName() { return name; }
+	FonbookEntry(std::string name, std::string number, eType type = TYPE_NONE);
+	std::string getName() const { return name; }
 	void setName(std::string name) { this->name = name; }
-	std::string &getNumber() { return number; }
-	eType getType() { return type; }
+	std::string getNumber() const { return number; }
+	eType getType() const { return type; }
 	void setType(eType type) { this->type = type; }
 	std::string getTypeName();
 	bool operator<(const FonbookEntry & fe) const;
@@ -160,6 +165,12 @@ public:
 	 * @return the technical id
 	 */
 	virtual std::string &GetTechId() { return techId; }
+	/**
+	 * Sorts the phonebook's entries by the given element and in given order.
+	 * @param the element used for sorting
+	 * @param true if sort order is ascending, false otherwise
+	 */
+	virtual void Sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true);
 };
 
 }

@@ -80,3 +80,6 @@
 
 2009-09-13:
 - Fixed entity decoding in FritzFonbook.cpp
+
+2009-09-14:
+- Added sort routines in CallList and Fonbook

@@ -19,14 +19,14 @@
  *
  */
 
-
+#include <algorithm>
 #include "Fonbook.h"
 #include "Tools.h"
 #include "Config.h"
 
 namespace fritz{
 
-FonbookEntry::FonbookEntry(std::string &name, std::string &number, eType type) {
+FonbookEntry::FonbookEntry(std::string name, std::string number, eType type) {
 	this->name   = name;
 	this->number = number;
 	this->type   = type;
@@ -54,6 +54,36 @@ std::string FonbookEntry::getTypeName() {
 		return " ";
 	}
 }
+
+class FonbookEntrySort {
+private:
+	bool ascending;
+	FonbookEntry::eElements element;
+public:
+	FonbookEntrySort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true) {
+		this->element   = element;
+		this->ascending = ascending;
+	}
+	bool operator() (FonbookEntry fe1, FonbookEntry fe2){
+		switch(element) {
+		case FonbookEntry::ELEM_NAME:
+			return ((fe1.getName() < fe2.getName()) ^ !ascending);
+			break;
+		case FonbookEntry::ELEM_TYPE:
+			if (ascending)
+				return (fe1.getTypeName() < fe2.getTypeName());
+			else
+				return (fe1.getTypeName() > fe2.getTypeName());
+			break;
+		case FonbookEntry::ELEM_NUMBER:
+			return ((fe1.getNumber() < fe2.getNumber()) ^ !ascending);
+			break;
+		default:
+			*esyslog << __FILE__ << ": invalid element given for sorting." << std::endl;
+			return false;
+		}
+	}
+};
 
 Fonbook::Fonbook()
 {
@@ -85,6 +115,11 @@ FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) {
 
 size_t Fonbook::GetFonbookSize() {
 	return fonbookList.size();
+}
+
+void Fonbook::Sort(FonbookEntry::eElements element, bool ascending) {
+	FonbookEntrySort fes(element, ascending);
+	std::sort(fonbookList.begin(), fonbookList.end(), fes);
 }
 
 }

@@ -110,6 +110,12 @@ public:
 	 */
 	virtual void setInitialized(bool isInitialized);
 	/**
+	 * Sorts the phonebook's entries by the given element and in given order.
+	 * @param the element used for sorting
+	 * @param true if sort order is ascending, false otherwise
+	 */
+	virtual void Sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true);
+	/**
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries or cFonbook::npos, if requesting specific telephonebook entries is not possible for this telephonebook
 	 */
