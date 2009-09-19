@@ -25,8 +25,48 @@
 #include "FritzClient.h"
 #include <time.h>
 #include <stdlib.h>
+#include <algorithm>
 
 namespace fritz{
+
+class CallEntrySort {
+private:
+	bool ascending;
+	CallEntry::eElements element;
+public:
+	CallEntrySort(CallEntry::eElements element = CallEntry::ELEM_DATE, bool ascending = true) {
+		this->element   = element;
+		this->ascending = ascending;
+	}
+	bool operator() (CallEntry ce1, CallEntry ce2){
+		switch(element) {
+		case CallEntry::ELEM_DATE:
+			return ((ce1.timestamp < ce2.timestamp) ^ !ascending);
+			break;
+		case CallEntry::ELEM_DURATION:
+			return ((ce1.duration < ce2.duration) ^ !ascending); //TODO: sort int?
+			break;
+		case CallEntry::ELEM_LOCALNAME:
+			return ((ce1.localName < ce2.localName) ^ !ascending);
+			break;
+		case CallEntry::ELEM_LOCALNUMBER:
+			return ((ce1.localNumber < ce2.localNumber) ^ !ascending);
+			break;
+		case CallEntry::ELEM_REMOTENAME:
+			return ((ce1.remoteName < ce2.remoteName) ^ !ascending);
+			break;
+		case CallEntry::ELEM_REMOTENUMBER:
+			return ((ce1.remoteNumber < ce2.remoteNumber) ^ !ascending);
+			break;
+		case CallEntry::ELEM_TYPE:
+			return ((ce1.type < ce2.type) ^ !ascending);
+			break;
+		default:
+			*esyslog << __FILE__ << ": invalid element given for sorting." << std::endl;
+			return false;
+		}
+	}
+};
 
 CallList *CallList::me = NULL;
 
@@ -51,6 +91,7 @@ void CallList::CreateCallList() {
 
 void CallList::DeleteCallList() {
 	if (me) {
+		*dsyslog << __FILE__ << ": deleting call list" << std::endl;
 		delete me;
 		me = NULL;
 	}
@@ -100,7 +141,7 @@ void CallList::Action() {
 			durationStop--;
 
 		CallEntry ce;
-		ce.type           = (CallEntry::callType)atoi(&msg[type]);
+		ce.type           = (CallEntry::eCallType)atoi(&msg[type]);
 		ce.date           = msg.substr(dateStart,     timeStart     - dateStart     -1);
 		ce.time           = msg.substr(timeStart,     nameStart     - timeStart     -1);
 		ce.remoteName     = msg.substr(nameStart,     numberStart   - nameStart     -1);
@@ -121,7 +162,7 @@ void CallList::Action() {
 
 		ce.timestamp = mktime(&tmCallTime);
 
-		// workaround for AVM debugging entries in CSV list
+				// workaround for AVM debugging entries in CVS list
 		if (ce.remoteNumber.compare("1234567") == 0 && ce.date.compare("12.03.2005") == 0)
 			continue;
 
@@ -147,7 +188,7 @@ void CallList::Action() {
 	*isyslog << __FILE__ << ": CallList -> read " << count << " entries." << std::endl;
 }
 
-CallEntry *CallList::RetrieveEntry(CallEntry::callType type, size_t id) {
+CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
 	if (id < 0)
 		return NULL;
 	switch (type) {

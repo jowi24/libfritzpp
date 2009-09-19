@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?>
 
 <cproject>
@@ -43,7 +43,7 @@
 <buildTargets>
 <target name="test" path="test" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 <buildCommand>make</buildCommand>
-<buildArguments></buildArguments>
+<buildArguments/>
 <buildTarget>test</buildTarget>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>true</useDefaultCommand>
@@ -51,8 +51,8 @@
 </target>
 <target name="qmake" path="test" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 <buildCommand>qmake</buildCommand>
-<buildArguments></buildArguments>
-<buildTarget></buildTarget>
+<buildArguments/>
+<buildTarget/>
 <stopOnError>true</stopOnError>
 <useDefaultCommand>false</useDefaultCommand>
 <runAllBuilders>true</runAllBuilders>

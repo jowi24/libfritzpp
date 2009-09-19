@@ -48,8 +48,8 @@ private:
 		std::string configDir;              			// path to libraries' config files (e.g., local phone book)
 		std::string lang;                   			// webinterface language
 		std::string url;                    			// fritz!box url
-		int uiPort;						                // the port of the fritz box web interface
-		int listenerPort;					            // the port of the fritz box call monitor
+		int uiPort;						// the port of the fritz box web interface
+		int listenerPort;					// the port of the fritz box call monitor
 		std::string password;               			// fritz!box web interface password
 		time_t lastRequestTime;                         // with eLoginType::SID: time of last request sent to fritz box
 		eLoginType loginType;                           // type of login procedure
@@ -105,8 +105,8 @@ public:
 	std::string &getLang( )                           { return mConfig.lang; }
 	void setLang( std::string l )                     { mConfig.lang = l; }
 	std::string &getUrl( )                            { return mConfig.url; }
-	int getUiPort( )				                  { return mConfig.uiPort; }
-	int getListenerPort( )				              { return mConfig.listenerPort; }
+	int getUiPort( )				  { return mConfig.uiPort; }
+	int getListenerPort( )				  { return mConfig.listenerPort; }
 	std::string &getPassword( )                       { return mConfig.password; }
 	eLoginType getLoginType( )                        { return mConfig.loginType; }
 	void setLoginType(eLoginType type)                { mConfig.loginType = type; }

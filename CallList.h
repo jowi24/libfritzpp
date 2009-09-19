@@ -84,10 +84,17 @@ public:
     virtual ~CallList();
 	void Action();
 	bool isValid() { return Active(); }
-	CallEntry *RetrieveEntry(CallEntry::callType type, size_t id);
-	size_t GetSize(CallEntry::callType type);
+	CallEntry *RetrieveEntry(CallEntry::eCallType type, size_t id);
+	size_t GetSize(CallEntry::eCallType type);
 	size_t MissedCalls(time_t since);
 	time_t LastMissedCall() { return lastMissedCall; }
+	/**
+	 * Sorts the calllist's entries by the given element and in given order.
+	 * @param the element used for sorting
+	 * @param true if sort order is ascending, false otherwise
+	 */
+	void Sort(CallEntry::eElements element = CallEntry::ELEM_DATE, bool ascending = true);
+
 };
 
 }
