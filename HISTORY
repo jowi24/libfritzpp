@@ -190,3 +190,6 @@
 2010-07-04:
 - Updated OertlichesFonbook to website changes
 - Added XmlFonbook.cpp to Makefile
+
+2010-08-29:
+- Added missing initialization of libgcrypt
