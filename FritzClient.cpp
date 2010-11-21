@@ -270,7 +270,7 @@ bool FritzClient::InitCall(std::string &number) {
 	if (!Login())
 		return false;
 	try {
-		INF("sending call init request " << number.c_str());
+		INF("sending call init request " << (gConfig->logPersonalInfo() ? number.c_str() : HIDDEN));
 		tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
 		tc << tcpclient::post
 		   << "/cgi-bin/webcm"

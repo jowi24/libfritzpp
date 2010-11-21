@@ -56,7 +56,7 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 	std::string msg;
 	std::string name;
 	try {
-		DBG("sending reverse lookup request for " << Tools::NormalizeNumber(number) << " to www.dasoertliche.de");
+		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo()? Tools::NormalizeNumber(number) : HIDDEN) << " to www.dasoertliche.de");
 		std::string host = "www.dasoertliche.de";
 		tcpclient::HttpClient tc(host);
 		tc << tcpclient::get
@@ -84,7 +84,7 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 	const char *s_converted = conv->Convert(name.c_str());
 	name = s_converted;
 	delete (conv);
-	INF("resolves to " << name.c_str());
+	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
 	result.name = name;
 	return result;
 }

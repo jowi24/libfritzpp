@@ -59,7 +59,7 @@ Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) {
 
 	std::string msg;
 	try {
-		DBG("sending reverse lookup request for " << normNumber << " to www.nummerzoeker.com");
+		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo() ? normNumber : HIDDEN) << " to www.nummerzoeker.com");
 		std::string host = "www.nummerzoeker.com";
 		tcpclient::HttpClient tc(host);
 		tc << tcpclient::get
@@ -100,7 +100,7 @@ Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) {
 	const char *s_converted = conv->Convert(name.c_str());
 	name = s_converted;
 	delete (conv);
-	INF("resolves to " << name.c_str());
+	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
 	result.name = name;
 	return result;
 }

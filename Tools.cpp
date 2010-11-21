@@ -255,12 +255,12 @@ bool Tools::GetLocationSettings() {
 	gConfig->setCountryCode( msg.substr(lkzStart, lkzStop - lkzStart) );
 	gConfig->setRegionCode( msg.substr(okzStart, okzStop - okzStart) );
 	if (gConfig->getCountryCode().size() > 0) {
-		DBG("Found LKZ " << gConfig->getCountryCode());
+		DBG("Found LKZ " << (gConfig->logPersonalInfo() ? gConfig->getCountryCode() : HIDDEN));
 	} else {
 		ERR("LKZ not set! Resolving phone numbers may not always work.");
 	}
 	if (gConfig->getRegionCode().size() > 0) {
-		DBG("Found OKZ " << gConfig->getRegionCode());
+		DBG("Found OKZ " << (gConfig->logPersonalInfo() ? gConfig->getRegionCode() : HIDDEN));
 	} else {
 		ERR("OKZ not set! Resolving phone numbers may not always work.");
 	}

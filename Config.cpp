@@ -34,11 +34,13 @@ std::ostream *esyslog = &std::cerr;
 
 bool Config::Setup(std::string hostname, std::string password,
 		           bool *locationSettingsDetected,
-				   std::string *countryCode, std::string *regionCode) {
+				   std::string *countryCode, std::string *regionCode, bool logPersonalInfo) {
 
 	if (gConfig)
 		delete gConfig;
 	gConfig = new Config( hostname, password);
+	gConfig->mConfig.logPersonalInfo = logPersonalInfo;
+
 	// preload phone settings from Fritz!Box
 	bool validPassword = Tools::GetLocationSettings();
 	if (gConfig->getCountryCode().empty() || gConfig->getRegionCode().empty()) {
@@ -99,6 +101,7 @@ Config::Config( std::string url, std::string password) {
 	mConfig.upnpPort        = 49000;
 	mConfig.loginType       = UNKNOWN;
 	mConfig.lastRequestTime = 0;
+	mConfig.logPersonalInfo = false;
 	CharSetConv::DetectCharset();
 }
 

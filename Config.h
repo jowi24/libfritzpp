@@ -36,6 +36,8 @@
 #define INF(x) *::fritz::isyslog << LOCATOR << x << std::endl;
 #define ERR(x) *::fritz::esyslog << LOCATOR << x << std::endl;
 
+#define HIDDEN "<hidden>"
+
 #define RETRY_DELAY 60
 
 namespace fritz {
@@ -70,6 +72,7 @@ private:
 		std::vector <std::string> msn;      			// msn's we are interesed in
 		std::vector <std::string> selectedFonbookIDs; 	// active phone books
 		std::string activeFonbook;						// currently selected Fonbook
+		bool logPersonalInfo;							// log sensitive information like passwords, phone numbers, ...
 	} mConfig;
 
 	Config( std::string url, std::string password );
@@ -83,10 +86,11 @@ public:
 	 * @param indicates, whether auto-detection of location settings was successful
 	 * @param Sets the default value for countryCode. If locationSettingsDetected == true, this returns the detected countryCode.
 	 * @param Sets the default value for regionCode. If locationSettingsDetected == true, this returns the detected regionCode.
+	 * @param allows personal information to be logged
 	 */
 	bool static Setup( std::string hostname="fritz.box", std::string password="",
 			           bool *locationSettingsDetected = NULL,
-			           std::string *countryCode = NULL, std::string *regionCode = NULL);
+			           std::string *countryCode = NULL, std::string *regionCode = NULL, bool logPersonalInfo = false );
 	/**
 	 * Sets arbitrary ports for connections to the Fritz!Box's listener and webinterface.
 	 * @param the port to connect to the listener
@@ -143,6 +147,7 @@ public:
 	void setFonbookIDs(std::vector<std::string> v)    { mConfig.selectedFonbookIDs = v; }
 	std::string &getActiveFonbook( )                  { return mConfig.activeFonbook; }
 	void setActiveFonbook( std::string f )            { mConfig.activeFonbook = f; }
+	bool logPersonalInfo( )							  { return mConfig.logPersonalInfo; };
 	virtual ~Config();
 };
 

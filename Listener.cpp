@@ -77,7 +77,6 @@ void Listener::Action() {
 				tcpclient = new tcpclient::TcpClient(gConfig->getUrl(), gConfig->getListenerPort());
 			while (true) {
 				DBG("Waiting for a message.");
-				//data.erase();
 				if (data.length() == 0) {
 					*tcpclient >> data;
 					if (data.length() == 0) {
@@ -85,7 +84,8 @@ void Listener::Action() {
 						// wait, then retry by setting up a new connection
 						throw tcpclient::TcpException(tcpclient::TcpException::ERR_INVALID_DATA);
 					}
-					DBG("Got message " << data);
+					if (gConfig->logPersonalInfo())
+						DBG("Got message " << data);
 				}
 
 				// split line into tokens
@@ -102,12 +102,15 @@ void Listener::Action() {
 					// partB => caller Id (local)
 					// partC => called Id (remote)
 					// partD => medium (POTS, SIP[1-9], ISDN, ...)
+					DBG("CALL " << ", " << partA
+							    << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN)
+		                        << ", " << (gConfig->logPersonalInfo() ? partC : HIDDEN)
+		                        << ", " << partD);
 
 #if 0 // some strings sent from the FB, made available to xgettext
 					I18N_NOOP("POTS");
 					I18N_NOOP("ISDN");
 #endif
-
 					// an '#' can be appended to outgoing calls by the phone, so delete it
 					if (partC[partC.length()-1] == '#')
 						partC = partC.substr(0, partC.length()-1);
@@ -131,6 +134,9 @@ void Listener::Action() {
 					// partA => caller Id (remote)
 					// partB => called Id (local)
 					// partC => medium (POTS, SIP[1-9], ISDN, ...)
+					DBG("RING " << ", " << (gConfig->logPersonalInfo() ? partA : HIDDEN)
+							    << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN)
+		                        << ", " << partC);
 
 					if ( Tools::MatchesMsnFilter(partB) ) {
 						// do reverse lookup
@@ -149,7 +155,9 @@ void Listener::Action() {
 					}
 				} else if (type.compare("CONNECT") == 0) {
 					// partA => box port
-					// partB => Id
+					// partB => local/remote Id
+					DBG("CONNECT " << ", " << partA
+							       << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN));
 					// only notify application if this connection is part of activeConnections
 					bool notify = false;
 					for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
@@ -162,6 +170,7 @@ void Listener::Action() {
 						if (event) event->HandleConnect(connId);
 				} else if (type.compare("DISCONNECT") == 0) {
 					// partA => call duration
+					DBG("DISCONNECT " << ", " << partA );
 					// only notify application if this connection is part of activeConnections
 					bool notify = false;
 					for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
@@ -179,6 +188,7 @@ void Listener::Action() {
 							callList->Start();
 					}
 				} else {
+					DBG("Got unknown message " << data);
 					throw tcpclient::TcpException(tcpclient::TcpException::ERR_INVALID_DATA);
 				}
 				// remove first line in data

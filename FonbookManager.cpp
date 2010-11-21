@@ -142,7 +142,7 @@ Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
 	sResolveResult result;
 	for (size_t i=0; i<gConfig->getFonbookIDs().size(); i++) {
 		result = fonbooks[gConfig->getFonbookIDs()[i]]->ResolveToName(number);
-		DBG("ResolveToName: " << gConfig->getFonbookIDs()[i] << " " << result.name);
+		DBG("ResolveToName: " << gConfig->getFonbookIDs()[i] << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
 		if (result.name.compare(number) != 0)
 			return result;
 	}
