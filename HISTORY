@@ -197,3 +197,7 @@
 2010-11-21:
 - Sensitive Information like passwords, phone numbers, etc. are no longer 
   logged by default. Logging this information can be enabled via Config::Setup()
+  
+2010-11-22:
+- Fixed parser in Tools::GetSipSettings()
+

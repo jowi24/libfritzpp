@@ -299,7 +299,7 @@ void Tools::GetSipSettings() {
 			return;
 		}
 		hostStart += 17;
-		size_t hostStop      = msg.find("\")", hostStart);
+		size_t hostStop      = msg.find("\"", hostStart);
 		std::string hostName = msg.substr(hostStart, hostStop - hostStart);
 		std::string sipName  = hostName;
 
