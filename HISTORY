@@ -201,3 +201,7 @@
 2010-11-22:
 - Fixed parser in Tools::GetSipSettings()
 
+2010-11-23:
+- Fixed serializing XML phone books in XmlFonbook::SerializeToXml()
+  -> this fixes uploading an xml phone book to the FB 
+
