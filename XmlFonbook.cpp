@@ -280,6 +280,13 @@ std::string XmlFonbook::SerializeToXml() {
 	std::string xmlData = result_converted;
 	delete (conv);
 
+	// replace '&' with '&amp;'
+	std::string::size_type pos = 0;
+	while ((pos = xmlData.find('&', pos)) != std::string::npos) {
+		xmlData.replace(pos, 1, "&amp;");
+		pos += 5;
+	}
+
 	return xmlData;
 }
 
