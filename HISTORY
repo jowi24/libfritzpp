@@ -191,6 +191,13 @@
 - Updated OertlichesFonbook to website changes
 - Added XmlFonbook.cpp to Makefile
 
+2010-07-29:
+- Fixed resolving of calls from unknown caller
+- Code cleanup in Listener, OertlichesFonbook and Nummerzoeker
+
+2010-07-30:
+- Added tel.local.ch phonebook
+
 2010-08-29:
 - Added missing initialization of libgcrypt
 
