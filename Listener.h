@@ -25,7 +25,8 @@
 
 #include <string>
 #include <vector>
-#include <PThread++.h>
+#include <cc++/thread.h>
+
 #include <TcpClient++.h>
 #include "CallList.h"
 #include "Fonbook.h"
@@ -52,7 +53,7 @@ public:
 	virtual void HandleDisconnect(int connId, std::string duration) = 0;
 };
 
-class Listener : public pthread::PThread
+class Listener : public ost::Thread
 {
 private:
 	static Listener *me;
@@ -72,7 +73,7 @@ public:
 	static void CreateListener(EventHandler *event = NULL);
 	static void DeleteListener();
 	virtual ~Listener();
-	virtual void Action();
+	virtual void run();
 };
 
 }

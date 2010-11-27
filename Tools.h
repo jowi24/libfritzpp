@@ -26,7 +26,6 @@
 #include <iconv.h>
 #include <stdexcept>
 #include <string>
-#include <PThread++.h>
 #include "Listener.h"
 
 #define I18N_NOOP(x) x

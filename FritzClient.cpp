@@ -45,10 +45,10 @@
 
 namespace fritz {
 
-pthread::Mutex* FritzClient::mutex = new pthread::Mutex();
+ost::Mutex* FritzClient::mutex = new ost::Mutex();
 
 FritzClient::FritzClient() {
-	mutex->Lock();
+	mutex->enterMutex();
 	// init libgcrypt
 	gcry_check_version (NULL);
     // disable secure memory
@@ -57,7 +57,7 @@ FritzClient::FritzClient() {
 }
 
 FritzClient::~FritzClient() {
-	mutex->Unlock();
+	mutex->leaveMutex();
 }
 
 std::string FritzClient::CalculateLoginResponse(std::string challenge) {

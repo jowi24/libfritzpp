@@ -3,10 +3,6 @@ OBJS = CallList.o Config.o Fonbooks.o Fonbook.o FonbookManager.o FritzClient.o F
 
 CXXFLAGS ?= -g -O2 -Wall -fPIC
 
-### libpthread++
-INCLUDES += -I../libpthread++
-#LIBS += libpthread++/libpthread++.a
-
 ### libtcpclient++
 INCLUDES += -I../libtcpclient++
 #LIBS += libtcpclient++/tcpclient++.a

@@ -20,10 +20,11 @@
  */
 
 
+#include <cc++/thread.h>
+
 #include "Config.h"
 #include "FonbookManager.h"
 #include "Tools.h"
-#include <PThread++.h>
 
 namespace fritz {
 
@@ -89,8 +90,6 @@ void Config::SetupLogging(std::ostream *d, std::ostream *i, std::ostream *e) {
 	dsyslog = d;
 	isyslog = i;
 	esyslog = e;
-	// delegate to libpthread
-	pthread::SetupLogging(d, i, e);
 }
 
 Config::Config( std::string url, std::string password) {

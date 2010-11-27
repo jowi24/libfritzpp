@@ -29,8 +29,10 @@
 namespace fritz {
 
 FritzFonbook::FritzFonbook()
-:PThread("FritzFonbook")
+:Thread()
 {
+	setName("FritzFonbook");
+	setCancel(cancelDeferred);
 	title = I18N_NOOP("Fritz!Box phone book");
 	techId = "FRITZ";
 	displayable = true;
@@ -38,17 +40,15 @@ FritzFonbook::FritzFonbook()
 }
 
 FritzFonbook::~FritzFonbook() {
-	// don't delete the object, while the thread is still active
-	while (Active())
-		pthread::CondWait::SleepMs(100);
-	Save(); //TODO
+	terminate();
+	Save();
 }
 
 bool FritzFonbook::Initialize() {
-	return Start();
+	return start();
 }
 
-void FritzFonbook::Action() {
+void FritzFonbook::run() {
 	setInitialized(false);
 	fonbookList.clear();
 
@@ -65,6 +65,7 @@ void FritzFonbook::Action() {
 	setInitialized(true);
 
 	std::sort(fonbookList.begin(), fonbookList.end());
+	exit();
 }
 
 void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
@@ -152,7 +153,7 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 }
 
 void FritzFonbook::Reload() {
-	this->Start();
+	start();
 }
 
 void FritzFonbook::Save() {

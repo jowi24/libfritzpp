@@ -34,20 +34,19 @@ namespace fritz{
 Listener *Listener::me = NULL;
 
 Listener::Listener(EventHandler *event)
-:PThread("fritzlistener")
+:Thread()
 {
+	setName("Listener");
+	setCancel(cancelDeferred);
 	this->event = event;
 	tcpclient = NULL;
-	this->Start();
+	start();
 }
 
 Listener::~Listener()
 {
-	this->Cancel(-1);
+	terminate();
 	delete tcpclient;
-	// don't delete the object, while the thread is still active
-	while (Active())
-		pthread::CondWait::SleepMs(100);
 }
 
 void Listener::CreateListener(EventHandler *event) {
@@ -67,7 +66,7 @@ void Listener::DeleteListener() {
 	}
 }
 
-void Listener::Action() {
+void Listener::run() {
 	std::string data = "";
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {
@@ -184,7 +183,7 @@ void Listener::Action() {
 						// force reload of callList
 						CallList *callList = CallList::getCallList(false);
 						if (callList)
-							callList->Start();
+							callList->start();
 					}
 				} else {
 					DBG("Got unknown message " << data);
@@ -203,12 +202,9 @@ void Listener::Action() {
 			if (te.errcode == tcpclient::TcpException::ERR_HOST_NOT_REACHABLE || te.errcode == tcpclient::TcpException::ERR_CONNECTION_REFUSED) {
 				ERR("Make sure to enable the Fritz!Box call monitor by dialing #96*5* once.");
 			}
-			//tcpclient->Disconnect();
 		}
-		if (!Running())
-			return;
 		ERR("waiting " << retry_delay << " seconds before retrying");
-		sleep(retry_delay); // delay the retry
+		ost::Thread::sleep(retry_delay*1000); // delay the retry
 	}
 }
 

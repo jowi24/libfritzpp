@@ -23,7 +23,8 @@
 #define FRITZCLIENT_H_
 
 #include <stdlib.h>
-#include <PThread++.h>
+#include <cc++/thread.h>
+
 #include "Tools.h"
 #include <TcpClient++.h>
 
@@ -31,7 +32,7 @@ namespace fritz {
 
 class FritzClient {
 private:
-	static pthread::Mutex* mutex;
+	static ost::Mutex *mutex;
     std::string CalculateLoginResponse(std::string challenge);
 	std::string UrlEncode(std::string &s);
 	bool Login() throw(tcpclient::TcpException);

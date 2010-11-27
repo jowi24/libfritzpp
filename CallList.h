@@ -25,7 +25,7 @@
 
 #include <string>
 #include <vector>
-#include <PThread++.h>
+#include <cc++/thread.h>
 
 namespace fritz{
 
@@ -60,7 +60,7 @@ public:
 	bool MatchesFilter();
 };
 
-class CallList : public pthread::PThread
+class CallList : public ost::Thread
 {
 private:
 	std::vector<CallEntry> callListIn;
@@ -83,8 +83,8 @@ public:
 	static void CreateCallList();
 	static void DeleteCallList();
     virtual ~CallList();
-	void Action();
-	bool isValid() { return !Active(); }
+	void run();
+	bool isValid() { return !isRunning(); }
 	CallEntry *RetrieveEntry(CallEntry::eCallType type, size_t id);
 	size_t GetSize(CallEntry::eCallType type);
 	size_t MissedCalls(time_t since);

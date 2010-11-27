@@ -81,10 +81,12 @@ public:
 CallList *CallList::me = NULL;
 
 CallList::CallList()
-:PThread("CallList")
+:Thread()
 {
+	setName("CallList");
+	setCancel(cancelDeferred);
 	lastMissedCall = 0;
-	this->Start();
+	start();
 }
 
 CallList *CallList::getCallList(bool create){
@@ -109,13 +111,11 @@ void CallList::DeleteCallList() {
 
 CallList::~CallList()
 {
-	// don't delete the object, while the thread is still active
-	while (Active())
-		pthread::CondWait::SleepMs(100);
-	DBG("deleting call list");
+	terminate();
+	DBG("deleted call list");
 }
 
-void CallList::Action() {
+void CallList::run() {
 	FritzClient fc;
 	std::string msg = fc.RequestCallList();
 	// parse answer
@@ -208,6 +208,7 @@ void CallList::Action() {
 		count++;
 	}
 	INF("CallList -> read " << count << " entries.");
+	exit();
 }
 
 CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
