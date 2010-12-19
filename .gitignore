@@ -1,3 +1,6 @@
 *.o
 *.a
 .dependencies
+*.moc
+test/Makefile
+test/test

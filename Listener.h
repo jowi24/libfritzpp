@@ -27,8 +27,6 @@
 #include <vector>
 #include <cc++/thread.h>
 
-#include <TcpClient++.h>
-#include "CallList.h"
 #include "Fonbook.h"
 
 namespace fritz{
@@ -58,7 +56,6 @@ class Listener : public ost::Thread
 private:
 	static Listener *me;
 	EventHandler *event;
-	tcpclient::TcpClient *tcpclient;
 	std::vector<int> activeConnections;
 	Listener(EventHandler *event);
 public:

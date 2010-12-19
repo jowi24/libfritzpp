@@ -33,14 +33,16 @@ std::ostream *dsyslog = &std::clog;
 std::ostream *isyslog = &std::cout;
 std::ostream *esyslog = &std::cerr;
 
-bool Config::Setup(std::string hostname, std::string password,
-		           bool *locationSettingsDetected,
-				   std::string *countryCode, std::string *regionCode, bool logPersonalInfo) {
+void Config::Setup(std::string hostname, std::string password, bool logPersonalInfo) {
 
 	if (gConfig)
 		delete gConfig;
 	gConfig = new Config( hostname, password);
 	gConfig->mConfig.logPersonalInfo = logPersonalInfo;
+
+}
+
+bool Config::Init(bool *locationSettingsDetected, std::string *countryCode, std::string *regionCode){
 
 	// preload phone settings from Fritz!Box
 	bool validPassword = Tools::GetLocationSettings();

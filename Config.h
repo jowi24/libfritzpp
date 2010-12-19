@@ -79,25 +79,20 @@ private:
 
 public:
 	/**
-	 * Initiates the libfritz++ library.
+	 * Sets up the libfritz++ library.
 	 * This has to be the first call to libfritz++.
 	 * @param the hostname of the Fritz!Box device, defaults to fritz.box
 	 * @param the password of the Fritz!Box device, defaults to an empty one
-	 * @param indicates, whether auto-detection of location settings was successful
-	 * @param Sets the default value for countryCode. If locationSettingsDetected == true, this returns the detected countryCode.
-	 * @param Sets the default value for regionCode. If locationSettingsDetected == true, this returns the detected regionCode.
 	 * @param allows personal information to be logged
 	 */
-	bool static Setup( std::string hostname="fritz.box", std::string password="",
-			           bool *locationSettingsDetected = NULL,
-			           std::string *countryCode = NULL, std::string *regionCode = NULL, bool logPersonalInfo = false );
+	void static Setup( std::string hostname="fritz.box", std::string password="", bool logPersonalInfo = false );
 	/**
 	 * Sets arbitrary ports for connections to the Fritz!Box's listener and webinterface.
 	 * @param the port to connect to the listener
 	 * @param the port to connect to the webinterface
 	 * @param the port to connect to the UPNP server
 	 */
-	void static SetupPorts ( int listener, int ui, int upnp );
+	void static SetupPorts( int listener, int ui, int upnp );
 	/**
 	 * Establishes MSN filtering.
 	 * An MsnFilter enables the library to only notify the application on
@@ -122,6 +117,15 @@ public:
 	 * @param full path to the writable directory
 	 */
 	void static SetupConfigDir( std::string dir);
+
+	/**
+	 * Initiates the libfritz++ library.
+	 * @param indicates, whether auto-detection of location settings was successful
+	 * @param Sets the default value for countryCode. If locationSettingsDetected == true, this returns the detected countryCode.
+	 * @param Sets the default value for regionCode. If locationSettingsDetected == true, this returns the detected regionCode.
+	 */
+	bool static Init( bool *locationSettingsDetected = NULL, std::string *countryCode = NULL, std::string *regionCode = NULL );
+
 	std::string &getConfigDir( )                      { return mConfig.configDir; }
 	std::string &getLang( )                           { return mConfig.lang; }
 	void setLang( std::string l )                     { mConfig.lang = l; }

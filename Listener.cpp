@@ -24,8 +24,11 @@
 #include <stdlib.h>
 #include <sstream>
 #include <vector>
-#include "FonbookManager.h"
+#include <cc++/socket.h>
+
 #include "Config.h"
+#include "CallList.h"
+#include "FonbookManager.h"
 #include "Listener.h"
 #include "Tools.h"
 
@@ -39,14 +42,12 @@ Listener::Listener(EventHandler *event)
 	setName("Listener");
 	setCancel(cancelDeferred);
 	this->event = event;
-	tcpclient = NULL;
 	start();
 }
 
 Listener::~Listener()
 {
 	terminate();
-	delete tcpclient;
 }
 
 void Listener::CreateListener(EventHandler *event) {
@@ -67,25 +68,19 @@ void Listener::DeleteListener() {
 }
 
 void Listener::run() {
-	std::string data = "";
+
+	Thread::setException(Thread::throwException);
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {
 		try {
 			retry_delay = retry_delay > 1800 ? 3600 : retry_delay * 2;
-			if (!tcpclient)
-				tcpclient = new tcpclient::TcpClient(gConfig->getUrl(), gConfig->getListenerPort());
+			ost::TCPStream tcpStream(ost::IPV4Host(gConfig->getUrl().c_str()), gConfig->getListenerPort());
 			while (true) {
 				DBG("Waiting for a message.");
-				if (data.length() == 0) {
-					*tcpclient >> data;
-					if (data.length() == 0) {
-						// i.e., connection to Fritz!Box closed
-						// wait, then retry by setting up a new connection
-						throw tcpclient::TcpException(tcpclient::TcpException::ERR_INVALID_DATA);
-					}
-					if (gConfig->logPersonalInfo())
-						DBG("Got message " << data);
-				}
+				char data[1024];
+				tcpStream.getline(data, sizeof(data));
+				if (gConfig->logPersonalInfo())
+					DBG("Got message " << data);
 
 				// split line into tokens
 				std::string date  = Tools::Tokenize(data, ';', 0);
@@ -187,22 +182,17 @@ void Listener::run() {
 					}
 				} else {
 					DBG("Got unknown message " << data);
-					throw tcpclient::TcpException(tcpclient::TcpException::ERR_INVALID_DATA);
-				}
-				// remove first line in data
-				size_t nl = data.find('\n', 0);
-				if (nl != std::string::npos) {
-					data = data.substr(nl+1);
-				} else {
-					data.erase();
+					throw this;
 				}
 			}
-		} catch (tcpclient::TcpException te) {
-			ERR("Exception - " << te.what());
-			if (te.errcode == tcpclient::TcpException::ERR_HOST_NOT_REACHABLE || te.errcode == tcpclient::TcpException::ERR_CONNECTION_REFUSED) {
+		} catch(ost::SockException& se) {
+			ERR("Exception - " << se.what());
+			if (se.getSocketError() == ost::Socket::errConnectRefused)
 				ERR("Make sure to enable the Fritz!Box call monitor by dialing #96*5* once.");
-			}
+		} catch (Listener *listener) {
+			ERR("Exception unknown data received.");
 		}
+
 		ERR("waiting " << retry_delay << " seconds before retrying");
 		ost::Thread::sleep(retry_delay*1000); // delay the retry
 	}

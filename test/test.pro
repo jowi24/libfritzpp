@@ -10,15 +10,14 @@ TEMPLATE = app
 INCLUDEPATH += .
 INCLUDEPATH += /usr/include/qt4/
 INCLUDEPATH += ..
-INCLUDEPATH += ../../libpthread++/
-INCLUDEPATH += ../../libtcpclient++/
-INCLUDEPATH += ../../libtcpclient++/test
 
 # Input
 HEADERS += ../../libtcpclient++/test/TcpSendFile.h
-SOURCES += FritzTest.cpp ../../libtcpclient++/test/TcpSendFile.cpp
+SOURCES += FritzTest.cpp FBServer.cpp ../../libtcpclient++/test/TcpSendFile.cpp
 LIBS    += ../libfritz++.a
-LIBS    += ../../libtcpclient++/libtcpclient++.a
-LIBS    += ../../libpthread++/libpthread++.a
+LIBS    += -lccgnu2 -lccext2 -lgcrypt
 
-
+libfritz.target   = fritz
+libfritz.commands = make -C ..
+QMAKE_EXTRA_TARGETS += libfritz
+TARGETDEPS += fritz
