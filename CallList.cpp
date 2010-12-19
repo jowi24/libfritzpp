@@ -123,9 +123,9 @@ void CallList::run() {
 	// parse answer
 	size_t pos = 0;
 	// skip HTTP header data
-	while (msg[pos] != '\r' && msg[pos] != '\n') {
-		pos = msg.find("\n", pos) + 1;
-	}
+//	while (msg[pos] != '\r' && msg[pos] != '\n') {
+//		pos = msg.find("\n", pos) + 1;
+//	}
 	pos += 2;
 	// parse body
 	int count = 0;
