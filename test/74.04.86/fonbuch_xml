@@ -1,0 +1,15 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Content-type: text/html; charset=utf-8
+Expires: -1
+Pragma: no-cache
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<phonebooks>
+<phonebook name="Telefonbuch"><contact><category>0</category><person><realName>A. Muster</realName></person><telephony><number
+type="home" quickdial="2" vanity="1" prio="1">07216080</number><number
+type="mobile" quickdial="" vanity="" prio="0">017011223344</number></telephony><services /><setup /></contact><contact><category>0</category><person><realName>B. Muster</realName></person><telephony><number
+type="work" quickdial="3" vanity="" prio="1">0304711</number><number
+type="mobile" quickdial="" vanity="" prio="0">015533221100</number></telephony><services /><setup /></contact>
+</phonebook>
+</phonebooks>

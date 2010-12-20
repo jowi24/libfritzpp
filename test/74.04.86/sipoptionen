@@ -1,0 +1,3989 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Content-type: text/html; charset=utf-8
+Expires: -1
+Pragma: no-cache
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ 
+ 
+ 
+<head> 
+<!-- lang: "de"; ethnr: "lan0" --> 
+<!-- OEM "1und1"/"1und1", Seite "fon"/"sipoptionen" --> 
+<!-- var:usePSTN: 0 --> 
+<title>FRITZ!Box</title> 
+<meta http-equiv=content-type content="text/html; charset=utf-8"> 
+<meta http-equiv="expires" content="0"> 
+<style type="text/css"> 
+html, body {
+margin: 0;
+background-image: url(/css/default/images/hg_verlauf_1600px.png);
+background-color: #fffebd;
+background-repeat: repeat-x;
+background-position: 0 0;
+font-family: Arial,serif, sans-serif, cursive;
+font-size: 13px;
+color:#3F464C;
+}
+body {
+margin-top: 10px;
+}
+p, table, form, div, textarea, label, ul, ol, li
+{ font-size: 13px; padding: 0px; margin: 0px; }
+input, select, button
+{ font-size: 13px; }
+div,ul,ol,li { text-align: left; }
+tr,td { padding: 1px 0px; margin: 0px; text-align: left; }
+img { border: 0px none; }
+a {
+color: #003060;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+a:link p { color: #003060; text-decoration: none; }
+a:visited p { color: #003060; text-decoration: none; }
+a:active p { text-decoration: underline; }
+a:hover p { text-decoration: underline; }
+.fw_header { background: url("/html/de/images/kopfbalken.gif") top left no-repeat; width: 980px; height: 81px;}
+.fw_bg_body { width: 980px; text-align: left; }
+.fw_footer { color: #003060; width: 980px; height: 44px; text-align: right; font-size: 13px; margin-top: 10px;}
+#sub_menu_head {
+font-size: 13px;
+margin-right:5px;
+}
+#sub_menu_head span{
+vertical-align:middle;
+}
+#sub_menu_head a{
+vertical-align:top;
+}
+#sub_menu_head a{
+margin-left:16px;
+}
+#sub_menu_head img{
+margin-right:5px;
+}
+table { border-collapse: collapse; }
+.fs10 { font-size: 13px;}
+.fs9 { font-size: 12px;}
+.pTitel, .pTitelo
+{ font-weight: bold; text-align: center; background-color: #E1F4FF; padding: 5px 10px; border: 1px solid #C6C7BF; }
+.pDialog, .pDialogo, .pDialogb, .pDialogob
+{ padding: 10px 10px; text-align: left; background-color: #FBFAF7; border: 1px solid #C6C7BF; }
+.pButtonbar { text-align: right; padding: 5px 10px; background-color: #E1F4FF; border: 1px solid #C6C7BF; }
+.pDialog, .pDialogo, .pTitelo, .pButtonbar
+{ border-top: 0px;}
+@media print {
+#Menuspalte { width: 2px; padding: 0px; vertical-align: top; display:none;}
+#TopMenuSpalte {display:none; }
+}
+@media screen {
+#TopMenuSpalte { }
+#Menuspalte { width: 190px; padding: 0px; vertical-align: top; }
+}
+#Dataspalte { width: 787px; height: 400px; vertical-align: top; padding: 0px; }
+#menucontent { width: 167px; }
+#Menuhead { width: 190px; padding: 0px; vertical-align: top; }
+#Datahead { width: 787px; padding: 0px;}
+#menucontent span {
+display:none;
+}
+#menucontent ul {
+background-color: transparent;
+margin:0;
+border: 0;
+padding: 0;
+margin:-20px 1px 0px;
+padding-top: 0px;
+list-style-type: none;
+position:relative;
+z-index:5;
+}
+#menucontent .small_bar_back_head ul {
+margin:0;
+}
+#MainWizardhead ul li,
+#MainNashead ul li{
+padding: 6px 0 0 1px;
+}
+#menucontent ul li ul {
+background-color: #faf8f2;
+margin: 0px;
+padding: 0px 8px 0px 0px;
+margin: 3px 0px -3px -10px;
+}
+#menucontent li {
+font-size: 14px;
+font-weight:bold;
+padding: 3px 8px 3px 11px;
+white-space: nowrap;
+}
+#menucontent ul li ul li {
+font-size: 13px;
+font-weight:normal;
+padding-right: 0px;
+line-height: 16px;
+}
+#menucontent li.selected ul li a,
+#menucontent li a {
+color: #003060;
+text-decoration: none;
+}
+#menucontent li a:hover {
+text-decoration: underline;
+}
+#menucontent li.selected {
+background-color:none;
+background-image: url("/css/default/images/menue_selected.gif");
+background-position: top center;
+background-repeat: no-repeat;
+padding: 3px 8px 3px 11px;
+}
+#menucontent ul li ul li.selected {
+background-color:none;
+background-image: url("/css/default/images/menue_selected.gif");
+background-position: left;
+background-repeat: no-repeat;
+position:relative;
+padding-left:20px;
+left:-8px;
+width:130px;
+}
+#menucontent li.selected ul li.selected a,
+#menucontent li.selected a {
+color:#003060;
+text-decoration: none;
+}
+#menucontent li.selected ul li.selected a:hover,
+#menucontent li.selected a:hover {
+text-decoration: underline;
+}
+#menucontent li.submenu_last ,
+#menucontent li.submenu {
+margin:0;
+background-image: none;
+/*
+background-image: url("/css/default/images/menue_selected_toplevel.gif");
+background-position: left top;
+background-repeat: repeat-x;
+background-color: none;
+border-bottom:#b7d9f6 1px solid;
+border-top:#b7d9f6 1px solid;
+*/
+}
+#menucontent li.submenu_last {
+border-bottom:0px;
+}
+#menucontent li.submenu_last ul,
+#menucontent li.submenu ul {
+background-color: #faf8f2;
+padding:0;
+margin:0;
+margin-top:7px;
+}
+#menucontent li.submenu_last.open,
+#menucontent li.submenu.open {
+background-color: #003060;
+background-image: none;
+background-position: top center;
+}
+#menucontent li.separator {
+margin-left: 10px;
+padding: 10px 0 7px 0;
+font-size: 0;
+}
+#menucontent li.separator div {
+border-top: 1px dotted #003060;
+margin: 0 10px;
+}
+#menucontent li.explain {
+font-size:11px;
+font-weight:normal;
+color: #808078;
+}
+.LMenudis { position: relative; top: 5px; left: 40px; color: #999999; zoom:1;}
+.Iconbutton { width: 30px; }
+.Pushbutton { width:100px;}
+.Pushbuttonfett
+{ font-weight:bold; width:100px; }
+.PushbuttonBig { width:auto;}
+.PushbuttonBigfett
+{ font-weight:bold; width:auto; }
+.b5 { padding-bottom: 5px; }
+.b10 { padding-bottom: 10px; }
+.mb5 { margin-bottom: 5px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
+.mt5 {margin-top: 5px;}
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt30 { margin-top: 30px; }
+.ml10 { margin-left: 10px; }
+.ml15 { margin-left: 15px; }
+.ml20 { margin-left: 20px; }
+.ml25 { margin-left: 25px; }
+.ml30 { margin-left: 30px; }
+.fett { font-weight:bold; }
+.ac {text-align:center;}
+.ar {text-align:right;}
+.al {text-align: left;}
+.errorMessage { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #CC0000; text-align: center;
+margin: 5px; padding: 2px; background-color: white; }
+.Dialogtitel { font-weight: bold; }
+.Dialoglabel { }
+.Dialoglabelfett
+{ font-weight: bold; }
+.DialogFehler { font-weight: bold; color: #CC0000; }
+.Dialogtext { }
+.Dialoglist { color: black; background-color: #FFFFFF }
+.Minititel { font-size: 12px; }
+.Minilabel { font-size: 12px; }
+.Minitext { font-size: 12px; background-color: #FFFFFF }
+.Eingabefeld { }
+.Hell { background-color: #FFFFFF; }
+h1, h2, h3, h4, h5, h6
+{ font-size: 14px; font-weight: bold; }
+.tMinihell { height: 12px; font-size: 12px; background-color:#FFFFFF; }
+.tMinidunkel { height: 12px; font-size: 12px; }
+.tMinigrau { height: 12px; font-size: 12px; background-color:#F8F8F8; }
+.tborder { background-color:#FFFFFF; border: 1px solid #C6C7BE; }
+.tborder th { background-color:#F8F8F8;}
+.rundlt { background: url("/html/de/images/_brd_lt_thin.gif") top left no-repeat; }
+.rundrt { background: url("/html/de/images/_brd_rt_thin.gif") top right no-repeat; }
+.rundlb {}
+.rundrb {}
+.ecklm {}
+.eckrm {}
+.ecklb {}
+.eckrb {}
+.backsubtitel,
+.backtitel { background: url(/css/default/images/contentbereich_titel_1px.gif) repeat-x 0 -2px; height:28px;margin: 0px; padding: 0px; clear:left; }
+.backtitel2 {background: url(/css/default/images/contentbereich_titel_1px.gif) repeat-x 0 0; height:28px; margin: 0px; padding: 0px; clear:left; }
+.backtitel2 {
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+}
+.backsubtitel {
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+height:26px;
+}
+.backdialog {
+background-color: #fbfaf7;
+margin: 0px;
+padding: 0px;
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+clear:left; }
+.backdialog a:link { text-decoration: underline; }
+.backdialog a:visited { text-decoration: underline; }
+.backdialog a:active { text-decoration: underline; }
+.backdialog a:hover { text-decoration: underline; }
+.backdialog li a:link { text-decoration: none; }
+.backdialog li a:visited { text-decoration: none; }
+.backdialog li a:active { text-decoration: underline; }
+.backdialog li a:hover { text-decoration: underline; }
+.small_bar_left_head,
+.menu_bar_left_head{
+background-image: url("/css/default/images/menueschablone_oben_links.gif");
+background-repeat: no-repeat;
+width: 14px;
+height: 24px;
+margin: 0;
+padding: 0;
+border: 0;
+float: left;
+}
+.small_bar_right_head,
+.menu_bar_right_head{
+background-image: url("/css/default/images/menueschablone_oben_rechts.gif");
+background-repeat: no-repeat;
+height: 24px;
+width: 24px;
+float: right;
+}
+.small_bar_back_head,
+.menu_bar_back_head {
+height: 24px;
+background-image: url("/css/default/images/menueschablone_oben_1px.gif");
+background-repeat: repeat;
+margin:0 13px;
+}
+.page_left_bottom,
+.small_bar_left_bottom,
+.menu_bar_left_bottom{
+background-image: url("/css/default/images/menueschablone_unten_links.gif");
+background-repeat: no-repeat;
+height: 28px;
+width: 24px;
+margin: 0;
+padding: 0;
+border: 0;
+float: left;
+}
+.menu_bar_left_bottom{
+top:-5px;
+}
+.page_right_bottom,
+.small_bar_right_bottom,
+.menu_bar_right_bottom{
+background-image: url("/css/default/images/menueschablone_unten_rechts.gif");
+background-repeat: no-repeat;
+height: 28px;
+width: 24px;
+float: right;
+}
+.menu_bar_right_bottom{
+top:-5px;
+}
+.page_back_bottom,
+.small_bar_back_bottom,
+.menu_bar_back_bottom {
+height: 28px;
+background-image: url("/css/default/images/menueschablone_unten_1px.gif");
+background-repeat: repeat;
+margin:0 15px;
+margin-bottom: 15px;
+}
+.menu_bar_back_bottom {
+top:-5px;
+}
+.page_left_bottom{
+background-image: url("/css/default/images/content_unten_links.gif");
+height:12px;
+}
+.page_right_bottom{
+background-image: url("/css/default/images/content_unten_rechts.gif");
+height:12px;
+}
+.page_back_bottom {
+background-image: url("/css/default/images/content_unten_1px.gif");
+height:12px;
+margin-bottom: 0px;
+margin:0 15px;
+}
+.menu_header.small {
+background-image: url("/css/default/images/menueschablone_oben_1px.gif");
+height: 13px;
+}
+.menu_footer {
+height: 13px;
+background-image: url("/css/default/images/menueschablone_unten_1px.gif");
+margin-bottom: 15px;
+}
+.menu_body_outer {
+width: 165px;
+border: 1px solid #90a6a5;
+border-top: 0px;
+border-bottom: 0px;
+padding-top:1px;
+background-color:#faf8f2;
+}
+.backtitelkonfig
+{ background-image: url(/css/default/images/contentbereich_titel_1px.gif); height:28px; margin: 0px; padding: 0px; clear:left; }
+.backtitelstatus
+{ background-image: url(/css/default/images/contentbereich_titel_1px.gif); height:28px; margin: 0px; padding: 0px; clear:left;
+/*background-color: #e1f4ff; margin: 0px; padding: 0px; clear:left; */
+}
+.backframe {
+background-color: #faf8f2;
+margin: 0px;
+padding: 0px;
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+clear:left; }
+.backfolder { background-color: #fbfaf7; margin: 0px; padding: 0px; border-top: 1px solid #c6c7be; }
+.foretitel { font-weight: bold; font-size: 15px; padding: 5px 12px;}
+.backframe .foretitel { font-weight: bold; font-size: 15px; padding: 5px 12px;}
+.foredialog { padding: 10px; }
+.forebuttons {
+text-align: right;
+padding: 7px 10px;
+border-top: 1px solid #90A6A5;
+}
+#content {width: 787px; margin: 0px; clear:both; font-size: 13px; }
+#contenthead {width: 787px; margin: 0px;}
+/* Tabs beginn *********************************/
+ul.tabs {
+float: left;
+width: 779px;
+background: url("/css/default/images/reiterkarte_top_1px.gif") repeat-x left bottom;
+padding-bottom: 0px;
+padding-left: 5px;
+list-style-type: none;
+margin-top: 0;
+margin-left: -9px;
+}
+ul.tabs li {
+float: left;
+margin-left: 5px;
+background: url("/css/default/images/reiter_inaktiv_rechts.gif") no-repeat right bottom;
+}
+ul.tabs li a,ul.tabs li div {
+padding: 5px 15px;
+background: url("/css/default/images/reiter_inaktiv_links.gif") no-repeat left bottom;
+display: block;
+height: 17px;
+}
+ul.tabs li.tabs_on {
+background-image: url("/css/default/images/reiter_aktiv_rechts.gif");
+font-weight:bold;
+}
+ul.tabs li.tabs_on div {
+color: #000000;
+background-image: url("/css/default/images/reiter_aktiv_links.gif");
+}
+/* Tabs ENDE ********************************************************/
+.backframe .backdialog {
+border-left:0px;
+border-right:0px;
+}
+.backframe .backdialog .ecklm { background: none}
+.backframe .backdialog .eckrm { background: none}
+.backframe .backdialog .ecklb { background: none}
+.backframe .backdialog .eckrb { background: none}
+.backframe .backdialog .rundlb { background: none}
+.backframe .backdialog .rundrb { background: none}
+.backframe .backdialog .foredialog { padding: 5px 0px; border-bottom:1px solid #90a6a5;}
+.bcWeiss { background-color:#FFFFFF; }
+.bcGrau { background-color:#F8F8F8; }
+#ansichten {text-align:right; margin:5px 30px 10px 0px; font-weight:bold; }
+.ansicht {padding: 3px 10px; border: 1px solid #C6C7BF; cursor:pointer;}
+.rundes {text-align:right; margin:0px 30px 0px 0px; }
+.rundes li {list-style:none; float:right;background: url("/html/de/images/_brd_right.gif") right top no-repeat; margin: 0 0px 10px 15px; height: 26px; }
+.rundes a {display:block; background: url("/html/de/images/_brd_left.gif") left top no-repeat; padding: 5px 15px 5px 15px; font-weight: bold; height: 26px; text-align:center;cursor:pointer;}
+.rundes .setup {background-color: #f5ebb2;}
+.rundes .view {background-color: #cce4f1;}
+.rundes a:link, .rundes a:visited
+{ color: #003060; text-decoration: none; }
+.rundes a:hover, .rundes a:active
+{ text-decoration: underline; }
+.rund-links { background: url("/html/de/images/_brd_left.gif") no-repeat;
+height:26px; width:10px;}
+.rund-rechts { background: url("/html/de/images/_brd_right.gif") right no-repeat;
+height:26px; margin-top:-26px; margin-left:10px;
+text-align:center; }
+.rund-rechts p { padding-top:5px; padding-right:10px;
+font-weight: bold; white-space:nowrap; }
+.gelb { background-color: #fff1b1; }
+.blau { background-color: #e1f4ff;; }
+.notetext {color: #000000;padding-top:10px;padding-bottom:10px;}
+.CssPinInput {
+margin-left:5px;
+margin-right:5px;}
+.ViewImage {
+max-width: 160px;
+max-height: 160px;
+width: expression(this.width > 160 ? "160px" : true);
+height: expression(this.height > 160 ? "160px" : true);
+}
+.menu_header,
+.menu_footer {
+width: 100%;
+text-align: left;
+font-size: 14px;
+padding: 0;
+border: 0;
+margin: auto;
+/*background-repeat: repeat;*/
+}
+.menu_header {
+/*width: 167px;*/
+height: 28px;
+background-image: url(/css/default/images/menueschablone_kopf.gif);
+background-repeat: no-repeat;
+}
+.menu_header.small {
+background-image: url(/css/default/images/menueschablone_andere_kopf.gif);
+background-repeat: no-repeat;
+height: 13px;
+}
+.menu_footer {
+/*width: 167px;*/
+height: 13px;
+background-image: url(/css/default/images/menueschablone_boden.gif );
+background-repeat: no-repeat;
+margin-bottom: 15px;
+}
+.menu_body_outer_old {
+width: 165px;
+border: 1px solid #208ede;
+border-top: 0px;
+border-bottom: 0px;
+background-image: url(/css/default/images/menu_left.gif);
+background-repeat: repeat-y;
+}
+.menu_body_inner {
+background-image: url(/css/default/images/menu_right.gif);
+background-repeat: repeat-y;
+background-position: right;
+}
+div.provider_select {
+overflow:hidden;
+}
+div.provider_select p {
+float:left;
+height:50px;
+}
+.gray {
+background-color:#EEEEEE;
+}
+.globe_green, .globe_gray, .globe_online {
+background-image: url("/css/default/images/globe_green.gif");
+background-repeat: no-repeat;
+background-position:center center;
+height: 16px;
+width: 16px;
+border: 0px;
+padding: 0px;
+margin: 0px;
+}
+.globe_gray {
+background-image: url("/css/default/images/globe_gray.gif");
+}
+.globe_online {
+background-image: url("/css/default/images/globe.gif");
+}
+.led_green {
+background-image: url("/css/default/images/led_green.gif");
+background-repeat: no-repeat;
+background-position:center center;
+height: 16px;
+width: 16px;
+border: 0px;
+padding: 0px;
+margin: 0px;
+}
+hr,
+.page_sub_headline {
+width: auto;
+border: 0px;
+height: 1px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+hr {
+width: 100%;
+color: #90a6a5;
+background-color: #90a6a5;
+}
+ 
+</style> 
+<!--[if IE 7]>
+<style type="text/css">
+#menucontent li.submenu ul{
+margin-top:5px;
+padding-bottom:1px;
+}
+ 
+</style>
+<![endif]--> 
+<!--[if gte IE 6]>
+<style type="text/css">
+.ie_b10 { padding-bottom: 1px; }
+</style>
+<![endif]--> 
+<!--[if IE 6]>
+<style type="text/css">
+div.foredialog p { zoom:1; }
+</style>
+<![endif]--> 
+<!--[if IE 7]>
+<style type="text/css">
+.ie_b10minus{margin-bottom:-10px;}
+</style>
+<![endif]--> 
+<script type="text/javascript"> 
+var g_CurTimeObj = new Date();
+var g_StartTime = g_CurTimeObj.getTime();
+var g_StopTimeWrite=false;
+// ../js/webuicookie.js
+var g_webuiCookie = g_webuiCookie || (function () {
+var fields = [
+{ valName: "noPwdReminder", valDefault: "0"} // Keine Anzeige des "Passworteinrichten"-Reminders
+];
+var values;
+function init(str) {
+str = str || "";
+values = str.split("");
+for (var i = values.length; i < fields.length; i++) {
+values[i] = fields[i].valDefault;
+}
+}
+function idx(valName) {
+for (var i = 0, len = fields.length; i < len; i++) {
+if (fields[i] && fields[i].valName == valName) {
+return i;
+}
+}
+return -1;
+}
+function getChar(valName) {
+if (values) {
+var i = idx(valName);
+if (i >= 0) {
+return values[i];
+}
+}
+return "";
+}
+function setChar(valName, ch) {
+if (values) {
+ch = ""+ch;
+if (ch.length != 1) {
+return false;
+}
+var i = idx(valName);
+if (i >= 0) {
+values[i] = ch;
+return true;
+}
+}
+return false;
+}
+function getWholeStr() {
+if (!values) {
+return "";
+}
+return values.join("");
+}
+function saveToForm(dontEnable) {
+if (!values) {
+return false;
+}
+var frm = document.forms["uiPostForm"];
+if (!frm) {
+return false;
+}
+frm = frm.elements["box:settings/webui_cookie"];
+if (!frm) {
+return false;
+}
+frm.value = getWholeStr();
+if (!dontEnable) {
+frm.disabled = false;
+}
+return true;
+}
+return {
+init: init,
+getChar: getChar,
+setChar: setChar,
+saveToForm: saveToForm
+};
+})();
+ 
+g_webuiCookie.init("");
+</script> 
+<script type="text/javascript"> 
+g_IE = false;
+g_IE6 = false;
+</script> 
+<!--[if IE]>
+<script type="text/javascript">
+g_IE = true;
+</script>
+<![endif]--> 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+g_IE6 = true;
+</script>
+<![endif]--> 
+<script type="text/javascript"> 
+function jslFormSetPost(name) {
+var frm = document.forms[name];
+if (frm) {
+frm.method = "POST";
+}
+}
+function jslFormSetGet(name) {
+var frm = document.forms[name];
+if (frm) {
+frm.method = "GET";
+}
+}
+function jslFormSubmit(name) {
+UpdateDateTime();
+var frm = document.forms[name];
+if (frm) {
+frm.submit();
+}
+}
+function goToLuaPage(page) {
+page += "?sid=3a8ef4a34cfcf8a7";
+location.href = page;
+}
+var avm5 = {
+"home": {
+"sitemap": "/menus/sitemap.lua",
+"home": "/home/home.lua"
+},
+"internet": {
+"sitemap": "/menus/sitemap.lua"
+,"userlist": "/internet/kids.lua"
+},
+"fon": {
+"sitemap": "/menus/sitemap.lua"
+},
+"net": {
+"sitemap": "/menus/sitemap.lua",
+"newdevice": "/net/newdevice.lua",
+"boxnet": "/net/boxnet.lua",
+"einstellungen": "/storage/settings.lua"
+},
+"wlan": {
+"sitemap": "/menus/sitemap.lua",
+"guest_access": "/wlan/guest_access.lua"
+},
+"dect": {
+"sitemap": "/menus/sitemap.lua"
+},
+"system": {
+"sitemap": "/menus/sitemap.lua",
+"syslog": "/system/syslog.lua",
+"energy": "/system/energy.lua",
+"email": "/system/push.lua",
+"infoled": "/system/infoled.lua",
+"user": "/system/kennwort.lua",
+"imexport": "/system/export.lua",
+"update": "/system/update.lua",
+"update_OnClick_1": "/system/update.lua",
+"extended": "/system/expert.lua",
+"reset": "/system/reboot.lua",
+"nacht": "/system/wlan_night.lua",
+"ring_block": "/system/ring_block.lua"
+},
+"konfig": {
+"sitemap": "/menus/sitemap.lua"
+//"home": "/assis/home.lua"
+},
+"software": {
+"sitemap": "/menus/sitemap.lua"
+}
+};
+function checkAvm5(menu, page) {
+menu = menu || jslGetValue("uiPostMenu");
+page = page || jslGetValue("uiPostPageName");
+var luaPage = avm5[menu] ? avm5[menu][page] : "";
+if (luaPage) {
+goToLuaPage(luaPage);
+return true;
+}
+return false;
+}
+function jslGoTo(Menu,Page) {
+if (!checkAvm5(Menu, Page)) {
+if ((Menu!=null) && (Menu!="")) jslSetValue("uiPostMenu", Menu);
+if ((Page!=null) && (Page!="")) {
+jslSetValue("uiPostPageName", Page);
+jslSetValue("uiPostErrorPageName", Page);
+}
+// Spezialbehandlung Netzwerkseite
+jslFormSetGet("uiPostForm");
+jslFormSubmit("uiPostForm");
+}
+}
+function UpdateDateTime() {
+var date = new Date();
+jslSetValue("uiPostDateTime", Math.floor(date.getTime()/1000) + "," + date.getTimezoneOffset());
+}
+function jslGetValue (id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+return eval('document.uiPostForm.'+id+'.value');
+} else {
+var h = document.getElementById(id);
+if (h != null) return h.value;
+}
+return "";
+}
+function jslSetValue(id, wert) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id+'.value="'+wert+'"');
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.value=wert;
+}
+}
+function jslPopHelp(pagename) {
+jslPopHelpEx(pagename, "");
+}
+function jslPopHelpEx(pagename, anker) {
+var uri = "/help/help.lua?helppage=" + pagename + ".html&hide=yes";
+uri += "&sid=3a8ef4a34cfcf8a7";
+var options = "width=580,height=500,resizable=yes,scrollbars=yes,location=no";
+if (top.g_HelpWin==null || typeof(top.g_HelpWin.closed)=='undefined' || top.g_HelpWin.closed)
+top.g_HelpWin = window.open(uri,"HelpWindow",options);
+else
+top.g_HelpWin.location.href = uri;
+if (top.g_HelpWin) top.g_HelpWin.focus();
+}
+function isLotse(menu, page) {
+if (menu == "home") return false;
+if (menu == "konfig" && (page != "home" && page != "sitemap")) return true;
+if (menu == "first" || menu == "fon_config") return true;
+if (menu == "tr69_autoconfig") return true;
+return false;
+}
+var g_AskAssiText = "Wenn Sie den Assistenten jetzt beenden, gehen Ihre Eingaben verloren.\x0aWählen Sie OK, um den Assistenten zu beenden.\x0aWählen Sie Abbrechen, um zum Assistenten zurückzukehren.";
+function AskAssiCancel() {
+return confirm(g_AskAssiText);
+}
+function OnOverview() {
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (!AskAssiCancel()) return;
+}
+jslGoTo("home", "home");
+}
+function OnSetting() {
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (!AskAssiCancel()) return;
+}
+var menu = readCookie("menu");
+var page = readCookie("page");
+if (menu == "konfig") {
+jslGoTo("konfig", "home");
+}
+else if (menu == "software") {
+jslGoTo("software", "extern");
+}
+else if (menu == "enhsettings") {
+jslGoTo("enhsettings", "enhsettings");
+}
+else {
+jslGoTo("konfig", "home");
+}
+}
+function GoToSitemap()
+{
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (AskAssiCancel()) {
+jslGoTo("konfig","sitemap");
+}
+return;
+}
+jslGoTo("","sitemap");
+}
+function AddFavoritesLink(breite, titel) {
+if (g_IE)
+document.write('<td title="' + titel + '" style="width:' + breite + 'px;"><a href="javascript:window.external.AddFavorite(window.document.URL,window.document.title)"><img src="../html/de/images/favorite.gif"></a></td>');
+}
+function setMenuPageCookie(menu, page) {
+storeCookie("menu",menu,100);
+storeCookie("page",page,100);
+}
+function convertHTML2Text(str) {
+if (str) {
+str = str.replace(/</g,"&lt;");
+str = str.replace(/>/g,"&gt;");
+var tst = document.createElement('div');
+tst.innerHTML = str;
+str = tst.innerText || tst.textContent;
+}
+return str;
+}
+//#if 0
+//*****************************************************************************
+// Alphabetisches Sortieren eines Arrays nach Sprache.
+// Rückgabe: der sortierte Array
+// Parameter:
+// - array: der zu sortierende Array
+// - getStrFunc: eine Funktion, die Elementen des Arrays einen String zuordnet.
+// Wenn getStrFunc keine Funktion ist, wird angenommen, dass
+// es sich um einen Array von Strings handelt.
+// - lang: die Sprache 'de', 'en', 'fr', 'it' oder 'es', default ist var:lang.
+// - makeCopy: optional, wenn true wird eine Kopie des Arrays angelegt und diese sortiert.
+//******************************************************************************
+//#endif
+function sortByStrings(array, getStrFunc, lang, makeCopy) {
+lang = lang || 'de';
+if (typeof getStrFunc != 'function') {
+getStrFunc = function (str) { return str; };
+}
+var toSort = array;
+if (makeCopy) {
+for (var i = 0, len = array.length; i < len; i++) {
+toSort[i] = array[i];
+}
+}
+toSort.sort(makeStrCompareFunc(lang, getStrFunc));
+return toSort;
+}
+//#if 0
+//********************************************************************************************************
+// - makeStrCompareFunc gibt eine Funktion zurück, die zwei Objekte bzgl. eines Strings alphabetisch
+// je nach 'lang' vergleicht. Hilfsfunktion für sortByStrings.
+//********************************************************************************************************
+//#endif
+function makeStrCompareFunc(lang, getStrFunc) {
+var abc = {
+de: "AaÄäBbCcDdEeFfGgHhIiJjKkLlMmNnOoÖöPpQqRrSsßTtUuÜüVvWwXxYyZz",
+en: "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz",
+fr: "AaÀàÂâBbCcÇçDdEeÉéÉéÊêËëFfGgHhIiÎîÏïJjKkLlMmNnOoÔôŒœPpQqRrSsTtUuÙùÛûÜüVvWwXxYyŸÿZz",
+it: "AaÀàBbCcDdEeÈèÉéFfGgHhIiÎîÏïJjKkLlMmNnOoÒòÓóPpQqRrSsTtUuÙùVvWwXxYyZz",
+es: "AaÁáBbCcDdEeÉéFfGgHhIiÍíJjKkLlMmNnÑñOoÓóPpQqRrSsTtUuÚúÜüVvWwXxYyZz"
+};
+var currAbc = abc[lang] || [];
+function compare(str1, str2) {
+var len = Math.min(str1.length, str2.length);
+var i = 0;
+var c = 0;
+var i1,i2;
+while (i < len && c == 0) {
+i1 = currAbc.indexOf(str1[i]);
+i2 = currAbc.indexOf(str2[i]);
+if (i1 < 0 || i2 < 0) {
+i1 = str1.charCodeAt(i);
+i2 = str2.charCodeAt(i);
+}
+c = i1 - i2;
+i += 1;
+}
+if (i < len) {
+return c;
+}
+else {
+return str1.length - str2.length;
+}
+}
+//#if 0
+//****************************************************
+// Das ist die CompareFunktion, die zurückgegeben wird.
+//****************************************************
+//#endif
+return function (obj1, obj2) {
+var str1 = convertHTML2Text(getStrFunc(obj1) || "");
+var str2 = convertHTML2Text(getStrFunc(obj2) || "");
+return compare(str1, str2);
+};
+}
+function isBitSet(num, b) {
+return (num & (1 << b)) > 0;
+}
+function doLogout() {
+var frm = document.forms["logoutForm"];
+if (frm) {
+return frm.submit();
+}
+return false;
+}
+function isLoginPage(txt) {
+if (txt) {
+if (txt.indexOf("<!--login" + "Page-->") >= 0) {
+return true;
+}
+}
+return false;
+}
+function showtip(current,e,text){
+if (!e)
+return;
+var tipObj=document.getElementById("uiTooltip");
+if (tipObj)
+{
+tipObj.innerHTML=text;
+tipObj.style.left=(e.pageX?e.pageX:e.clientX)+5+"px";
+tipObj.style.top=(e.pageY?e.pageY:e.clientY)+5+"px";
+tipObj.style.display="";
+}
+return;
+}
+function hidetip(){
+var tipObj=document.getElementById("uiTooltip");
+if (tipObj)
+tipObj.style.display="none";
+return;
+}
+var g_ImgPath = '../html/de/images/';
+function IconBtn(btnId, clickFunc, btnValue, pic, invisible)
+{
+var str = '<button type="button" id="' + btnId + '"';
+if (clickFunc) str += ' onclick="' + clickFunc + '"';
+if (btnValue) str += ' value="' + btnValue + '" title="' + btnValue + '"';
+if (invisible) str += ' style="visibility:hidden;"';
+str += '>';
+str += '<img src="' + g_ImgPath + pic + '" /></button>';
+return str;
+}
+function storeCookie(name, value, days) {
+var expires = "";
+if (days) {
+var date = new Date();
+date.setTime(date.getTime()+(days*24*60*60*1000));
+expires = "; expires="+date.toGMTString();
+}
+document.cookie = name+"="+value+expires+"; path=/";
+}
+function readCookie(name) {
+var result = "";
+var cookieStr = document.cookie;
+if (cookieStr) {
+var start = cookieStr.indexOf(name + '=');
+if (start > -1) {
+start += name.length + 1;
+var end = cookieStr.indexOf(';', start);
+if (end == -1) {
+end = cookieStr.length;
+}
+result = cookieStr.substring(start, end);
+}
+}
+return result;
+}
+function eraseCookie(name) {
+storeCookie(name, "", -1);
+}
+function setBackCookie(cookieName) {
+var frm = document.forms["uiPostForm"];
+if (!frm) { return; }
+var values = [];
+var inputs = frm.elements;
+for (var i = 0, len = inputs.length; i < len; i++) {
+var varName = inputs[i].name;
+if (varName.indexOf(":") == -1 || varName.indexOf("var:") == 0) {
+values.push(varName + "=" + inputs[i].value);
+}
+}
+storeCookie(cookieName, values.join("&"), 1);
+}
+function htmlStringBuilder() {
+// HTML-Tags, die kein Endtag benötigen
+var standalone = {
+'input': true, 'img': true, 'hr': true, 'br': true, 'col': true, 'area': true, 'link': true,
+'frame': true, 'meta': true, 'base': true, 'basefont': true, 'isindex': true, 'param': true
+};
+function getEndTag(tagName) {
+return standalone[tagName] ? "" : ("<\/" + tagName + ">");
+}
+function buildAttributes(attributes) {
+var str = "";
+for (name in attributes) {
+str += " " + name.toLowerCase();
+var value = attributes[name];
+str += value ? ("=\"" + value + "\"") : "";
+}
+return str;
+}
+function addAttribute(attributes, name, value) {
+if (name) {
+attributes[name] = (value || "");
+}
+}
+function addContent(tag, tagOrText) {
+if (typeof tagOrText == 'string') {
+tag.content += tagOrText;
+}
+else if (tagOrText) {
+tag.content += tagOrText.build();
+}
+}
+function buildTag(tag, tagName, attributes) {
+return tag.start + buildAttributes(attributes) + tag.content + getEndTag(tagName);
+}
+// Die Tagfunktion
+return function (tagName, objAttributes, content) {
+// Initialisierung
+tagName = tagName.toLowerCase();
+var tag = {
+start: "<" + tagName,
+content: ">"
+};
+var attributes = {};
+if (objAttributes) {
+for (var n in objAttributes) {
+if (objAttributes.hasOwnProperty(n)) {
+addAttribute(attributes, n, objAttributes[n]);
+}
+}
+}
+if (content) {
+addContent(tag, content);
+}
+// Interface
+return {
+add: function (tagOrText) { addContent(tag, tagOrText); },
+attr: function (name, value) { addAttribute(attributes, name, value); },
+build: function () { return buildTag(tag, tagName, attributes); },
+reset: function () { tag.content = ">"; attributes = {}; }
+};
+};
+}
+function toArray(arrayLike) {
+var array = [];
+for (var i = 0, len = arrayLike.length; i < len; i++) {
+array[i] = arrayLike[i];
+}
+return array;
+}
+</script> 
+ 
+<script type="text/javascript"> 
+storeCookie("currmenu","fon");
+</script> 
+<!-- ../fon/sipoptionen.js --> 
+<style type="text/css"> 
+<!--
+.pText25 {margin-left: 25px;}
+.pCheck25 {text-indent: -25px; margin-left: 25px; margin-bottom: 5px;}
+.pRadio50 {text-indent: -25px; margin-left: 50px;}
+.ml50 {margin-left: 50px;}
+.c1 {padding-left: 25px;}
+.c2 {width: 350px;}
+.pt10 {padding-top: 10px;}
+#content td {padding-right: 15px;}
+-->
+</style> 
+<script type="text/javascript"> 
+// ../js/jsl.js
+function doLoadPage(id,page) {
+var handle = document.getElementById(id);
+if (handle!=null) handle.src=page;
+}
+function jslIsString(id) {
+if (document.getElementById(id).value.match("[a-zA-Z0-9_]+")!=null) return true;
+return false;
+}
+function jslDoEliminateBlanks(text) {
+var newText = text;
+while ( newText.indexOf( " ") != (-1)) {
+newText = newText.replace(/ /,"");
+}
+return newText;
+}
+function jslGetName (id) {
+var h = document.getElementById(id);
+if (h != null) return h.name;
+return "";
+}
+function jslSetName(id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.name=wert;
+}
+function jslCopyValue(id_to, id_from) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id_to+'.value = document.uiViewForm.'+id_from+'.value');
+} else {
+var h1 = document.getElementById(id_to);
+var h2 = document.getElementById(id_from);
+if (h1 != null && h2 != null) h1.value=h2.value;
+}
+}
+function jslGetChecked (id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+return eval('document.uiViewForm.'+id+'.checked');
+} else {
+var h = document.getElementById(id);
+if (h != null) return h.checked;
+}
+return false;
+}
+function jslSetChecked (id, wert) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiViewForm.'+id+'.checked = '+wert);
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.checked = wert;
+}
+}
+function jslSetCheckValue (to, from) {
+var h1 = document.getElementById(to);
+var h2 = document.getElementById(from);
+if (h1 == null || h2 == null) {
+return;
+}
+if (h2.checked) {
+h1.value = "1";
+} else {
+h1.value = "0";
+}
+}
+function jslGetCheckValue (to, from) {
+var h1 = document.getElementById(to);
+var h2 = document.getElementById(from);
+if (h1 == null || h2 == null) {
+return;
+}
+h1.checked = (h2.value != "0");
+}
+function jslGrayLabels(elem,color) {
+var p = elem.parentNode;
+if (p) p = p.parentNode;
+p = p || document;
+if (p) {
+var labels = p.getElementsByTagName('label');
+for (var i = 0, len = labels.length; i < len; i++) {
+if (labels[i].htmlFor == elem.id) {
+labels[i].style.color = color;
+}
+}
+}
+}
+function jslDisable(id) {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled=true;
+jslGrayLabels(h1,"#999999");
+}
+}
+function jslEnable(id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id+'.disabled=false');
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+}
+function jslCopyAndEnableValue(id_to, id_from)
+{
+if (navigator.appName=='Microsoft Pocket Internet Explorer')
+{
+eval('document.uiPostForm.'+id_to+'.value = document.uiViewForm.'+id_from+'.value');
+eval('document.uiPostForm.'+id+'.disabled=false');
+return;
+}
+var h1 = document.getElementById(id_to);
+var h2 = document.getElementById(id_from);
+if ((h1 != null) && (h2 != null))
+{
+h1.value=h2.value;
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+function jslSetAndEnableValue(id, wert)
+{
+if (navigator.appName=='Microsoft Pocket Internet Explorer')
+{
+eval('document.uiPostForm.'+id+'.value="'+wert+'"');
+eval('document.uiPostForm.'+id+'.disabled=false');
+return;
+}
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.value=wert;
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+function jslSetEnabled (id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled = !wert;
+var color="#3F464C";
+if (h1.disabled==true)
+color="#999999";
+jslGrayLabels(h1,color);
+}
+}
+function jslGetEnabled (id) {
+var h1 = document.getElementById(id);
+if (h1 != null) return !(h1.disabled);
+}
+function jslIsVisible(id) {
+var h1 = document.getElementById(id);
+if (h1 != null) {
+return (h1.style.display!="none");
+}
+return false;
+}
+function jslDisplay(id, toDisplay) {
+var h1 = document.getElementById(id);
+if (h1 != null) {
+if ( toDisplay) h1.style.display="";
+else h1.style.display="none";
+}
+}
+function jslSetClass(id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.className=wert;
+}
+function jslGoToEx(Menu, Page, Titel) {
+jslGoTo(Menu,Page);
+}
+function jslFormSubmitEx (Menu, Page, Errorpage) {
+jslSubmitFormEx(Menu, Page, Errorpage);
+}
+function jslSubmitFormEx (Menu, Page, Errorpage) {
+if ((Menu!=null) && (Menu!="")) jslSetValue("uiPostMenu", Menu);
+if ((Page!=null) && (Page!="")) {
+jslSetValue("uiPostPageName", Page);
+jslSetValue("uiPostErrorPageName", Page);
+}
+if ((Errorpage!=null) && (Errorpage!="")) {
+jslSetValue("uiPostErrorPageName", Errorpage);
+}
+jslFormSubmit("uiPostForm");
+}
+function UpdateDateTime() {
+var date = new Date();
+jslSetValue("uiPostDateTime", Math.floor(date.getTime()/1000) + "," + date.getTimezoneOffset());
+}
+function jslSetSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null) elem.childNodes[0].nodeValue = text;
+}
+function SetSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null) elem.childNodes[0].nodeValue = text;
+}
+function PasswortToHex(pwValue) {
+var hexString = "";
+for (var i = 0; i < pwValue.length; i += 1) {
+var asciiValue = pwValue.charCodeAt(i);
+hexString += "%"+asciiValue.toString(16);
+}
+return hexString;
+}
+function jslSetSelection (id, text) {
+var box = document.getElementById(id);
+if (box == null) {
+return;
+}
+var disabled = box.disabled; // wg. Opera box enablen
+box.disabled = false;
+var i=0;
+var n = -1;
+for (i=0; i<box.length; i++) {
+if (box.options[i].value == text) n = i;
+}
+if (n != -1) {
+for (i=0; i<box.length; i++) {
+box.options[i].selected = (n == i);
+}
+}
+box.disabled = disabled;
+}
+function jslAddOption (id, val, text, sel, check_double_val) {
+if (navigator.appName == 'Microsoft Pocket Internet Explorer') {
+var entry = new Option(text, val, false, sel);
+var element = eval('document.uiViewForm.'+id);
+if (element == null) return;
+element.add(entry);
+} else {
+var element = document.getElementById(id);
+if(element!=null) jslAddOption_pos (id, val, text, sel, element.length, check_double_val);
+}
+}
+function jslAddOption_pos (id, val, text, sel, pos, check_double_val) {
+// var entry = new Option(convertHTML2Text(text), val, false, sel);
+var entry = new Option(text, val, false, sel);
+var element = document.getElementById(id);
+if (element == null) return;
+if(check_double_val == true){
+for (var i=0; i<element.length; i++){
+if (element.options[i].value == val) return; // Wert schon vorhanden
+}
+}
+element.options[pos] = entry;
+}
+function PasswortToXCode (pwValue) {
+var hexString = "";
+for (var i = 0; i < pwValue.length; i += 1) {
+var asciiValue = pwValue.charCodeAt(i);
+hexString += asciiValue.toString(16);
+}
+return hexString;
+}
+function XCodeToPasswort (hexValue) {
+var str = "";
+for (var i = 0; i < hexValue.length; i += 2) {
+str += String.fromCharCode(parseInt(hexValue.substr(i, 2),16));
+}
+return str;
+}
+function jslIsValidPath (path) {
+if ((navigator.platform == "Win32") && (navigator.appName == "Microsoft Internet Explorer") && (navigator.appVersion.indexOf("MSIE 6.") >= 0)) {
+if (path.indexOf("\\") == 0) return true;
+if (path.indexOf(":") == 1) return true;
+return false;
+}
+return true;
+}
+function jslPrintf1 (str , p1) {
+var exp = new RegExp("%1(%[a-zA-Z]+%)?","g");
+return str.replace(exp, p1);
+}
+function jslPrintf (str) {
+var i,exp;
+for (i=1; i<arguments.length; ++i)
+{
+exp = new RegExp("%"+i+"(%[a-zA-Z]+%)?","g");
+str = str.replace(exp, arguments[i]);
+}
+return str;
+}
+function jslGetCountAString(TextArray ,n){
+return jslGetCountString(TextArray[0],TextArray[1],TextArray[2],n);
+}
+function jslGetCountString(Text0,Text1,Text2 ,n){
+var ncase=n;
+if(ncase>2)
+ncase=2;
+if(ncase<0)
+ncase=2;
+switch(ncase){
+case 0: return jslPrintf(Text0,n);
+case 1: return jslPrintf(Text1,n);
+case 2: return jslPrintf(Text2,n);
+default: return jslPrintf(Text2,n);
+}
+}
+function alert1 (str, p1) {
+alert(jslPrintf1(str, p1));
+}
+function uiSelect(id) {
+var h = document.getElementById(id);
+if (h != null) h.select();
+}
+function uiFocus(id) {
+var h = document.getElementById(id);
+if (h != null) {
+h.focus();
+var nn = (h.nodeName || "").toLowerCase();
+var t = (h.type || "").toLowerCase();
+var selectable = false;
+if (nn == 'input' && (t == 'text' || t == 'password')) {
+selectable = true;
+}
+if (nn == 'textarea') {
+selectable = true;
+}
+if (selectable) {
+h.select();
+}
+}
+}
+function jslChangeImage ( imageName, newSource, newTitle) {
+var image = document.images[imageName];
+if ( image == null) {
+return;
+}
+image.src = newSource;
+image.title = newTitle;
+}
+function jslZebrastreifen (id) {
+var even = false;
+var evenColor = arguments[1] ? arguments[1] : "#FFFFFF";
+var oddColor = arguments[2] ? arguments[2] : "#EEEEEE";
+var table = document.getElementById(id);
+if (! table) {
+return;
+}
+var tbodies = table.getElementsByTagName("tbody");
+for (var h = 0; h < tbodies.length; h++) {
+var trs = tbodies[h].getElementsByTagName("tr");
+for (var i = 0; i < trs.length; i++) {
+if (trs[i].style.display!="none" && !trs[i].style.backgroundColor) {
+var ths = trs[i].getElementsByTagName("th");
+for (var j = 0; j < ths.length; j++) {
+var myth = ths[j];
+if (!myth.style.backgroundColor) {
+myth.style.backgroundColor = even ? evenColor : oddColor;
+}
+}
+var tds = trs[i].getElementsByTagName("td");
+for (var j = 0; j < tds.length; j++) {
+var mytd = tds[j];
+if (!mytd.style.backgroundColor) {
+mytd.style.backgroundColor = even ? evenColor : oddColor;
+}
+}
+even = !even;
+}
+}
+}
+}
+function convertHTML2Text(str) {
+if (str) {
+str = str.replace(/</g,"&lt;");
+str = str.replace(/>/g,"&gt;");
+var tst = document.createElement('div');
+tst.innerHTML = str;
+str = tst.innerText || tst.textContent;
+}
+return str;
+}
+function jslSetColor(id, NewColor, FontStrength) {
+var h1 = document.getElementById(id);
+if (h1 != null){
+h1.style.color=NewColor;
+h1.style.fontWeight=FontStrength;
+}
+}
+function jslEatWhitespace(instring){
+if(!instring)
+return instring;
+returnstr = instring.replace(/[\s,\xa0]+/g, "");
+return returnstr;
+}
+function jslGetStorageLink(protocol, display_link_name, path_extension, samba_ftp_object)
+{
+var samba_server_enabled = (samba_ftp_object && samba_ftp_object.samba_server_enabled) ? samba_ftp_object.samba_server_enabled : "1";
+var frominternet = (samba_ftp_object && samba_ftp_object.frominternet) ? samba_ftp_object.frominternet : "1";
+var connection_ip = (samba_ftp_object && samba_ftp_object.connection_ip) ? samba_ftp_object.connection_ip : "88.64.170.194";
+var interface_ip = (samba_ftp_object && samba_ftp_object.interface_ip) ? samba_ftp_object.interface_ip : "192.168.178.1";
+var ftp_server_enabled = (samba_ftp_object && samba_ftp_object.ftp_server_enabled) ? samba_ftp_object.ftp_server_enabled : "1";
+var ftp_password = (samba_ftp_object && samba_ftp_object.ftp_password) ? samba_ftp_object.ftp_password : "";
+var storage_ftp_internet = (samba_ftp_object && samba_ftp_object.storage_ftp_internet) ? samba_ftp_object.storage_ftp_internet : "0";
+var pppoe_ip = (samba_ftp_object && samba_ftp_object.pppoe_ip) ? samba_ftp_object.pppoe_ip : "88.64.170.194";
+var ddns_activated = (samba_ftp_object && samba_ftp_object.ddns_activated) ? samba_ftp_object.ddns_activated : "1";
+var ddns_password = (samba_ftp_object && samba_ftp_object.ddns_password) ? samba_ftp_object.ddns_password : "****";
+var ddns_username = (samba_ftp_object && samba_ftp_object.ddns_username) ? samba_ftp_object.ddns_username : "jowi24";
+var ddns_provider = (samba_ftp_object && samba_ftp_object.ddns_provider) ? samba_ftp_object.ddns_provider : "dyndns.org";
+var ddns_domain = (samba_ftp_object && samba_ftp_object.ddns_domain) ? samba_ftp_object.ddns_domain : "majo.dyndns.info";
+var link_head = "";
+var fritz_nas = "";
+if(path_extension == "Interner Speicher")
+{
+path_extension = "";
+}
+if(path_extension != "")
+{
+if(path_extension.indexOf("/") != 0)
+path_extension = "/"+path_extension;
+if((path_extension.lastIndexOf("/") + 1) != path_extension.length)
+path_extension = path_extension+"/";
+}
+if(protocol.match(/samba/) == "samba")
+{
+if (samba_server_enabled == "1")
+{
+if (frominternet != "1" && typeof g_IE != 'undefined' && g_IE == true)
+{
+if (("0" == "1" || "1" == "0" ) && "pppoe"=="bridge")
+link_head = connection_ip;
+else
+link_head = interface_ip;
+if (ftp_password == null || ftp_password != "****")
+fritz_nas="/fritz.nas";
+else
+path_extension = "";
+return '<a href="file://'+link_head+fritz_nas+path_extension+'" target="_blank">'+display_link_name+'</a>';
+}
+}
+}
+if(protocol.match(/ftp/) == "ftp")
+{
+if (ftp_server_enabled == "1")
+{
+if (ftp_password != "")
+link_head = "ftpuser@";
+if (frominternet == "1" && storage_ftp_internet == "1")
+{
+if (!(pppoe_ip != "" && pppoe_ip != "-" && pppoe_ip != "er" && pppoe_ip != "0.0.0.0"))
+pppoe_ip="";
+if(ddns_activated=="1" && ddns_password!="" && ddns_username!="" && ddns_provider!="")
+link_head += ddns_domain;
+else
+link_head += pppoe_ip;
+}
+else if (("0" == "1" || "1" == "0" ) && "pppoe"=="bridge")
+link_head += connection_ip;
+else
+link_head += interface_ip;
+return'<a href="ftp://'+link_head+path_extension+'" target="_blank">'+display_link_name+'</a>';
+}
+}
+return "";
+}
+ 
+// ../js/val.js
+var g_val_mldErrorText1 = "Der Wert darf nur aus Ziffern bestehen.";
+var g_val_mldErrorText2_1 = "Ungültige Eingabe. Der Wertebereich ist ";
+var g_val_mldErrorText2_2 = " - 65535.";
+function valIsZahl (nummer) {
+if (nummer.match("[^0-9]") != null) return false;
+return true;
+}
+function valIsZahlVorhanden (nummer) {
+if (nummer.length == 0) return false;
+return valIsZahl(nummer);
+}
+function valDoValidateInteger (Integer) {
+var error = null;
+if (valIsZahl(Integer)) {return null;}
+error = g_val_mldErrorText1;
+return error;
+}
+function valDoValidatePort (Integer, minport) {
+var error = null;
+error = valDoValidateInteger(Integer);
+if (error == null) {
+if ((Number(Integer) < minport) || (Number(Integer) > 65535)) error = g_val_mldErrorText2_1+minport+g_val_mldErrorText2_2;
+}
+return error;
+}
+function valIsSipname (name) {
+if (name.match("[^0-9a-zA-Z\-_\.\!~\*\'\(\)&=\+$,;\?/:]") != null) return false;
+return true;
+}
+function valIsAtSipname (name) {
+if (name.match("[^0-9a-zA-Z\-_\.\!~\*\'\(\)&=\+$,;\?/:@]") != null) return false;
+return true;
+}
+function valIsEMailAdress (name) {
+// addr-spec
+var parts = name.match(/^(.+)@(.+)$/);
+if (!parts) return false;
+var local=parts[1];
+var domain=parts[2];
+// valid characters
+var specials = "\\(\\)<>@,;:\\\\\\\"\\.\\[\\]";
+var atom = "[^"+specials+"\\s]";
+// go
+var words = new RegExp("^"+atom+"+(\\."+atom+"+)*$");
+if (!local.match(words)) return false;
+if (!domain.match(words)) return false;
+return true;
+}
+function valIsPassword(name) {
+if (name.match("[^0-9a-zA-Z/]") != null) return false;
+return true;
+}
+function valIsAOLUsername(name) {
+if (name.match("[^0-9a-zA-Z]") != null) return false;
+return true;
+}
+function valIsHexValue(hexVakue) {
+if ( hexVakue.match("[^0-9a-fA-f]") != null) return false;
+return true;
+}
+ 
+// first/provider.js
+function doubleSelect(id1, id2, switchValue) {
+var select = {};
+if (id1) {
+select[id1] = document.getElementById(id1);
+}
+if (id2) {
+select[id2] = document.getElementById(id2);
+}
+var active = id1 || id2;
+var idByValue = {};
+function mapSelectOptionsToId(id, obj) {
+var s = select[id];
+if (s && s.options) {
+for (var i = 0; i < s.options.length; i++) {
+obj[s.options[i].value] = id;
+}
+}
+}
+var setValue, getValue;
+if (!select[id1] && !select[id2]) {
+setValue = function() {};
+getValue = function() { return "other"; };
+}
+else {
+mapSelectOptionsToId(id1, idByValue);
+mapSelectOptionsToId(id2, idByValue);
+setValue = function(val) {
+var sId = idByValue[val];
+if (sId) {
+select[sId].value = val;
+if (val == switchValue) {
+select[id2].style.display = "";
+active = id2;
+}
+else {
+if (sId == id2) {
+select[id1].value = switchValue;
+select[id2].style.display = "";
+}
+else if (select[id2]) {
+select[id2].style.display = "none";
+}
+active = sId;
+}
+}
+};
+getValue = function() {
+var val = select[active || id1].value;
+if (val == switchValue) {
+val = select[id2].value;
+}
+return val;
+};
+}
+return {
+setValue: setValue,
+getValue: getValue
+};
+}
+function splitList(list, filterFunc) {
+var result = {};
+for (var i = 0, len = list.length; i < len; i++) {
+var idx = filterFunc(list[i]);
+if (idx) {
+if (!result[idx]) {
+result[idx] = [];
+}
+result[idx].push(list[i]);
+}
+}
+return result;
+}
+function DataObject() {}
+DataObject.prototype.createGetters = function(properties) {
+function getter(obj, prop) {
+return function(param) {
+var result;
+if (prop in obj) {
+result = param in obj[prop] ? obj[prop][param] : obj[prop]._default;
+}
+switch (typeof result) {
+case 'function':
+var args = toArray(arguments).slice(1);
+return result.apply(null, args);
+case 'object':
+if (result && arguments.length > 1) {
+return result[arguments[1]];
+}
+return result;
+default:
+return result;
+}
+};
+}
+properties = properties || [];
+if (!properties.length) {
+for (var p in this) {
+if (p != "_default" && this.hasOwnProperty(p)) {
+properties.push(p);
+}
+}
+}
+var prop, funcName;
+for (var i = 0, len = properties.length; i < len; i++) {
+prop = properties[i];
+if (prop) {
+funcName = "get" + prop.charAt(0).toUpperCase() + prop.substring(1);
+this[funcName] = getter(this, prop);
+}
+}
+}
+var g_boxInfo = g_boxInfo || {};
+g_boxInfo.provider = "1und1";
+g_boxInfo.username = "1und1/ka9653-861@online.de";
+g_boxInfo.type = "pppoe";
+g_boxInfo.connect = "5";
+g_boxInfo.ata_mode = "0";
+g_boxInfo.oem = "1und1";
+g_boxInfo.country = "049";
+g_boxInfo.annex = "B";
+function readCharacteristic(characteristic) {
+var vars = {};
+var ch = characteristic.split(";");
+for (var i = 0; i < ch.length; i++) {
+var v = ch[i].split("=");
+if (v.length && v[0]) { vars[v[0]] = v[1] || ""; }
+}
+return vars;
+}
+function readProviderList(list) {
+var activeprovider = "1und1";
+list.displayName = {};
+list.characteristic = {};
+ 
+list.displayName["1und1"] = "1&amp;1 Internet";
+list.characteristic["1und1"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["alice"] = "Alice (Hansenet)";
+list.characteristic["alice"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["congstar"] = "congstar";
+list.characteristic["congstar"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["ewetel"] = "EWE TEL";
+list.characteristic["ewetel"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["gmx"] = "GMX";
+list.characteristic["gmx"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["inode"] = "Inode / UPC";
+list.characteristic["inode"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["kdg"] = "Kabel Deutschland";
+list.characteristic["kdg"] = readCharacteristic("box:settings/opmode=opmode_eth_ip;");
+ 
+list.displayName["mnet"] = "M-net";
+list.characteristic["mnet"] = readCharacteristic("box:settings/opmode=opmode_pppoe;connection0:pppoe:settings/username=Username;connection0:pppoe:settings/password=1;connection0:pppoe:settings/mode=lcp;connection0:settings/ProviderDisconnectPrevention/Enabled=0;connection0:settings/ProviderDisconnectPrevention/Hour=3;;;");
+ 
+list.displayName["netaachen"] = "NetAachen";
+list.characteristic["netaachen"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["netcologne"] = "NetCologne";
+list.characteristic["netcologne"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["nordcom"] = "nordcom";
+list.characteristic["nordcom"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["o2"] = "O2";
+list.characteristic["o2"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["osnatel"] = "osnatel";
+list.characteristic["osnatel"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["qsc"] = "QSC / Q-DSL home";
+list.characteristic["qsc"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["tonline"] = "T-Online";
+list.characteristic["tonline"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["teleos"] = "teleos";
+list.characteristic["teleos"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["unitymedia"] = "Unitymedia";
+list.characteristic["unitymedia"] = readCharacteristic("box:settings/opmode=opmode_eth_ip;;");
+ 
+list.displayName["versatel"] = "Versatel";
+list.characteristic["versatel"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["arcor"] = "Vodafone / Arcor";
+list.characteristic["arcor"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["other"] = "";
+list.characteristic["other"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["other"] = "anderer Internetanbieter";
+return list;
+}
+var g_isp = new DataObject();
+g_isp = readProviderList(g_isp);
+/*g_isp.displayName = {
+"1und1": "1&1 Internet",
+"alice": "Alice (Hansenet)",
+"aol": "AOL",
+"arcor": "Arcor",
+"congstar": "congstar",
+"dbd": "DBD (WiMAX)",
+"debitel": "debitel",
+"freenet": "freenet",
+"gmx": "GMX",
+"inode": "Inode / UPC",
+"kdg": "Kabel Deutschland",
+"mnet": "M-net",
+"o2": "O2",
+"qsc": "QSC / Q-DSL home",
+"strato": "Strato",
+"tnamibiaadsl": "Telecom Namibia - ADSL",
+"tnamibiawimax": "Telecom Namibia - Wimax",
+"tonline": "T-Online",
+"unitymedia": "Unitymedia",
+"versatel": "Versatel",
+"xs4all": "XS4ALL",
+"aon": "aon",
+"other": "anderer Internetanbieter"
+};*/
+g_isp.isUI = {
+_default: false,
+"1und1": true,
+"gmx": true
+};
+g_isp.oemFilter = {};
+//------------------------------------------
+g_isp.oemFilter._default = function () {
+if (g_boxInfo.oem == 'arcor') { return false; }
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country != '049') { return false; }
+return true;
+};
+//------------------------------------------
+g_isp.oemFilter.arcor = function() {
+if (g_boxInfo.oem == 'arcor') { return true; }
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.inode = function() {
+if (g_boxInfo.oem == 'avme' && (g_boxInfo.country == '043' || g_boxInfo.country == '049')) {
+return true; // Österreich oder Deutschland
+}
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.kdg = function() {
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.tnamibiaadsl = function() {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '0264') {
+return true; // Namibia
+}
+return false;
+};
+//------------------------------------------
+g_isp.oemFilter.tnamibiawimax = function() {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '0264') {
+return true;// Namibia
+}
+return false;
+};
+//------------------------------------------
+g_isp.oemFilter.unitymedia = function() {
+if (g_boxInfo.oem == 'freenet') { return false; }
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.xs4all = function() {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '031') {
+return true; // Niederlande
+}
+return false;
+};
+//------------------------------------------
+g_isp.oemFilter.aon = function() {
+if (g_boxInfo.oem == 'avme' && (g_boxInfo.country == '043' || g_boxInfo.country == '049')) {
+return true; // Österreich oder Deutschland
+}
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.other = function() { return true; };
+g_isp.createGetters();
+function listProviderIds(list, filterFunc) {
+var noFilter = typeof filterFunc != 'function';
+var result = [];
+for (var p in list.displayName) {
+if (list.getOemFilter(p)) {
+if (noFilter || filterFunc(p)) {
+result.push(p);
+}
+}
+}
+return result;
+}
+function isUnconfigured(ispId) {
+return !ispId || (ispId == "other" && !g_boxInfo.username);
+}
+function isCableIsp(ispId) {
+var ch = g_isp.characteristic[ispId];
+return ch && ch["box:settings/opmode"] == "opmode_eth_ip";
+}
+function getIspLists(excludeCable) {
+var cableFilter;
+if (excludeCable) { cableFilter = function(pId){ return !isCableIsp(pId); }; }
+var result = {};
+var list = listProviderIds(g_isp, cableFilter);
+var currProviderId = getCurrentIsp();
+if (g_boxInfo.oem == '1und1' && (isUnconfigured(currProviderId) || g_isp.getIsUI(currProviderId))) {
+result = splitList(list, function(p){return g_isp.getIsUI(p) ? "oem" : "main";});
+}
+if (!result.main) { result.main = list; }
+if (!result.oem) { result.oem = []; }
+return result;
+}
+function strIspSelect(htmlAttributes, excludeCable) {
+var list = getIspLists(excludeCable);
+g_isp.selectCount = list.main.length + list.oem.length;
+var currIsp = getCurrentIsp();
+var str = "";
+if (list.main.length > 1 || list.oem.length > 0) {
+// Nicht nur 'other' zur Auswahl
+var html = htmlStringBuilder();
+var oemSelect, mainSelect, option;
+if (list.oem.length) {
+oemSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.oem.length; i++) {
+var pId = list.oem[i];
+option = html('option', {value: pId} , g_isp.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+oemSelect.add(option);
+}
+option = html('option', {value: "more"}, "weitere Internetanbieter");
+oemSelect.add(option);
+// Attribute für mainSelect anpassen
+htmlAttributes.id = htmlAttributes.id + "Plus";
+htmlAttributes.style = "display:none;" + (htmlAttributes.style || "");
+}
+mainSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.main.length; i++) {
+var pId = list.main[i];
+option = html('option', {value: pId}, g_isp.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+mainSelect.add(option);
+}
+var p = html('p',{}, "Wählen Sie Ihren Internetanbieter aus:");
+var str = p.build();
+if (oemSelect) {
+str += oemSelect.build();
+str += html('br').build();
+}
+if (mainSelect) {
+str += mainSelect.build();
+}
+}
+return str;
+}
+function getSipLists() {
+var result = {};
+var list = listProviderIds(g_sip);
+var currIsp = getCurrentIsp();
+if (g_boxInfo.oem == '1und1' && (!currIsp || g_isp.getIsUI(currIsp))) {
+// Liste aufteilen und zwei Selects erstellen
+result = splitList(list, function(p){return g_isp.getIsUI(p) ? "oem" : "main";});
+}
+if (!result.main) { result.main = list; }
+if (!result.oem) { result.oem = []; }
+return result;
+}
+function strSipSelect(htmlAttributes, registrar) {
+var list = getSipLists();
+g_sip.selectCount = list.main.length + list.oem.length;
+var currIsp = getCurrentIsp();
+var str = "";
+if (list.main.length > 1 || list.oem.length > 0) {
+// Nicht nur 'other' zur Auswahl
+var html = htmlStringBuilder();
+var oemSelect, mainSelect, option;
+if (list.oem.length) {
+oemSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.oem.length; i++) {
+var pId = list.oem[i];
+option = html('option', {value: pId} , g_sip.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+oemSelect.add(option);
+}
+option = html('option', {value: "more"}, "weitere Anbieter");
+oemSelect.add(option);
+// Attribute für mainSelect anpassen
+htmlAttributes.id = htmlAttributes.id + "Plus";
+htmlAttributes.style = "display:none;" + (htmlAttributes.style || "");
+}
+mainSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.main.length; i++) {
+var pId = list.main[i];
+option = html('option', {value: pId}, g_sip.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+mainSelect.add(option);
+}
+var p = html('p',{}, "Wählen Sie Ihren Internettelefonie-Anbieter");
+var str = p.build();
+if (oemSelect) {
+str += oemSelect.build();
+str += html('br').build();
+}
+if (mainSelect) {
+str += mainSelect.build();
+}
+}
+return str;
+}
+function getCurrentIsp() {
+return g_boxInfo.provider || "other"; //getIspByUsername();
+}
+function getIspByUsername(username) {
+username = username || g_boxInfo.username;
+if (!username) {
+return "";
+}
+if (username.indexOf("@de.aol.com") >= 0) {
+return "aol";
+}
+if (username.indexOf("@dbd-breitband.de") >= 0) {
+return "dbd";
+}
+if (username.indexOf("debitel/") === 0 && username.indexOf("%debitel.net")>=8) {
+return "debitel";
+}
+if (username.indexOf("1und1/") === 0 && username.indexOf("@online.de") >= 0) {
+return "1und1";
+}
+if (username.indexOf("GMX/") === 0 && username.indexOf("@online.de") >= 0) {
+return "gmx";
+}
+if (username.indexOf("@t-online.de") >= 0) {
+return "tonline";
+}
+if (username.indexOf("@congstar.de") >= 0) {
+return "congstar";
+}
+if (username.indexOf("frn6/") === 0) {
+return "freenet";
+}
+if (username.indexOf("internet") === 0 && username.indexOf("/") >= 0) {
+return "strato";
+}
+if (username.indexOf("@versatel") >= 0) {
+return "versatel";
+}
+if (username.indexOf("ar") === 0) {
+return "arcor";
+}
+if (username.indexOf("@qsc") === 0) {
+return "qsc";
+}
+if (username.indexOf("@xs4all") >= 0) {
+return "xs4all";
+}
+if (username.indexOf(".o2online.de") >= 0) {
+return "o2";
+}
+return "other";
+}
+var g_sip = new DataObject();
+g_sip.displayName = {
+"1und1": "1&1 Internet",
+//"a1": "A1 over IP",
+//"aol": "AOL",
+"congstar": "congstar",
+//"dbd": "DBD (WiMAX)",
+//"DBD-DSL": "DBD (DSL)",
+"dus": "DUS.net",
+//"freenet": "freenet",
+"gmx": "GMX",
+"inode": "Inode / UPC",
+"inodeisdn": "Inode (ISDN)",
+"kdg": "Kabel Deutschland",
+"qsc": "QSC / Q-DSL home",
+"sipgate": "sipgate",
+"sipgateteam": "sipgate team",
+"sipkom": "sipkom",
+//"strato": "Strato",
+"tonline": "T-Online",
+"unitymedia": "Unitymedia",
+"arcor": "Vodafone / Arcor",
+"xs4all": "XS4ALL",
+"other": "anderer Anbieter"
+};
+g_sip.oemFilter = {};
+g_sip.oemFilter._default = function () {
+if (g_boxInfo.oem == 'arcor') { return false; }
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country != '049') { return false; }
+return true;
+};
+g_sip.oemFilter.a1 = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+if (g_boxInfo.oem == 'avme') {
+if (g_boxInfo.country == '043') {
+return true; // Nur Österreich
+}
+return false;
+}
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.arcor = function () {
+if (g_boxInfo.oem == 'arcor') { return true; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.congstar = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+// congstar SIP geht nur bei Congstar ISP
+if (getCurrentIsp() != 'congstar') { return false; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.dbd = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.inode = function () {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '043') {
+return true; // Österreich
+}
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.inodeisdn = function () {
+if (g_boxInfo.annex == 'A') {
+return g_sip.oemFilter.inode();
+}
+return false;
+};
+g_sip.oemFilter.kdg = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+var tr069ConfUrl = "https://acs2.online.de";
+if (tr069ConfUrl.search("kabel-deutschland") != -1) {
+return g_sip.oemFilter._default();
+}
+return false;
+};
+g_sip.oemFilter.qsc = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.xs4all = function () {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '031') {
+return true; // Niederlande
+}
+return false;
+};
+g_sip.oemFilter.other = function () {
+return true;
+};
+g_sip.createGetters();
+function getSipProviderByRegistrar(registrar, proxy) {
+registrar = registrar || "";
+switch (registrar) {
+case "freenet.de": return "freenet";
+case "arcor.de": return "arcor";
+case "sipgate.de":
+if (proxy && proxy == "proxy.live.sipgate.de") {
+return "sipgateteam";
+}
+return "sipgate";
+case "sipkom.com": return "sipkom";
+case "tel.congstar.de": return "congstar";
+case "tel2.congstar.de": return "congstar";
+case "1und1.de": return "1und1";
+case "sip.1und1.de": return "1und1";
+case "gmx.de": return "gmx";
+case "reg.aolphone.aol.de": return "aol";
+case "a1.net": return "a1";
+case "aolphone.aol.de": return "aol";
+case "strato-iphone.de": return "strato";
+case "proxy.dus.net": return "dus";
+case "telefon.unitymedia.de": return "unitymedia";
+case "kabelphone.de": return "kdg";
+case "voip.inode.at": //return "inode";
+case "osvoip.upc.at": return "inode";
+case "sip.xs4all.nl": return "xs4all";
+case "tel.t-online.de": return "tonline";
+}
+if (registrar.indexOf("dbd-") >= 0) {
+return "dbd";
+}
+else if (registrar.search("kabelphone.de") != "-1") {
+return "kdg";
+}
+return "other";
+}
+function GetProviderString(username,szPostEncapsSepVcc,DefaultProv){
+var szProvider=GetFullProviderString(username,szPostEncapsSepVcc,DefaultProv);
+return GetOEMFiltertProviderString(szProvider);
+}
+function GetProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv){
+var szProvider=GetFullProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv);
+return GetOEMFiltertProviderString(szProvider);
+}
+function GetOEMFiltertProviderString(szProvider){
+ 
+if(szProvider=="1und1")return szProvider;
+if(szProvider=="gmx")return szProvider;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+return "other";
+}
+function GetFullProviderString(username,szPostEncapsSepVcc,DefaultProv){
+return GetFullProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv);
+}
+function GetFullProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv){
+//szPostEncapsSepVcc=jslGetValue("uiPostEncapsSepVcc");
+if (username.indexOf("@de.aol.com")>=0) {
+return "aol";
+}else if (username.indexOf("@dbd-breitband.de")>=0) {
+return "dbd";
+} else if (username.indexOf("debitel/")==0 && username.indexOf("%debitel.net")>=8) {
+return "debitel";
+} else if (username.indexOf("@online.de")>=0) {
+var name = username.substr(0, username.indexOf("@online.de"));
+if (name.substring(0, 6) == "1und1/") {
+return "1und1";
+} else if (username.substring(0, 4) == "GMX/") {
+return "gmx";
+} else {
+return "other";
+}
+} else if (username.indexOf("@t-online.de")>=0) {
+return "tonline";
+} else if (username.indexOf("@congstar.de")>=0) {
+return "congstar";
+} else if (username.substring(0, 5)=="frn6/") {
+return "freenet";
+} else if (username.substring(0, 8)=="internet" && username.indexOf("/") >= 0) {
+return "strato";
+} else if (username.indexOf("@versatel")>=0) {
+return "versatel";
+} else if (username.indexOf("ar")==0) {
+return "arcor";
+} else if (username.indexOf("@qsc")==0) {
+return "qsc";
+} else if (username.indexOf("@xs4all")>=0) {
+return "xs4all";
+} else if (username.indexOf(".o2online.de")>=0) {
+return "o2";
+} else if (username=="") {
+return DefaultProv || "other";
+} else {
+return "other";
+}
+}
+function IsUnitedInternet( provider) {
+return g_isp.getIsUI(provider);
+}
+function IsDbd () {
+return jslGetValue("uiPppProvider") == "dbd";
+}
+function uiProviderDisplay(id,providerOverrideText) {
+var otherprovider=g_isp.getDisplayName("other");
+if(providerOverrideText)
+otherprovider=providerOverrideText;
+if (id == "1und1") return "1&1 Internet";
+if (id == "aol") return "AOL";
+if (id == "arcor") return "Arcor";
+if (id == "congstar") return "congstar";
+if (id == "dbd") return "DBD (WiMAX)";
+if (id == "debitel") return "debitel";
+if (id == "dus") return "DUS.net";
+if (id == "freenet") return "freenet";
+if (id == "gmx") return "GMX";
+if (id == "inode") return "Inode / UPC";
+if (id == "inodeisdn") return "Inode (ISDN)";
+if (id == "mnet") return "M-net";
+if (id == "sipgate") return "sipgate";
+if (id == "sipgateteam") return "sipgate team";
+if (id == "sipkom") return "sipkom";
+if (id == "strato") return "Strato";
+if (id == "tonline") return "T-Online";
+if (id == "versatel") return "Versatel";
+if (id == "alice") return " Alice (Hansenet)";
+if (id == "unitymedia") return "Unitymedia";
+if (id == "kdg") return "Kabel Deutschland";
+if (id == "qsc") return "QSC / Q-DSL home";
+if (id == "xs4all") return "XS4ALL";
+if (id == "tnamibiaadsl") return "Telecom Namibia - ADSL";
+if (id == "tnamibiawimax") return "Telecom Namibia - Wimax";
+if (id == "o2") return "O2";
+return otherprovider;
+}
+function IsISPFreenet(){
+return IsISPFreenetWithUsername(g_boxInfo.username);
+}
+function IsISPFreenetWithUsername(Username){
+if (Username.substring(0, 5)=="frn6/") {
+return true;
+}else
+return false;
+}
+function IsUnityMedia(provider){
+return provider == "unitymedia";
+}
+function IsKDG(provider){
+return provider == "kdg";
+}
+function IsDSLProviderComboShown(){
+return g_isp.selectCount > 1;
+/*
+if("1und1" != "avme"){
+return true;
+}else{
+ 
+return true;
+ 
+ 
+ 
+ 
+return false;
+}
+*/
+}
+//SIP-Provider Teil:
+function IsSIPProviderComboShown(){
+ 
+ 
+ 
+ 
+ 
+return true;
+ 
+}
+function isProvisionedByUnitedInternet() {
+var provcode = "";
+ 
+provcode = "004.000.000.000";
+ 
+if (provcode == "" || provcode == "000.000.000.000") {
+return false;
+}
+var provider = GetFullProviderStringUsernameOnly(g_boxInfo.username);
+return IsUnitedInternet(provider);
+}
+function ProviderDisplay (registrar) {
+switch (registrar) {
+case "freenet.de": return "freenet";
+case "arcor.de": return "Arcor";
+case "sipgate.de": return "sipgate";
+case "sipkom.com": return "sipkom";
+case "tel.congstar.de": return "congstar";
+case "tel2.congstar.de": return "congstar";
+case "1und1.de": return "1&1 Internet";
+case "sip.1und1.de": return "1&1 Internet";
+case "gmx.de": return "GMX";
+case "reg.aolphone.aol.de": return "AOL";
+case "a1.net": return "A1 over IP";
+case "aolphone.aol.de": return "AOL";
+case "strato-iphone.de": return "Strato";
+case "proxy.dus.net": return "DUS.net";
+case "telefon.unitymedia.de": return "Unitymedia";
+case "kabelphone.de": return "Kabel Deutschland";
+case "voip.inode.at": //return "Inode";
+case "osvoip.upc.at": return "Inode";
+case "sip.xs4all.nl": return "XS4ALL";
+ 
+}
+if (registrar.indexOf("dbd-") >= 0) {
+return registrar.indexOf("dsl") >= 0 ? "DBD (DSL)" : "DBD (WiMAX)";
+} else if (registrar.search("kabelphone.de") != "-1") {
+return "Kabel Deutschland";
+}
+return registrar;
+}
+ 
+//
+function GetCountryName(vorwahl){
+var CountryName="";
+if(vorwahl=="049"){
+CountryName="Deutschland";
+}else if(vorwahl=="0264"){
+CountryName="Namibia";
+}else if(vorwahl=="034"){
+CountryName="Spanien";
+}else if(vorwahl=="030"){
+CountryName="Griechenland";
+}else if(vorwahl=="031"){
+CountryName="Niederlande";
+}else if(vorwahl=="033"){
+CountryName="Frankreich";
+}else if(vorwahl=="0352"){
+CountryName="Luxemburg";
+}else if(vorwahl=="036"){
+CountryName="Ungarn";
+}else if(vorwahl=="0371"){
+CountryName="Lettland";
+}else if(vorwahl=="039"){
+CountryName="Italien";
+}else if(vorwahl=="043"){
+CountryName="Österreich";
+}else if(vorwahl=="044"){
+CountryName="Großbritannien";
+}else if(vorwahl=="045"){
+CountryName="Dänemark";
+}else if(vorwahl=="054"){
+CountryName="Argentinien";
+}else if(vorwahl=="041"){
+CountryName="Schweiz";
+}else if(vorwahl=="0351"){
+CountryName="Portugal";
+}else if(vorwahl=="0420"){
+CountryName="Tschechien";
+}else if(vorwahl=="0358"){
+CountryName="Finnland";
+}else if(vorwahl=="032"){
+CountryName="Belgien";
+}else if(vorwahl=="0389"){
+CountryName="Mazedonien";
+}else if(vorwahl=="99"){
+CountryName="anderes Land";
+}else if(vorwahl==""){
+CountryName="anderes Land";
+}else{
+CountryName="unbekanntes Land"+" ("+vorwahl+")";
+}
+return CountryName;
+}
+function countryHasOKZ(vorwahl){
+if(vorwahl=="0264"){
+return false; //Namibia
+}else if(vorwahl=="034"){
+return false; //Spanien
+}else if(vorwahl=="030"){
+return false; //Griechenland
+}else if(vorwahl=="0352"){
+return false; //Luxemburg
+}else if(vorwahl=="039"){
+return false; //Italien
+}else if(vorwahl=="045"){
+return false; //Dänemark
+}else if(vorwahl=="0351"){
+return false; //Portugal
+}else if (vorwahl=="0389"){
+return false; //Mazedonien
+}else if (vorwahl=="354"){
+return false; //Island
+}else if (vorwahl=="047"){
+return false; //Norwegen
+}
+return true;
+}
+function readCountries() {
+var countries = {
+list: []
+};
+ 
+if ("049" == "99") {
+countries.other = {
+id:"049",
+name:GetCountryName("049")
+};
+}
+else {
+countries.list.push({
+id:"049",
+name:GetCountryName("049")
+});
+}
+ 
+return countries;
+}
+function getName(country) {
+return country.name || "";
+}
+function writeOptions() {
+var str = [];
+var countries = readCountries();
+if(countries.other){
+str.push("<option selected value=\"" + countries.other.id + "\">");
+str.push(countries.other.name + "</option>");
+}
+sortByStrings(countries.list, getName);
+for (var i = 0, len = countries.list.length; i < len; i++) {
+str.push("<option value=\"" + countries.list[i].id +"\">");
+str.push(countries.list[i].name + "</option>");
+}
+document.write(str.join(""));
+}
+ 
+var g_expertMode = "1";
+var g_usePstn = "0";
+var g_mldVad = "Durch die Aktivierung der Sprechpausen-Erkennung kann auf der Gegenseite die Sprachqualität beeinträchtigt werden.";
+var g_mldSipPrio = "Geben Sie im Feld SIP-Wert eine Zahl zwischen 0 und 63 ein.";
+var g_mldRtpPrio = "Geben Sie im Feld RTP-Wert eine Zahl zwischen 0 und 63 ein.";
+var g_mldUserLeer = "Der Benutzername darf nicht leer sein.";
+var g_mldKennwortDiff = "Das Passwort/Kennwort stimmt nicht mit der Bestätigung überein.";
+var g_VPIMustNumber = "VPI: Ungültige Eingabe, es sind nur Ziffern erlaubt.";
+var g_VCIMustNumber = "VCI: Ungültige Eingabe, es sind nur Ziffern erlaubt.";
+var g_VPIOutOfRange = "VPI: Ungültige Eingabe, es sind Eingaben zwischen 0 und 255 erlaubt.";
+var g_VCIOutOfRange = "VCI: Ungültige Eingabe, es sind Eingaben zwischen 32 und 65535 erlaubt.";
+var g_mldIpaddrFormatPre = "Fehler im Feld %1%GUIEingabefeld%";
+var g_mldIpaddrFormatPost = ": Die Eingabe ist keine gültige IP-Adresse.";
+var g_mldNetmaskPost = ": Die eingegebene Subnetzmaske ist ungültig.";
+var g_mldIpaddrTheNet = ": Dieser Wert stellt das Subnetz an sich dar und kann nicht verwendet werden.";
+var g_mldIpaddrBroadcast = ": Dieser Wert stellt die Broadcast-Adresse in Ihrem Subnetz dar und kann nicht verwendet werden.";
+var g_mldIpaddrDiffNet = ": Diese Adresse befindet sich in einem anderen Subnetz, als das durch die IP-Adresse und Netzmaske definierte.";
+var g_mldOkzDigit = "Die Ortsvorwahl darf nur aus Ziffern bestehen.";
+var g_mldOkz0 = "Geben Sie bei der Ortsvorwahl einen gültigen Wert ein.";
+var g_mldLkzDigit = "Die Landesvorwahl darf nur aus Ziffern bestehen.";
+var g_txtIpAdr = "IP-Adresse";
+var g_txtNetmask = "Subnetzmaske";
+var g_txtGateway = "Standard-Gateway";
+var g_txtDns1 = "Primärer DNS Server";
+var g_txtDns2 = "Sekundärer DNS Server";
+var g_ErrIpOk = 0;
+var g_ErrIpDiffNet = 1;
+var g_ErrIpTheNet = 2;
+var g_ErrIpBroadcast = 3;
+var g_Oem = "1und1";
+var g_isDsl = "1";
+var g_isAta = "1";
+var g_AtaMode = "0";
+var g_MaxVoIpAccounts=20;
+function uiDoOnLoad() {
+document.title = "FRITZ!Box Internettelefonie";
+if (g_usePstn == "1") {
+jslDisplay("uiFallback", true);
+var b = false;
+for (var i=0; i<g_MaxVoIpAccounts; i++) {
+if (jslGetValue("uiPostFallback"+i) == "1") b = true;
+}
+jslSetChecked("uiViewFallback", b);
+}
+// jslSetChecked("uiViewBlacklist", jslGetValue("uiPostBlacklist")=="1");
+if (isAtamode()) {
+jslDisplay("uiSipping", true);
+jslSetChecked("uiViewSipping", jslGetValue("uiPostSipPingsip0") == "1");
+jslSetSelection("uiViewSippingTimer", "280");
+jslSetSelection("uiViewSippingTimer", jslGetValue("uiPostSipPingTimersip0"));
+OnSipping();
+}
+var lkz = jslGetValue("uiPostLKZ");
+switch (lkz) {
+case "49":jslSetSelection("uiViewLand", "049"); break;
+case "43":jslSetSelection("uiViewLand", "043"); break;
+case "41": jslSetSelection("uiViewLand", "041"); break;
+ 
+default: jslSetSelection("uiViewLand", ""); break;
+}
+jslCopyValue("uiViewLKZPrefix", "uiPostLKZPrefix");
+jslCopyValue("uiViewLKZ", "uiPostLKZ");
+jslCopyValue("uiViewOKZPrefix", "uiPostOKZPrefix");
+jslCopyValue("uiViewOKZ", "uiPostOKZ");
+OnLand("0"+lkz);
+if (g_expertMode == "1") {
+jslDisplay("uiExpert", true);
+jslSetChecked("uiViewVad", jslGetValue("uiPostVad") == "1");
+jslCopyValue("uiViewSipPrio", "uiPostSipPrio");
+jslCopyValue("uiViewRtpPrio", "uiPostRtpPrio");
+ 
+jslSetChecked("uiViewT38", jslGetValue("uiPostT38") == "1");
+ 
+if (g_Oem != "freenet" || g_usePstn != "0") jslDisplay("uiTos", true);
+var kompress = 0;
+if (jslGetValue("uiPostDynCodec") == "1") {
+kompress = jslGetValue("uiPostLowCodecs")=="1" ? 2 : 1;
+}
+OnKompress(kompress);
+if (((g_Oem == "avm" || g_Oem == "otwo") && !(IsISPFreenet() && IsNonFestnetzActiv() ) )|| g_Oem == "avme" || g_Oem == "1und1") {
+var showUiVcc = true;
+if (isProvisionedByUnitedInternet()) {
+showUiVcc = false;
+}
+jslDisplay("uiVcc", showUiVcc);
+jslSetChecked("uiViewUseVcc",jslGetValue("uiPostUseSepVcc")=="1");
+var encaps = jslGetValue("uiPostEncaps");
+var ppp = (encaps.substr(9,3)=="ppp");
+jslSetChecked("uiViewPpp",ppp);
+jslSetChecked("uiViewIp",!ppp);
+jslCopyValue("uiViewUsername", "uiPostUsername");
+jslCopyValue("uiViewPassword", "uiPostPassword");
+jslCopyValue("uiViewPassword2", "uiPostPassword");
+jslCopyValue("uiViewVPI", "uiPostVpi");
+jslCopyValue("uiViewVCI", "uiPostVci");
+jslSetChecked("uiViewPPPoE",true);
+jslSetChecked("uiViewPPPoA1",jslGetValue("uiPostEncaps")=="dslencap_pppoa_llc");
+jslSetChecked("uiViewPPPoA2",jslGetValue("uiPostEncaps")=="dslencap_pppoa");
+jslSetChecked("uiViewIpEncaps1",true);
+if (jslGetValue("uiPostEncaps")=="dslencap_ether") jslEnable("uiViewUseDhcp");
+else jslDisable("uiViewUseDhcp");
+jslSetChecked("uiViewUseDhcp",jslGetValue("uiPostDhcp")=="1");
+jslSetChecked("uiViewIpEncaps2",jslGetValue("uiPostEncaps")=="dslencap_ipnlpid");
+jslSetChecked("uiViewIpEncaps3",jslGetValue("uiPostEncaps")=="dslencap_ipsnap");
+jslSetChecked("uiViewIpEncaps4",jslGetValue("uiPostEncaps")=="dslencap_ipraw");
+jslCopyValue("uiViewIpaddr", "uiPostIpaddr");
+jslCopyValue("uiViewNetmask", "uiPostNetmask");
+jslCopyValue("uiViewGateway", "uiPostGateway");
+jslCopyValue("uiViewDns0", "uiPostDns0");
+jslCopyValue("uiViewDns1", "uiPostDns1");
+OnClickUseVcc();
+ShowParams(ppp);
+uiDoUseDhcp();
+}
+}
+}
+function IsNonFestnetzActiv(){
+if("0" == "1")
+return false;
+else
+return true;
+}
+function OnClickVad () {
+if (jslGetChecked("uiViewVad")) {
+if (!confirm(g_mldVad)) jslSetChecked("uiViewVad", false);
+}
+}
+function uiDoSave() {
+if (!valIsZahl(jslGetValue("uiViewLKZ")) || !valIsZahl(jslGetValue("uiViewLKZPrefix"))) {alert(g_mldLkzDigit); return;}
+if (countryHasOKZ("0" + jslGetValue("uiViewLKZ"))) {
+if (!valIsZahl(jslGetValue("uiViewOKZ")) || !valIsZahl(jslGetValue("uiViewOKZPrefix"))) {alert(g_mldOkzDigit); return;}
+}
+jslCopyValue("uiPostOKZ", "uiViewOKZ");
+jslCopyValue("uiPostOKZPrefix", "uiViewOKZPrefix");
+jslCopyValue("uiPostLKZ", "uiViewLKZ");
+jslCopyValue("uiPostLKZPrefix", "uiViewLKZPrefix");
+if (g_usePstn == "1") {
+var b = jslGetChecked("uiViewFallback") ? "1":"0";
+for (var i=0; i<g_MaxVoIpAccounts; i++) {
+jslEnable("uiPostFallback"+i);
+jslSetValue("uiPostFallback"+i, b);
+}
+}
+//jslSetValue("uiPostBlacklist", jslGetChecked("uiViewBlacklist") ? "1" : "0");
+if (isAtamode()) {
+ 
+jslSetValue("uiPostSipPingsip0", jslGetChecked("uiViewSipping") ? "1" : "0");
+jslCopyValue("uiPostSipPingTimersip0", "uiViewSippingTimer");
+jslEnable("uiPostSipPingsip0");
+jslEnable("uiPostSipPingTimersip0");
+ 
+jslSetValue("uiPostSipPingsip1", jslGetChecked("uiViewSipping") ? "1" : "0");
+jslCopyValue("uiPostSipPingTimersip1", "uiViewSippingTimer");
+jslEnable("uiPostSipPingsip1");
+jslEnable("uiPostSipPingTimersip1");
+ 
+jslSetValue("uiPostSipPingsip2", jslGetChecked("uiViewSipping") ? "1" : "0");
+jslCopyValue("uiPostSipPingTimersip2", "uiViewSippingTimer");
+jslEnable("uiPostSipPingsip2");
+jslEnable("uiPostSipPingTimersip2");
+ 
+}
+if (g_expertMode == "1") {
+var n = jslGetValue("uiViewSipPrio");
+if (!valIsZahlVorhanden(n)) {alert(g_mldSipPrio); return;}
+if (Number(n)<0 || Number(n)>63) {alert(g_mldSipPrio); return;}
+n = jslGetValue("uiViewRtpPrio");
+if (!valIsZahlVorhanden(n)) {alert(g_mldRtpPrio); return;}
+if (Number(n)<0 || Number(n)>63) {alert(g_mldRtpPrio); return;}
+jslSetValue("uiPostVad", jslGetChecked("uiViewVad") ? "1" : "0");
+jslCopyValue("uiPostSipPrio", "uiViewSipPrio");
+jslCopyValue("uiPostRtpPrio", "uiViewRtpPrio");
+ 
+jslSetValue("uiPostT38", jslGetChecked("uiViewT38") ? "1" : "0");
+jslEnable("uiPostT38");
+ 
+jslSetValue("uiPostDynCodec", jslGetChecked("uiViewNoCodec") ? "0" : "1");
+jslSetValue("uiPostLowCodecs", jslGetChecked("uiViewDynLowCodec") ? "1" : "0");
+jslEnable("uiPostDynCodec");
+jslEnable("uiPostLowCodecs");
+if (((g_Oem == "avm" || g_Oem == "otwo") && !(IsISPFreenet() && IsNonFestnetzActiv() ) )|| g_Oem == "avme" || g_Oem == "1und1") {
+jslSetValue("uiPostUseSepVcc", jslGetChecked("uiViewUseVcc") ? "1" : "0");
+jslEnable("uiPostUseSepVcc");
+if (jslGetChecked("uiViewUseVcc")) {
+if (jslGetChecked("uiViewPpp")) {
+if (jslGetValue("uiViewUsername")=="") {alert(g_mldUserLeer); return;}
+if (jslGetValue("uiViewPassword")!=jslGetValue("uiViewPassword2")) {alert(g_mldKennwortDiff); return;}
+jslCopyValue("uiPostUsername", "uiViewUsername");
+jslCopyValue("uiPostPassword", "uiViewPassword");
+if (!ValidateVpci()) return;
+if (jslGetChecked("uiViewPPPoE")) jslSetValue("uiPostEncaps","dslencap_pppoe");
+if (jslGetChecked("uiViewPPPoA1")) jslSetValue("uiPostEncaps","dslencap_pppoa_llc");
+if (jslGetChecked("uiViewPPPoA2")) jslSetValue("uiPostEncaps","dslencap_pppoa");
+jslEnable("uiPostUsername");
+jslEnable("uiPostPassword");
+jslEnable("uiPostVpi");
+jslEnable("uiPostVci");
+jslEnable("uiPostEncaps");
+} else {
+if (!ValidateVpci()) return;
+if (jslGetChecked("uiViewIpEncaps1")) {
+if (jslGetChecked("uiViewUseDhcp")) {
+jslSetValue("uiPostDhcp", "1");
+} else {
+if (!ValidateIpForm("uiView")) return false;
+jslSetValue("uiPostDhcp", "0");
+SaveIpForm();
+jslEnable("uiPostIpaddr");
+jslEnable("uiPostNetmask");
+jslEnable("uiPostGateway");
+jslEnable("uiPostDns0");
+jslEnable("uiPostDns1");
+}
+jslSetValue("uiPostEncaps", "dslencap_ether");
+jslEnable("uiPostDhcp");
+jslEnable("uiPostEncaps");
+} else if (jslGetChecked("uiViewIpEncaps2")) {
+if (!ValidateIpForm("uiView")) return;
+jslSetValue("uiPostEncaps", "dslencap_ipnlpid");
+SaveIpForm();
+jslEnable("uiPostEncaps");
+jslEnable("uiPostIpaddr");
+jslEnable("uiPostNetmask");
+jslEnable("uiPostGateway");
+jslEnable("uiPostDns0");
+jslEnable("uiPostDns1");
+} else if (jslGetChecked("uiViewIpEncaps3")) {
+if (!ValidateIpForm("uiView")) return false;
+jslSetValue("uiPostEncaps", "dslencap_ipsnap");
+SaveIpForm();
+jslEnable("uiPostEncaps");
+jslEnable("uiPostIpaddr");
+jslEnable("uiPostNetmask");
+jslEnable("uiPostGateway");
+jslEnable("uiPostDns0");
+jslEnable("uiPostDns1");
+} else if (jslGetChecked("uiViewIpEncaps4")) {
+if (!ValidateIpForm("uiView")) return false;
+jslSetValue("uiPostEncaps", "dslencap_ipraw");
+SaveIpForm();
+jslEnable("uiPostEncaps");
+jslEnable("uiPostIpaddr");
+jslEnable("uiPostNetmask");
+jslEnable("uiPostGateway");
+jslEnable("uiPostDns0");
+jslEnable("uiPostDns1");
+}
+jslEnable("uiPostVpi");
+jslEnable("uiPostVci");
+}
+jslSetValue("uiPostSarAuto","0");
+jslEnable("uiPostSarAuto");
+}
+}
+}
+jslFormSubmitEx("fon", "sipoptionen");
+}
+function ValidateVpci() {
+var vpi = jslGetValue("uiViewVPI");
+var vci = jslGetValue("uiViewVCI");
+if (!valIsZahlVorhanden(vpi)) {alert(g_VPIMustNumber); return false;}
+if ((vpi < 0) || (vpi > 255)) {alert(g_VPIOutOfRange); return false;}
+if (!valIsZahlVorhanden(vci)) {alert(g_VCIMustNumber); return false;}
+if ((vci < 32) || (vci > 65535)) {alert(g_VCIOutOfRange); return false;}
+jslSetValue("uiPostVpi", vpi);
+jslSetValue("uiPostVci", vci);
+return true;
+}
+function SaveIpForm() {
+jslCopyValue("uiPostIpaddr","uiViewIpaddr");
+jslCopyValue("uiPostNetmask","uiViewNetmask");
+jslCopyValue("uiPostGateway","uiViewGateway");
+jslCopyValue("uiPostDns0","uiViewDns0");
+jslCopyValue("uiPostDns1","uiViewDns1");
+}
+function uiDoCancel() {
+jslGoTo("fon", "sipoptionen");
+}
+function uiDoSiplist() {
+jslGoTo("fon", "siplist");
+}
+function uiDoHelp() {
+jslPopHelp("hilfe_fon_voiperweitert");
+}
+function OnClickUseVcc() {
+var b = jslGetChecked("uiViewUseVcc");
+jslSetEnabled("uiViewPpp",b);
+jslSetEnabled("uiViewIp",b);
+jslSetEnabled("uiViewUsername",b);
+jslSetEnabled("uiViewPassword",b);
+jslSetEnabled("uiViewPassword2",b);
+jslSetEnabled("uiViewVPI",b);
+jslSetEnabled("uiViewVCI",b);
+jslSetEnabled("uiViewPPPoE",b);
+jslSetEnabled("uiViewPPPoA1",b);
+jslSetEnabled("uiViewPPPoA2",b);
+jslSetEnabled("uiViewIpEncaps1",b);
+jslSetEnabled("uiViewUseDhcp",b);
+jslSetEnabled("uiViewIpEncaps2",b);
+jslSetEnabled("uiViewIpEncaps3",b);
+jslSetEnabled("uiViewIpEncaps4",b);
+jslSetEnabled("uiViewIpaddr",b);
+jslSetEnabled("uiViewNetmask",b);
+jslSetEnabled("uiViewGateway",b);
+jslSetEnabled("uiViewDns0",b);
+jslSetEnabled("uiViewDns1",b);
+}
+function ShowParams(ppp) {
+jslDisplay("uiViewPppLogin",ppp);
+jslDisplay("uiViewPppEncaps",ppp);
+jslDisplay("uiViewIpEncaps",!ppp);
+}
+function OnClickPpp() {
+ShowParams(true);
+}
+function OnClickIp() {
+ShowParams(false);
+}
+function OnKompress(n) {
+jslSetChecked("uiViewNoCodec", n==0);
+jslSetChecked("uiViewDynCodec", n==1);
+jslSetChecked("uiViewDynLowCodec", n==2);
+}
+function OnSipping() {
+jslSetEnabled("uiViewSippingTimer", jslGetChecked("uiViewSipping"));
+}
+function uiDoIpEncaps(n) {
+jslSetChecked("uiViewIpEncaps1", (n==1));
+jslSetChecked("uiViewIpEncaps2", (n==2));
+jslSetChecked("uiViewIpEncaps3", (n==3));
+jslSetChecked("uiViewIpEncaps4", (n==4));
+switch (n) {
+case 1:
+jslEnable("uiViewUseDhcp");
+uiDoUseDhcp();
+break;
+case 0:
+case 2:
+case 3:
+case 4:
+jslDisable("uiViewUseDhcp");
+enableIpAdrs(true);
+break;
+}
+}
+function uiDoUseDhcp() {
+enableIpAdrs(!jslGetChecked("uiViewUseDhcp"));
+}
+function enableIpAdrs(b) {
+jslSetEnabled("uiViewIpaddr", b);
+jslSetEnabled("uiViewNetmask", b);
+jslSetEnabled("uiViewGateway", b);
+jslSetEnabled("uiViewDns0", b);
+jslSetEnabled("uiViewDns1", b);
+}
+function ValidateIpForm(prefix) {
+// sind alle Felder im dotted Quad Format?
+if (pppDoValidateIpaddrFormat(jslGetValue(prefix+"Ipaddr")) == false) {
+alert(jslPrintf(g_mldIpaddrFormatPre,g_txtIpAdr)+g_mldIpaddrFormatPost);
+return false;
+}
+if (pppDoValidateIpaddrFormat(jslGetValue(prefix+"Netmask")) == false) {
+alert(jslPrintf(g_mldIpaddrFormatPre,g_txtNetmask)+g_mldIpaddrFormatPost);
+return false;
+}
+if (pppDoValidateIpaddrFormat(jslGetValue(prefix+"Gateway")) == false) {
+alert(jslPrintf(g_mldIpaddrFormatPre,g_txtGateway)+g_mldIpaddrFormatPost);
+return false;
+}
+if (pppDoValidateIpaddrFormat(jslGetValue(prefix+"Dns0")) == false) {
+alert(jslPrintf(g_mldIpaddrFormatPre,g_txtDns1)+g_mldIpaddrFormatPost);
+return false;
+}
+if (pppDoValidateIpaddrFormat(jslGetValue(prefix+"Dns1")) == false) {
+alert(jslPrintf(g_mldIpaddrFormatPre,g_txtDns2)+g_mldIpaddrFormatPost);
+return false;
+}
+// ist die Netzmaske eine Netzmaske?
+if (pppDoValidateNetmask(jslGetValue(prefix+"Netmask")) == false) {
+alert(jslGetValue(prefix+"Netmask")+g_mldNetmaskPost);
+return false;
+}
+// sind IP-Adresse und Gateway gültige Adressen im Subnetz?
+netbits = GetNetBits(jslGetValue(prefix+"Ipaddr"), jslGetValue(prefix+"Netmask"));
+ret = pppDoValidateIpaddr(jslGetValue(prefix+"Ipaddr"), netbits);
+if (ret!=g_ErrIpOk) {
+if (ret == g_ErrIpTheNet) alert(jslPrintf(g_mldIpaddrFormatPre,g_txtIpAdr)+g_mldIpaddrTheNet);
+if (ret == g_ErrIpBroadcast) alert(jslPrintf(g_mldIpaddrFormatPre,g_txtIpAdr)+g_mldIpaddrBroadcast);
+return false;
+}
+ret = pppDoValidateIpaddr(jslGetValue(prefix+"Gateway"), netbits);
+if (ret!=g_ErrIpOk) {
+if (ret == g_ErrIpDiffNet) alert(jslPrintf(g_mldIpaddrFormatPre,g_txtGateway)+g_mldIpaddrDiffNet);
+if (ret == g_ErrIpTheNet) alert(jslPrintf(g_mldIpaddrFormatPre,g_txtGateway)+g_mldIpaddrTheNet);
+if (ret == g_ErrIpBroadcast) alert(jslPrintf(g_mldIpaddrFormatPre,g_txtGateway)+g_mldIpaddrBroadcast);
+return false;
+}
+return true;
+}
+function pppDoValidateIpaddrFormat(addr) {
+var pattern = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+if (addr.match(pattern) == null) return false;
+pattern.exec(addr);
+if (RegExp.$1>255) return false;
+if (RegExp.$2>255) return false;
+if (RegExp.$3>255) return false;
+if (RegExp.$4>255) return false;
+return true;
+}
+function DecToBin(num) {
+var ret = '';
+for (var i=7; i>=0; i--) {
+if (((1<<i)&num)!=0) ret+='1';
+else ret+='0';
+}
+return ret;
+}
+function IpToBitstring(mask) {
+var pattern = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+var str = '';
+pattern.exec(mask);
+str+=DecToBin(RegExp.$1);
+str+=DecToBin(RegExp.$2);
+str+=DecToBin(RegExp.$3);
+str+=DecToBin(RegExp.$4);
+return str;
+}
+function pppDoValidateNetmask(mask) {
+var str = IpToBitstring(mask);
+if (str.match(/^1+0+0$/) == null) return false;
+return true;
+}
+function GetNetBits(addr,mask) {
+var netstr = IpToBitstring(addr);
+var maskstr = IpToBitstring(mask);
+var len = maskstr.indexOf('0');
+return netstr.substr(0,len);
+}
+function pppDoValidateIpaddr(addr,netbits) {
+var addrstr = IpToBitstring(addr);
+var netpart = addrstr.substr(0,netbits.length);
+var mypart = addrstr.slice(netbits.length);
+if (netpart!=netbits) return g_ErrIpDiffNet;
+if (mypart.indexOf('1')==-1) return g_ErrIpTheNet;
+if (mypart.indexOf('0')==-1) return g_ErrIpBroadcast;
+return g_ErrIpOk;
+}
+function isAtamode () {
+return (g_isDsl == "0") || (g_isAta == "1" && g_AtaMode == "1");
+}
+function uiDoQuality() {
+jslGoTo("fon", "quality");
+}
+// Ortsvorwahl mit führender Null anzeigen
+function GetOKZDisplay (id) {
+var h = document.getElementById(id);
+if (h == null) return "";
+var nr = h.value;
+if (nr.length == 0) return nr;
+if (nr.substr(0,1) == "0") return nr;
+return "0"+nr;
+}
+// führende Null bei Ortsvorwahl abschneiden
+function GetOKZohneNull (id) {
+var h = document.getElementById(id);
+if (h == null) return "";
+var nr = jslDoEliminateBlanks(h.value);
+if (nr.substr(0,1) != "0") return nr;
+return nr.substr(1, nr.length-1);
+}
+function valOKZ (okz) {
+var nr = jslDoEliminateBlanks(okz);
+if (nr.length == 0) {alert(g_mldOkz0); return false;}
+if (!valIsZahlVorhanden(nr)) {alert(g_mldOkzDigit); return false;}
+if (nr == "0") {alert(g_mldOkz0); return false;}
+return true;
+}
+function OnLand (n) {
+var doShowOKZ = countryHasOKZ(n);
+jslDisplay("uiViewShowOKZ",doShowOKZ);
+switch (n) {
+case "049": jslSetValue("uiViewLKZPrefix", "00"); jslSetValue("uiViewLKZ", "49"); jslSetValue("uiViewOKZPrefix", "0"); break;
+case "043": jslSetValue("uiViewLKZPrefix", "00"); jslSetValue("uiViewLKZ", "43"); jslSetValue("uiViewOKZPrefix", "0"); break;
+case "041": jslSetValue("uiViewLKZPrefix", "00"); jslSetValue("uiViewLKZ", "41"); jslSetValue("uiViewOKZPrefix", "0"); break;
+ 
+}
+if (!doShowOKZ) {
+jslSetValue("uiViewOKZ", "");
+jslSetValue("uiViewOKZPrefix", "");
+}
+}
+ 
+function AddCountrysGerman()
+{
+var countries = {
+list: []
+};
+countries.list.push({
+id:"049",
+name:GetCountryName("049")
+});
+countries.list.push({
+id:"043",
+name:GetCountryName("043")
+});
+countries.list.push({
+id:"041",
+name:GetCountryName("041")
+});
+countries.list.push({
+id:"099",
+name:GetCountryName("099")
+});
+var str = [];
+if(countries.other){
+str.push("<option selected value=\"" + countries.other.id + "\">");
+str.push(countries.other.name + "</option>");
+}
+sortByStrings(countries.list, getName);
+for (var i = 0, len = countries.list.length; i < len; i++) {
+str.push("<option value=\"" + countries.list[i].id +"\">");
+str.push(countries.list[i].name + "</option>");
+}
+document.write(str.join(""));
+}
+</script> 
+ 
+ 
+<script type="text/javascript"> 
+var jxl = jxl || {
+get: function (idOrElement) {
+if (typeof idOrElement == 'string') {
+return document.getElementById(idOrElement);
+}
+return idOrElement;
+},
+setHtml: function (idOrElement,txt) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.innerHTML = txt;
+}
+},
+setText: function (idOrElement,txt) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.hasChildNodes()) {
+elem.innerHTML = "";
+}
+elem.appendChild(document.createTextNode(txt));
+}
+},
+getBy: function (idOrElement,tag,filter) {
+var elem = jxl.get(idOrElement) || document;
+var result = [];
+if (elem) {
+tag = tag || "*";
+var noFilter = !(typeof filter == 'function');
+var nodes = elem.getElementsByTagName(tag);
+for (var i = 0, len = nodes.length; i < len; i++) {
+if (noFilter || filter(nodes[i])) {
+result.push(nodes[i]);
+}
+}
+}
+return result;
+},
+cssStrToCamelCase: function (str) {
+var strArr = str.split("-");
+var ret = strArr[0];
+for (var i = 1, len = strArr.length; i < len; i++) {
+ret += strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1);
+}
+return ret;
+},
+setOpacity: function (idOrElement, val) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style.opacity = val;
+elem.style.filter = 'alpha(opacity=' + (val * 100).toFixed(0) + ')';
+}
+},
+setStyleFloat: function (idOrElement, val) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style.cssFloat = val;
+elem.style.styleFloat = val;
+}
+},
+setStyle: function (idOrElement, cssName, cssValue) {
+if (typeof cssName == 'string') {
+switch (cssName) {
+case 'opacity':
+jxl.setOpacity(idOrElement, cssValue);
+break;
+case 'float':
+jxl.setStyleFloat(idOrElement, cssValue);
+break;
+default:
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style[jxl.cssStrToCamelCase(cssName)] = cssValue;
+}
+break;
+}
+}
+},
+setStyles: function (idOrElement, css) {
+for (var cssName in css) {
+jxl.setStyle(idOrElement, cssName, css[cssName]);
+}
+},
+getCurrentStyle: function (idOrElement,cssName) {
+var elem = jxl.get(idOrElement);
+var theStyle = null;
+if (elem) {
+if (window.getComputedStyle) {
+theStyle = window.getComputedStyle(elem, null);
+}
+else if (document.defaultView && document.defaultView.getComputedStyle) {
+theStyle = document.defaultView.getComputedStyle(elem, null);
+}
+else if (elem.currentStyle) {
+theStyle = elem.currentStyle;
+}
+}
+if (!theStyle) {
+theStyle = elem.style;
+}
+if (theStyle && cssName) {
+return theStyle[jxl.cssStrToCamelCase(cssName)];
+}
+return theStyle;
+},
+reduceWhiteSpace: function (str) {
+str = str.replace(/^\s+|\s+$/g, "");
+str = str.replace(/[\s,\xa0]+/g, " ");
+return str;
+},
+classNameCache: {},
+classNameRegExp: function (theClassName) {
+if (!jxl.classNameCache[theClassName]) {
+jxl.classNameCache[theClassName] = new RegExp('(?:^|\\s+)' + theClassName + '(?:\\s+|$)');
+}
+return jxl.classNameCache[theClassName];
+},
+hasClass: function (idOrElement, theClassName) {
+var elem = jxl.get(idOrElement);
+if (!elem) {
+return false;
+}
+var r = jxl.classNameRegExp(theClassName);
+return r.test(elem.className);
+},
+addClass: function (idOrElement, theClassNames) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+var theClasses = jxl.reduceWhiteSpace(theClassNames).split(' ');
+for (var i = 0, len = theClasses.length; i < len; i++) {
+if (!jxl.hasClass(elem, theClasses[i])) {
+elem.className = [elem.className,theClasses[i]].join(' ');
+}
+}
+elem.className = jxl.reduceWhiteSpace(elem.className);
+}
+},
+removeClass: function (idOrElement, theClassNames) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+var theClasses = jxl.reduceWhiteSpace(theClassNames).split(' ');
+var r;
+for (var i = 0, len = theClasses.length; i < len; i++) {
+r = jxl.classNameRegExp(theClasses[i]);
+if (r.test(elem.className)) {
+elem.className = elem.className.replace(r," ");
+}
+}
+elem.className = jxl.reduceWhiteSpace(elem.className);
+}
+},
+isQuirksMode: function () {
+return (typeof document.compatMode != 'string' || document.compatMode.indexOf('CSS') == -1);
+},
+toNumber: function (num,defaultNum) {
+var n = parseInt(num);
+return isNaN(n) ? (defaultNum || 0) : n;
+},
+getDoc: function () {
+return (jxl.isQuirksMode()) ? document.body : document.documentElement;
+},
+getDocSizes: function () {
+var ret = {};
+var doc = jxl.getDoc();
+for (var i = 0; i < arguments.length; i++) {
+ret[arguments[i]] = jxl.toNumber(doc[arguments[i]],0);
+}
+return ret;
+},
+addEventHandler: function (idOrElement,eventName,handlerFunction) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.addEventListener) {
+if (eventName == 'mousewheel') {
+elem.addEventListener('DOMMouseScroll', handlerFunction, false);
+}
+elem.addEventListener(eventName, handlerFunction, false);
+return true;
+}
+else if (elem.attachEvent) {
+elem.attachEvent("on" + eventName, handlerFunction);
+return true;
+}
+return false;
+}
+return false;
+},
+removeEventHandler: function (idOrElement,eventName,handlerFunction) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.addEventListener) {
+if (eventName == 'mousewheel') {
+elem.removeEventListener('DOMMouseScroll', handlerFunction, false);
+}
+elem.removeEventListener(eventName, handlerFunction, false);
+}
+else if (elem.attachEvent) {
+elem.detachEvent("on" + eventName, handlerFunction);
+}
+}
+},
+cancelEvent: function (evt) {
+evt = evt || window.event;
+if(evt.stopPropagation) {
+evt.stopPropagation();
+}
+if(evt.preventDefault) {
+evt.preventDefault();
+}
+evt.cancelBubble = true;
+evt.cancel = true;
+evt.returnValue = false;
+return false;
+}
+};
+ 
+var globalOnClick = (function() {
+function checkElem(elem) {
+var tag = (elem.tagName || "").toLowerCase();
+//var type = (elem.type || "").toLowerCase();
+var target = (elem.target || "").toLowerCase();
+switch (tag) {
+case "a":
+return target == "";
+case "button":
+return elem.id == "uiSubmitLogin";
+}
+return false;
+}
+function isLinkWithOnclick(elem) {
+var tag = (elem.tagName || "").toLowerCase();
+return tag == "a" && elem.onclick;
+}
+function isChrome() {
+var s = navigator.userAgent;
+return s.indexOf("Chrome") > -1
+}
+function globalClickHandler(evt) {
+evt = evt || window.event;
+var elem = evt.target || evt.srcElement;
+if (isLinkWithOnclick(elem)) {
+return false;
+}
+if (checkElem(elem)) {
+jxl.setStyle(elem, "cursor", "wait");
+setTimeout(function() { jxl.setStyle(elem, "cursor", ""); elem = null; }, 3000);
+}
+return true;
+}
+function init() {
+if (isChrome()) {
+return;
+}
+jxl.addEventHandler(document, "click", globalClickHandler);
+}
+return {
+init: init
+};
+})();
+ 
+function jslAddSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null)
+elem.childNodes[0].nodeValue += text;
+}
+function WriteTime(id)
+{
+if (g_StopTimeWrite)
+return;
+var CurTimeObj = new Date();
+var time = CurTimeObj.getTime();
+//jslAddSpanText("uiCurrentTime","("+id+" -- "+(time-g_StartTime)+" --)");
+jslSetSpanText("uiCurrentTime","("+(time-g_StartTime)+" ms)");
+return;
+}
+function uiDoOnLoadFirst()
+{
+globalOnClick.init();
+uiDoOnLoad();
+WriteTime(0);
+}
+</script> 
+ 
+ 
+ 
+ 
+ 
+</head> 
+<body onload="uiDoOnLoadFirst()"> 
+<div id="uiTooltip" style="position:absolute;display:none;background-color:lightyellow;padding:5px;border:1px;border-color:black;border-style:solid;"></div> 
+<table style="margin: auto;"> 
+<tr><td> 
+<div class="fw_header"> 
+<img src="../html/de/images/leer.gif" width="120" height="70" usemap="#logo"> 
+<map name="logo"> 
+<area shape="rect" coords="10,0,110,70" href="javascript:OnOverview()"> 
+</map> 
+</div> 
+<div class="fw_bg_body"> 
+<table> 
+<tr> 
+<td id="Menuhead">&nbsp;
+</td> 
+<td id="Datahead"> 
+<div id="contenthead" align="center" > 
+<table style="width:787px;table-layout:fixed;margin-bottom:8px;font-size:13px;"> 
+<tr style="padding:0;"> 
+<td id="sub_menu_head" style="text-align:right; padding:0;padding-right:8px;" > 
+ 
+<a href="/logout.lua?sid=3a8ef4a34cfcf8a7&amp;" title="Von der Benutzeroberfläche abmelden" style=""> 
+<img src="/css/default/images/icon_abmelden.gif" style="vertical-align: middle;">Abmelden
+</a> 
+ 
+<a href="javascript:jslGoTo('system','extended');" title="Ansicht" > 
+ 
+<img src="/css/default/images/icon_ansicht_expert.gif" style="vertical-align: middle;"><span>Ansicht:</span></a><span style="vertical-align:-2px;"> Experte</span> 
+ 
+<a href="javascript:GoToSitemap();" title="Inhalt" style=""> 
+<img src="/css/default/images/icon_sitemap.gif" style="vertical-align: middle;">Inhalt
+</a> 
+<a href="javascript:jslPopHelpEx('home', '')" title="Hilfe" style=""> 
+<img src="/css/default/images/help.gif" style="vertical-align: middle;">Hilfe
+</a> 
+</td> 
+</tr> 
+</table> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td id="Menuspalte"> 
+<div id="menucontent"> 
+ 
+<div style=""> 
+<div class="menu_bar_left_head"></div> 
+<div class="menu_bar_right_head"></div> 
+<div class="menu_bar_back_head"> 
+<div id="MainMenuhead"> 
+</div> 
+</div> 
+</div> 
+<div class="menu_body_outer"> 
+<ul class="LMenu"> 
+ 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('home','home')">Übersicht</a> 
+</li> 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('internet','inetstat')">Internet</a> 
+</li> 
+ 
+ 
+<li class="selected submenu"> 
+<a href="javascript:jslGoTo('fon','foncalls')">Telefonie</a> 
+<ul> 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','foncalls')">Anrufe</a><span class="PTextOnly">Anrufe</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','fonbuch')">Telefonbuch</a><span class="PTextOnly">Telefonbuch</span></li> 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','wecker')">Weckruf</a><span class="PTextOnly">Weckruf</span></li> 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','rulall')">Rufumleitung</a><span class="PTextOnly">Rufumleitung</span></li> 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','routing')">Wahlregeln</a><span class="PTextOnly">Wahlregeln</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','fondevices')">Telefoniegeräte</a><span class="PTextOnly">Telefoniegeräte</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="selected"><a href="javascript:jslGoTo('fon','siplist')">Internettelefonie</a><span class="PTextOnly">Internettelefonie</span></li> 
+ 
+ 
+ 
+ 
+</ul> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('net','net')">Heimnetz</a> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('wlan','wlan')">WLAN</a> 
+</li> 
+ 
+ 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('dect','setting')">DECT</a> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('system','syslog')">System</a> 
+</li> 
+ 
+</ul> 
+ 
+</div> 
+<div style="position:relative;top:-21px"> 
+<div class="menu_bar_left_bottom"></div> 
+<div class="menu_bar_right_bottom"></div> 
+<div class="menu_bar_back_bottom"> 
+<div id="MainMenubottom"> 
+</div> 
+</div> 
+</div> 
+<div class="clear_float"></div> 
+<div style="position:relative;top:-21px"> 
+<div class="small_bar_left_head"></div> 
+<div class="small_bar_right_head"></div> 
+<div class="small_bar_back_head"> 
+<div id="MainWizardhead" style="padding-top:2px;"> 
+<ul> 
+ 
+<li> 
+<a href="javascript:jslGoTo('konfig','home')">Assistenten</a> 
+</li> 
+ 
+<li class="explain"> 
+Einrichten, Update, Telefone
+</li> 
+</ul> 
+</div> 
+</div> 
+<div class="small_bar_left_bottom"></div> 
+<div class="small_bar_right_bottom"></div> 
+<div class="small_bar_back_bottom"> 
+<div id="MainWizardbottom"> 
+</div> 
+</div> 
+</div> 
+<div class="clear_float"></div> 
+ 
+</div> 
+</td> 
+<td id="Dataspalte"> 
+<div align=center> 
+<div id="content"> 
+<div class="backtitel"><div class="rundrt"><div class="rundlt"><div class="ecklb"><div class="eckrb"><div class="foretitel"> 
+Internettelefonie
+</div></div></div></div></div></div> 
+<div class="backframe"><div class="ecklm"><div class="eckrm"><div class="rundrb"><div class="rundlb"><div class="foredialog"><div class="ie_b10"> 
+<ul class="tabs"> 
+<li><a href="javascript:uiDoSiplist()">Internetrufnummern</a></li> 
+<li class="tabs_on"><div class="activtab">Erweiterte Einstellungen</div></li> 
+ 
+<li><a href="javascript:uiDoQuality()">Sprachübertragung</a></li> 
+ 
+</ul> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+Hier können Sie zusätzliche Einstellungen für die Internettelefonie vornehmen.
+</div></div></div></div></div></div> 
+<div class="backdialog" id="uiFallback" style="display:none"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb5"><input type="checkbox" id="uiViewFallback">&nbsp;<label for="uiViewFallback">Festnetz-Ersatzverbindung verwenden</label></p> 
+<p class="pText25">Wenn die Anwahl über das Internet nicht möglich ist, wird die Telefonverbindung ersatzweise über den Festnetzanschluss der FRITZ!Box hergestellt.<br>Hinweis: Sie telefonieren dann zum Festnetz-Tarif.</p> 
+</div></div></div></div></div></div> 
+<div class="backdialog" id="uiSipping" style="display:none"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb5"><input type="checkbox" id="uiViewSipping" onclick="OnSipping()">&nbsp;<label for="uiViewSipping">Portweiterleitung des Internet-Routers für Internettelefonie aktiv halten</label></p> 
+<p class="pText25 mb5">Diese Option kann dann erforderlich werden, wenn der Internet-Router ankommende Internettelefonate nicht mehr an FRITZ!Box weiterleitet. FRITZ!Box hält die Portweiterleitungen des Internet-Routers für Internettelefonie aktiv.</p> 
+<p class="pText25"><label for="uiViewSippingTimer" style="margin-right: 20px">Portweiterleitung aktiv halten alle</label>&nbsp;<select size="1" id="uiViewSippingTimer" class="Eingabefeld" > 
+<option value="280">5 Min.</option> 
+<option value="120">2 Min.</option> 
+<option value="60">1 Min.</option> 
+<option value="30">30 Sek.</option> 
+</select></p> 
+</div></div></div></div></div></div> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb10">Standortangaben</p> 
+<div class="ml25"> 
+<select size="1" id="uiViewLand" class="Eingabefeld mb10" onchange="OnLand(value)"> 
+ 
+<script>AddCountrysGerman();</script> 
+ 
+</select> 
+<table> 
+<tr> 
+<td><label for="uiViewLKZ">Landesvorwahl</label></td> 
+<td><input type="text" size="3" maxlength="32" class="Eingabefeld" id="uiViewLKZPrefix">&nbsp;<input type="text" size="4" maxlength="32" class="Eingabefeld" id="uiViewLKZ"></td> 
+</tr> 
+<tr id="uiViewShowOKZ"> 
+<td><label for="uiViewOKZ">Ortsvorwahl</label></td> 
+<td><input type="text" size="3" maxlength="32" class="Eingabefeld" id="uiViewOKZPrefix">&nbsp;<input type="text" size="4" maxlength="32" class="Eingabefeld" id="uiViewOKZ"></td> 
+</tr> 
+</table> 
+</div> 
+</div></div></div></div></div></div> 
+<div id="uiExpert" style="display:none"> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb5"><input type="checkbox" id="uiViewVad" onclick="OnClickVad()">&nbsp;<label for="uiViewVad">Sprechpausen-Erkennung (VAD) verwenden</label></p> 
+<p class="pText25">Die Funktion unterbindet das Senden von Daten während der Sprechpausen. Aktivieren Sie diese Funktion, wenn Sie das Datenvolumen für Internettelefongespräche verringern wollen.</p> 
+</div></div></div></div></div></div> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb5">Wählen Sie hier aus, wie Telefongespräche die Bandbreite der DSL-Verbindung ausnutzen.</p> 
+<p class="mb5"><input type="radio" name="Kompress" onclick="OnKompress(1)" id="uiViewDynCodec">&nbsp;<label for="uiViewDynCodec">automatische Wahl der Sprachkodierung (empfohlen)</label></p> 
+<p class="mb5 ml25">FRITZ!Box passt die Sprachkodierung automatisch an die Geschwindigkeit des DSL-Anschlusses an.</p> 
+<p class="mb5"><input type="radio" name="Kompress" onclick="OnKompress(0)" id="uiViewNoCodec">&nbsp;<label for="uiViewNoCodec">immer Sprachkodierung mit Festnetzqualität verwenden</label></p> 
+<p class="mb5 ml25">FRITZ!Box verwendet grundsätzlich verlustfreie Sprachkodierung wie im Festnetz.</p> 
+<p class="mb5"><input type="radio" name="Kompress" onclick="OnKompress(2)" id="uiViewDynLowCodec">&nbsp;<label for="uiViewDynLowCodec">immer Sprachkodierung mit Kompression verwenden</label></p> 
+<p class="mb5 ml25">FRITZ!Box verwendet eine komprimierende Sprachkodierung und veringert so das Datenvolumen für Internettelefongespräche.</p> 
+</div></div></div></div></div></div> 
+<div class="backdialog" id="uiTos" style="display:none"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb10">Sprachpakete kennzeichnen (Type of Service)</p> 
+<p class="mb10">Durch die Kennzeichnung der Sprachpakete können die Pakete von Routern, die diese Kennzeichnung berücksichtigen, bevorzugt werden.</p> 
+<table class="ml25"> 
+<tr> 
+<td colspan="2">SIP-Pakete kennzeichnen</td> 
+</tr> 
+<tr> 
+<td class="c1"><label for="uiViewSipPrio">Wert</label></td> 
+<td class="c2"><input type="text" id="uiViewSipPrio" size="4" maxlength="3" class="Eingabefeld"></td> 
+</tr> 
+<tr> 
+<td colspan="2" class="pt10">RTP-Pakete kennzeichnen</td> 
+</tr> 
+<tr> 
+<td class="c1"><label for="uiViewRtpPrio">Wert</label></td> 
+<td class="c2"><input type="text" id="uiViewRtpPrio" size="4" maxlength="3" class="Eingabefeld"></td> 
+</tr> 
+</table> 
+</div></div></div></div></div></div> 
+<div class="backdialog" id="uiVcc" style="display:none"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb5"><input type="checkbox" id="uiViewUseVcc" onclick="OnClickUseVcc()">&nbsp;<label for="uiViewUseVcc">weitere Verbindung für die Internettelefonie über DSL nutzen (PVC)</label></p> 
+<p class="pText25 mb10">Dieses Merkmal muss von Ihrem DSL-Anbieter unterstützt werden.</p> 
+<p class="pRadio50"><input type="radio" name="encmode" id="uiViewPpp" onclick="OnClickPpp()">&nbsp;<label for="uiViewPpp">Ich habe Zugangsdaten erhalten (PPP)</label></p> 
+<p class="pRadio50 mb10"><input type="radio" name="encmode" id="uiViewIp" onclick="OnClickIp()">&nbsp;<label for="uiViewIp">Ich habe keine Zugangsdaten erhalten (RFC 2684, RFC 1483)</label></p> 
+<table class="ml50 mb10" id="uiViewPppLogin"> 
+<tr> 
+<td><label for="uiViewUsername">Benutzername</label></td> 
+<td><input type="text" id="uiViewUsername" size="40" maxlength="128" class="Eingabefeld"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewPassword">Kennwort</label></td> 
+<td><input type="password" id="uiViewPassword" size="14" maxlength="128" class="Eingabefeld" onfocus="uiSelect(id);"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewPassword2">Kennwortbestätigung</label></td> 
+<td><input type="password" id="uiViewPassword2" size="14" maxlength="128" class="Eingabefeld" onfocus="uiSelect(id);"></td> 
+</tr> 
+</table> 
+<p class="ml50 mb10">Die erforderlichen Werte für die ATM-Einstellungen erhalten Sie von Ihrem DSL-Anbieter.</p> 
+<table class="ml50 mb10"> 
+<tr> 
+<td><label for="uiViewVPI">VPI</label></td> 
+<td><input type="text" size="5" maxlength="3" class="Eingabefeld" id="uiViewVPI"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewVCI">VCI</label></td> 
+<td><input type="text" size="5" maxlength="5" class="Eingabefeld" id="uiViewVCI"></td> 
+</tr> 
+</table> 
+<table class="ml50" id="uiViewPppEncaps"> 
+<tr> 
+<td valign="top">Kapselung</td> 
+<td><input type="radio" name="PppEncaps" id="uiViewPPPoE">&nbsp;<label for="uiViewPPPoE">PPPoE</label><br> 
+<input type="radio" name="PppEncaps" id="uiViewPPPoA1">&nbsp;<label for="uiViewPPPoA1">PPPoA/LLC</label><br> 
+<input type="radio" name="PppEncaps" id="uiViewPPPoA2">&nbsp;<label for="uiViewPPPoA2">PPPoA/VC-Mux</label></td> 
+</tr> 
+</table> 
+<div class="ml25" id="uiViewIpEncaps"> 
+<p class="mb5">Kapselung</p> 
+<p class="ml25"><input type="radio" onclick="uiDoIpEncaps(1)" name="DslIpEncaps" id="uiViewIpEncaps1">&nbsp;<label for="uiViewIpEncaps1">Bridged (Routed Bridge Encapsulation)</label></p> 
+<p class="ml50"><input type="checkbox" onclick="uiDoUseDhcp()" id="uiViewUseDhcp">&nbsp;<label for="uiViewUseDhcp">IP-Adresse automatisch über DHCP beziehen</label></p> 
+<p class="ml25"><input type="radio" onclick="uiDoIpEncaps(2)" name="DslIpEncaps" id="uiViewIpEncaps2">&nbsp;<label for="uiViewIpEncaps2">Routed IP LLC NLPID (ISO)</label></p> 
+<p class="ml25"><input type="radio" onclick="uiDoIpEncaps(3)" name="DslIpEncaps" id="uiViewIpEncaps3">&nbsp;<label for="uiViewIpEncaps3">Routed IP LLC Snap</label></p> 
+<p class="ml25 mb10"><input type="radio" onclick="uiDoIpEncaps(4)" name="DslIpEncaps" id="uiViewIpEncaps4">&nbsp;<label for="uiViewIpEncaps4">Routed IP Raw</label></p> 
+<div> 
+<table id="tRFC" style="margin-left: 50px;"> 
+<tr> 
+<td><label for="uiViewIpaddr">IP-Adresse</label></td> 
+<td><input type="text" size="16" maxlength="15" id="uiViewIpaddr"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewNetmask">Subnetzmaske</label></td> 
+<td><input type="text" size="16" maxlength="15" id="uiViewNetmask"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewGateway">Standard-Gateway</label></td> 
+<td><input type="text" size="16" maxlength="15" id="uiViewGateway"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewDns0">Primärer DNS Server</label></td> 
+<td><input type="text" size="16" maxlength="15" id="uiViewDns0"></td> 
+</tr> 
+<tr> 
+<td><label for="uiViewDns1">Sekundärer DNS Server</label></td> 
+<td><input type="text" size="16" maxlength="15" id="uiViewDns1"></td> 
+</tr> 
+</table> 
+</div> 
+</div> 
+</div></div></div></div></div></div> 
+ 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb5"><input type="checkbox" id="uiViewT38">&nbsp;<label for="uiViewT38">Telefaxübertragung auch mit T.38</label></p> 
+<p class="pText25">Wenn Ihr Internettelefonieanbieter das Verfahren T.38 unterstützt, nutzt FRITZ!Box dieses Verfahren als Option für den Empfang und das Senden von Telefaxen.</p> 
+</div></div></div></div></div></div> 
+ 
+</div> 
+<div class="backdialog" id="uiApplyCancelButtons"><div class="ecklm"><div class="eckrm"><div class="rundrb"><div class="rundlb"><div class="forebuttons"> 
+<input type="button" onclick="uiDoSave()" value="Übernehmen" class="Pushbutton" id="buttonSave"> 
+<input type="button" onclick="uiDoCancel()" value="Abbrechen" class="Pushbutton" id="buttonCancel"> 
+<input type="button" onclick="uiDoHelp()" value="Hilfe" class="Pushbutton" id="buttonHilfe"> 
+</div></div></div></div></div></div> 
+ 
+</div></div></div></div></div></div></div> 
+</div> 
+ 
+</div> 
+<div class="clear_float"></div> 
+<div style="position:relative; top:-5px;"> 
+<div class="page_left_bottom"></div> 
+<div class="page_right_bottom"></div> 
+<div class="page_back_bottom" style=""> 
+<div id="MainPagebottom"> 
+</div> 
+</div> 
+</div> 
+</td> 
+</tr> 
+</table> 
+</div> 
+<div class="fw_footer"> 
+</div> 
+</td></tr> 
+</table> 
+<!-- Post Form --> 
+<form method="POST" action="../cgi-bin/webcm" target="_self" id="uiPostForm" name="uiPostForm"> 
+<!-- Refresh Form --> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7" id="uiPostSid"> 
+<input type="hidden" name="getpage" value="../html/de/menus/menu2.html" id="uiPostGetPage"> 
+<input type="hidden" name="errorpage" value="../html/de/menus/menu2.html" id="uiPostErrPage"> 
+<input type="hidden" name="var:pagename" value="sipoptionen" id="uiPostPageName"> 
+<input type="hidden" name="var:errorpagename" value="sipoptionen" id="uiPostErrorPageName"> 
+<input type="hidden" name="var:menu" value="fon" id="uiPostMenu"> 
+<input type="hidden" name="var:pagemaster" value="" id="uiPostPageMaster"> 
+<input type="hidden" name="time:settings/time" value="" id="uiPostDateTime"> 
+<input type="hidden" name="box:settings/webui_cookie" value="" disabled> 
+<!-- END Refresh Form --> 
+ 
+<input type="hidden" name="sipextra:settings/sip/lan_sip_via_internet_connection" value="0" id="uiPostLanSipViaInetConnect"> 
+<input type="hidden" name="sipextra:settings/VAD/vad_enabled" value="0" id="uiPostVad"> 
+<input type="hidden" name="sipextra:settings/sip/enum_support_enabled" value="0" id="uiPostEnum" disabled > 
+<input type="hidden" name="sipextra:settings/sip/dyn_codec" value="1" id="uiPostDynCodec" disabled> 
+<input type="hidden" name="sipextra:settings/sip/prio_low_codec" value="0" id="uiPostLowCodecs" disabled> 
+<input type="hidden" name="sipextra:settings/sip/sip_prio" value="0" id="uiPostSipPrio"> 
+<input type="hidden" name="sipextra:settings/sip/rtp_prio" value="0" id="uiPostRtpPrio"> 
+<input type="hidden" name="sipextra:settings/sip/sip_srcport" value="5060" id="uiPostSourcePort"> 
+<input type="hidden" name="sipextra:settings/sip/t38_support_enabled" value="1" id="uiPostT38" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP0/Fallback" value="0" id="uiPostFallback0" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP1/Fallback" value="0" id="uiPostFallback1" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP2/Fallback" value="0" id="uiPostFallback2" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP3/Fallback" value="0" id="uiPostFallback3" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP4/Fallback" value="0" id="uiPostFallback4" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP5/Fallback" value="0" id="uiPostFallback5" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP6/Fallback" value="0" id="uiPostFallback6" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP7/Fallback" value="0" id="uiPostFallback7" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP8/Fallback" value="0" id="uiPostFallback8" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP9/Fallback" value="0" id="uiPostFallback9" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP10/Fallback" value="0" id="uiPostFallback10" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP11/Fallback" value="0" id="uiPostFallback11" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP12/Fallback" value="0" id="uiPostFallback12" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP13/Fallback" value="0" id="uiPostFallback13" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP14/Fallback" value="0" id="uiPostFallback14" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP15/Fallback" value="0" id="uiPostFallback15" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP16/Fallback" value="0" id="uiPostFallback16" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP17/Fallback" value="0" id="uiPostFallback17" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP18/Fallback" value="0" id="uiPostFallback18" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIP19/Fallback" value="0" id="uiPostFallback19" disabled> 
+ 
+ 
+<input type="hidden" name="sip:settings/sip0/sipping_enabled" value="0" id="uiPostSipPingsip0" disabled> 
+<input type="hidden" name="sip:settings/sip0/sipping_interval" value="280" id="uiPostSipPingTimersip0" disabled> 
+ 
+<input type="hidden" name="sip:settings/sip1/sipping_enabled" value="0" id="uiPostSipPingsip1" disabled> 
+<input type="hidden" name="sip:settings/sip1/sipping_interval" value="280" id="uiPostSipPingTimersip1" disabled> 
+ 
+<input type="hidden" name="sip:settings/sip2/sipping_enabled" value="0" id="uiPostSipPingsip2" disabled> 
+<input type="hidden" name="sip:settings/sip2/sipping_interval" value="280" id="uiPostSipPingTimersip2" disabled> 
+ 
+<input type="hidden" name="connection_voip:settings/use_seperate_vcc" value="1" id="uiPostUseSepVcc" disabled /> 
+<input type="hidden" name="connection_voip:settings/VPI" value="1" id="uiPostVpi" disabled /> 
+<input type="hidden" name="connection_voip:settings/VCI" value="35" id="uiPostVci" disabled /> 
+<input type="hidden" name="connection_voip:settings/encapsulation" value="dslencap_pppoe" id="uiPostEncaps" disabled /> 
+<input type="hidden" name="connection_voip:settings/username" value="V1und1/ka1111-222@online.de" id="uiPostUsername" disabled /> 
+<input type="hidden" name="connection_voip:settings/password" value="****" id="uiPostPassword" disabled /> 
+<input type="hidden" name="connection_voip:settings/use_dhcp" value="0" id="uiPostDhcp" disabled /> 
+<input type="hidden" name="connection_voip:settings/ipaddr" value="0.0.0.0" id="uiPostIpaddr" disabled /> 
+<input type="hidden" name="connection_voip:settings/netmask" value="0.0.0.0" id="uiPostNetmask" disabled /> 
+<input type="hidden" name="connection_voip:settings/gateway" value="0.0.0.0" id="uiPostGateway" disabled /> 
+<input type="hidden" name="connection_voip:settings/dns_first" value="0.0.0.0" id="uiPostDns0" disabled /> 
+<input type="hidden" name="connection_voip:settings/dns_second" value="0.0.0.0" id="uiPostDns1" disabled /> 
+<input type="hidden" name="sar:settings/autodetect" value="0" id="uiPostSarAuto" disabled /> 
+<input type="hidden" name="telcfg:settings/Location/OKZ" value="721" id="uiPostOKZ"> 
+<input type="hidden" name="telcfg:settings/Location/LKZ" value="49" id="uiPostLKZ"> 
+<input type="hidden" name="telcfg:settings/Location/OKZPrefix" value="0" id="uiPostOKZPrefix"> 
+<input type="hidden" name="telcfg:settings/Location/LKZPrefix" value="00" id="uiPostLKZPrefix"> 
+ 
+</form> 
+<!-- END Post Form --> 
+ 
+<form name="logoutForm" action="../cgi-bin/webcm" method="POST"> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7"> 
+<input type="hidden" name="security:command/logout" value=""> 
+<input type="hidden" name="getpage" value="../html/confirm_logout.html"> 
+</form> 
+</body> 
+</html> 

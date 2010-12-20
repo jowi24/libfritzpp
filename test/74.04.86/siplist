@@ -1,0 +1,4672 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Content-type: text/html; charset=utf-8
+Expires: -1
+Pragma: no-cache
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ 
+ 
+ 
+<head> 
+<!-- lang: "de"; ethnr: "lan0" --> 
+<!-- OEM "1und1"/"1und1", Seite "fon"/"siplist" --> 
+<!-- var:usePSTN: 0 --> 
+<title>FRITZ!Box</title> 
+<meta http-equiv=content-type content="text/html; charset=utf-8"> 
+<meta http-equiv="expires" content="0"> 
+<style type="text/css"> 
+html, body {
+margin: 0;
+background-image: url(/css/default/images/hg_verlauf_1600px.png);
+background-color: #fffebd;
+background-repeat: repeat-x;
+background-position: 0 0;
+font-family: Arial,serif, sans-serif, cursive;
+font-size: 13px;
+color:#3F464C;
+}
+body {
+margin-top: 10px;
+}
+p, table, form, div, textarea, label, ul, ol, li
+{ font-size: 13px; padding: 0px; margin: 0px; }
+input, select, button
+{ font-size: 13px; }
+div,ul,ol,li { text-align: left; }
+tr,td { padding: 1px 0px; margin: 0px; text-align: left; }
+img { border: 0px none; }
+a {
+color: #003060;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+a:link p { color: #003060; text-decoration: none; }
+a:visited p { color: #003060; text-decoration: none; }
+a:active p { text-decoration: underline; }
+a:hover p { text-decoration: underline; }
+.fw_header { background: url("/html/de/images/kopfbalken.gif") top left no-repeat; width: 980px; height: 81px;}
+.fw_bg_body { width: 980px; text-align: left; }
+.fw_footer { color: #003060; width: 980px; height: 44px; text-align: right; font-size: 13px; margin-top: 10px;}
+#sub_menu_head {
+font-size: 13px;
+margin-right:5px;
+}
+#sub_menu_head span{
+vertical-align:middle;
+}
+#sub_menu_head a{
+vertical-align:top;
+}
+#sub_menu_head a{
+margin-left:16px;
+}
+#sub_menu_head img{
+margin-right:5px;
+}
+table { border-collapse: collapse; }
+.fs10 { font-size: 13px;}
+.fs9 { font-size: 12px;}
+.pTitel, .pTitelo
+{ font-weight: bold; text-align: center; background-color: #E1F4FF; padding: 5px 10px; border: 1px solid #C6C7BF; }
+.pDialog, .pDialogo, .pDialogb, .pDialogob
+{ padding: 10px 10px; text-align: left; background-color: #FBFAF7; border: 1px solid #C6C7BF; }
+.pButtonbar { text-align: right; padding: 5px 10px; background-color: #E1F4FF; border: 1px solid #C6C7BF; }
+.pDialog, .pDialogo, .pTitelo, .pButtonbar
+{ border-top: 0px;}
+@media print {
+#Menuspalte { width: 2px; padding: 0px; vertical-align: top; display:none;}
+#TopMenuSpalte {display:none; }
+}
+@media screen {
+#TopMenuSpalte { }
+#Menuspalte { width: 190px; padding: 0px; vertical-align: top; }
+}
+#Dataspalte { width: 787px; height: 400px; vertical-align: top; padding: 0px; }
+#menucontent { width: 167px; }
+#Menuhead { width: 190px; padding: 0px; vertical-align: top; }
+#Datahead { width: 787px; padding: 0px;}
+#menucontent span {
+display:none;
+}
+#menucontent ul {
+background-color: transparent;
+margin:0;
+border: 0;
+padding: 0;
+margin:-20px 1px 0px;
+padding-top: 0px;
+list-style-type: none;
+position:relative;
+z-index:5;
+}
+#menucontent .small_bar_back_head ul {
+margin:0;
+}
+#MainWizardhead ul li,
+#MainNashead ul li{
+padding: 6px 0 0 1px;
+}
+#menucontent ul li ul {
+background-color: #faf8f2;
+margin: 0px;
+padding: 0px 8px 0px 0px;
+margin: 3px 0px -3px -10px;
+}
+#menucontent li {
+font-size: 14px;
+font-weight:bold;
+padding: 3px 8px 3px 11px;
+white-space: nowrap;
+}
+#menucontent ul li ul li {
+font-size: 13px;
+font-weight:normal;
+padding-right: 0px;
+line-height: 16px;
+}
+#menucontent li.selected ul li a,
+#menucontent li a {
+color: #003060;
+text-decoration: none;
+}
+#menucontent li a:hover {
+text-decoration: underline;
+}
+#menucontent li.selected {
+background-color:none;
+background-image: url("/css/default/images/menue_selected.gif");
+background-position: top center;
+background-repeat: no-repeat;
+padding: 3px 8px 3px 11px;
+}
+#menucontent ul li ul li.selected {
+background-color:none;
+background-image: url("/css/default/images/menue_selected.gif");
+background-position: left;
+background-repeat: no-repeat;
+position:relative;
+padding-left:20px;
+left:-8px;
+width:130px;
+}
+#menucontent li.selected ul li.selected a,
+#menucontent li.selected a {
+color:#003060;
+text-decoration: none;
+}
+#menucontent li.selected ul li.selected a:hover,
+#menucontent li.selected a:hover {
+text-decoration: underline;
+}
+#menucontent li.submenu_last ,
+#menucontent li.submenu {
+margin:0;
+background-image: none;
+/*
+background-image: url("/css/default/images/menue_selected_toplevel.gif");
+background-position: left top;
+background-repeat: repeat-x;
+background-color: none;
+border-bottom:#b7d9f6 1px solid;
+border-top:#b7d9f6 1px solid;
+*/
+}
+#menucontent li.submenu_last {
+border-bottom:0px;
+}
+#menucontent li.submenu_last ul,
+#menucontent li.submenu ul {
+background-color: #faf8f2;
+padding:0;
+margin:0;
+margin-top:7px;
+}
+#menucontent li.submenu_last.open,
+#menucontent li.submenu.open {
+background-color: #003060;
+background-image: none;
+background-position: top center;
+}
+#menucontent li.separator {
+margin-left: 10px;
+padding: 10px 0 7px 0;
+font-size: 0;
+}
+#menucontent li.separator div {
+border-top: 1px dotted #003060;
+margin: 0 10px;
+}
+#menucontent li.explain {
+font-size:11px;
+font-weight:normal;
+color: #808078;
+}
+.LMenudis { position: relative; top: 5px; left: 40px; color: #999999; zoom:1;}
+.Iconbutton { width: 30px; }
+.Pushbutton { width:100px;}
+.Pushbuttonfett
+{ font-weight:bold; width:100px; }
+.PushbuttonBig { width:auto;}
+.PushbuttonBigfett
+{ font-weight:bold; width:auto; }
+.b5 { padding-bottom: 5px; }
+.b10 { padding-bottom: 10px; }
+.mb5 { margin-bottom: 5px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
+.mt5 {margin-top: 5px;}
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt30 { margin-top: 30px; }
+.ml10 { margin-left: 10px; }
+.ml15 { margin-left: 15px; }
+.ml20 { margin-left: 20px; }
+.ml25 { margin-left: 25px; }
+.ml30 { margin-left: 30px; }
+.fett { font-weight:bold; }
+.ac {text-align:center;}
+.ar {text-align:right;}
+.al {text-align: left;}
+.errorMessage { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #CC0000; text-align: center;
+margin: 5px; padding: 2px; background-color: white; }
+.Dialogtitel { font-weight: bold; }
+.Dialoglabel { }
+.Dialoglabelfett
+{ font-weight: bold; }
+.DialogFehler { font-weight: bold; color: #CC0000; }
+.Dialogtext { }
+.Dialoglist { color: black; background-color: #FFFFFF }
+.Minititel { font-size: 12px; }
+.Minilabel { font-size: 12px; }
+.Minitext { font-size: 12px; background-color: #FFFFFF }
+.Eingabefeld { }
+.Hell { background-color: #FFFFFF; }
+h1, h2, h3, h4, h5, h6
+{ font-size: 14px; font-weight: bold; }
+.tMinihell { height: 12px; font-size: 12px; background-color:#FFFFFF; }
+.tMinidunkel { height: 12px; font-size: 12px; }
+.tMinigrau { height: 12px; font-size: 12px; background-color:#F8F8F8; }
+.tborder { background-color:#FFFFFF; border: 1px solid #C6C7BE; }
+.tborder th { background-color:#F8F8F8;}
+.rundlt { background: url("/html/de/images/_brd_lt_thin.gif") top left no-repeat; }
+.rundrt { background: url("/html/de/images/_brd_rt_thin.gif") top right no-repeat; }
+.rundlb {}
+.rundrb {}
+.ecklm {}
+.eckrm {}
+.ecklb {}
+.eckrb {}
+.backsubtitel,
+.backtitel { background: url(/css/default/images/contentbereich_titel_1px.gif) repeat-x 0 -2px; height:28px;margin: 0px; padding: 0px; clear:left; }
+.backtitel2 {background: url(/css/default/images/contentbereich_titel_1px.gif) repeat-x 0 0; height:28px; margin: 0px; padding: 0px; clear:left; }
+.backtitel2 {
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+}
+.backsubtitel {
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+height:26px;
+}
+.backdialog {
+background-color: #fbfaf7;
+margin: 0px;
+padding: 0px;
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+clear:left; }
+.backdialog a:link { text-decoration: underline; }
+.backdialog a:visited { text-decoration: underline; }
+.backdialog a:active { text-decoration: underline; }
+.backdialog a:hover { text-decoration: underline; }
+.backdialog li a:link { text-decoration: none; }
+.backdialog li a:visited { text-decoration: none; }
+.backdialog li a:active { text-decoration: underline; }
+.backdialog li a:hover { text-decoration: underline; }
+.small_bar_left_head,
+.menu_bar_left_head{
+background-image: url("/css/default/images/menueschablone_oben_links.gif");
+background-repeat: no-repeat;
+width: 14px;
+height: 24px;
+margin: 0;
+padding: 0;
+border: 0;
+float: left;
+}
+.small_bar_right_head,
+.menu_bar_right_head{
+background-image: url("/css/default/images/menueschablone_oben_rechts.gif");
+background-repeat: no-repeat;
+height: 24px;
+width: 24px;
+float: right;
+}
+.small_bar_back_head,
+.menu_bar_back_head {
+height: 24px;
+background-image: url("/css/default/images/menueschablone_oben_1px.gif");
+background-repeat: repeat;
+margin:0 13px;
+}
+.page_left_bottom,
+.small_bar_left_bottom,
+.menu_bar_left_bottom{
+background-image: url("/css/default/images/menueschablone_unten_links.gif");
+background-repeat: no-repeat;
+height: 28px;
+width: 24px;
+margin: 0;
+padding: 0;
+border: 0;
+float: left;
+}
+.menu_bar_left_bottom{
+top:-5px;
+}
+.page_right_bottom,
+.small_bar_right_bottom,
+.menu_bar_right_bottom{
+background-image: url("/css/default/images/menueschablone_unten_rechts.gif");
+background-repeat: no-repeat;
+height: 28px;
+width: 24px;
+float: right;
+}
+.menu_bar_right_bottom{
+top:-5px;
+}
+.page_back_bottom,
+.small_bar_back_bottom,
+.menu_bar_back_bottom {
+height: 28px;
+background-image: url("/css/default/images/menueschablone_unten_1px.gif");
+background-repeat: repeat;
+margin:0 15px;
+margin-bottom: 15px;
+}
+.menu_bar_back_bottom {
+top:-5px;
+}
+.page_left_bottom{
+background-image: url("/css/default/images/content_unten_links.gif");
+height:12px;
+}
+.page_right_bottom{
+background-image: url("/css/default/images/content_unten_rechts.gif");
+height:12px;
+}
+.page_back_bottom {
+background-image: url("/css/default/images/content_unten_1px.gif");
+height:12px;
+margin-bottom: 0px;
+margin:0 15px;
+}
+.menu_header.small {
+background-image: url("/css/default/images/menueschablone_oben_1px.gif");
+height: 13px;
+}
+.menu_footer {
+height: 13px;
+background-image: url("/css/default/images/menueschablone_unten_1px.gif");
+margin-bottom: 15px;
+}
+.menu_body_outer {
+width: 165px;
+border: 1px solid #90a6a5;
+border-top: 0px;
+border-bottom: 0px;
+padding-top:1px;
+background-color:#faf8f2;
+}
+.backtitelkonfig
+{ background-image: url(/css/default/images/contentbereich_titel_1px.gif); height:28px; margin: 0px; padding: 0px; clear:left; }
+.backtitelstatus
+{ background-image: url(/css/default/images/contentbereich_titel_1px.gif); height:28px; margin: 0px; padding: 0px; clear:left;
+/*background-color: #e1f4ff; margin: 0px; padding: 0px; clear:left; */
+}
+.backframe {
+background-color: #faf8f2;
+margin: 0px;
+padding: 0px;
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+clear:left; }
+.backfolder { background-color: #fbfaf7; margin: 0px; padding: 0px; border-top: 1px solid #c6c7be; }
+.foretitel { font-weight: bold; font-size: 15px; padding: 5px 12px;}
+.backframe .foretitel { font-weight: bold; font-size: 15px; padding: 5px 12px;}
+.foredialog { padding: 10px; }
+.forebuttons {
+text-align: right;
+padding: 7px 10px;
+border-top: 1px solid #90A6A5;
+}
+#content {width: 787px; margin: 0px; clear:both; font-size: 13px; }
+#contenthead {width: 787px; margin: 0px;}
+/* Tabs beginn *********************************/
+ul.tabs {
+float: left;
+width: 779px;
+background: url("/css/default/images/reiterkarte_top_1px.gif") repeat-x left bottom;
+padding-bottom: 0px;
+padding-left: 5px;
+list-style-type: none;
+margin-top: 0;
+margin-left: -9px;
+}
+ul.tabs li {
+float: left;
+margin-left: 5px;
+background: url("/css/default/images/reiter_inaktiv_rechts.gif") no-repeat right bottom;
+}
+ul.tabs li a,ul.tabs li div {
+padding: 5px 15px;
+background: url("/css/default/images/reiter_inaktiv_links.gif") no-repeat left bottom;
+display: block;
+height: 17px;
+}
+ul.tabs li.tabs_on {
+background-image: url("/css/default/images/reiter_aktiv_rechts.gif");
+font-weight:bold;
+}
+ul.tabs li.tabs_on div {
+color: #000000;
+background-image: url("/css/default/images/reiter_aktiv_links.gif");
+}
+/* Tabs ENDE ********************************************************/
+.backframe .backdialog {
+border-left:0px;
+border-right:0px;
+}
+.backframe .backdialog .ecklm { background: none}
+.backframe .backdialog .eckrm { background: none}
+.backframe .backdialog .ecklb { background: none}
+.backframe .backdialog .eckrb { background: none}
+.backframe .backdialog .rundlb { background: none}
+.backframe .backdialog .rundrb { background: none}
+.backframe .backdialog .foredialog { padding: 5px 0px; border-bottom:1px solid #90a6a5;}
+.bcWeiss { background-color:#FFFFFF; }
+.bcGrau { background-color:#F8F8F8; }
+#ansichten {text-align:right; margin:5px 30px 10px 0px; font-weight:bold; }
+.ansicht {padding: 3px 10px; border: 1px solid #C6C7BF; cursor:pointer;}
+.rundes {text-align:right; margin:0px 30px 0px 0px; }
+.rundes li {list-style:none; float:right;background: url("/html/de/images/_brd_right.gif") right top no-repeat; margin: 0 0px 10px 15px; height: 26px; }
+.rundes a {display:block; background: url("/html/de/images/_brd_left.gif") left top no-repeat; padding: 5px 15px 5px 15px; font-weight: bold; height: 26px; text-align:center;cursor:pointer;}
+.rundes .setup {background-color: #f5ebb2;}
+.rundes .view {background-color: #cce4f1;}
+.rundes a:link, .rundes a:visited
+{ color: #003060; text-decoration: none; }
+.rundes a:hover, .rundes a:active
+{ text-decoration: underline; }
+.rund-links { background: url("/html/de/images/_brd_left.gif") no-repeat;
+height:26px; width:10px;}
+.rund-rechts { background: url("/html/de/images/_brd_right.gif") right no-repeat;
+height:26px; margin-top:-26px; margin-left:10px;
+text-align:center; }
+.rund-rechts p { padding-top:5px; padding-right:10px;
+font-weight: bold; white-space:nowrap; }
+.gelb { background-color: #fff1b1; }
+.blau { background-color: #e1f4ff;; }
+.notetext {color: #000000;padding-top:10px;padding-bottom:10px;}
+.CssPinInput {
+margin-left:5px;
+margin-right:5px;}
+.ViewImage {
+max-width: 160px;
+max-height: 160px;
+width: expression(this.width > 160 ? "160px" : true);
+height: expression(this.height > 160 ? "160px" : true);
+}
+.menu_header,
+.menu_footer {
+width: 100%;
+text-align: left;
+font-size: 14px;
+padding: 0;
+border: 0;
+margin: auto;
+/*background-repeat: repeat;*/
+}
+.menu_header {
+/*width: 167px;*/
+height: 28px;
+background-image: url(/css/default/images/menueschablone_kopf.gif);
+background-repeat: no-repeat;
+}
+.menu_header.small {
+background-image: url(/css/default/images/menueschablone_andere_kopf.gif);
+background-repeat: no-repeat;
+height: 13px;
+}
+.menu_footer {
+/*width: 167px;*/
+height: 13px;
+background-image: url(/css/default/images/menueschablone_boden.gif );
+background-repeat: no-repeat;
+margin-bottom: 15px;
+}
+.menu_body_outer_old {
+width: 165px;
+border: 1px solid #208ede;
+border-top: 0px;
+border-bottom: 0px;
+background-image: url(/css/default/images/menu_left.gif);
+background-repeat: repeat-y;
+}
+.menu_body_inner {
+background-image: url(/css/default/images/menu_right.gif);
+background-repeat: repeat-y;
+background-position: right;
+}
+div.provider_select {
+overflow:hidden;
+}
+div.provider_select p {
+float:left;
+height:50px;
+}
+.gray {
+background-color:#EEEEEE;
+}
+.globe_green, .globe_gray, .globe_online {
+background-image: url("/css/default/images/globe_green.gif");
+background-repeat: no-repeat;
+background-position:center center;
+height: 16px;
+width: 16px;
+border: 0px;
+padding: 0px;
+margin: 0px;
+}
+.globe_gray {
+background-image: url("/css/default/images/globe_gray.gif");
+}
+.globe_online {
+background-image: url("/css/default/images/globe.gif");
+}
+.led_green {
+background-image: url("/css/default/images/led_green.gif");
+background-repeat: no-repeat;
+background-position:center center;
+height: 16px;
+width: 16px;
+border: 0px;
+padding: 0px;
+margin: 0px;
+}
+hr,
+.page_sub_headline {
+width: auto;
+border: 0px;
+height: 1px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+hr {
+width: 100%;
+color: #90a6a5;
+background-color: #90a6a5;
+}
+ 
+</style> 
+<!--[if IE 7]>
+<style type="text/css">
+#menucontent li.submenu ul{
+margin-top:5px;
+padding-bottom:1px;
+}
+ 
+</style>
+<![endif]--> 
+<!--[if gte IE 6]>
+<style type="text/css">
+.ie_b10 { padding-bottom: 1px; }
+</style>
+<![endif]--> 
+<!--[if IE 6]>
+<style type="text/css">
+div.foredialog p { zoom:1; }
+</style>
+<![endif]--> 
+<!--[if IE 7]>
+<style type="text/css">
+.ie_b10minus{margin-bottom:-10px;}
+</style>
+<![endif]--> 
+<script type="text/javascript"> 
+var g_CurTimeObj = new Date();
+var g_StartTime = g_CurTimeObj.getTime();
+var g_StopTimeWrite=false;
+// ../js/webuicookie.js
+var g_webuiCookie = g_webuiCookie || (function () {
+var fields = [
+{ valName: "noPwdReminder", valDefault: "0"} // Keine Anzeige des "Passworteinrichten"-Reminders
+];
+var values;
+function init(str) {
+str = str || "";
+values = str.split("");
+for (var i = values.length; i < fields.length; i++) {
+values[i] = fields[i].valDefault;
+}
+}
+function idx(valName) {
+for (var i = 0, len = fields.length; i < len; i++) {
+if (fields[i] && fields[i].valName == valName) {
+return i;
+}
+}
+return -1;
+}
+function getChar(valName) {
+if (values) {
+var i = idx(valName);
+if (i >= 0) {
+return values[i];
+}
+}
+return "";
+}
+function setChar(valName, ch) {
+if (values) {
+ch = ""+ch;
+if (ch.length != 1) {
+return false;
+}
+var i = idx(valName);
+if (i >= 0) {
+values[i] = ch;
+return true;
+}
+}
+return false;
+}
+function getWholeStr() {
+if (!values) {
+return "";
+}
+return values.join("");
+}
+function saveToForm(dontEnable) {
+if (!values) {
+return false;
+}
+var frm = document.forms["uiPostForm"];
+if (!frm) {
+return false;
+}
+frm = frm.elements["box:settings/webui_cookie"];
+if (!frm) {
+return false;
+}
+frm.value = getWholeStr();
+if (!dontEnable) {
+frm.disabled = false;
+}
+return true;
+}
+return {
+init: init,
+getChar: getChar,
+setChar: setChar,
+saveToForm: saveToForm
+};
+})();
+ 
+g_webuiCookie.init("");
+</script> 
+<script type="text/javascript"> 
+g_IE = false;
+g_IE6 = false;
+</script> 
+<!--[if IE]>
+<script type="text/javascript">
+g_IE = true;
+</script>
+<![endif]--> 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+g_IE6 = true;
+</script>
+<![endif]--> 
+<script type="text/javascript"> 
+function jslFormSetPost(name) {
+var frm = document.forms[name];
+if (frm) {
+frm.method = "POST";
+}
+}
+function jslFormSetGet(name) {
+var frm = document.forms[name];
+if (frm) {
+frm.method = "GET";
+}
+}
+function jslFormSubmit(name) {
+UpdateDateTime();
+var frm = document.forms[name];
+if (frm) {
+frm.submit();
+}
+}
+function goToLuaPage(page) {
+page += "?sid=3a8ef4a34cfcf8a7";
+location.href = page;
+}
+var avm5 = {
+"home": {
+"sitemap": "/menus/sitemap.lua",
+"home": "/home/home.lua"
+},
+"internet": {
+"sitemap": "/menus/sitemap.lua"
+,"userlist": "/internet/kids.lua"
+},
+"fon": {
+"sitemap": "/menus/sitemap.lua"
+},
+"net": {
+"sitemap": "/menus/sitemap.lua",
+"newdevice": "/net/newdevice.lua",
+"boxnet": "/net/boxnet.lua",
+"einstellungen": "/storage/settings.lua"
+},
+"wlan": {
+"sitemap": "/menus/sitemap.lua",
+"guest_access": "/wlan/guest_access.lua"
+},
+"dect": {
+"sitemap": "/menus/sitemap.lua"
+},
+"system": {
+"sitemap": "/menus/sitemap.lua",
+"syslog": "/system/syslog.lua",
+"energy": "/system/energy.lua",
+"email": "/system/push.lua",
+"infoled": "/system/infoled.lua",
+"user": "/system/kennwort.lua",
+"imexport": "/system/export.lua",
+"update": "/system/update.lua",
+"update_OnClick_1": "/system/update.lua",
+"extended": "/system/expert.lua",
+"reset": "/system/reboot.lua",
+"nacht": "/system/wlan_night.lua",
+"ring_block": "/system/ring_block.lua"
+},
+"konfig": {
+"sitemap": "/menus/sitemap.lua"
+//"home": "/assis/home.lua"
+},
+"software": {
+"sitemap": "/menus/sitemap.lua"
+}
+};
+function checkAvm5(menu, page) {
+menu = menu || jslGetValue("uiPostMenu");
+page = page || jslGetValue("uiPostPageName");
+var luaPage = avm5[menu] ? avm5[menu][page] : "";
+if (luaPage) {
+goToLuaPage(luaPage);
+return true;
+}
+return false;
+}
+function jslGoTo(Menu,Page) {
+if (!checkAvm5(Menu, Page)) {
+if ((Menu!=null) && (Menu!="")) jslSetValue("uiPostMenu", Menu);
+if ((Page!=null) && (Page!="")) {
+jslSetValue("uiPostPageName", Page);
+jslSetValue("uiPostErrorPageName", Page);
+}
+// Spezialbehandlung Netzwerkseite
+jslFormSetGet("uiPostForm");
+jslFormSubmit("uiPostForm");
+}
+}
+function UpdateDateTime() {
+var date = new Date();
+jslSetValue("uiPostDateTime", Math.floor(date.getTime()/1000) + "," + date.getTimezoneOffset());
+}
+function jslGetValue (id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+return eval('document.uiPostForm.'+id+'.value');
+} else {
+var h = document.getElementById(id);
+if (h != null) return h.value;
+}
+return "";
+}
+function jslSetValue(id, wert) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id+'.value="'+wert+'"');
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.value=wert;
+}
+}
+function jslPopHelp(pagename) {
+jslPopHelpEx(pagename, "");
+}
+function jslPopHelpEx(pagename, anker) {
+var uri = "/help/help.lua?helppage=" + pagename + ".html&hide=yes";
+uri += "&sid=3a8ef4a34cfcf8a7";
+var options = "width=580,height=500,resizable=yes,scrollbars=yes,location=no";
+if (top.g_HelpWin==null || typeof(top.g_HelpWin.closed)=='undefined' || top.g_HelpWin.closed)
+top.g_HelpWin = window.open(uri,"HelpWindow",options);
+else
+top.g_HelpWin.location.href = uri;
+if (top.g_HelpWin) top.g_HelpWin.focus();
+}
+function isLotse(menu, page) {
+if (menu == "home") return false;
+if (menu == "konfig" && (page != "home" && page != "sitemap")) return true;
+if (menu == "first" || menu == "fon_config") return true;
+if (menu == "tr69_autoconfig") return true;
+return false;
+}
+var g_AskAssiText = "Wenn Sie den Assistenten jetzt beenden, gehen Ihre Eingaben verloren.\x0aWählen Sie OK, um den Assistenten zu beenden.\x0aWählen Sie Abbrechen, um zum Assistenten zurückzukehren.";
+function AskAssiCancel() {
+return confirm(g_AskAssiText);
+}
+function OnOverview() {
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (!AskAssiCancel()) return;
+}
+jslGoTo("home", "home");
+}
+function OnSetting() {
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (!AskAssiCancel()) return;
+}
+var menu = readCookie("menu");
+var page = readCookie("page");
+if (menu == "konfig") {
+jslGoTo("konfig", "home");
+}
+else if (menu == "software") {
+jslGoTo("software", "extern");
+}
+else if (menu == "enhsettings") {
+jslGoTo("enhsettings", "enhsettings");
+}
+else {
+jslGoTo("konfig", "home");
+}
+}
+function GoToSitemap()
+{
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (AskAssiCancel()) {
+jslGoTo("konfig","sitemap");
+}
+return;
+}
+jslGoTo("","sitemap");
+}
+function AddFavoritesLink(breite, titel) {
+if (g_IE)
+document.write('<td title="' + titel + '" style="width:' + breite + 'px;"><a href="javascript:window.external.AddFavorite(window.document.URL,window.document.title)"><img src="../html/de/images/favorite.gif"></a></td>');
+}
+function setMenuPageCookie(menu, page) {
+storeCookie("menu",menu,100);
+storeCookie("page",page,100);
+}
+function convertHTML2Text(str) {
+if (str) {
+str = str.replace(/</g,"&lt;");
+str = str.replace(/>/g,"&gt;");
+var tst = document.createElement('div');
+tst.innerHTML = str;
+str = tst.innerText || tst.textContent;
+}
+return str;
+}
+//#if 0
+//*****************************************************************************
+// Alphabetisches Sortieren eines Arrays nach Sprache.
+// Rückgabe: der sortierte Array
+// Parameter:
+// - array: der zu sortierende Array
+// - getStrFunc: eine Funktion, die Elementen des Arrays einen String zuordnet.
+// Wenn getStrFunc keine Funktion ist, wird angenommen, dass
+// es sich um einen Array von Strings handelt.
+// - lang: die Sprache 'de', 'en', 'fr', 'it' oder 'es', default ist var:lang.
+// - makeCopy: optional, wenn true wird eine Kopie des Arrays angelegt und diese sortiert.
+//******************************************************************************
+//#endif
+function sortByStrings(array, getStrFunc, lang, makeCopy) {
+lang = lang || 'de';
+if (typeof getStrFunc != 'function') {
+getStrFunc = function (str) { return str; };
+}
+var toSort = array;
+if (makeCopy) {
+for (var i = 0, len = array.length; i < len; i++) {
+toSort[i] = array[i];
+}
+}
+toSort.sort(makeStrCompareFunc(lang, getStrFunc));
+return toSort;
+}
+//#if 0
+//********************************************************************************************************
+// - makeStrCompareFunc gibt eine Funktion zurück, die zwei Objekte bzgl. eines Strings alphabetisch
+// je nach 'lang' vergleicht. Hilfsfunktion für sortByStrings.
+//********************************************************************************************************
+//#endif
+function makeStrCompareFunc(lang, getStrFunc) {
+var abc = {
+de: "AaÄäBbCcDdEeFfGgHhIiJjKkLlMmNnOoÖöPpQqRrSsßTtUuÜüVvWwXxYyZz",
+en: "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz",
+fr: "AaÀàÂâBbCcÇçDdEeÉéÉéÊêËëFfGgHhIiÎîÏïJjKkLlMmNnOoÔôŒœPpQqRrSsTtUuÙùÛûÜüVvWwXxYyŸÿZz",
+it: "AaÀàBbCcDdEeÈèÉéFfGgHhIiÎîÏïJjKkLlMmNnOoÒòÓóPpQqRrSsTtUuÙùVvWwXxYyZz",
+es: "AaÁáBbCcDdEeÉéFfGgHhIiÍíJjKkLlMmNnÑñOoÓóPpQqRrSsTtUuÚúÜüVvWwXxYyZz"
+};
+var currAbc = abc[lang] || [];
+function compare(str1, str2) {
+var len = Math.min(str1.length, str2.length);
+var i = 0;
+var c = 0;
+var i1,i2;
+while (i < len && c == 0) {
+i1 = currAbc.indexOf(str1[i]);
+i2 = currAbc.indexOf(str2[i]);
+if (i1 < 0 || i2 < 0) {
+i1 = str1.charCodeAt(i);
+i2 = str2.charCodeAt(i);
+}
+c = i1 - i2;
+i += 1;
+}
+if (i < len) {
+return c;
+}
+else {
+return str1.length - str2.length;
+}
+}
+//#if 0
+//****************************************************
+// Das ist die CompareFunktion, die zurückgegeben wird.
+//****************************************************
+//#endif
+return function (obj1, obj2) {
+var str1 = convertHTML2Text(getStrFunc(obj1) || "");
+var str2 = convertHTML2Text(getStrFunc(obj2) || "");
+return compare(str1, str2);
+};
+}
+function isBitSet(num, b) {
+return (num & (1 << b)) > 0;
+}
+function doLogout() {
+var frm = document.forms["logoutForm"];
+if (frm) {
+return frm.submit();
+}
+return false;
+}
+function isLoginPage(txt) {
+if (txt) {
+if (txt.indexOf("<!--login" + "Page-->") >= 0) {
+return true;
+}
+}
+return false;
+}
+function showtip(current,e,text){
+if (!e)
+return;
+var tipObj=document.getElementById("uiTooltip");
+if (tipObj)
+{
+tipObj.innerHTML=text;
+tipObj.style.left=(e.pageX?e.pageX:e.clientX)+5+"px";
+tipObj.style.top=(e.pageY?e.pageY:e.clientY)+5+"px";
+tipObj.style.display="";
+}
+return;
+}
+function hidetip(){
+var tipObj=document.getElementById("uiTooltip");
+if (tipObj)
+tipObj.style.display="none";
+return;
+}
+var g_ImgPath = '../html/de/images/';
+function IconBtn(btnId, clickFunc, btnValue, pic, invisible)
+{
+var str = '<button type="button" id="' + btnId + '"';
+if (clickFunc) str += ' onclick="' + clickFunc + '"';
+if (btnValue) str += ' value="' + btnValue + '" title="' + btnValue + '"';
+if (invisible) str += ' style="visibility:hidden;"';
+str += '>';
+str += '<img src="' + g_ImgPath + pic + '" /></button>';
+return str;
+}
+function storeCookie(name, value, days) {
+var expires = "";
+if (days) {
+var date = new Date();
+date.setTime(date.getTime()+(days*24*60*60*1000));
+expires = "; expires="+date.toGMTString();
+}
+document.cookie = name+"="+value+expires+"; path=/";
+}
+function readCookie(name) {
+var result = "";
+var cookieStr = document.cookie;
+if (cookieStr) {
+var start = cookieStr.indexOf(name + '=');
+if (start > -1) {
+start += name.length + 1;
+var end = cookieStr.indexOf(';', start);
+if (end == -1) {
+end = cookieStr.length;
+}
+result = cookieStr.substring(start, end);
+}
+}
+return result;
+}
+function eraseCookie(name) {
+storeCookie(name, "", -1);
+}
+function setBackCookie(cookieName) {
+var frm = document.forms["uiPostForm"];
+if (!frm) { return; }
+var values = [];
+var inputs = frm.elements;
+for (var i = 0, len = inputs.length; i < len; i++) {
+var varName = inputs[i].name;
+if (varName.indexOf(":") == -1 || varName.indexOf("var:") == 0) {
+values.push(varName + "=" + inputs[i].value);
+}
+}
+storeCookie(cookieName, values.join("&"), 1);
+}
+function htmlStringBuilder() {
+// HTML-Tags, die kein Endtag benötigen
+var standalone = {
+'input': true, 'img': true, 'hr': true, 'br': true, 'col': true, 'area': true, 'link': true,
+'frame': true, 'meta': true, 'base': true, 'basefont': true, 'isindex': true, 'param': true
+};
+function getEndTag(tagName) {
+return standalone[tagName] ? "" : ("<\/" + tagName + ">");
+}
+function buildAttributes(attributes) {
+var str = "";
+for (name in attributes) {
+str += " " + name.toLowerCase();
+var value = attributes[name];
+str += value ? ("=\"" + value + "\"") : "";
+}
+return str;
+}
+function addAttribute(attributes, name, value) {
+if (name) {
+attributes[name] = (value || "");
+}
+}
+function addContent(tag, tagOrText) {
+if (typeof tagOrText == 'string') {
+tag.content += tagOrText;
+}
+else if (tagOrText) {
+tag.content += tagOrText.build();
+}
+}
+function buildTag(tag, tagName, attributes) {
+return tag.start + buildAttributes(attributes) + tag.content + getEndTag(tagName);
+}
+// Die Tagfunktion
+return function (tagName, objAttributes, content) {
+// Initialisierung
+tagName = tagName.toLowerCase();
+var tag = {
+start: "<" + tagName,
+content: ">"
+};
+var attributes = {};
+if (objAttributes) {
+for (var n in objAttributes) {
+if (objAttributes.hasOwnProperty(n)) {
+addAttribute(attributes, n, objAttributes[n]);
+}
+}
+}
+if (content) {
+addContent(tag, content);
+}
+// Interface
+return {
+add: function (tagOrText) { addContent(tag, tagOrText); },
+attr: function (name, value) { addAttribute(attributes, name, value); },
+build: function () { return buildTag(tag, tagName, attributes); },
+reset: function () { tag.content = ">"; attributes = {}; }
+};
+};
+}
+function toArray(arrayLike) {
+var array = [];
+for (var i = 0, len = arrayLike.length; i < len; i++) {
+array[i] = arrayLike[i];
+}
+return array;
+}
+</script> 
+ 
+<script type="text/javascript"> 
+storeCookie("currmenu","fon");
+</script> 
+ 
+ 
+ 
+<!-- ../fon/siplist.js --> 
+<style type="text/css"> 
+#tSips {width: 100%;}
+#tSips td {padding: 2px 3px;}
+#tSips th {padding: 2px 3px;}
+#tGateway {width: 100%;}
+#tGateway td {padding: 2px 3px;}
+#tGateway th {padding: 2px 3px;}
+.c1 {text-align: center;}
+.c2 {text-align: left; width: 180px}
+.c3 {text-align: left; width: 180px}
+.c6 {text-align: center;}
+.pText25 {padding-left: 25px;}
+.pCheck25 {text-indent: -25px; padding-left: 25px; margin-bottom: 10px;}
+</style> 
+<script type="text/javascript"> 
+// ../js/jsl.js
+function doLoadPage(id,page) {
+var handle = document.getElementById(id);
+if (handle!=null) handle.src=page;
+}
+function jslIsString(id) {
+if (document.getElementById(id).value.match("[a-zA-Z0-9_]+")!=null) return true;
+return false;
+}
+function jslDoEliminateBlanks(text) {
+var newText = text;
+while ( newText.indexOf( " ") != (-1)) {
+newText = newText.replace(/ /,"");
+}
+return newText;
+}
+function jslGetName (id) {
+var h = document.getElementById(id);
+if (h != null) return h.name;
+return "";
+}
+function jslSetName(id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.name=wert;
+}
+function jslCopyValue(id_to, id_from) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id_to+'.value = document.uiViewForm.'+id_from+'.value');
+} else {
+var h1 = document.getElementById(id_to);
+var h2 = document.getElementById(id_from);
+if (h1 != null && h2 != null) h1.value=h2.value;
+}
+}
+function jslGetChecked (id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+return eval('document.uiViewForm.'+id+'.checked');
+} else {
+var h = document.getElementById(id);
+if (h != null) return h.checked;
+}
+return false;
+}
+function jslSetChecked (id, wert) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiViewForm.'+id+'.checked = '+wert);
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.checked = wert;
+}
+}
+function jslSetCheckValue (to, from) {
+var h1 = document.getElementById(to);
+var h2 = document.getElementById(from);
+if (h1 == null || h2 == null) {
+return;
+}
+if (h2.checked) {
+h1.value = "1";
+} else {
+h1.value = "0";
+}
+}
+function jslGetCheckValue (to, from) {
+var h1 = document.getElementById(to);
+var h2 = document.getElementById(from);
+if (h1 == null || h2 == null) {
+return;
+}
+h1.checked = (h2.value != "0");
+}
+function jslGrayLabels(elem,color) {
+var p = elem.parentNode;
+if (p) p = p.parentNode;
+p = p || document;
+if (p) {
+var labels = p.getElementsByTagName('label');
+for (var i = 0, len = labels.length; i < len; i++) {
+if (labels[i].htmlFor == elem.id) {
+labels[i].style.color = color;
+}
+}
+}
+}
+function jslDisable(id) {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled=true;
+jslGrayLabels(h1,"#999999");
+}
+}
+function jslEnable(id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id+'.disabled=false');
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+}
+function jslCopyAndEnableValue(id_to, id_from)
+{
+if (navigator.appName=='Microsoft Pocket Internet Explorer')
+{
+eval('document.uiPostForm.'+id_to+'.value = document.uiViewForm.'+id_from+'.value');
+eval('document.uiPostForm.'+id+'.disabled=false');
+return;
+}
+var h1 = document.getElementById(id_to);
+var h2 = document.getElementById(id_from);
+if ((h1 != null) && (h2 != null))
+{
+h1.value=h2.value;
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+function jslSetAndEnableValue(id, wert)
+{
+if (navigator.appName=='Microsoft Pocket Internet Explorer')
+{
+eval('document.uiPostForm.'+id+'.value="'+wert+'"');
+eval('document.uiPostForm.'+id+'.disabled=false');
+return;
+}
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.value=wert;
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+function jslSetEnabled (id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled = !wert;
+var color="#3F464C";
+if (h1.disabled==true)
+color="#999999";
+jslGrayLabels(h1,color);
+}
+}
+function jslGetEnabled (id) {
+var h1 = document.getElementById(id);
+if (h1 != null) return !(h1.disabled);
+}
+function jslIsVisible(id) {
+var h1 = document.getElementById(id);
+if (h1 != null) {
+return (h1.style.display!="none");
+}
+return false;
+}
+function jslDisplay(id, toDisplay) {
+var h1 = document.getElementById(id);
+if (h1 != null) {
+if ( toDisplay) h1.style.display="";
+else h1.style.display="none";
+}
+}
+function jslSetClass(id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.className=wert;
+}
+function jslGoToEx(Menu, Page, Titel) {
+jslGoTo(Menu,Page);
+}
+function jslFormSubmitEx (Menu, Page, Errorpage) {
+jslSubmitFormEx(Menu, Page, Errorpage);
+}
+function jslSubmitFormEx (Menu, Page, Errorpage) {
+if ((Menu!=null) && (Menu!="")) jslSetValue("uiPostMenu", Menu);
+if ((Page!=null) && (Page!="")) {
+jslSetValue("uiPostPageName", Page);
+jslSetValue("uiPostErrorPageName", Page);
+}
+if ((Errorpage!=null) && (Errorpage!="")) {
+jslSetValue("uiPostErrorPageName", Errorpage);
+}
+jslFormSubmit("uiPostForm");
+}
+function UpdateDateTime() {
+var date = new Date();
+jslSetValue("uiPostDateTime", Math.floor(date.getTime()/1000) + "," + date.getTimezoneOffset());
+}
+function jslSetSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null) elem.childNodes[0].nodeValue = text;
+}
+function SetSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null) elem.childNodes[0].nodeValue = text;
+}
+function PasswortToHex(pwValue) {
+var hexString = "";
+for (var i = 0; i < pwValue.length; i += 1) {
+var asciiValue = pwValue.charCodeAt(i);
+hexString += "%"+asciiValue.toString(16);
+}
+return hexString;
+}
+function jslSetSelection (id, text) {
+var box = document.getElementById(id);
+if (box == null) {
+return;
+}
+var disabled = box.disabled; // wg. Opera box enablen
+box.disabled = false;
+var i=0;
+var n = -1;
+for (i=0; i<box.length; i++) {
+if (box.options[i].value == text) n = i;
+}
+if (n != -1) {
+for (i=0; i<box.length; i++) {
+box.options[i].selected = (n == i);
+}
+}
+box.disabled = disabled;
+}
+function jslAddOption (id, val, text, sel, check_double_val) {
+if (navigator.appName == 'Microsoft Pocket Internet Explorer') {
+var entry = new Option(text, val, false, sel);
+var element = eval('document.uiViewForm.'+id);
+if (element == null) return;
+element.add(entry);
+} else {
+var element = document.getElementById(id);
+if(element!=null) jslAddOption_pos (id, val, text, sel, element.length, check_double_val);
+}
+}
+function jslAddOption_pos (id, val, text, sel, pos, check_double_val) {
+// var entry = new Option(convertHTML2Text(text), val, false, sel);
+var entry = new Option(text, val, false, sel);
+var element = document.getElementById(id);
+if (element == null) return;
+if(check_double_val == true){
+for (var i=0; i<element.length; i++){
+if (element.options[i].value == val) return; // Wert schon vorhanden
+}
+}
+element.options[pos] = entry;
+}
+function PasswortToXCode (pwValue) {
+var hexString = "";
+for (var i = 0; i < pwValue.length; i += 1) {
+var asciiValue = pwValue.charCodeAt(i);
+hexString += asciiValue.toString(16);
+}
+return hexString;
+}
+function XCodeToPasswort (hexValue) {
+var str = "";
+for (var i = 0; i < hexValue.length; i += 2) {
+str += String.fromCharCode(parseInt(hexValue.substr(i, 2),16));
+}
+return str;
+}
+function jslIsValidPath (path) {
+if ((navigator.platform == "Win32") && (navigator.appName == "Microsoft Internet Explorer") && (navigator.appVersion.indexOf("MSIE 6.") >= 0)) {
+if (path.indexOf("\\") == 0) return true;
+if (path.indexOf(":") == 1) return true;
+return false;
+}
+return true;
+}
+function jslPrintf1 (str , p1) {
+var exp = new RegExp("%1(%[a-zA-Z]+%)?","g");
+return str.replace(exp, p1);
+}
+function jslPrintf (str) {
+var i,exp;
+for (i=1; i<arguments.length; ++i)
+{
+exp = new RegExp("%"+i+"(%[a-zA-Z]+%)?","g");
+str = str.replace(exp, arguments[i]);
+}
+return str;
+}
+function jslGetCountAString(TextArray ,n){
+return jslGetCountString(TextArray[0],TextArray[1],TextArray[2],n);
+}
+function jslGetCountString(Text0,Text1,Text2 ,n){
+var ncase=n;
+if(ncase>2)
+ncase=2;
+if(ncase<0)
+ncase=2;
+switch(ncase){
+case 0: return jslPrintf(Text0,n);
+case 1: return jslPrintf(Text1,n);
+case 2: return jslPrintf(Text2,n);
+default: return jslPrintf(Text2,n);
+}
+}
+function alert1 (str, p1) {
+alert(jslPrintf1(str, p1));
+}
+function uiSelect(id) {
+var h = document.getElementById(id);
+if (h != null) h.select();
+}
+function uiFocus(id) {
+var h = document.getElementById(id);
+if (h != null) {
+h.focus();
+var nn = (h.nodeName || "").toLowerCase();
+var t = (h.type || "").toLowerCase();
+var selectable = false;
+if (nn == 'input' && (t == 'text' || t == 'password')) {
+selectable = true;
+}
+if (nn == 'textarea') {
+selectable = true;
+}
+if (selectable) {
+h.select();
+}
+}
+}
+function jslChangeImage ( imageName, newSource, newTitle) {
+var image = document.images[imageName];
+if ( image == null) {
+return;
+}
+image.src = newSource;
+image.title = newTitle;
+}
+function jslZebrastreifen (id) {
+var even = false;
+var evenColor = arguments[1] ? arguments[1] : "#FFFFFF";
+var oddColor = arguments[2] ? arguments[2] : "#EEEEEE";
+var table = document.getElementById(id);
+if (! table) {
+return;
+}
+var tbodies = table.getElementsByTagName("tbody");
+for (var h = 0; h < tbodies.length; h++) {
+var trs = tbodies[h].getElementsByTagName("tr");
+for (var i = 0; i < trs.length; i++) {
+if (trs[i].style.display!="none" && !trs[i].style.backgroundColor) {
+var ths = trs[i].getElementsByTagName("th");
+for (var j = 0; j < ths.length; j++) {
+var myth = ths[j];
+if (!myth.style.backgroundColor) {
+myth.style.backgroundColor = even ? evenColor : oddColor;
+}
+}
+var tds = trs[i].getElementsByTagName("td");
+for (var j = 0; j < tds.length; j++) {
+var mytd = tds[j];
+if (!mytd.style.backgroundColor) {
+mytd.style.backgroundColor = even ? evenColor : oddColor;
+}
+}
+even = !even;
+}
+}
+}
+}
+function convertHTML2Text(str) {
+if (str) {
+str = str.replace(/</g,"&lt;");
+str = str.replace(/>/g,"&gt;");
+var tst = document.createElement('div');
+tst.innerHTML = str;
+str = tst.innerText || tst.textContent;
+}
+return str;
+}
+function jslSetColor(id, NewColor, FontStrength) {
+var h1 = document.getElementById(id);
+if (h1 != null){
+h1.style.color=NewColor;
+h1.style.fontWeight=FontStrength;
+}
+}
+function jslEatWhitespace(instring){
+if(!instring)
+return instring;
+returnstr = instring.replace(/[\s,\xa0]+/g, "");
+return returnstr;
+}
+function jslGetStorageLink(protocol, display_link_name, path_extension, samba_ftp_object)
+{
+var samba_server_enabled = (samba_ftp_object && samba_ftp_object.samba_server_enabled) ? samba_ftp_object.samba_server_enabled : "1";
+var frominternet = (samba_ftp_object && samba_ftp_object.frominternet) ? samba_ftp_object.frominternet : "1";
+var connection_ip = (samba_ftp_object && samba_ftp_object.connection_ip) ? samba_ftp_object.connection_ip : "88.64.170.194";
+var interface_ip = (samba_ftp_object && samba_ftp_object.interface_ip) ? samba_ftp_object.interface_ip : "192.168.178.1";
+var ftp_server_enabled = (samba_ftp_object && samba_ftp_object.ftp_server_enabled) ? samba_ftp_object.ftp_server_enabled : "1";
+var ftp_password = (samba_ftp_object && samba_ftp_object.ftp_password) ? samba_ftp_object.ftp_password : "";
+var storage_ftp_internet = (samba_ftp_object && samba_ftp_object.storage_ftp_internet) ? samba_ftp_object.storage_ftp_internet : "0";
+var pppoe_ip = (samba_ftp_object && samba_ftp_object.pppoe_ip) ? samba_ftp_object.pppoe_ip : "88.64.170.194";
+var ddns_activated = (samba_ftp_object && samba_ftp_object.ddns_activated) ? samba_ftp_object.ddns_activated : "1";
+var ddns_password = (samba_ftp_object && samba_ftp_object.ddns_password) ? samba_ftp_object.ddns_password : "****";
+var ddns_username = (samba_ftp_object && samba_ftp_object.ddns_username) ? samba_ftp_object.ddns_username : "jowi24";
+var ddns_provider = (samba_ftp_object && samba_ftp_object.ddns_provider) ? samba_ftp_object.ddns_provider : "dyndns.org";
+var ddns_domain = (samba_ftp_object && samba_ftp_object.ddns_domain) ? samba_ftp_object.ddns_domain : "majo.dyndns.info";
+var link_head = "";
+var fritz_nas = "";
+if(path_extension == "Interner Speicher")
+{
+path_extension = "";
+}
+if(path_extension != "")
+{
+if(path_extension.indexOf("/") != 0)
+path_extension = "/"+path_extension;
+if((path_extension.lastIndexOf("/") + 1) != path_extension.length)
+path_extension = path_extension+"/";
+}
+if(protocol.match(/samba/) == "samba")
+{
+if (samba_server_enabled == "1")
+{
+if (frominternet != "1" && typeof g_IE != 'undefined' && g_IE == true)
+{
+if (("0" == "1" || "1" == "0" ) && "pppoe"=="bridge")
+link_head = connection_ip;
+else
+link_head = interface_ip;
+if (ftp_password == null || ftp_password != "****")
+fritz_nas="/fritz.nas";
+else
+path_extension = "";
+return '<a href="file://'+link_head+fritz_nas+path_extension+'" target="_blank">'+display_link_name+'</a>';
+}
+}
+}
+if(protocol.match(/ftp/) == "ftp")
+{
+if (ftp_server_enabled == "1")
+{
+if (ftp_password != "")
+link_head = "ftpuser@";
+if (frominternet == "1" && storage_ftp_internet == "1")
+{
+if (!(pppoe_ip != "" && pppoe_ip != "-" && pppoe_ip != "er" && pppoe_ip != "0.0.0.0"))
+pppoe_ip="";
+if(ddns_activated=="1" && ddns_password!="" && ddns_username!="" && ddns_provider!="")
+link_head += ddns_domain;
+else
+link_head += pppoe_ip;
+}
+else if (("0" == "1" || "1" == "0" ) && "pppoe"=="bridge")
+link_head += connection_ip;
+else
+link_head += interface_ip;
+return'<a href="ftp://'+link_head+path_extension+'" target="_blank">'+display_link_name+'</a>';
+}
+}
+return "";
+}
+ 
+// first/provider.js
+function doubleSelect(id1, id2, switchValue) {
+var select = {};
+if (id1) {
+select[id1] = document.getElementById(id1);
+}
+if (id2) {
+select[id2] = document.getElementById(id2);
+}
+var active = id1 || id2;
+var idByValue = {};
+function mapSelectOptionsToId(id, obj) {
+var s = select[id];
+if (s && s.options) {
+for (var i = 0; i < s.options.length; i++) {
+obj[s.options[i].value] = id;
+}
+}
+}
+var setValue, getValue;
+if (!select[id1] && !select[id2]) {
+setValue = function() {};
+getValue = function() { return "other"; };
+}
+else {
+mapSelectOptionsToId(id1, idByValue);
+mapSelectOptionsToId(id2, idByValue);
+setValue = function(val) {
+var sId = idByValue[val];
+if (sId) {
+select[sId].value = val;
+if (val == switchValue) {
+select[id2].style.display = "";
+active = id2;
+}
+else {
+if (sId == id2) {
+select[id1].value = switchValue;
+select[id2].style.display = "";
+}
+else if (select[id2]) {
+select[id2].style.display = "none";
+}
+active = sId;
+}
+}
+};
+getValue = function() {
+var val = select[active || id1].value;
+if (val == switchValue) {
+val = select[id2].value;
+}
+return val;
+};
+}
+return {
+setValue: setValue,
+getValue: getValue
+};
+}
+function splitList(list, filterFunc) {
+var result = {};
+for (var i = 0, len = list.length; i < len; i++) {
+var idx = filterFunc(list[i]);
+if (idx) {
+if (!result[idx]) {
+result[idx] = [];
+}
+result[idx].push(list[i]);
+}
+}
+return result;
+}
+function DataObject() {}
+DataObject.prototype.createGetters = function(properties) {
+function getter(obj, prop) {
+return function(param) {
+var result;
+if (prop in obj) {
+result = param in obj[prop] ? obj[prop][param] : obj[prop]._default;
+}
+switch (typeof result) {
+case 'function':
+var args = toArray(arguments).slice(1);
+return result.apply(null, args);
+case 'object':
+if (result && arguments.length > 1) {
+return result[arguments[1]];
+}
+return result;
+default:
+return result;
+}
+};
+}
+properties = properties || [];
+if (!properties.length) {
+for (var p in this) {
+if (p != "_default" && this.hasOwnProperty(p)) {
+properties.push(p);
+}
+}
+}
+var prop, funcName;
+for (var i = 0, len = properties.length; i < len; i++) {
+prop = properties[i];
+if (prop) {
+funcName = "get" + prop.charAt(0).toUpperCase() + prop.substring(1);
+this[funcName] = getter(this, prop);
+}
+}
+}
+var g_boxInfo = g_boxInfo || {};
+g_boxInfo.provider = "1und1";
+g_boxInfo.username = "1und1/ka9653-861@online.de";
+g_boxInfo.type = "pppoe";
+g_boxInfo.connect = "5";
+g_boxInfo.ata_mode = "0";
+g_boxInfo.oem = "1und1";
+g_boxInfo.country = "049";
+g_boxInfo.annex = "B";
+function readCharacteristic(characteristic) {
+var vars = {};
+var ch = characteristic.split(";");
+for (var i = 0; i < ch.length; i++) {
+var v = ch[i].split("=");
+if (v.length && v[0]) { vars[v[0]] = v[1] || ""; }
+}
+return vars;
+}
+function readProviderList(list) {
+var activeprovider = "1und1";
+list.displayName = {};
+list.characteristic = {};
+ 
+list.displayName["1und1"] = "1&amp;1 Internet";
+list.characteristic["1und1"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["alice"] = "Alice (Hansenet)";
+list.characteristic["alice"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["congstar"] = "congstar";
+list.characteristic["congstar"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["ewetel"] = "EWE TEL";
+list.characteristic["ewetel"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["gmx"] = "GMX";
+list.characteristic["gmx"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["inode"] = "Inode / UPC";
+list.characteristic["inode"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["kdg"] = "Kabel Deutschland";
+list.characteristic["kdg"] = readCharacteristic("box:settings/opmode=opmode_eth_ip;");
+ 
+list.displayName["mnet"] = "M-net";
+list.characteristic["mnet"] = readCharacteristic("box:settings/opmode=opmode_pppoe;connection0:pppoe:settings/username=Username;connection0:pppoe:settings/password=1;connection0:pppoe:settings/mode=lcp;connection0:settings/ProviderDisconnectPrevention/Enabled=0;connection0:settings/ProviderDisconnectPrevention/Hour=3;;;");
+ 
+list.displayName["netaachen"] = "NetAachen";
+list.characteristic["netaachen"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["netcologne"] = "NetCologne";
+list.characteristic["netcologne"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["nordcom"] = "nordcom";
+list.characteristic["nordcom"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["o2"] = "O2";
+list.characteristic["o2"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["osnatel"] = "osnatel";
+list.characteristic["osnatel"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["qsc"] = "QSC / Q-DSL home";
+list.characteristic["qsc"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["tonline"] = "T-Online";
+list.characteristic["tonline"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["teleos"] = "teleos";
+list.characteristic["teleos"] = readCharacteristic("box:settings/opmode=opmode_ether;");
+ 
+list.displayName["unitymedia"] = "Unitymedia";
+list.characteristic["unitymedia"] = readCharacteristic("box:settings/opmode=opmode_eth_ip;;");
+ 
+list.displayName["versatel"] = "Versatel";
+list.characteristic["versatel"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["arcor"] = "Vodafone / Arcor";
+list.characteristic["arcor"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["other"] = "";
+list.characteristic["other"] = readCharacteristic("box:settings/opmode=opmode_standard;connection0:pppoe:settings/username=;connection0:pppoe:settings/password=;connection0:pppoe:settings/idle=300;connection0:pppoe:settings/mode=on_demand;connection0:settings/ProviderDisconnectPrevention/Enabled=1;connection0:settings/ProviderDisconnectPrevention/Hour=3;");
+ 
+list.displayName["other"] = "anderer Internetanbieter";
+return list;
+}
+var g_isp = new DataObject();
+g_isp = readProviderList(g_isp);
+/*g_isp.displayName = {
+"1und1": "1&1 Internet",
+"alice": "Alice (Hansenet)",
+"aol": "AOL",
+"arcor": "Arcor",
+"congstar": "congstar",
+"dbd": "DBD (WiMAX)",
+"debitel": "debitel",
+"freenet": "freenet",
+"gmx": "GMX",
+"inode": "Inode / UPC",
+"kdg": "Kabel Deutschland",
+"mnet": "M-net",
+"o2": "O2",
+"qsc": "QSC / Q-DSL home",
+"strato": "Strato",
+"tnamibiaadsl": "Telecom Namibia - ADSL",
+"tnamibiawimax": "Telecom Namibia - Wimax",
+"tonline": "T-Online",
+"unitymedia": "Unitymedia",
+"versatel": "Versatel",
+"xs4all": "XS4ALL",
+"aon": "aon",
+"other": "anderer Internetanbieter"
+};*/
+g_isp.isUI = {
+_default: false,
+"1und1": true,
+"gmx": true
+};
+g_isp.oemFilter = {};
+//------------------------------------------
+g_isp.oemFilter._default = function () {
+if (g_boxInfo.oem == 'arcor') { return false; }
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country != '049') { return false; }
+return true;
+};
+//------------------------------------------
+g_isp.oemFilter.arcor = function() {
+if (g_boxInfo.oem == 'arcor') { return true; }
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.inode = function() {
+if (g_boxInfo.oem == 'avme' && (g_boxInfo.country == '043' || g_boxInfo.country == '049')) {
+return true; // Österreich oder Deutschland
+}
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.kdg = function() {
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.tnamibiaadsl = function() {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '0264') {
+return true; // Namibia
+}
+return false;
+};
+//------------------------------------------
+g_isp.oemFilter.tnamibiawimax = function() {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '0264') {
+return true;// Namibia
+}
+return false;
+};
+//------------------------------------------
+g_isp.oemFilter.unitymedia = function() {
+if (g_boxInfo.oem == 'freenet') { return false; }
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.xs4all = function() {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '031') {
+return true; // Niederlande
+}
+return false;
+};
+//------------------------------------------
+g_isp.oemFilter.aon = function() {
+if (g_boxInfo.oem == 'avme' && (g_boxInfo.country == '043' || g_boxInfo.country == '049')) {
+return true; // Österreich oder Deutschland
+}
+return g_isp.oemFilter._default();
+};
+//------------------------------------------
+g_isp.oemFilter.other = function() { return true; };
+g_isp.createGetters();
+function listProviderIds(list, filterFunc) {
+var noFilter = typeof filterFunc != 'function';
+var result = [];
+for (var p in list.displayName) {
+if (list.getOemFilter(p)) {
+if (noFilter || filterFunc(p)) {
+result.push(p);
+}
+}
+}
+return result;
+}
+function isUnconfigured(ispId) {
+return !ispId || (ispId == "other" && !g_boxInfo.username);
+}
+function isCableIsp(ispId) {
+var ch = g_isp.characteristic[ispId];
+return ch && ch["box:settings/opmode"] == "opmode_eth_ip";
+}
+function getIspLists(excludeCable) {
+var cableFilter;
+if (excludeCable) { cableFilter = function(pId){ return !isCableIsp(pId); }; }
+var result = {};
+var list = listProviderIds(g_isp, cableFilter);
+var currProviderId = getCurrentIsp();
+if (g_boxInfo.oem == '1und1' && (isUnconfigured(currProviderId) || g_isp.getIsUI(currProviderId))) {
+result = splitList(list, function(p){return g_isp.getIsUI(p) ? "oem" : "main";});
+}
+if (!result.main) { result.main = list; }
+if (!result.oem) { result.oem = []; }
+return result;
+}
+function strIspSelect(htmlAttributes, excludeCable) {
+var list = getIspLists(excludeCable);
+g_isp.selectCount = list.main.length + list.oem.length;
+var currIsp = getCurrentIsp();
+var str = "";
+if (list.main.length > 1 || list.oem.length > 0) {
+// Nicht nur 'other' zur Auswahl
+var html = htmlStringBuilder();
+var oemSelect, mainSelect, option;
+if (list.oem.length) {
+oemSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.oem.length; i++) {
+var pId = list.oem[i];
+option = html('option', {value: pId} , g_isp.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+oemSelect.add(option);
+}
+option = html('option', {value: "more"}, "weitere Internetanbieter");
+oemSelect.add(option);
+// Attribute für mainSelect anpassen
+htmlAttributes.id = htmlAttributes.id + "Plus";
+htmlAttributes.style = "display:none;" + (htmlAttributes.style || "");
+}
+mainSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.main.length; i++) {
+var pId = list.main[i];
+option = html('option', {value: pId}, g_isp.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+mainSelect.add(option);
+}
+var p = html('p',{}, "Wählen Sie Ihren Internetanbieter aus:");
+var str = p.build();
+if (oemSelect) {
+str += oemSelect.build();
+str += html('br').build();
+}
+if (mainSelect) {
+str += mainSelect.build();
+}
+}
+return str;
+}
+function getSipLists() {
+var result = {};
+var list = listProviderIds(g_sip);
+var currIsp = getCurrentIsp();
+if (g_boxInfo.oem == '1und1' && (!currIsp || g_isp.getIsUI(currIsp))) {
+// Liste aufteilen und zwei Selects erstellen
+result = splitList(list, function(p){return g_isp.getIsUI(p) ? "oem" : "main";});
+}
+if (!result.main) { result.main = list; }
+if (!result.oem) { result.oem = []; }
+return result;
+}
+function strSipSelect(htmlAttributes, registrar) {
+var list = getSipLists();
+g_sip.selectCount = list.main.length + list.oem.length;
+var currIsp = getCurrentIsp();
+var str = "";
+if (list.main.length > 1 || list.oem.length > 0) {
+// Nicht nur 'other' zur Auswahl
+var html = htmlStringBuilder();
+var oemSelect, mainSelect, option;
+if (list.oem.length) {
+oemSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.oem.length; i++) {
+var pId = list.oem[i];
+option = html('option', {value: pId} , g_sip.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+oemSelect.add(option);
+}
+option = html('option', {value: "more"}, "weitere Anbieter");
+oemSelect.add(option);
+// Attribute für mainSelect anpassen
+htmlAttributes.id = htmlAttributes.id + "Plus";
+htmlAttributes.style = "display:none;" + (htmlAttributes.style || "");
+}
+mainSelect = html('select', htmlAttributes);
+for (var i = 0; i < list.main.length; i++) {
+var pId = list.main[i];
+option = html('option', {value: pId}, g_sip.getDisplayName(pId));
+if (pId == currIsp) {
+option.attr('selected', "");
+}
+mainSelect.add(option);
+}
+var p = html('p',{}, "Wählen Sie Ihren Internettelefonie-Anbieter");
+var str = p.build();
+if (oemSelect) {
+str += oemSelect.build();
+str += html('br').build();
+}
+if (mainSelect) {
+str += mainSelect.build();
+}
+}
+return str;
+}
+function getCurrentIsp() {
+return g_boxInfo.provider || "other"; //getIspByUsername();
+}
+function getIspByUsername(username) {
+username = username || g_boxInfo.username;
+if (!username) {
+return "";
+}
+if (username.indexOf("@de.aol.com") >= 0) {
+return "aol";
+}
+if (username.indexOf("@dbd-breitband.de") >= 0) {
+return "dbd";
+}
+if (username.indexOf("debitel/") === 0 && username.indexOf("%debitel.net")>=8) {
+return "debitel";
+}
+if (username.indexOf("1und1/") === 0 && username.indexOf("@online.de") >= 0) {
+return "1und1";
+}
+if (username.indexOf("GMX/") === 0 && username.indexOf("@online.de") >= 0) {
+return "gmx";
+}
+if (username.indexOf("@t-online.de") >= 0) {
+return "tonline";
+}
+if (username.indexOf("@congstar.de") >= 0) {
+return "congstar";
+}
+if (username.indexOf("frn6/") === 0) {
+return "freenet";
+}
+if (username.indexOf("internet") === 0 && username.indexOf("/") >= 0) {
+return "strato";
+}
+if (username.indexOf("@versatel") >= 0) {
+return "versatel";
+}
+if (username.indexOf("ar") === 0) {
+return "arcor";
+}
+if (username.indexOf("@qsc") === 0) {
+return "qsc";
+}
+if (username.indexOf("@xs4all") >= 0) {
+return "xs4all";
+}
+if (username.indexOf(".o2online.de") >= 0) {
+return "o2";
+}
+return "other";
+}
+var g_sip = new DataObject();
+g_sip.displayName = {
+"1und1": "1&1 Internet",
+//"a1": "A1 over IP",
+//"aol": "AOL",
+"congstar": "congstar",
+//"dbd": "DBD (WiMAX)",
+//"DBD-DSL": "DBD (DSL)",
+"dus": "DUS.net",
+//"freenet": "freenet",
+"gmx": "GMX",
+"inode": "Inode / UPC",
+"inodeisdn": "Inode (ISDN)",
+"kdg": "Kabel Deutschland",
+"qsc": "QSC / Q-DSL home",
+"sipgate": "sipgate",
+"sipgateteam": "sipgate team",
+"sipkom": "sipkom",
+//"strato": "Strato",
+"tonline": "T-Online",
+"unitymedia": "Unitymedia",
+"arcor": "Vodafone / Arcor",
+"xs4all": "XS4ALL",
+"other": "anderer Anbieter"
+};
+g_sip.oemFilter = {};
+g_sip.oemFilter._default = function () {
+if (g_boxInfo.oem == 'arcor') { return false; }
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country != '049') { return false; }
+return true;
+};
+g_sip.oemFilter.a1 = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+if (g_boxInfo.oem == 'avme') {
+if (g_boxInfo.country == '043') {
+return true; // Nur Österreich
+}
+return false;
+}
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.arcor = function () {
+if (g_boxInfo.oem == 'arcor') { return true; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.congstar = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+// congstar SIP geht nur bei Congstar ISP
+if (getCurrentIsp() != 'congstar') { return false; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.dbd = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.inode = function () {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '043') {
+return true; // Österreich
+}
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.inodeisdn = function () {
+if (g_boxInfo.annex == 'A') {
+return g_sip.oemFilter.inode();
+}
+return false;
+};
+g_sip.oemFilter.kdg = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+var tr069ConfUrl = "https://acs2.online.de";
+if (tr069ConfUrl.search("kabel-deutschland") != -1) {
+return g_sip.oemFilter._default();
+}
+return false;
+};
+g_sip.oemFilter.qsc = function () {
+if (g_boxInfo.oem == 'freenet') { return false; }
+return g_sip.oemFilter._default();
+};
+g_sip.oemFilter.xs4all = function () {
+if (g_boxInfo.oem == 'avme' && g_boxInfo.country == '031') {
+return true; // Niederlande
+}
+return false;
+};
+g_sip.oemFilter.other = function () {
+return true;
+};
+g_sip.createGetters();
+function getSipProviderByRegistrar(registrar, proxy) {
+registrar = registrar || "";
+switch (registrar) {
+case "freenet.de": return "freenet";
+case "arcor.de": return "arcor";
+case "sipgate.de":
+if (proxy && proxy == "proxy.live.sipgate.de") {
+return "sipgateteam";
+}
+return "sipgate";
+case "sipkom.com": return "sipkom";
+case "tel.congstar.de": return "congstar";
+case "tel2.congstar.de": return "congstar";
+case "1und1.de": return "1und1";
+case "sip.1und1.de": return "1und1";
+case "gmx.de": return "gmx";
+case "reg.aolphone.aol.de": return "aol";
+case "a1.net": return "a1";
+case "aolphone.aol.de": return "aol";
+case "strato-iphone.de": return "strato";
+case "proxy.dus.net": return "dus";
+case "telefon.unitymedia.de": return "unitymedia";
+case "kabelphone.de": return "kdg";
+case "voip.inode.at": //return "inode";
+case "osvoip.upc.at": return "inode";
+case "sip.xs4all.nl": return "xs4all";
+case "tel.t-online.de": return "tonline";
+}
+if (registrar.indexOf("dbd-") >= 0) {
+return "dbd";
+}
+else if (registrar.search("kabelphone.de") != "-1") {
+return "kdg";
+}
+return "other";
+}
+function GetProviderString(username,szPostEncapsSepVcc,DefaultProv){
+var szProvider=GetFullProviderString(username,szPostEncapsSepVcc,DefaultProv);
+return GetOEMFiltertProviderString(szProvider);
+}
+function GetProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv){
+var szProvider=GetFullProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv);
+return GetOEMFiltertProviderString(szProvider);
+}
+function GetOEMFiltertProviderString(szProvider){
+ 
+if(szProvider=="1und1")return szProvider;
+if(szProvider=="gmx")return szProvider;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+return "other";
+}
+function GetFullProviderString(username,szPostEncapsSepVcc,DefaultProv){
+return GetFullProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv);
+}
+function GetFullProviderStringUsernameOnly(username,szPostEncapsSepVcc,DefaultProv){
+//szPostEncapsSepVcc=jslGetValue("uiPostEncapsSepVcc");
+if (username.indexOf("@de.aol.com")>=0) {
+return "aol";
+}else if (username.indexOf("@dbd-breitband.de")>=0) {
+return "dbd";
+} else if (username.indexOf("debitel/")==0 && username.indexOf("%debitel.net")>=8) {
+return "debitel";
+} else if (username.indexOf("@online.de")>=0) {
+var name = username.substr(0, username.indexOf("@online.de"));
+if (name.substring(0, 6) == "1und1/") {
+return "1und1";
+} else if (username.substring(0, 4) == "GMX/") {
+return "gmx";
+} else {
+return "other";
+}
+} else if (username.indexOf("@t-online.de")>=0) {
+return "tonline";
+} else if (username.indexOf("@congstar.de")>=0) {
+return "congstar";
+} else if (username.substring(0, 5)=="frn6/") {
+return "freenet";
+} else if (username.substring(0, 8)=="internet" && username.indexOf("/") >= 0) {
+return "strato";
+} else if (username.indexOf("@versatel")>=0) {
+return "versatel";
+} else if (username.indexOf("ar")==0) {
+return "arcor";
+} else if (username.indexOf("@qsc")==0) {
+return "qsc";
+} else if (username.indexOf("@xs4all")>=0) {
+return "xs4all";
+} else if (username.indexOf(".o2online.de")>=0) {
+return "o2";
+} else if (username=="") {
+return DefaultProv || "other";
+} else {
+return "other";
+}
+}
+function IsUnitedInternet( provider) {
+return g_isp.getIsUI(provider);
+}
+function IsDbd () {
+return jslGetValue("uiPppProvider") == "dbd";
+}
+function uiProviderDisplay(id,providerOverrideText) {
+var otherprovider=g_isp.getDisplayName("other");
+if(providerOverrideText)
+otherprovider=providerOverrideText;
+if (id == "1und1") return "1&1 Internet";
+if (id == "aol") return "AOL";
+if (id == "arcor") return "Arcor";
+if (id == "congstar") return "congstar";
+if (id == "dbd") return "DBD (WiMAX)";
+if (id == "debitel") return "debitel";
+if (id == "dus") return "DUS.net";
+if (id == "freenet") return "freenet";
+if (id == "gmx") return "GMX";
+if (id == "inode") return "Inode / UPC";
+if (id == "inodeisdn") return "Inode (ISDN)";
+if (id == "mnet") return "M-net";
+if (id == "sipgate") return "sipgate";
+if (id == "sipgateteam") return "sipgate team";
+if (id == "sipkom") return "sipkom";
+if (id == "strato") return "Strato";
+if (id == "tonline") return "T-Online";
+if (id == "versatel") return "Versatel";
+if (id == "alice") return " Alice (Hansenet)";
+if (id == "unitymedia") return "Unitymedia";
+if (id == "kdg") return "Kabel Deutschland";
+if (id == "qsc") return "QSC / Q-DSL home";
+if (id == "xs4all") return "XS4ALL";
+if (id == "tnamibiaadsl") return "Telecom Namibia - ADSL";
+if (id == "tnamibiawimax") return "Telecom Namibia - Wimax";
+if (id == "o2") return "O2";
+return otherprovider;
+}
+function IsISPFreenet(){
+return IsISPFreenetWithUsername(g_boxInfo.username);
+}
+function IsISPFreenetWithUsername(Username){
+if (Username.substring(0, 5)=="frn6/") {
+return true;
+}else
+return false;
+}
+function IsUnityMedia(provider){
+return provider == "unitymedia";
+}
+function IsKDG(provider){
+return provider == "kdg";
+}
+function IsDSLProviderComboShown(){
+return g_isp.selectCount > 1;
+/*
+if("1und1" != "avme"){
+return true;
+}else{
+ 
+return true;
+ 
+ 
+ 
+ 
+return false;
+}
+*/
+}
+//SIP-Provider Teil:
+function IsSIPProviderComboShown(){
+ 
+ 
+ 
+ 
+ 
+return true;
+ 
+}
+function isProvisionedByUnitedInternet() {
+var provcode = "";
+ 
+provcode = "004.000.000.000";
+ 
+if (provcode == "" || provcode == "000.000.000.000") {
+return false;
+}
+var provider = GetFullProviderStringUsernameOnly(g_boxInfo.username);
+return IsUnitedInternet(provider);
+}
+function ProviderDisplay (registrar) {
+switch (registrar) {
+case "freenet.de": return "freenet";
+case "arcor.de": return "Arcor";
+case "sipgate.de": return "sipgate";
+case "sipkom.com": return "sipkom";
+case "tel.congstar.de": return "congstar";
+case "tel2.congstar.de": return "congstar";
+case "1und1.de": return "1&1 Internet";
+case "sip.1und1.de": return "1&1 Internet";
+case "gmx.de": return "GMX";
+case "reg.aolphone.aol.de": return "AOL";
+case "a1.net": return "A1 over IP";
+case "aolphone.aol.de": return "AOL";
+case "strato-iphone.de": return "Strato";
+case "proxy.dus.net": return "DUS.net";
+case "telefon.unitymedia.de": return "Unitymedia";
+case "kabelphone.de": return "Kabel Deutschland";
+case "voip.inode.at": //return "Inode";
+case "osvoip.upc.at": return "Inode";
+case "sip.xs4all.nl": return "XS4ALL";
+ 
+}
+if (registrar.indexOf("dbd-") >= 0) {
+return registrar.indexOf("dsl") >= 0 ? "DBD (DSL)" : "DBD (WiMAX)";
+} else if (registrar.search("kabelphone.de") != "-1") {
+return "Kabel Deutschland";
+}
+return registrar;
+}
+ 
+var g_Variante = "1und1";
+var g_expertMode = "1";
+var g_mldDelete = "Die Internetrufnummer wird jetzt gelöscht.";
+var g_mldDeleteRUL = "Für die Internetrufnummer sind noch Rufumleitungen eingerichtet. Bitte löschen Sie diese bevor Sie die Internetrufnummer entfernen.";
+var g_txtKDG = "Diese Internetrufnummer wurde von Ihrem Anbieter automatisch eingerichtet. Wenden Sie sich bitte an Kabel Deutschland, um die gewünschte Änderung vornehmen zu lassen.";
+var g_MaxVoIpAccounts=20;
+function uiDoOnLoad() {
+document.title = "FRITZ!Box Internettelefonie";
+var some_found = false;
+var empty_found = false;
+var bKDGProv = uiCheckKDGVoipConfig();
+var curProvider = "";
+ 
+if ("111" != "") {
+jslDisplay("uiViewRow0", true);
+uiSetViewActivated("uiViewActivsip0", "uiPostActivsip0");
+curProvider="sip.1und1.de";
+if (bKDGProv && curProvider.search("kabelphone.de")!=-1)
+{
+jslDisable("uiViewActivsip0");
+}
+if ("0"=="1")
+{
+jslDisable("uiViewActivsip0");
+}
+some_found = true;
+} else {
+empty_found = true;
+}
+ 
+if ("222" != "") {
+jslDisplay("uiViewRow1", true);
+uiSetViewActivated("uiViewActivsip1", "uiPostActivsip1");
+curProvider="sip.1und1.de";
+if (bKDGProv && curProvider.search("kabelphone.de")!=-1)
+{
+jslDisable("uiViewActivsip1");
+}
+if ("0"=="1")
+{
+jslDisable("uiViewActivsip1");
+}
+some_found = true;
+} else {
+empty_found = true;
+}
+ 
+if ("333" != "") {
+jslDisplay("uiViewRow2", true);
+uiSetViewActivated("uiViewActivsip2", "uiPostActivsip2");
+curProvider="personal-voip.de";
+if (bKDGProv && curProvider.search("kabelphone.de")!=-1)
+{
+jslDisable("uiViewActivsip2");
+}
+if ("0"=="1")
+{
+jslDisable("uiViewActivsip2");
+}
+some_found = true;
+} else {
+empty_found = true;
+}
+ 
+var n = Number("3");
+if ((n >= g_MaxVoIpAccounts) && (!empty_found)) jslDisable("uiViewNewButton");
+if (!some_found) jslDisplay("uiViewNoRow", true);
+jslZebrastreifen("tSips");
+}
+function uiSetViewActivated(idui, idpost) {
+jslSetChecked(idui, jslGetValue(idpost) == "1");
+}
+function ProviderDisplay (registrar, proxy) {
+var providerId = getSipProviderByRegistrar(registrar, proxy);
+if (providerId == "other") {
+return registrar;
+}
+return g_sip.getDisplayName(providerId);
+}
+function AuswahlDisplay (nr) {
+if (nr == "9") return "*120#";
+return "*12"+(Number(nr)+1)+"#";
+}
+function trClass (n, id) {
+var str = "<tr class=\"";
+str += (Number(n)%2 == 0) ? "bcWeiss":"bcGrau";
+str += "\" id=\"" + id + "\" style=\"display:none\">";
+return str;
+}
+function uiOnChangeActivated(idui, idpost) {
+var rule = idpost.substring(11);
+if (uiFindKDG(rule)) return;
+jslSetCheckValue(idpost, idui);
+}
+function uiDoSave() {
+ 
+jslSetValue("uiPostActivsip0", jslGetChecked("uiViewActivsip0") ? "1":"0");
+ 
+jslSetValue("uiPostActivsip1", jslGetChecked("uiViewActivsip1") ? "1":"0");
+ 
+jslSetValue("uiPostActivsip2", jslGetChecked("uiViewActivsip2") ? "1":"0");
+ 
+jslFormSubmitEx("fon", "siplist");
+}
+function uiDoCancel() {
+jslGoTo("fon", "siplist");
+}
+function uiCheckKDGVoipConfig () {
+var tr069ConfUrl = "https://acs2.online.de";
+if (tr069ConfUrl.search("kabel-deutschland") != -1) {
+jslSetValue("uiPostKDGCfg", "1");
+jslEnable("uiPostKDGCfg");
+return true;
+}
+return false;
+}
+function uiDoHelp() {
+jslPopHelp("hilfe_fon_internetliste");
+}
+function uiFindKDG(rule) {
+var tr069ConfUrl = "https://acs2.online.de";
+if (tr069ConfUrl.search("kabel-deutschland") != -1) {
+var reg="";
+ 
+if (rule == "sip0") {
+reg = "sip.1und1.de";
+if (reg.search("kabelphone.de") != -1) {
+alert(g_txtKDG);
+return true;
+}
+}
+ 
+if (rule == "sip1") {
+reg = "sip.1und1.de";
+if (reg.search("kabelphone.de") != -1) {
+alert(g_txtKDG);
+return true;
+}
+}
+ 
+if (rule == "sip2") {
+reg = "personal-voip.de";
+if (reg.search("kabelphone.de") != -1) {
+alert(g_txtKDG);
+return true;
+}
+}
+ 
+}
+return false;
+}
+function uiDoEdit(rule) {
+if (uiFindKDG(rule)) return;
+jslSetValue('uiPostSipnr', rule);
+var telcfg = "SIP"+jslGetValue("uiPostId"+rule);
+jslSetValue('uiPostTelnr', telcfg);
+if (rule=="sip0" && jslGetValue("uiPostDisplaysip0") == "") {
+jslSetValue("uiPostIsNew", "1");
+} else {
+jslSetValue("uiPostIsNew", "0");
+}
+jslFormSubmitEx("fon", "sip1", "siplist");
+}
+function uiDoNew(rule) {
+var empty_found = false;
+//var telcfg = "SIP"+"3";
+var telcfg = rule.toUpperCase();
+ 
+if ("111" == "") {
+if (!empty_found) {
+rule = "sip0";
+//telcfg = "SIP"+"0";
+telcfg = "SIP"+"0";
+empty_found = true;
+}
+}
+ 
+if ("222" == "") {
+if (!empty_found) {
+rule = "sip1";
+//telcfg = "SIP"+"1";
+telcfg = "SIP"+"1";
+empty_found = true;
+}
+}
+ 
+if ("333" == "") {
+if (!empty_found) {
+rule = "sip2";
+//telcfg = "SIP"+"2";
+telcfg = "SIP"+"2";
+empty_found = true;
+}
+}
+ 
+jslSetValue('uiPostSipnr', rule);
+jslSetValue('uiPostTelnr', telcfg);
+jslSetValue('uiPostIsNew', "1");
+jslFormSubmitEx("fon", "sip1", "siplist");
+}
+function uiDoDelete(rule,sipnummer)
+{
+if (uiFindKDG(rule)) return;
+if (!confirm(g_mldDelete)) return;
+var sipNo="";
+if ( rule.indexOf("sip")==0)
+{
+sipNo = parseInt(rule.substr(3));
+if (!uiCheckRUL(sipNo, sipnummer))
+{
+jslFormSubmitEx("fon", "rulall");
+return;
+}
+uiDelete(sipNo, sipnummer);
+}
+switch (rule)
+{
+case "sip0":
+jslSetValue("uiPostActivsip0", "0");
+jslSetEnabled("uiPostDisplaysip0", true);
+jslSetValue("uiPostDisplaysip0", "");
+jslSetEnabled("uiPostRegistrarsip0", true);
+jslSetValue("uiPostRegistrarsip0", "");
+jslSetEnabled("uiPostUsernamesip0", true);
+jslSetValue("uiPostUsernamesip0", "");
+jslSetEnabled("uiPostPasswordsip0", true);
+jslSetValue("uiPostPasswordsip0", "");
+jslSetEnabled("uiPostStunserversip0", true);
+jslSetValue("uiPostStunserversip0", "");
+break;
+case "sip1":
+jslSetValue("uiPostActivsip1", "0");
+jslSetEnabled("uiPostDisplaysip1", true);
+jslSetValue("uiPostDisplaysip1", "");
+jslSetEnabled("uiPostRegistrarsip1", true);
+jslSetValue("uiPostRegistrarsip1", "");
+jslSetEnabled("uiPostUsernamesip1", true);
+jslSetValue("uiPostUsernamesip1", "");
+jslSetEnabled("uiPostPasswordsip1", true);
+jslSetValue("uiPostPasswordsip1", "");
+jslSetEnabled("uiPostStunserversip1", true);
+jslSetValue("uiPostStunserversip1", "");
+break;
+default:
+jslSetEnabled('uiPostDelete'+rule, true);
+jslSetEnabled('uiPostActiv'+rule, false);
+break;
+}
+jslSetName("uiPostDeleteMSN", "telcfg:settings/SIP"+jslGetValue("uiPostId"+rule)+"/MSN");
+jslEnable("uiPostDeleteMSN");
+jslFormSubmitEx("fon", "siplist");
+}
+function uiCheckRUL(sipNo, sipnummer) {
+//überprüfen zuerst RUL
+ 
+if (jslGetValue("uiPostDiversity0MSN") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+if (jslGetValue("uiPostDiversity0Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+ 
+if (jslGetValue("uiPostCallerIDAction0Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction1Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction2Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction3Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction4Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction5Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction6Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction7Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction8Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction9Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction10Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction11Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction12Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction13Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction14Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+if (jslGetValue("uiPostCallerIDAction15Outgoing") == ("SIP"+sipNo)) {
+alert(g_mldDeleteRUL);
+return false;
+}
+ 
+return true;
+}
+function uiDelete(sipNo, sipnummer) {
+// Internet Wahlregeln entfernen
+var i=0;
+var j=0;
+ 
+//Callthrough deaktivieren
+if (jslGetValue("uiPostCtMsn") == "SIP"+sipNo || jslGetValue("uiPostWeiterleiten") == "SIP"+sipNo) {
+jslSetValue("uiPostCtAktiv","0");
+jslEnable("uiPostCtAktiv");
+}
+//Analoge Nebenstellen (outgoing number entfernen)
+ 
+if (jslGetValue("uiPostNr00") == "SIP"+sipNo) {jslSetValue("uiPostNr00", ""); jslEnable("uiPostNr00");}
+ 
+if (jslGetValue("uiPostNr01") == "SIP"+sipNo) {jslSetValue("uiPostNr01", ""); jslEnable("uiPostNr01");}
+ 
+if (jslGetValue("uiPostNr02") == "SIP"+sipNo) {jslSetValue("uiPostNr02", ""); jslEnable("uiPostNr02");}
+ 
+if (jslGetValue("uiPostNr03") == "SIP"+sipNo) {jslSetValue("uiPostNr03", ""); jslEnable("uiPostNr03");}
+ 
+if (jslGetValue("uiPostNr04") == "SIP"+sipNo) {jslSetValue("uiPostNr04", ""); jslEnable("uiPostNr04");}
+ 
+if (jslGetValue("uiPostNr05") == "SIP"+sipNo) {jslSetValue("uiPostNr05", ""); jslEnable("uiPostNr05");}
+ 
+if (jslGetValue("uiPostNr06") == "SIP"+sipNo) {jslSetValue("uiPostNr06", ""); jslEnable("uiPostNr06");}
+ 
+if (jslGetValue("uiPostNr07") == "SIP"+sipNo) {jslSetValue("uiPostNr07", ""); jslEnable("uiPostNr07");}
+ 
+if (jslGetValue("uiPostNr08") == "SIP"+sipNo) {jslSetValue("uiPostNr08", ""); jslEnable("uiPostNr08");}
+ 
+if (jslGetValue("uiPostNr09") == "SIP"+sipNo) {jslSetValue("uiPostNr09", ""); jslEnable("uiPostNr09");}
+ 
+ 
+if (jslGetValue("uiPostNr10") == "SIP"+sipNo) {jslSetValue("uiPostNr10", ""); jslEnable("uiPostNr10");}
+ 
+if (jslGetValue("uiPostNr11") == "SIP"+sipNo) {jslSetValue("uiPostNr11", ""); jslEnable("uiPostNr11");}
+ 
+if (jslGetValue("uiPostNr12") == "SIP"+sipNo) {jslSetValue("uiPostNr12", ""); jslEnable("uiPostNr12");}
+ 
+if (jslGetValue("uiPostNr13") == "SIP"+sipNo) {jslSetValue("uiPostNr13", ""); jslEnable("uiPostNr13");}
+ 
+if (jslGetValue("uiPostNr14") == "SIP"+sipNo) {jslSetValue("uiPostNr14", ""); jslEnable("uiPostNr14");}
+ 
+if (jslGetValue("uiPostNr15") == "SIP"+sipNo) {jslSetValue("uiPostNr15", ""); jslEnable("uiPostNr15");}
+ 
+if (jslGetValue("uiPostNr16") == "SIP"+sipNo) {jslSetValue("uiPostNr16", ""); jslEnable("uiPostNr16");}
+ 
+if (jslGetValue("uiPostNr17") == "SIP"+sipNo) {jslSetValue("uiPostNr17", ""); jslEnable("uiPostNr17");}
+ 
+if (jslGetValue("uiPostNr18") == "SIP"+sipNo) {jslSetValue("uiPostNr18", ""); jslEnable("uiPostNr18");}
+ 
+if (jslGetValue("uiPostNr19") == "SIP"+sipNo) {jslSetValue("uiPostNr19", ""); jslEnable("uiPostNr19");}
+ 
+//FON S0
+if (jslGetValue("uiPostNTDefault") == "SIP"+sipNo) {jslSetValue("uiPostNTDefault", ""); jslEnable("uiPostNTDefault");}
+ 
+if (jslGetValue("uiPostNummer1") == sipnummer) {
+jslSetValue(("uiPostNummer1"), "");
+jslEnable("uiPostNummer1");
+}
+ 
+if (jslGetValue("uiPostNummer2") == sipnummer) {
+jslSetValue(("uiPostNummer2"), "");
+jslEnable("uiPostNummer2");
+}
+ 
+if (jslGetValue("uiPostNummer3") == sipnummer) {
+jslSetValue(("uiPostNummer3"), "");
+jslEnable("uiPostNummer3");
+}
+ 
+if (jslGetValue("uiPostNummer4") == sipnummer) {
+jslSetValue(("uiPostNummer4"), "");
+jslEnable("uiPostNummer4");
+}
+ 
+if (jslGetValue("uiPostNummer5") == sipnummer) {
+jslSetValue(("uiPostNummer5"), "");
+jslEnable("uiPostNummer5");
+}
+ 
+if (jslGetValue("uiPostNummer6") == sipnummer) {
+jslSetValue(("uiPostNummer6"), "");
+jslEnable("uiPostNummer6");
+}
+ 
+if (jslGetValue("uiPostNummer7") == sipnummer) {
+jslSetValue(("uiPostNummer7"), "");
+jslEnable("uiPostNummer7");
+}
+ 
+if (jslGetValue("uiPostNummer8") == sipnummer) {
+jslSetValue(("uiPostNummer8"), "");
+jslEnable("uiPostNummer8");
+}
+ 
+//DECT Mini
+ 
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn0", "");
+jslEnable("uiPostFoncontrol0Msn0");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn1", "");
+jslEnable("uiPostFoncontrol0Msn1");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn2", "");
+jslEnable("uiPostFoncontrol0Msn2");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn3", "");
+jslEnable("uiPostFoncontrol0Msn3");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn4", "");
+jslEnable("uiPostFoncontrol0Msn4");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn5", "");
+jslEnable("uiPostFoncontrol0Msn5");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn6", "");
+jslEnable("uiPostFoncontrol0Msn6");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn7", "");
+jslEnable("uiPostFoncontrol0Msn7");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn8", "");
+jslEnable("uiPostFoncontrol0Msn8");
+}
+ 
+if ("" == sipnummer) {
+jslSetValue("uiPostFoncontrol0Msn9", "");
+jslEnable("uiPostFoncontrol0Msn9");
+}
+ 
+ 
+//IP-Telefon
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number0", "");
+jslEnable("uiPostVEVoipExtension0Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number1", "");
+jslEnable("uiPostVEVoipExtension0Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number2", "");
+jslEnable("uiPostVEVoipExtension0Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number3", "");
+jslEnable("uiPostVEVoipExtension0Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number4", "");
+jslEnable("uiPostVEVoipExtension0Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number5", "");
+jslEnable("uiPostVEVoipExtension0Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number6", "");
+jslEnable("uiPostVEVoipExtension0Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number7", "");
+jslEnable("uiPostVEVoipExtension0Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number8", "");
+jslEnable("uiPostVEVoipExtension0Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension0Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension0Number9", "");
+jslEnable("uiPostVEVoipExtension0Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number0", "");
+jslEnable("uiPostVEVoipExtension1Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number1", "");
+jslEnable("uiPostVEVoipExtension1Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number2", "");
+jslEnable("uiPostVEVoipExtension1Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number3", "");
+jslEnable("uiPostVEVoipExtension1Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number4", "");
+jslEnable("uiPostVEVoipExtension1Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number5", "");
+jslEnable("uiPostVEVoipExtension1Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number6", "");
+jslEnable("uiPostVEVoipExtension1Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number7", "");
+jslEnable("uiPostVEVoipExtension1Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number8", "");
+jslEnable("uiPostVEVoipExtension1Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension1Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension1Number9", "");
+jslEnable("uiPostVEVoipExtension1Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number0", "");
+jslEnable("uiPostVEVoipExtension2Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number1", "");
+jslEnable("uiPostVEVoipExtension2Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number2", "");
+jslEnable("uiPostVEVoipExtension2Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number3", "");
+jslEnable("uiPostVEVoipExtension2Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number4", "");
+jslEnable("uiPostVEVoipExtension2Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number5", "");
+jslEnable("uiPostVEVoipExtension2Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number6", "");
+jslEnable("uiPostVEVoipExtension2Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number7", "");
+jslEnable("uiPostVEVoipExtension2Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number8", "");
+jslEnable("uiPostVEVoipExtension2Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension2Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension2Number9", "");
+jslEnable("uiPostVEVoipExtension2Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number0", "");
+jslEnable("uiPostVEVoipExtension3Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number1", "");
+jslEnable("uiPostVEVoipExtension3Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number2", "");
+jslEnable("uiPostVEVoipExtension3Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number3", "");
+jslEnable("uiPostVEVoipExtension3Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number4", "");
+jslEnable("uiPostVEVoipExtension3Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number5", "");
+jslEnable("uiPostVEVoipExtension3Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number6", "");
+jslEnable("uiPostVEVoipExtension3Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number7", "");
+jslEnable("uiPostVEVoipExtension3Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number8", "");
+jslEnable("uiPostVEVoipExtension3Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension3Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension3Number9", "");
+jslEnable("uiPostVEVoipExtension3Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number0", "");
+jslEnable("uiPostVEVoipExtension4Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number1", "");
+jslEnable("uiPostVEVoipExtension4Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number2", "");
+jslEnable("uiPostVEVoipExtension4Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number3", "");
+jslEnable("uiPostVEVoipExtension4Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number4", "");
+jslEnable("uiPostVEVoipExtension4Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number5", "");
+jslEnable("uiPostVEVoipExtension4Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number6", "");
+jslEnable("uiPostVEVoipExtension4Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number7", "");
+jslEnable("uiPostVEVoipExtension4Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number8", "");
+jslEnable("uiPostVEVoipExtension4Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension4Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension4Number9", "");
+jslEnable("uiPostVEVoipExtension4Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number0", "");
+jslEnable("uiPostVEVoipExtension5Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number1", "");
+jslEnable("uiPostVEVoipExtension5Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number2", "");
+jslEnable("uiPostVEVoipExtension5Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number3", "");
+jslEnable("uiPostVEVoipExtension5Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number4", "");
+jslEnable("uiPostVEVoipExtension5Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number5", "");
+jslEnable("uiPostVEVoipExtension5Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number6", "");
+jslEnable("uiPostVEVoipExtension5Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number7", "");
+jslEnable("uiPostVEVoipExtension5Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number8", "");
+jslEnable("uiPostVEVoipExtension5Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension5Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension5Number9", "");
+jslEnable("uiPostVEVoipExtension5Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number0", "");
+jslEnable("uiPostVEVoipExtension6Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number1", "");
+jslEnable("uiPostVEVoipExtension6Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number2", "");
+jslEnable("uiPostVEVoipExtension6Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number3", "");
+jslEnable("uiPostVEVoipExtension6Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number4", "");
+jslEnable("uiPostVEVoipExtension6Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number5", "");
+jslEnable("uiPostVEVoipExtension6Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number6", "");
+jslEnable("uiPostVEVoipExtension6Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number7", "");
+jslEnable("uiPostVEVoipExtension6Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number8", "");
+jslEnable("uiPostVEVoipExtension6Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension6Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension6Number9", "");
+jslEnable("uiPostVEVoipExtension6Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number0", "");
+jslEnable("uiPostVEVoipExtension7Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number1", "");
+jslEnable("uiPostVEVoipExtension7Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number2", "");
+jslEnable("uiPostVEVoipExtension7Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number3", "");
+jslEnable("uiPostVEVoipExtension7Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number4", "");
+jslEnable("uiPostVEVoipExtension7Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number5", "");
+jslEnable("uiPostVEVoipExtension7Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number6", "");
+jslEnable("uiPostVEVoipExtension7Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number7", "");
+jslEnable("uiPostVEVoipExtension7Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number8", "");
+jslEnable("uiPostVEVoipExtension7Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension7Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension7Number9", "");
+jslEnable("uiPostVEVoipExtension7Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number0", "");
+jslEnable("uiPostVEVoipExtension8Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number1", "");
+jslEnable("uiPostVEVoipExtension8Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number2", "");
+jslEnable("uiPostVEVoipExtension8Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number3", "");
+jslEnable("uiPostVEVoipExtension8Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number4", "");
+jslEnable("uiPostVEVoipExtension8Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number5", "");
+jslEnable("uiPostVEVoipExtension8Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number6", "");
+jslEnable("uiPostVEVoipExtension8Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number7", "");
+jslEnable("uiPostVEVoipExtension8Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number8", "");
+jslEnable("uiPostVEVoipExtension8Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension8Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension8Number9", "");
+jslEnable("uiPostVEVoipExtension8Number9");
+}
+ 
+ 
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number0") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number0", "");
+jslEnable("uiPostVEVoipExtension9Number0");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number1") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number1", "");
+jslEnable("uiPostVEVoipExtension9Number1");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number2") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number2", "");
+jslEnable("uiPostVEVoipExtension9Number2");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number3") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number3", "");
+jslEnable("uiPostVEVoipExtension9Number3");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number4") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number4", "");
+jslEnable("uiPostVEVoipExtension9Number4");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number5") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number5", "");
+jslEnable("uiPostVEVoipExtension9Number5");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number6") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number6", "");
+jslEnable("uiPostVEVoipExtension9Number6");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number7") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number7", "");
+jslEnable("uiPostVEVoipExtension9Number7");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number8") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number8", "");
+jslEnable("uiPostVEVoipExtension9Number8");
+}
+ 
+if (jslGetValue("uiPostVEVoipExtension9Number9") == sipnummer) {
+jslSetValue("uiPostVEVoipExtension9Number9", "");
+jslEnable("uiPostVEVoipExtension9Number9");
+}
+ 
+ 
+//TAM
+var tamNr=0;
+var bits =0;
+var bitsNew=0;
+for (var i=0; i<10; i++) {
+if (jslGetValue("uiPostTamMsn"+i) == sipnummer) {
+tamNr=i;
+i=10;
+}
+}
+for (var i=0; i<4; i++) {
+bits=jslGetValue("uiPostTam"+i+"Bitmap");
+for (j=0; j<10; j++) {
+if ((bits & (1<<j)) != 0) {
+if (j!=tamNr) {
+bitsNew |= 1<<j;
+}
+}
+}
+jslSetValue("uiPostTam"+i+"Bitmap", bitsNew);
+jslEnable("uiPostTam"+i+"Bitmap");
+bitsNew=0;
+}
+for (var i=0; i<10; i++) {
+if (tamNr == i) {
+jslSetValue("uiPostTamMsn"+i, "");
+jslEnable("uiPostTamMsn"+i);
+i=10;
+}
+}
+//internes Fax
+ 
+if (jslGetValue("uiPostFaxMailMsn0") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn0", "");
+jslEnable("uiPostFaxMailMsn0");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn1") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn1", "");
+jslEnable("uiPostFaxMailMsn1");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn2") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn2", "");
+jslEnable("uiPostFaxMailMsn2");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn3") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn3", "");
+jslEnable("uiPostFaxMailMsn3");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn4") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn4", "");
+jslEnable("uiPostFaxMailMsn4");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn5") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn5", "");
+jslEnable("uiPostFaxMailMsn5");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn6") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn6", "");
+jslEnable("uiPostFaxMailMsn6");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn7") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn7", "");
+jslEnable("uiPostFaxMailMsn7");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn8") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn8", "");
+jslEnable("uiPostFaxMailMsn8");
+}
+ 
+if (jslGetValue("uiPostFaxMailMsn9") == sipnummer) {
+jslSetValue("uiPostFaxMailMsn9", "");
+jslEnable("uiPostFaxMailMsn9");
+}
+ 
+//RUL
+}
+function uiDoOptionen() {
+jslGoTo("fon", "sipoptionen");
+}
+function uiDoQuality() {
+jslGoTo("fon", "quality");
+}
+</script> 
+ 
+ 
+<script type="text/javascript"> 
+var jxl = jxl || {
+get: function (idOrElement) {
+if (typeof idOrElement == 'string') {
+return document.getElementById(idOrElement);
+}
+return idOrElement;
+},
+setHtml: function (idOrElement,txt) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.innerHTML = txt;
+}
+},
+setText: function (idOrElement,txt) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.hasChildNodes()) {
+elem.innerHTML = "";
+}
+elem.appendChild(document.createTextNode(txt));
+}
+},
+getBy: function (idOrElement,tag,filter) {
+var elem = jxl.get(idOrElement) || document;
+var result = [];
+if (elem) {
+tag = tag || "*";
+var noFilter = !(typeof filter == 'function');
+var nodes = elem.getElementsByTagName(tag);
+for (var i = 0, len = nodes.length; i < len; i++) {
+if (noFilter || filter(nodes[i])) {
+result.push(nodes[i]);
+}
+}
+}
+return result;
+},
+cssStrToCamelCase: function (str) {
+var strArr = str.split("-");
+var ret = strArr[0];
+for (var i = 1, len = strArr.length; i < len; i++) {
+ret += strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1);
+}
+return ret;
+},
+setOpacity: function (idOrElement, val) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style.opacity = val;
+elem.style.filter = 'alpha(opacity=' + (val * 100).toFixed(0) + ')';
+}
+},
+setStyleFloat: function (idOrElement, val) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style.cssFloat = val;
+elem.style.styleFloat = val;
+}
+},
+setStyle: function (idOrElement, cssName, cssValue) {
+if (typeof cssName == 'string') {
+switch (cssName) {
+case 'opacity':
+jxl.setOpacity(idOrElement, cssValue);
+break;
+case 'float':
+jxl.setStyleFloat(idOrElement, cssValue);
+break;
+default:
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style[jxl.cssStrToCamelCase(cssName)] = cssValue;
+}
+break;
+}
+}
+},
+setStyles: function (idOrElement, css) {
+for (var cssName in css) {
+jxl.setStyle(idOrElement, cssName, css[cssName]);
+}
+},
+getCurrentStyle: function (idOrElement,cssName) {
+var elem = jxl.get(idOrElement);
+var theStyle = null;
+if (elem) {
+if (window.getComputedStyle) {
+theStyle = window.getComputedStyle(elem, null);
+}
+else if (document.defaultView && document.defaultView.getComputedStyle) {
+theStyle = document.defaultView.getComputedStyle(elem, null);
+}
+else if (elem.currentStyle) {
+theStyle = elem.currentStyle;
+}
+}
+if (!theStyle) {
+theStyle = elem.style;
+}
+if (theStyle && cssName) {
+return theStyle[jxl.cssStrToCamelCase(cssName)];
+}
+return theStyle;
+},
+reduceWhiteSpace: function (str) {
+str = str.replace(/^\s+|\s+$/g, "");
+str = str.replace(/[\s,\xa0]+/g, " ");
+return str;
+},
+classNameCache: {},
+classNameRegExp: function (theClassName) {
+if (!jxl.classNameCache[theClassName]) {
+jxl.classNameCache[theClassName] = new RegExp('(?:^|\\s+)' + theClassName + '(?:\\s+|$)');
+}
+return jxl.classNameCache[theClassName];
+},
+hasClass: function (idOrElement, theClassName) {
+var elem = jxl.get(idOrElement);
+if (!elem) {
+return false;
+}
+var r = jxl.classNameRegExp(theClassName);
+return r.test(elem.className);
+},
+addClass: function (idOrElement, theClassNames) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+var theClasses = jxl.reduceWhiteSpace(theClassNames).split(' ');
+for (var i = 0, len = theClasses.length; i < len; i++) {
+if (!jxl.hasClass(elem, theClasses[i])) {
+elem.className = [elem.className,theClasses[i]].join(' ');
+}
+}
+elem.className = jxl.reduceWhiteSpace(elem.className);
+}
+},
+removeClass: function (idOrElement, theClassNames) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+var theClasses = jxl.reduceWhiteSpace(theClassNames).split(' ');
+var r;
+for (var i = 0, len = theClasses.length; i < len; i++) {
+r = jxl.classNameRegExp(theClasses[i]);
+if (r.test(elem.className)) {
+elem.className = elem.className.replace(r," ");
+}
+}
+elem.className = jxl.reduceWhiteSpace(elem.className);
+}
+},
+isQuirksMode: function () {
+return (typeof document.compatMode != 'string' || document.compatMode.indexOf('CSS') == -1);
+},
+toNumber: function (num,defaultNum) {
+var n = parseInt(num);
+return isNaN(n) ? (defaultNum || 0) : n;
+},
+getDoc: function () {
+return (jxl.isQuirksMode()) ? document.body : document.documentElement;
+},
+getDocSizes: function () {
+var ret = {};
+var doc = jxl.getDoc();
+for (var i = 0; i < arguments.length; i++) {
+ret[arguments[i]] = jxl.toNumber(doc[arguments[i]],0);
+}
+return ret;
+},
+addEventHandler: function (idOrElement,eventName,handlerFunction) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.addEventListener) {
+if (eventName == 'mousewheel') {
+elem.addEventListener('DOMMouseScroll', handlerFunction, false);
+}
+elem.addEventListener(eventName, handlerFunction, false);
+return true;
+}
+else if (elem.attachEvent) {
+elem.attachEvent("on" + eventName, handlerFunction);
+return true;
+}
+return false;
+}
+return false;
+},
+removeEventHandler: function (idOrElement,eventName,handlerFunction) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.addEventListener) {
+if (eventName == 'mousewheel') {
+elem.removeEventListener('DOMMouseScroll', handlerFunction, false);
+}
+elem.removeEventListener(eventName, handlerFunction, false);
+}
+else if (elem.attachEvent) {
+elem.detachEvent("on" + eventName, handlerFunction);
+}
+}
+},
+cancelEvent: function (evt) {
+evt = evt || window.event;
+if(evt.stopPropagation) {
+evt.stopPropagation();
+}
+if(evt.preventDefault) {
+evt.preventDefault();
+}
+evt.cancelBubble = true;
+evt.cancel = true;
+evt.returnValue = false;
+return false;
+}
+};
+ 
+var globalOnClick = (function() {
+function checkElem(elem) {
+var tag = (elem.tagName || "").toLowerCase();
+//var type = (elem.type || "").toLowerCase();
+var target = (elem.target || "").toLowerCase();
+switch (tag) {
+case "a":
+return target == "";
+case "button":
+return elem.id == "uiSubmitLogin";
+}
+return false;
+}
+function isLinkWithOnclick(elem) {
+var tag = (elem.tagName || "").toLowerCase();
+return tag == "a" && elem.onclick;
+}
+function isChrome() {
+var s = navigator.userAgent;
+return s.indexOf("Chrome") > -1
+}
+function globalClickHandler(evt) {
+evt = evt || window.event;
+var elem = evt.target || evt.srcElement;
+if (isLinkWithOnclick(elem)) {
+return false;
+}
+if (checkElem(elem)) {
+jxl.setStyle(elem, "cursor", "wait");
+setTimeout(function() { jxl.setStyle(elem, "cursor", ""); elem = null; }, 3000);
+}
+return true;
+}
+function init() {
+if (isChrome()) {
+return;
+}
+jxl.addEventHandler(document, "click", globalClickHandler);
+}
+return {
+init: init
+};
+})();
+ 
+function jslAddSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null)
+elem.childNodes[0].nodeValue += text;
+}
+function WriteTime(id)
+{
+if (g_StopTimeWrite)
+return;
+var CurTimeObj = new Date();
+var time = CurTimeObj.getTime();
+//jslAddSpanText("uiCurrentTime","("+id+" -- "+(time-g_StartTime)+" --)");
+jslSetSpanText("uiCurrentTime","("+(time-g_StartTime)+" ms)");
+return;
+}
+function uiDoOnLoadFirst()
+{
+globalOnClick.init();
+uiDoOnLoad();
+WriteTime(0);
+}
+</script> 
+ 
+ 
+ 
+ 
+ 
+</head> 
+<body onload="uiDoOnLoadFirst()"> 
+<div id="uiTooltip" style="position:absolute;display:none;background-color:lightyellow;padding:5px;border:1px;border-color:black;border-style:solid;"></div> 
+<table style="margin: auto;"> 
+<tr><td> 
+<div class="fw_header"> 
+<img src="../html/de/images/leer.gif" width="120" height="70" usemap="#logo"> 
+<map name="logo"> 
+<area shape="rect" coords="10,0,110,70" href="javascript:OnOverview()"> 
+</map> 
+</div> 
+<div class="fw_bg_body"> 
+<table> 
+<tr> 
+<td id="Menuhead">&nbsp;
+</td> 
+<td id="Datahead"> 
+<div id="contenthead" align="center" > 
+<table style="width:787px;table-layout:fixed;margin-bottom:8px;font-size:13px;"> 
+<tr style="padding:0;"> 
+<td id="sub_menu_head" style="text-align:right; padding:0;padding-right:8px;" > 
+ 
+<a href="/logout.lua?sid=3a8ef4a34cfcf8a7&amp;" title="Von der Benutzeroberfläche abmelden" style=""> 
+<img src="/css/default/images/icon_abmelden.gif" style="vertical-align: middle;">Abmelden
+</a> 
+ 
+<a href="javascript:jslGoTo('system','extended');" title="Ansicht" > 
+ 
+<img src="/css/default/images/icon_ansicht_expert.gif" style="vertical-align: middle;"><span>Ansicht:</span></a><span style="vertical-align:-2px;"> Experte</span> 
+ 
+<a href="javascript:GoToSitemap();" title="Inhalt" style=""> 
+<img src="/css/default/images/icon_sitemap.gif" style="vertical-align: middle;">Inhalt
+</a> 
+<a href="javascript:jslPopHelpEx('home', '')" title="Hilfe" style=""> 
+<img src="/css/default/images/help.gif" style="vertical-align: middle;">Hilfe
+</a> 
+</td> 
+</tr> 
+</table> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td id="Menuspalte"> 
+<div id="menucontent"> 
+ 
+<div style=""> 
+<div class="menu_bar_left_head"></div> 
+<div class="menu_bar_right_head"></div> 
+<div class="menu_bar_back_head"> 
+<div id="MainMenuhead"> 
+</div> 
+</div> 
+</div> 
+<div class="menu_body_outer"> 
+<ul class="LMenu"> 
+ 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('home','home')">Übersicht</a> 
+</li> 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('internet','inetstat')">Internet</a> 
+</li> 
+ 
+ 
+<li class="selected submenu"> 
+<a href="javascript:jslGoTo('fon','foncalls')">Telefonie</a> 
+<ul> 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','foncalls')">Anrufe</a><span class="PTextOnly">Anrufe</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','fonbuch')">Telefonbuch</a><span class="PTextOnly">Telefonbuch</span></li> 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','wecker')">Weckruf</a><span class="PTextOnly">Weckruf</span></li> 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','rulall')">Rufumleitung</a><span class="PTextOnly">Rufumleitung</span></li> 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','routing')">Wahlregeln</a><span class="PTextOnly">Wahlregeln</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','fondevices')">Telefoniegeräte</a><span class="PTextOnly">Telefoniegeräte</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="selected"><a href="javascript:jslGoTo('fon','siplist')">Internettelefonie</a><span class="PTextOnly">Internettelefonie</span></li> 
+ 
+ 
+ 
+ 
+</ul> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('net','net')">Heimnetz</a> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('wlan','wlan')">WLAN</a> 
+</li> 
+ 
+ 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('dect','setting')">DECT</a> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('system','syslog')">System</a> 
+</li> 
+ 
+</ul> 
+ 
+</div> 
+<div style="position:relative;top:-21px"> 
+<div class="menu_bar_left_bottom"></div> 
+<div class="menu_bar_right_bottom"></div> 
+<div class="menu_bar_back_bottom"> 
+<div id="MainMenubottom"> 
+</div> 
+</div> 
+</div> 
+<div class="clear_float"></div> 
+<div style="position:relative;top:-21px"> 
+<div class="small_bar_left_head"></div> 
+<div class="small_bar_right_head"></div> 
+<div class="small_bar_back_head"> 
+<div id="MainWizardhead" style="padding-top:2px;"> 
+<ul> 
+ 
+<li> 
+<a href="javascript:jslGoTo('konfig','home')">Assistenten</a> 
+</li> 
+ 
+<li class="explain"> 
+Einrichten, Update, Telefone
+</li> 
+</ul> 
+</div> 
+</div> 
+<div class="small_bar_left_bottom"></div> 
+<div class="small_bar_right_bottom"></div> 
+<div class="small_bar_back_bottom"> 
+<div id="MainWizardbottom"> 
+</div> 
+</div> 
+</div> 
+<div class="clear_float"></div> 
+ 
+</div> 
+</td> 
+<td id="Dataspalte"> 
+<div align=center> 
+<div id="content"> 
+<div class="backtitel"><div class="rundrt"><div class="rundlt"><div class="ecklb"><div class="eckrb"><div class="foretitel"> 
+Internettelefonie
+</div></div></div></div></div></div> 
+<div class="backframe"><div class="ecklm"><div class="eckrm"><div class="rundrb"><div class="rundlb"><div class="foredialog"><div class="ie_b10"> 
+<ul class="tabs"> 
+<li class="tabs_on"><div class="activtab">Internetrufnummern</div></li> 
+<li><a href="javascript:uiDoOptionen()">Erweiterte Einstellungen</a></li> 
+ 
+<li><a href="javascript:uiDoQuality()">Sprachübertragung</a></li> 
+ 
+</ul> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p class="mb10">Hier können Sie neue Internetrufnummern einrichten und die Anmeldedaten bearbeiten.</p> 
+<table id="tSips" class="tborder"> 
+<tr> 
+<th class="c1">Aktiv</th> 
+<th class="c2">Internetrufnummer</th> 
+<th class="c3">Anbieter</th> 
+<th class="c6">Auswahl</th> 
+<th class="Iconbutton">&nbsp;</th> 
+<th class="Iconbutton">&nbsp;</th> 
+</tr> 
+ 
+<tr id="uiViewRow0" style="display:none"> 
+<!-- "0" / "sip0" / "SIP0" --> 
+<td class="c1"> 
+<input type="checkbox" id="uiViewActivsip0" onclick="uiOnChangeActivated('uiViewActivsip0','uiPostActivsip0'); return true;"> 
+</td> 
+<td class="c2">111</td> 
+<td class="c3"><script type="text/javascript">document.write(ProviderDisplay("sip.1und1.de",""));</script></td> 
+<td class="c6"><script type="text/javascript">document.write(AuswahlDisplay("0"));</script></td> 
+<td class="Iconbutton"> 
+<script type="text/javascript">document.write(IconBtn("uiViewEditsip0", "uiDoEdit('sip0')", "Bearbeiten", "bearbeiten.gif"));</script> 
+</td> 
+<td class="Iconbutton"> 
+<script type="text/javascript">document.write(IconBtn("uiViewDeletesip0", "uiDoDelete('sip0','111')", "Löschen", "loeschen.gif"));</script> 
+</td> 
+</tr> 
+ 
+<tr id="uiViewRow1" style="display:none"> 
+<!-- "1" / "sip1" / "SIP1" --> 
+<td class="c1"> 
+<input type="checkbox" id="uiViewActivsip1" onclick="uiOnChangeActivated('uiViewActivsip1','uiPostActivsip1'); return true;"> 
+</td> 
+<td class="c2">222</td> 
+<td class="c3"><script type="text/javascript">document.write(ProviderDisplay("sip.1und1.de",""));</script></td> 
+<td class="c6"><script type="text/javascript">document.write(AuswahlDisplay("1"));</script></td> 
+<td class="Iconbutton"> 
+<script type="text/javascript">document.write(IconBtn("uiViewEditsip1", "uiDoEdit('sip1')", "Bearbeiten", "bearbeiten.gif"));</script> 
+</td> 
+<td class="Iconbutton"> 
+<script type="text/javascript">document.write(IconBtn("uiViewDeletesip1", "uiDoDelete('sip1','222')", "Löschen", "loeschen.gif"));</script> 
+</td> 
+</tr> 
+ 
+<tr id="uiViewRow2" style="display:none"> 
+<!-- "2" / "sip2" / "SIP2" --> 
+<td class="c1"> 
+<input type="checkbox" id="uiViewActivsip2" onclick="uiOnChangeActivated('uiViewActivsip2','uiPostActivsip2'); return true;"> 
+</td> 
+<td class="c2">333</td> 
+<td class="c3"><script type="text/javascript">document.write(ProviderDisplay("personal-voip.de",""));</script></td> 
+<td class="c6"><script type="text/javascript">document.write(AuswahlDisplay("2"));</script></td> 
+<td class="Iconbutton"> 
+<script type="text/javascript">document.write(IconBtn("uiViewEditsip2", "uiDoEdit('sip2')", "Bearbeiten", "bearbeiten.gif"));</script> 
+</td> 
+<td class="Iconbutton"> 
+<script type="text/javascript">document.write(IconBtn("uiViewDeletesip2", "uiDoDelete('sip2','333')", "Löschen", "loeschen.gif"));</script> 
+</td> 
+</tr> 
+ 
+<tr id="uiViewNoRow" style="display:none"><td colspan="6" class="ac">Es sind keine Internetrufnummern eingerichtet.</td></tr> 
+</table> 
+<p class="ar mt10"><input type="button" id="uiViewNewButton" onclick="uiDoNew('sip3')" value="Neue Internetrufnummer" class="Pushbutton" style="width: 180px;"></p> 
+ 
+ 
+</div></div></div></div></div></div> 
+<div class="backdialog" id="uiApplyCancelButtons"><div class="ecklm"><div class="eckrm"><div class="rundrb"><div class="rundlb"><div class="forebuttons"> 
+<input type="button" onclick="uiDoSave()" value="Übernehmen" class="Pushbutton" id="buttonSave"> 
+<input type="button" onclick="uiDoCancel()" value="Abbrechen" class="Pushbutton" id="buttonCancel"> 
+<input type="button" onclick="uiDoHelp()" value="Hilfe" class="Pushbutton" id="buttonHilfe"> 
+</div></div></div></div></div></div> 
+ 
+</div></div></div></div></div></div></div> 
+</div> 
+ 
+</div> 
+<div class="clear_float"></div> 
+<div style="position:relative; top:-5px;"> 
+<div class="page_left_bottom"></div> 
+<div class="page_right_bottom"></div> 
+<div class="page_back_bottom" style=""> 
+<div id="MainPagebottom"> 
+</div> 
+</div> 
+</div> 
+</td> 
+</tr> 
+</table> 
+</div> 
+<div class="fw_footer"> 
+</div> 
+</td></tr> 
+</table> 
+<!-- Post Form --> 
+<form method="POST" action="../cgi-bin/webcm" target="_self" id="uiPostForm" name="uiPostForm"> 
+<!-- Refresh Form --> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7" id="uiPostSid"> 
+<input type="hidden" name="getpage" value="../html/de/menus/menu2.html" id="uiPostGetPage"> 
+<input type="hidden" name="errorpage" value="../html/de/menus/menu2.html" id="uiPostErrPage"> 
+<input type="hidden" name="var:pagename" value="siplist" id="uiPostPageName"> 
+<input type="hidden" name="var:errorpagename" value="siplist" id="uiPostErrorPageName"> 
+<input type="hidden" name="var:menu" value="fon" id="uiPostMenu"> 
+<input type="hidden" name="var:pagemaster" value="" id="uiPostPageMaster"> 
+<input type="hidden" name="time:settings/time" value="" id="uiPostDateTime"> 
+<input type="hidden" name="box:settings/webui_cookie" value="" disabled> 
+<!-- END Refresh Form --> 
+ 
+<input type="hidden" name="var:sipnr" value="" id="uiPostSipnr"> 
+<input type="hidden" name="var:telnr" value="" id="uiPostTelnr"> 
+<input type="hidden" name="var:isnew" value="" id="uiPostIsNew"> 
+<input type="hidden" name="var:kdgCfg" value="" id="uiPostKDGCfg" disabled> 
+ 
+<input type="hidden" name="sip:settings/sip0/activated" value="1" id="uiPostActivsip0"> 
+<input type="hidden" name="sip:settings/sip0/ID" value="0" id="uiPostIdsip0" disabled> 
+ 
+<input type="hidden" name="sip:settings/sip1/activated" value="1" id="uiPostActivsip1"> 
+<input type="hidden" name="sip:settings/sip1/ID" value="1" id="uiPostIdsip1" disabled> 
+ 
+<input type="hidden" name="sip:settings/sip2/activated" value="1" id="uiPostActivsip2"> 
+<input type="hidden" name="sip:settings/sip2/ID" value="2" id="uiPostIdsip2" disabled> 
+ 
+ 
+<input type="hidden" name="sip:command/sip0" value="delete" id="uiPostDeletesip0" disabled> 
+ 
+<input type="hidden" name="sip:command/sip1" value="delete" id="uiPostDeletesip1" disabled> 
+ 
+<input type="hidden" name="sip:command/sip2" value="delete" id="uiPostDeletesip2" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/SIPx/MSN" value="" id="uiPostDeleteMSN" disabled> 
+<input type="hidden" name="sip:settings/sip0/displayname" value="111" id="uiPostDisplaysip0" disabled> 
+<input type="hidden" name="sip:settings/sip0/registrar" value="sip.1und1.de" id="uiPostRegistrarsip0" disabled> 
+<input type="hidden" name="sip:settings/sip0/username" value="222" id="uiPostUsernamesip0" disabled> 
+<input type="hidden" name="sip:settings/sip0/password" value="****" id="uiPostPasswordsip0" disabled> 
+<input type="hidden" name="sip:settings/sip0/stunserver" value="" id="uiPostStunserversip0" disabled> 
+<Input type="hidden" name="sip:settings/sip1/displayname" value="333" id="uiPostDisplaysip1" disabled> 
+<input type="hidden" name="sip:settings/sip1/registrar" value="sip.1und1.de" id="uiPostRegistrarsip1" disabled> 
+<input type="hidden" name="sip:settings/sip1/username" value="444" id="uiPostUsernamesip1" disabled> 
+<input type="hidden" name="sip:settings/sip1/password" value="****" id="uiPostPasswordsip1" disabled> 
+<input type="hidden" name="sip:settings/sip1/stunserver" value="" id="uiPostStunserversip1" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/CallThrough/Active" value="0" id="uiPostCtAktiv" disabled> 
+<input type="hidden" name="telcfg:settings/CallThrough/MSN" value="" id="uiPostCtMsn" disabled> 
+<Input type="hidden" name="telcfg:settings/CallThrough/OutgoingMSN" value="" id="uiPostWeiterleiten" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN0" value="SIP0" id="uiPostNr00" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN1" value="SIP2" id="uiPostNr01" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN2" value="" id="uiPostNr02" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN3" value="" id="uiPostNr03" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN4" value="" id="uiPostNr04" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN5" value="" id="uiPostNr05" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN6" value="" id="uiPostNr06" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN7" value="" id="uiPostNr07" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN8" value="" id="uiPostNr08" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/MSN9" value="" id="uiPostNr09" disabled> 
+ 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN0" value="SIP2" id="uiPostNr10" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN1" value="" id="uiPostNr11" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN2" value="" id="uiPostNr12" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN3" value="" id="uiPostNr13" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN4" value="" id="uiPostNr14" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN5" value="" id="uiPostNr15" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN6" value="" id="uiPostNr16" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN7" value="" id="uiPostNr17" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN8" value="" id="uiPostNr18" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/MSN9" value="" id="uiPostNr19" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/MSN/NTDefault" value="SIP2" id="uiPostNTDefault" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number1" value="51" id="uiPostNummer1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number2" value="" id="uiPostNummer2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number3" value="" id="uiPostNummer3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number4" value="" id="uiPostNummer4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number5" value="" id="uiPostNummer5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number6" value="" id="uiPostNummer6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number7" value="" id="uiPostNummer7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/NTHotDialList/Number8" value="" id="uiPostNummer8" disabled> 
+ 
+ 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN0/Number" value="" id="uiPostFoncontrol0Msn0" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN1/Number" value="" id="uiPostFoncontrol0Msn1" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN2/Number" value="" id="uiPostFoncontrol0Msn2" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN3/Number" value="" id="uiPostFoncontrol0Msn3" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN4/Number" value="" id="uiPostFoncontrol0Msn4" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN5/Number" value="" id="uiPostFoncontrol0Msn5" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN6/Number" value="" id="uiPostFoncontrol0Msn6" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN7/Number" value="" id="uiPostFoncontrol0Msn7" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN8/Number" value="" id="uiPostFoncontrol0Msn8" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/MSN9/Number" value="" id="uiPostFoncontrol0Msn9" disabled> 
+ 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number0" value="222" id="uiPostVEVoipExtension0Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number1" value="111" id="uiPostVEVoipExtension0Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number2" value="" id="uiPostVEVoipExtension0Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number3" value="" id="uiPostVEVoipExtension0Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number4" value="" id="uiPostVEVoipExtension0Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number5" value="" id="uiPostVEVoipExtension0Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number6" value="" id="uiPostVEVoipExtension0Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number7" value="" id="uiPostVEVoipExtension0Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number8" value="" id="uiPostVEVoipExtension0Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension0/Number9" value="" id="uiPostVEVoipExtension0Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number0" value="" id="uiPostVEVoipExtension1Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number1" value="" id="uiPostVEVoipExtension1Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number2" value="" id="uiPostVEVoipExtension1Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number3" value="" id="uiPostVEVoipExtension1Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number4" value="" id="uiPostVEVoipExtension1Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number5" value="" id="uiPostVEVoipExtension1Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number6" value="" id="uiPostVEVoipExtension1Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number7" value="" id="uiPostVEVoipExtension1Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number8" value="" id="uiPostVEVoipExtension1Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension1/Number9" value="" id="uiPostVEVoipExtension1Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number0" value="" id="uiPostVEVoipExtension2Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number1" value="" id="uiPostVEVoipExtension2Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number2" value="" id="uiPostVEVoipExtension2Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number3" value="" id="uiPostVEVoipExtension2Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number4" value="" id="uiPostVEVoipExtension2Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number5" value="" id="uiPostVEVoipExtension2Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number6" value="" id="uiPostVEVoipExtension2Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number7" value="" id="uiPostVEVoipExtension2Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number8" value="" id="uiPostVEVoipExtension2Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension2/Number9" value="" id="uiPostVEVoipExtension2Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number0" value="" id="uiPostVEVoipExtension3Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number1" value="" id="uiPostVEVoipExtension3Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number2" value="" id="uiPostVEVoipExtension3Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number3" value="" id="uiPostVEVoipExtension3Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number4" value="" id="uiPostVEVoipExtension3Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number5" value="" id="uiPostVEVoipExtension3Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number6" value="" id="uiPostVEVoipExtension3Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number7" value="" id="uiPostVEVoipExtension3Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number8" value="" id="uiPostVEVoipExtension3Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension3/Number9" value="" id="uiPostVEVoipExtension3Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number0" value="" id="uiPostVEVoipExtension4Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number1" value="" id="uiPostVEVoipExtension4Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number2" value="" id="uiPostVEVoipExtension4Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number3" value="" id="uiPostVEVoipExtension4Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number4" value="" id="uiPostVEVoipExtension4Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number5" value="" id="uiPostVEVoipExtension4Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number6" value="" id="uiPostVEVoipExtension4Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number7" value="" id="uiPostVEVoipExtension4Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number8" value="" id="uiPostVEVoipExtension4Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension4/Number9" value="" id="uiPostVEVoipExtension4Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number0" value="" id="uiPostVEVoipExtension5Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number1" value="" id="uiPostVEVoipExtension5Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number2" value="" id="uiPostVEVoipExtension5Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number3" value="" id="uiPostVEVoipExtension5Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number4" value="" id="uiPostVEVoipExtension5Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number5" value="" id="uiPostVEVoipExtension5Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number6" value="" id="uiPostVEVoipExtension5Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number7" value="" id="uiPostVEVoipExtension5Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number8" value="" id="uiPostVEVoipExtension5Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension5/Number9" value="" id="uiPostVEVoipExtension5Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number0" value="" id="uiPostVEVoipExtension6Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number1" value="" id="uiPostVEVoipExtension6Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number2" value="" id="uiPostVEVoipExtension6Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number3" value="" id="uiPostVEVoipExtension6Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number4" value="" id="uiPostVEVoipExtension6Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number5" value="" id="uiPostVEVoipExtension6Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number6" value="" id="uiPostVEVoipExtension6Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number7" value="" id="uiPostVEVoipExtension6Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number8" value="" id="uiPostVEVoipExtension6Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension6/Number9" value="" id="uiPostVEVoipExtension6Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number0" value="" id="uiPostVEVoipExtension7Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number1" value="" id="uiPostVEVoipExtension7Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number2" value="" id="uiPostVEVoipExtension7Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number3" value="" id="uiPostVEVoipExtension7Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number4" value="" id="uiPostVEVoipExtension7Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number5" value="" id="uiPostVEVoipExtension7Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number6" value="" id="uiPostVEVoipExtension7Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number7" value="" id="uiPostVEVoipExtension7Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number8" value="" id="uiPostVEVoipExtension7Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension7/Number9" value="" id="uiPostVEVoipExtension7Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number0" value="" id="uiPostVEVoipExtension8Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number1" value="" id="uiPostVEVoipExtension8Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number2" value="" id="uiPostVEVoipExtension8Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number3" value="" id="uiPostVEVoipExtension8Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number4" value="" id="uiPostVEVoipExtension8Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number5" value="" id="uiPostVEVoipExtension8Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number6" value="" id="uiPostVEVoipExtension8Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number7" value="" id="uiPostVEVoipExtension8Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number8" value="" id="uiPostVEVoipExtension8Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension8/Number9" value="" id="uiPostVEVoipExtension8Number9" disabled> 
+ 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number0" value="" id="uiPostVEVoipExtension9Number0" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number1" value="" id="uiPostVEVoipExtension9Number1" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number2" value="" id="uiPostVEVoipExtension9Number2" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number3" value="" id="uiPostVEVoipExtension9Number3" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number4" value="" id="uiPostVEVoipExtension9Number4" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number5" value="" id="uiPostVEVoipExtension9Number5" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number6" value="" id="uiPostVEVoipExtension9Number6" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number7" value="" id="uiPostVEVoipExtension9Number7" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number8" value="" id="uiPostVEVoipExtension9Number8" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/VoipExtension9/Number9" value="" id="uiPostVEVoipExtension9Number9" disabled> 
+ 
+ 
+ 
+<input type="hidden" name="tam:settings/MSN0" value="" id="uiPostTamMsn0" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN1" value="" id="uiPostTamMsn1" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN2" value="" id="uiPostTamMsn2" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN3" value="" id="uiPostTamMsn3" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN4" value="" id="uiPostTamMsn4" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN5" value="" id="uiPostTamMsn5" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN6" value="" id="uiPostTamMsn6" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN7" value="" id="uiPostTamMsn7" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN8" value="" id="uiPostTamMsn8" disabled> 
+ 
+<input type="hidden" name="tam:settings/MSN9" value="" id="uiPostTamMsn9" disabled> 
+ 
+ 
+<Input type="hidden" name="tam:settings/TAM0/MSNBitmap" value="0" id="uiPostTam0Bitmap" disabled> 
+ 
+<Input type="hidden" name="tam:settings/TAM1/MSNBitmap" value="0" id="uiPostTam1Bitmap" disabled> 
+ 
+<Input type="hidden" name="tam:settings/TAM2/MSNBitmap" value="0" id="uiPostTam2Bitmap" disabled> 
+ 
+<Input type="hidden" name="tam:settings/TAM3/MSNBitmap" value="0" id="uiPostTam3Bitmap" disabled> 
+ 
+<Input type="hidden" name="tam:settings/TAM4/MSNBitmap" value="0" id="uiPostTam4Bitmap" disabled> 
+ 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN0" value="" id="uiPostFaxMailMsn0" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN1" value="" id="uiPostFaxMailMsn1" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN2" value="" id="uiPostFaxMailMsn2" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN3" value="" id="uiPostFaxMailMsn3" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN4" value="" id="uiPostFaxMailMsn4" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN5" value="" id="uiPostFaxMailMsn5" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN6" value="" id="uiPostFaxMailMsn6" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN7" value="" id="uiPostFaxMailMsn7" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN8" value="" id="uiPostFaxMailMsn8" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/FaxMSN9" value="" id="uiPostFaxMailMsn9" disabled> 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/Diversity0/MSN" value="SIP1" id="uiPostDiversity0MSN" disabled> 
+<Input type="hidden" name="telcfg:settings/Diversity0/Outgoing" value="" id="uiPostDiversity0Outgoing" disabled> 
+ 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions0/Outgoing" value="" id="uiPostCallerIDAction0Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions1/Outgoing" value="" id="uiPostCallerIDAction1Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions2/Outgoing" value="" id="uiPostCallerIDAction2Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions3/Outgoing" value="" id="uiPostCallerIDAction3Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions4/Outgoing" value="" id="uiPostCallerIDAction4Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions5/Outgoing" value="" id="uiPostCallerIDAction5Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions6/Outgoing" value="" id="uiPostCallerIDAction6Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions7/Outgoing" value="" id="uiPostCallerIDAction7Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions8/Outgoing" value="" id="uiPostCallerIDAction8Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions9/Outgoing" value="" id="uiPostCallerIDAction9Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions10/Outgoing" value="" id="uiPostCallerIDAction10Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions11/Outgoing" value="" id="uiPostCallerIDAction11Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions12/Outgoing" value="" id="uiPostCallerIDAction12Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions13/Outgoing" value="" id="uiPostCallerIDAction13Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions14/Outgoing" value="" id="uiPostCallerIDAction14Outgoing" disabled> 
+ 
+<Input type="hidden" name="telcfg:settings/CallerIDActions15/Outgoing" value="" id="uiPostCallerIDAction15Outgoing" disabled> 
+ 
+ 
+</form> 
+<!-- END Post Form --> 
+ 
+<form name="logoutForm" action="../cgi-bin/webcm" method="POST"> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7"> 
+<input type="hidden" name="security:command/logout" value=""> 
+<input type="hidden" name="getpage" value="../html/confirm_logout.html"> 
+</form> 
+</body> 
+</html> 

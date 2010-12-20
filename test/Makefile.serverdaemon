@@ -1,0 +1,28 @@
+EXE = server
+OBJS = ServerDaemon.o FBServer.o 
+
+CXXFLAGS ?= -g -O2 -Wall -fPIC
+
+### libtcpclient++
+INCLUDES += -I../libtcpclient++ -I .
+LIBS += ../../libtcpclient++/libtcpclient++.a ../libfritz++.a -lccgnu2 -lccext2
+
+all: $(EXE)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(INCLUDES) $<
+
+$(EXE): $(OBJS)
+	$(CXX) -o server $(LIBS) $(OBJS)
+
+clean:
+	@-rm $(EXE) $(OBJS) $(DEPFILE)
+	
+# Dependencies:
+
+MAKEDEP = $(CXX) -MM -MG
+DEPFILE = .dependencies
+$(DEPFILE): Makefile
+	@$(MAKEDEP) $(DEFINES) $(INCLUDES) $(OBJS:%.o=%.cpp) > $@
+
+-include $(DEPFILE)

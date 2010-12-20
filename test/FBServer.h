@@ -30,12 +30,13 @@ private:
 
 class FBWebServer: public ost::Thread {
 public:
-	FBWebServer(int port);
+	FBWebServer(int port, std::string fw);
 	virtual ~FBWebServer();
 	void run();
 
 private:
 	ost::TCPSocket *socket;
+	std::string fw;
 };
 
 #endif /* FBSERVER_H_ */

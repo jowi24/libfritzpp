@@ -1,0 +1,11 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Content-type: text/html; charset=utf-8
+Expires: -1
+Pragma: no-cache
+
+<SessionInfo>
+<iswriteaccess>0</iswriteaccess>
+<SID>0000000000000000</SID>
+<Challenge>d5abd484</Challenge>
+</SessionInfo>

@@ -12,7 +12,7 @@
 #include <Config.h>
 #include <Listener.h>
 #include <FritzClient.h>
-#include <HttpClient.h>
+//#include <HttpClient.h>
 #include <Tools.h>
 #include <iostream>
 #include <cc++/url.h>
@@ -108,14 +108,14 @@ FritzTest::FritzTest(){
 //}
 
 void FritzTest::urlTest() {
-	FBWebServer   webServer(WebServerPort);
+	FBWebServer   webServer(WebServerPort, "74.04.86");
 
 	fritz::Config::Setup("localhost","DontCare");
 	fritz::Config::SetupPorts(CallMonitorPort, WebServerPort, 9049);
 
 
 //		fritz::HttpClient hc("localhost", WebServerPort);
-	fritz::HttpClient hc("fritz.box", 80);
+	//fritz::HttpClient hc("fritz.box", 80);
 
 
 	ost::MIMEMultipartForm *mmpf = new ost::MIMEMultipartForm();

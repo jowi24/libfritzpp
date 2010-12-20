@@ -1,0 +1,3342 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Content-type: text/html; charset=utf-8
+Expires: -1
+Pragma: no-cache
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ 
+ 
+ 
+<head> 
+<!-- lang: "de"; ethnr: "lan0" --> 
+<!-- OEM "1und1"/"1und1", Seite "fon"/"fonbuch" --> 
+<!-- var:usePSTN: 0 --> 
+<title>FRITZ!Box</title> 
+<meta http-equiv=content-type content="text/html; charset=utf-8"> 
+<meta http-equiv="expires" content="0"> 
+<style type="text/css"> 
+html, body {
+margin: 0;
+background-image: url(/css/default/images/hg_verlauf_1600px.png);
+background-color: #fffebd;
+background-repeat: repeat-x;
+background-position: 0 0;
+font-family: Arial,serif, sans-serif, cursive;
+font-size: 13px;
+color:#3F464C;
+}
+body {
+margin-top: 10px;
+}
+p, table, form, div, textarea, label, ul, ol, li
+{ font-size: 13px; padding: 0px; margin: 0px; }
+input, select, button
+{ font-size: 13px; }
+div,ul,ol,li { text-align: left; }
+tr,td { padding: 1px 0px; margin: 0px; text-align: left; }
+img { border: 0px none; }
+a {
+color: #003060;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+a:link p { color: #003060; text-decoration: none; }
+a:visited p { color: #003060; text-decoration: none; }
+a:active p { text-decoration: underline; }
+a:hover p { text-decoration: underline; }
+.fw_header { background: url("/html/de/images/kopfbalken.gif") top left no-repeat; width: 980px; height: 81px;}
+.fw_bg_body { width: 980px; text-align: left; }
+.fw_footer { color: #003060; width: 980px; height: 44px; text-align: right; font-size: 13px; margin-top: 10px;}
+#sub_menu_head {
+font-size: 13px;
+margin-right:5px;
+}
+#sub_menu_head span{
+vertical-align:middle;
+}
+#sub_menu_head a{
+vertical-align:top;
+}
+#sub_menu_head a{
+margin-left:16px;
+}
+#sub_menu_head img{
+margin-right:5px;
+}
+table { border-collapse: collapse; }
+.fs10 { font-size: 13px;}
+.fs9 { font-size: 12px;}
+.pTitel, .pTitelo
+{ font-weight: bold; text-align: center; background-color: #E1F4FF; padding: 5px 10px; border: 1px solid #C6C7BF; }
+.pDialog, .pDialogo, .pDialogb, .pDialogob
+{ padding: 10px 10px; text-align: left; background-color: #FBFAF7; border: 1px solid #C6C7BF; }
+.pButtonbar { text-align: right; padding: 5px 10px; background-color: #E1F4FF; border: 1px solid #C6C7BF; }
+.pDialog, .pDialogo, .pTitelo, .pButtonbar
+{ border-top: 0px;}
+@media print {
+#Menuspalte { width: 2px; padding: 0px; vertical-align: top; display:none;}
+#TopMenuSpalte {display:none; }
+}
+@media screen {
+#TopMenuSpalte { }
+#Menuspalte { width: 190px; padding: 0px; vertical-align: top; }
+}
+#Dataspalte { width: 787px; height: 400px; vertical-align: top; padding: 0px; }
+#menucontent { width: 167px; }
+#Menuhead { width: 190px; padding: 0px; vertical-align: top; }
+#Datahead { width: 787px; padding: 0px;}
+#menucontent span {
+display:none;
+}
+#menucontent ul {
+background-color: transparent;
+margin:0;
+border: 0;
+padding: 0;
+margin:-20px 1px 0px;
+padding-top: 0px;
+list-style-type: none;
+position:relative;
+z-index:5;
+}
+#menucontent .small_bar_back_head ul {
+margin:0;
+}
+#MainWizardhead ul li,
+#MainNashead ul li{
+padding: 6px 0 0 1px;
+}
+#menucontent ul li ul {
+background-color: #faf8f2;
+margin: 0px;
+padding: 0px 8px 0px 0px;
+margin: 3px 0px -3px -10px;
+}
+#menucontent li {
+font-size: 14px;
+font-weight:bold;
+padding: 3px 8px 3px 11px;
+white-space: nowrap;
+}
+#menucontent ul li ul li {
+font-size: 13px;
+font-weight:normal;
+padding-right: 0px;
+line-height: 16px;
+}
+#menucontent li.selected ul li a,
+#menucontent li a {
+color: #003060;
+text-decoration: none;
+}
+#menucontent li a:hover {
+text-decoration: underline;
+}
+#menucontent li.selected {
+background-color:none;
+background-image: url("/css/default/images/menue_selected.gif");
+background-position: top center;
+background-repeat: no-repeat;
+padding: 3px 8px 3px 11px;
+}
+#menucontent ul li ul li.selected {
+background-color:none;
+background-image: url("/css/default/images/menue_selected.gif");
+background-position: left;
+background-repeat: no-repeat;
+position:relative;
+padding-left:20px;
+left:-8px;
+width:130px;
+}
+#menucontent li.selected ul li.selected a,
+#menucontent li.selected a {
+color:#003060;
+text-decoration: none;
+}
+#menucontent li.selected ul li.selected a:hover,
+#menucontent li.selected a:hover {
+text-decoration: underline;
+}
+#menucontent li.submenu_last ,
+#menucontent li.submenu {
+margin:0;
+background-image: none;
+/*
+background-image: url("/css/default/images/menue_selected_toplevel.gif");
+background-position: left top;
+background-repeat: repeat-x;
+background-color: none;
+border-bottom:#b7d9f6 1px solid;
+border-top:#b7d9f6 1px solid;
+*/
+}
+#menucontent li.submenu_last {
+border-bottom:0px;
+}
+#menucontent li.submenu_last ul,
+#menucontent li.submenu ul {
+background-color: #faf8f2;
+padding:0;
+margin:0;
+margin-top:7px;
+}
+#menucontent li.submenu_last.open,
+#menucontent li.submenu.open {
+background-color: #003060;
+background-image: none;
+background-position: top center;
+}
+#menucontent li.separator {
+margin-left: 10px;
+padding: 10px 0 7px 0;
+font-size: 0;
+}
+#menucontent li.separator div {
+border-top: 1px dotted #003060;
+margin: 0 10px;
+}
+#menucontent li.explain {
+font-size:11px;
+font-weight:normal;
+color: #808078;
+}
+.LMenudis { position: relative; top: 5px; left: 40px; color: #999999; zoom:1;}
+.Iconbutton { width: 30px; }
+.Pushbutton { width:100px;}
+.Pushbuttonfett
+{ font-weight:bold; width:100px; }
+.PushbuttonBig { width:auto;}
+.PushbuttonBigfett
+{ font-weight:bold; width:auto; }
+.b5 { padding-bottom: 5px; }
+.b10 { padding-bottom: 10px; }
+.mb5 { margin-bottom: 5px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
+.mt5 {margin-top: 5px;}
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt30 { margin-top: 30px; }
+.ml10 { margin-left: 10px; }
+.ml15 { margin-left: 15px; }
+.ml20 { margin-left: 20px; }
+.ml25 { margin-left: 25px; }
+.ml30 { margin-left: 30px; }
+.fett { font-weight:bold; }
+.ac {text-align:center;}
+.ar {text-align:right;}
+.al {text-align: left;}
+.errorMessage { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; color: #CC0000; text-align: center;
+margin: 5px; padding: 2px; background-color: white; }
+.Dialogtitel { font-weight: bold; }
+.Dialoglabel { }
+.Dialoglabelfett
+{ font-weight: bold; }
+.DialogFehler { font-weight: bold; color: #CC0000; }
+.Dialogtext { }
+.Dialoglist { color: black; background-color: #FFFFFF }
+.Minititel { font-size: 12px; }
+.Minilabel { font-size: 12px; }
+.Minitext { font-size: 12px; background-color: #FFFFFF }
+.Eingabefeld { }
+.Hell { background-color: #FFFFFF; }
+h1, h2, h3, h4, h5, h6
+{ font-size: 14px; font-weight: bold; }
+.tMinihell { height: 12px; font-size: 12px; background-color:#FFFFFF; }
+.tMinidunkel { height: 12px; font-size: 12px; }
+.tMinigrau { height: 12px; font-size: 12px; background-color:#F8F8F8; }
+.tborder { background-color:#FFFFFF; border: 1px solid #C6C7BE; }
+.tborder th { background-color:#F8F8F8;}
+.rundlt { background: url("/html/de/images/_brd_lt_thin.gif") top left no-repeat; }
+.rundrt { background: url("/html/de/images/_brd_rt_thin.gif") top right no-repeat; }
+.rundlb {}
+.rundrb {}
+.ecklm {}
+.eckrm {}
+.ecklb {}
+.eckrb {}
+.backsubtitel,
+.backtitel { background: url(/css/default/images/contentbereich_titel_1px.gif) repeat-x 0 -2px; height:28px;margin: 0px; padding: 0px; clear:left; }
+.backtitel2 {background: url(/css/default/images/contentbereich_titel_1px.gif) repeat-x 0 0; height:28px; margin: 0px; padding: 0px; clear:left; }
+.backtitel2 {
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+}
+.backsubtitel {
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+height:26px;
+}
+.backdialog {
+background-color: #fbfaf7;
+margin: 0px;
+padding: 0px;
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+clear:left; }
+.backdialog a:link { text-decoration: underline; }
+.backdialog a:visited { text-decoration: underline; }
+.backdialog a:active { text-decoration: underline; }
+.backdialog a:hover { text-decoration: underline; }
+.backdialog li a:link { text-decoration: none; }
+.backdialog li a:visited { text-decoration: none; }
+.backdialog li a:active { text-decoration: underline; }
+.backdialog li a:hover { text-decoration: underline; }
+.small_bar_left_head,
+.menu_bar_left_head{
+background-image: url("/css/default/images/menueschablone_oben_links.gif");
+background-repeat: no-repeat;
+width: 14px;
+height: 24px;
+margin: 0;
+padding: 0;
+border: 0;
+float: left;
+}
+.small_bar_right_head,
+.menu_bar_right_head{
+background-image: url("/css/default/images/menueschablone_oben_rechts.gif");
+background-repeat: no-repeat;
+height: 24px;
+width: 24px;
+float: right;
+}
+.small_bar_back_head,
+.menu_bar_back_head {
+height: 24px;
+background-image: url("/css/default/images/menueschablone_oben_1px.gif");
+background-repeat: repeat;
+margin:0 13px;
+}
+.page_left_bottom,
+.small_bar_left_bottom,
+.menu_bar_left_bottom{
+background-image: url("/css/default/images/menueschablone_unten_links.gif");
+background-repeat: no-repeat;
+height: 28px;
+width: 24px;
+margin: 0;
+padding: 0;
+border: 0;
+float: left;
+}
+.menu_bar_left_bottom{
+top:-5px;
+}
+.page_right_bottom,
+.small_bar_right_bottom,
+.menu_bar_right_bottom{
+background-image: url("/css/default/images/menueschablone_unten_rechts.gif");
+background-repeat: no-repeat;
+height: 28px;
+width: 24px;
+float: right;
+}
+.menu_bar_right_bottom{
+top:-5px;
+}
+.page_back_bottom,
+.small_bar_back_bottom,
+.menu_bar_back_bottom {
+height: 28px;
+background-image: url("/css/default/images/menueschablone_unten_1px.gif");
+background-repeat: repeat;
+margin:0 15px;
+margin-bottom: 15px;
+}
+.menu_bar_back_bottom {
+top:-5px;
+}
+.page_left_bottom{
+background-image: url("/css/default/images/content_unten_links.gif");
+height:12px;
+}
+.page_right_bottom{
+background-image: url("/css/default/images/content_unten_rechts.gif");
+height:12px;
+}
+.page_back_bottom {
+background-image: url("/css/default/images/content_unten_1px.gif");
+height:12px;
+margin-bottom: 0px;
+margin:0 15px;
+}
+.menu_header.small {
+background-image: url("/css/default/images/menueschablone_oben_1px.gif");
+height: 13px;
+}
+.menu_footer {
+height: 13px;
+background-image: url("/css/default/images/menueschablone_unten_1px.gif");
+margin-bottom: 15px;
+}
+.menu_body_outer {
+width: 165px;
+border: 1px solid #90a6a5;
+border-top: 0px;
+border-bottom: 0px;
+padding-top:1px;
+background-color:#faf8f2;
+}
+.backtitelkonfig
+{ background-image: url(/css/default/images/contentbereich_titel_1px.gif); height:28px; margin: 0px; padding: 0px; clear:left; }
+.backtitelstatus
+{ background-image: url(/css/default/images/contentbereich_titel_1px.gif); height:28px; margin: 0px; padding: 0px; clear:left;
+/*background-color: #e1f4ff; margin: 0px; padding: 0px; clear:left; */
+}
+.backframe {
+background-color: #faf8f2;
+margin: 0px;
+padding: 0px;
+border-left:1px solid #90a6a5;
+border-right:1px solid #90a6a5;
+clear:left; }
+.backfolder { background-color: #fbfaf7; margin: 0px; padding: 0px; border-top: 1px solid #c6c7be; }
+.foretitel { font-weight: bold; font-size: 15px; padding: 5px 12px;}
+.backframe .foretitel { font-weight: bold; font-size: 15px; padding: 5px 12px;}
+.foredialog { padding: 10px; }
+.forebuttons {
+text-align: right;
+padding: 7px 10px;
+border-top: 1px solid #90A6A5;
+}
+#content {width: 787px; margin: 0px; clear:both; font-size: 13px; }
+#contenthead {width: 787px; margin: 0px;}
+/* Tabs beginn *********************************/
+ul.tabs {
+float: left;
+width: 779px;
+background: url("/css/default/images/reiterkarte_top_1px.gif") repeat-x left bottom;
+padding-bottom: 0px;
+padding-left: 5px;
+list-style-type: none;
+margin-top: 0;
+margin-left: -9px;
+}
+ul.tabs li {
+float: left;
+margin-left: 5px;
+background: url("/css/default/images/reiter_inaktiv_rechts.gif") no-repeat right bottom;
+}
+ul.tabs li a,ul.tabs li div {
+padding: 5px 15px;
+background: url("/css/default/images/reiter_inaktiv_links.gif") no-repeat left bottom;
+display: block;
+height: 17px;
+}
+ul.tabs li.tabs_on {
+background-image: url("/css/default/images/reiter_aktiv_rechts.gif");
+font-weight:bold;
+}
+ul.tabs li.tabs_on div {
+color: #000000;
+background-image: url("/css/default/images/reiter_aktiv_links.gif");
+}
+/* Tabs ENDE ********************************************************/
+.backframe .backdialog {
+border-left:0px;
+border-right:0px;
+}
+.backframe .backdialog .ecklm { background: none}
+.backframe .backdialog .eckrm { background: none}
+.backframe .backdialog .ecklb { background: none}
+.backframe .backdialog .eckrb { background: none}
+.backframe .backdialog .rundlb { background: none}
+.backframe .backdialog .rundrb { background: none}
+.backframe .backdialog .foredialog { padding: 5px 0px; border-bottom:1px solid #90a6a5;}
+.bcWeiss { background-color:#FFFFFF; }
+.bcGrau { background-color:#F8F8F8; }
+#ansichten {text-align:right; margin:5px 30px 10px 0px; font-weight:bold; }
+.ansicht {padding: 3px 10px; border: 1px solid #C6C7BF; cursor:pointer;}
+.rundes {text-align:right; margin:0px 30px 0px 0px; }
+.rundes li {list-style:none; float:right;background: url("/html/de/images/_brd_right.gif") right top no-repeat; margin: 0 0px 10px 15px; height: 26px; }
+.rundes a {display:block; background: url("/html/de/images/_brd_left.gif") left top no-repeat; padding: 5px 15px 5px 15px; font-weight: bold; height: 26px; text-align:center;cursor:pointer;}
+.rundes .setup {background-color: #f5ebb2;}
+.rundes .view {background-color: #cce4f1;}
+.rundes a:link, .rundes a:visited
+{ color: #003060; text-decoration: none; }
+.rundes a:hover, .rundes a:active
+{ text-decoration: underline; }
+.rund-links { background: url("/html/de/images/_brd_left.gif") no-repeat;
+height:26px; width:10px;}
+.rund-rechts { background: url("/html/de/images/_brd_right.gif") right no-repeat;
+height:26px; margin-top:-26px; margin-left:10px;
+text-align:center; }
+.rund-rechts p { padding-top:5px; padding-right:10px;
+font-weight: bold; white-space:nowrap; }
+.gelb { background-color: #fff1b1; }
+.blau { background-color: #e1f4ff;; }
+.notetext {color: #000000;padding-top:10px;padding-bottom:10px;}
+.CssPinInput {
+margin-left:5px;
+margin-right:5px;}
+.ViewImage {
+max-width: 160px;
+max-height: 160px;
+width: expression(this.width > 160 ? "160px" : true);
+height: expression(this.height > 160 ? "160px" : true);
+}
+.menu_header,
+.menu_footer {
+width: 100%;
+text-align: left;
+font-size: 14px;
+padding: 0;
+border: 0;
+margin: auto;
+/*background-repeat: repeat;*/
+}
+.menu_header {
+/*width: 167px;*/
+height: 28px;
+background-image: url(/css/default/images/menueschablone_kopf.gif);
+background-repeat: no-repeat;
+}
+.menu_header.small {
+background-image: url(/css/default/images/menueschablone_andere_kopf.gif);
+background-repeat: no-repeat;
+height: 13px;
+}
+.menu_footer {
+/*width: 167px;*/
+height: 13px;
+background-image: url(/css/default/images/menueschablone_boden.gif );
+background-repeat: no-repeat;
+margin-bottom: 15px;
+}
+.menu_body_outer_old {
+width: 165px;
+border: 1px solid #208ede;
+border-top: 0px;
+border-bottom: 0px;
+background-image: url(/css/default/images/menu_left.gif);
+background-repeat: repeat-y;
+}
+.menu_body_inner {
+background-image: url(/css/default/images/menu_right.gif);
+background-repeat: repeat-y;
+background-position: right;
+}
+div.provider_select {
+overflow:hidden;
+}
+div.provider_select p {
+float:left;
+height:50px;
+}
+.gray {
+background-color:#EEEEEE;
+}
+.globe_green, .globe_gray, .globe_online {
+background-image: url("/css/default/images/globe_green.gif");
+background-repeat: no-repeat;
+background-position:center center;
+height: 16px;
+width: 16px;
+border: 0px;
+padding: 0px;
+margin: 0px;
+}
+.globe_gray {
+background-image: url("/css/default/images/globe_gray.gif");
+}
+.globe_online {
+background-image: url("/css/default/images/globe.gif");
+}
+.led_green {
+background-image: url("/css/default/images/led_green.gif");
+background-repeat: no-repeat;
+background-position:center center;
+height: 16px;
+width: 16px;
+border: 0px;
+padding: 0px;
+margin: 0px;
+}
+hr,
+.page_sub_headline {
+width: auto;
+border: 0px;
+height: 1px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+hr {
+width: 100%;
+color: #90a6a5;
+background-color: #90a6a5;
+}
+ 
+</style> 
+<!--[if IE 7]>
+<style type="text/css">
+#menucontent li.submenu ul{
+margin-top:5px;
+padding-bottom:1px;
+}
+ 
+</style>
+<![endif]--> 
+<!--[if gte IE 6]>
+<style type="text/css">
+.ie_b10 { padding-bottom: 1px; }
+</style>
+<![endif]--> 
+<!--[if IE 6]>
+<style type="text/css">
+div.foredialog p { zoom:1; }
+</style>
+<![endif]--> 
+<!--[if IE 7]>
+<style type="text/css">
+.ie_b10minus{margin-bottom:-10px;}
+</style>
+<![endif]--> 
+<script type="text/javascript"> 
+var g_CurTimeObj = new Date();
+var g_StartTime = g_CurTimeObj.getTime();
+var g_StopTimeWrite=false;
+// ../js/webuicookie.js
+var g_webuiCookie = g_webuiCookie || (function () {
+var fields = [
+{ valName: "noPwdReminder", valDefault: "0"} // Keine Anzeige des "Passworteinrichten"-Reminders
+];
+var values;
+function init(str) {
+str = str || "";
+values = str.split("");
+for (var i = values.length; i < fields.length; i++) {
+values[i] = fields[i].valDefault;
+}
+}
+function idx(valName) {
+for (var i = 0, len = fields.length; i < len; i++) {
+if (fields[i] && fields[i].valName == valName) {
+return i;
+}
+}
+return -1;
+}
+function getChar(valName) {
+if (values) {
+var i = idx(valName);
+if (i >= 0) {
+return values[i];
+}
+}
+return "";
+}
+function setChar(valName, ch) {
+if (values) {
+ch = ""+ch;
+if (ch.length != 1) {
+return false;
+}
+var i = idx(valName);
+if (i >= 0) {
+values[i] = ch;
+return true;
+}
+}
+return false;
+}
+function getWholeStr() {
+if (!values) {
+return "";
+}
+return values.join("");
+}
+function saveToForm(dontEnable) {
+if (!values) {
+return false;
+}
+var frm = document.forms["uiPostForm"];
+if (!frm) {
+return false;
+}
+frm = frm.elements["box:settings/webui_cookie"];
+if (!frm) {
+return false;
+}
+frm.value = getWholeStr();
+if (!dontEnable) {
+frm.disabled = false;
+}
+return true;
+}
+return {
+init: init,
+getChar: getChar,
+setChar: setChar,
+saveToForm: saveToForm
+};
+})();
+ 
+g_webuiCookie.init("");
+</script> 
+<script type="text/javascript"> 
+g_IE = false;
+g_IE6 = false;
+</script> 
+<!--[if IE]>
+<script type="text/javascript">
+g_IE = true;
+</script>
+<![endif]--> 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+g_IE6 = true;
+</script>
+<![endif]--> 
+<script type="text/javascript"> 
+function jslFormSetPost(name) {
+var frm = document.forms[name];
+if (frm) {
+frm.method = "POST";
+}
+}
+function jslFormSetGet(name) {
+var frm = document.forms[name];
+if (frm) {
+frm.method = "GET";
+}
+}
+function jslFormSubmit(name) {
+UpdateDateTime();
+var frm = document.forms[name];
+if (frm) {
+frm.submit();
+}
+}
+function goToLuaPage(page) {
+page += "?sid=3a8ef4a34cfcf8a7";
+location.href = page;
+}
+var avm5 = {
+"home": {
+"sitemap": "/menus/sitemap.lua",
+"home": "/home/home.lua"
+},
+"internet": {
+"sitemap": "/menus/sitemap.lua"
+,"userlist": "/internet/kids.lua"
+},
+"fon": {
+"sitemap": "/menus/sitemap.lua"
+},
+"net": {
+"sitemap": "/menus/sitemap.lua",
+"newdevice": "/net/newdevice.lua",
+"boxnet": "/net/boxnet.lua",
+"einstellungen": "/storage/settings.lua"
+},
+"wlan": {
+"sitemap": "/menus/sitemap.lua",
+"guest_access": "/wlan/guest_access.lua"
+},
+"dect": {
+"sitemap": "/menus/sitemap.lua"
+},
+"system": {
+"sitemap": "/menus/sitemap.lua",
+"syslog": "/system/syslog.lua",
+"energy": "/system/energy.lua",
+"email": "/system/push.lua",
+"infoled": "/system/infoled.lua",
+"user": "/system/kennwort.lua",
+"imexport": "/system/export.lua",
+"update": "/system/update.lua",
+"update_OnClick_1": "/system/update.lua",
+"extended": "/system/expert.lua",
+"reset": "/system/reboot.lua",
+"nacht": "/system/wlan_night.lua",
+"ring_block": "/system/ring_block.lua"
+},
+"konfig": {
+"sitemap": "/menus/sitemap.lua"
+//"home": "/assis/home.lua"
+},
+"software": {
+"sitemap": "/menus/sitemap.lua"
+}
+};
+function checkAvm5(menu, page) {
+menu = menu || jslGetValue("uiPostMenu");
+page = page || jslGetValue("uiPostPageName");
+var luaPage = avm5[menu] ? avm5[menu][page] : "";
+if (luaPage) {
+goToLuaPage(luaPage);
+return true;
+}
+return false;
+}
+function jslGoTo(Menu,Page) {
+if (!checkAvm5(Menu, Page)) {
+if ((Menu!=null) && (Menu!="")) jslSetValue("uiPostMenu", Menu);
+if ((Page!=null) && (Page!="")) {
+jslSetValue("uiPostPageName", Page);
+jslSetValue("uiPostErrorPageName", Page);
+}
+// Spezialbehandlung Netzwerkseite
+jslFormSetGet("uiPostForm");
+jslFormSubmit("uiPostForm");
+}
+}
+function UpdateDateTime() {
+var date = new Date();
+jslSetValue("uiPostDateTime", Math.floor(date.getTime()/1000) + "," + date.getTimezoneOffset());
+}
+function jslGetValue (id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+return eval('document.uiPostForm.'+id+'.value');
+} else {
+var h = document.getElementById(id);
+if (h != null) return h.value;
+}
+return "";
+}
+function jslSetValue(id, wert) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id+'.value="'+wert+'"');
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.value=wert;
+}
+}
+function jslPopHelp(pagename) {
+jslPopHelpEx(pagename, "");
+}
+function jslPopHelpEx(pagename, anker) {
+var uri = "/help/help.lua?helppage=" + pagename + ".html&hide=yes";
+uri += "&sid=3a8ef4a34cfcf8a7";
+var options = "width=580,height=500,resizable=yes,scrollbars=yes,location=no";
+if (top.g_HelpWin==null || typeof(top.g_HelpWin.closed)=='undefined' || top.g_HelpWin.closed)
+top.g_HelpWin = window.open(uri,"HelpWindow",options);
+else
+top.g_HelpWin.location.href = uri;
+if (top.g_HelpWin) top.g_HelpWin.focus();
+}
+function isLotse(menu, page) {
+if (menu == "home") return false;
+if (menu == "konfig" && (page != "home" && page != "sitemap")) return true;
+if (menu == "first" || menu == "fon_config") return true;
+if (menu == "tr69_autoconfig") return true;
+return false;
+}
+var g_AskAssiText = "Wenn Sie den Assistenten jetzt beenden, gehen Ihre Eingaben verloren.\x0aWählen Sie OK, um den Assistenten zu beenden.\x0aWählen Sie Abbrechen, um zum Assistenten zurückzukehren.";
+function AskAssiCancel() {
+return confirm(g_AskAssiText);
+}
+function OnOverview() {
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (!AskAssiCancel()) return;
+}
+jslGoTo("home", "home");
+}
+function OnSetting() {
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (!AskAssiCancel()) return;
+}
+var menu = readCookie("menu");
+var page = readCookie("page");
+if (menu == "konfig") {
+jslGoTo("konfig", "home");
+}
+else if (menu == "software") {
+jslGoTo("software", "extern");
+}
+else if (menu == "enhsettings") {
+jslGoTo("enhsettings", "enhsettings");
+}
+else {
+jslGoTo("konfig", "home");
+}
+}
+function GoToSitemap()
+{
+var m = jslGetValue("uiPostMenu");
+var p = jslGetValue("uiPostPageName");
+if (isLotse(m,p)) {
+if (AskAssiCancel()) {
+jslGoTo("konfig","sitemap");
+}
+return;
+}
+jslGoTo("","sitemap");
+}
+function AddFavoritesLink(breite, titel) {
+if (g_IE)
+document.write('<td title="' + titel + '" style="width:' + breite + 'px;"><a href="javascript:window.external.AddFavorite(window.document.URL,window.document.title)"><img src="../html/de/images/favorite.gif"></a></td>');
+}
+function setMenuPageCookie(menu, page) {
+storeCookie("menu",menu,100);
+storeCookie("page",page,100);
+}
+function convertHTML2Text(str) {
+if (str) {
+str = str.replace(/</g,"&lt;");
+str = str.replace(/>/g,"&gt;");
+var tst = document.createElement('div');
+tst.innerHTML = str;
+str = tst.innerText || tst.textContent;
+}
+return str;
+}
+//#if 0
+//*****************************************************************************
+// Alphabetisches Sortieren eines Arrays nach Sprache.
+// Rückgabe: der sortierte Array
+// Parameter:
+// - array: der zu sortierende Array
+// - getStrFunc: eine Funktion, die Elementen des Arrays einen String zuordnet.
+// Wenn getStrFunc keine Funktion ist, wird angenommen, dass
+// es sich um einen Array von Strings handelt.
+// - lang: die Sprache 'de', 'en', 'fr', 'it' oder 'es', default ist var:lang.
+// - makeCopy: optional, wenn true wird eine Kopie des Arrays angelegt und diese sortiert.
+//******************************************************************************
+//#endif
+function sortByStrings(array, getStrFunc, lang, makeCopy) {
+lang = lang || 'de';
+if (typeof getStrFunc != 'function') {
+getStrFunc = function (str) { return str; };
+}
+var toSort = array;
+if (makeCopy) {
+for (var i = 0, len = array.length; i < len; i++) {
+toSort[i] = array[i];
+}
+}
+toSort.sort(makeStrCompareFunc(lang, getStrFunc));
+return toSort;
+}
+//#if 0
+//********************************************************************************************************
+// - makeStrCompareFunc gibt eine Funktion zurück, die zwei Objekte bzgl. eines Strings alphabetisch
+// je nach 'lang' vergleicht. Hilfsfunktion für sortByStrings.
+//********************************************************************************************************
+//#endif
+function makeStrCompareFunc(lang, getStrFunc) {
+var abc = {
+de: "AaÄäBbCcDdEeFfGgHhIiJjKkLlMmNnOoÖöPpQqRrSsßTtUuÜüVvWwXxYyZz",
+en: "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz",
+fr: "AaÀàÂâBbCcÇçDdEeÉéÉéÊêËëFfGgHhIiÎîÏïJjKkLlMmNnOoÔôŒœPpQqRrSsTtUuÙùÛûÜüVvWwXxYyŸÿZz",
+it: "AaÀàBbCcDdEeÈèÉéFfGgHhIiÎîÏïJjKkLlMmNnOoÒòÓóPpQqRrSsTtUuÙùVvWwXxYyZz",
+es: "AaÁáBbCcDdEeÉéFfGgHhIiÍíJjKkLlMmNnÑñOoÓóPpQqRrSsTtUuÚúÜüVvWwXxYyZz"
+};
+var currAbc = abc[lang] || [];
+function compare(str1, str2) {
+var len = Math.min(str1.length, str2.length);
+var i = 0;
+var c = 0;
+var i1,i2;
+while (i < len && c == 0) {
+i1 = currAbc.indexOf(str1[i]);
+i2 = currAbc.indexOf(str2[i]);
+if (i1 < 0 || i2 < 0) {
+i1 = str1.charCodeAt(i);
+i2 = str2.charCodeAt(i);
+}
+c = i1 - i2;
+i += 1;
+}
+if (i < len) {
+return c;
+}
+else {
+return str1.length - str2.length;
+}
+}
+//#if 0
+//****************************************************
+// Das ist die CompareFunktion, die zurückgegeben wird.
+//****************************************************
+//#endif
+return function (obj1, obj2) {
+var str1 = convertHTML2Text(getStrFunc(obj1) || "");
+var str2 = convertHTML2Text(getStrFunc(obj2) || "");
+return compare(str1, str2);
+};
+}
+function isBitSet(num, b) {
+return (num & (1 << b)) > 0;
+}
+function doLogout() {
+var frm = document.forms["logoutForm"];
+if (frm) {
+return frm.submit();
+}
+return false;
+}
+function isLoginPage(txt) {
+if (txt) {
+if (txt.indexOf("<!--login" + "Page-->") >= 0) {
+return true;
+}
+}
+return false;
+}
+function showtip(current,e,text){
+if (!e)
+return;
+var tipObj=document.getElementById("uiTooltip");
+if (tipObj)
+{
+tipObj.innerHTML=text;
+tipObj.style.left=(e.pageX?e.pageX:e.clientX)+5+"px";
+tipObj.style.top=(e.pageY?e.pageY:e.clientY)+5+"px";
+tipObj.style.display="";
+}
+return;
+}
+function hidetip(){
+var tipObj=document.getElementById("uiTooltip");
+if (tipObj)
+tipObj.style.display="none";
+return;
+}
+var g_ImgPath = '../html/de/images/';
+function IconBtn(btnId, clickFunc, btnValue, pic, invisible)
+{
+var str = '<button type="button" id="' + btnId + '"';
+if (clickFunc) str += ' onclick="' + clickFunc + '"';
+if (btnValue) str += ' value="' + btnValue + '" title="' + btnValue + '"';
+if (invisible) str += ' style="visibility:hidden;"';
+str += '>';
+str += '<img src="' + g_ImgPath + pic + '" /></button>';
+return str;
+}
+function storeCookie(name, value, days) {
+var expires = "";
+if (days) {
+var date = new Date();
+date.setTime(date.getTime()+(days*24*60*60*1000));
+expires = "; expires="+date.toGMTString();
+}
+document.cookie = name+"="+value+expires+"; path=/";
+}
+function readCookie(name) {
+var result = "";
+var cookieStr = document.cookie;
+if (cookieStr) {
+var start = cookieStr.indexOf(name + '=');
+if (start > -1) {
+start += name.length + 1;
+var end = cookieStr.indexOf(';', start);
+if (end == -1) {
+end = cookieStr.length;
+}
+result = cookieStr.substring(start, end);
+}
+}
+return result;
+}
+function eraseCookie(name) {
+storeCookie(name, "", -1);
+}
+function setBackCookie(cookieName) {
+var frm = document.forms["uiPostForm"];
+if (!frm) { return; }
+var values = [];
+var inputs = frm.elements;
+for (var i = 0, len = inputs.length; i < len; i++) {
+var varName = inputs[i].name;
+if (varName.indexOf(":") == -1 || varName.indexOf("var:") == 0) {
+values.push(varName + "=" + inputs[i].value);
+}
+}
+storeCookie(cookieName, values.join("&"), 1);
+}
+function htmlStringBuilder() {
+// HTML-Tags, die kein Endtag benötigen
+var standalone = {
+'input': true, 'img': true, 'hr': true, 'br': true, 'col': true, 'area': true, 'link': true,
+'frame': true, 'meta': true, 'base': true, 'basefont': true, 'isindex': true, 'param': true
+};
+function getEndTag(tagName) {
+return standalone[tagName] ? "" : ("<\/" + tagName + ">");
+}
+function buildAttributes(attributes) {
+var str = "";
+for (name in attributes) {
+str += " " + name.toLowerCase();
+var value = attributes[name];
+str += value ? ("=\"" + value + "\"") : "";
+}
+return str;
+}
+function addAttribute(attributes, name, value) {
+if (name) {
+attributes[name] = (value || "");
+}
+}
+function addContent(tag, tagOrText) {
+if (typeof tagOrText == 'string') {
+tag.content += tagOrText;
+}
+else if (tagOrText) {
+tag.content += tagOrText.build();
+}
+}
+function buildTag(tag, tagName, attributes) {
+return tag.start + buildAttributes(attributes) + tag.content + getEndTag(tagName);
+}
+// Die Tagfunktion
+return function (tagName, objAttributes, content) {
+// Initialisierung
+tagName = tagName.toLowerCase();
+var tag = {
+start: "<" + tagName,
+content: ">"
+};
+var attributes = {};
+if (objAttributes) {
+for (var n in objAttributes) {
+if (objAttributes.hasOwnProperty(n)) {
+addAttribute(attributes, n, objAttributes[n]);
+}
+}
+}
+if (content) {
+addContent(tag, content);
+}
+// Interface
+return {
+add: function (tagOrText) { addContent(tag, tagOrText); },
+attr: function (name, value) { addAttribute(attributes, name, value); },
+build: function () { return buildTag(tag, tagName, attributes); },
+reset: function () { tag.content = ">"; attributes = {}; }
+};
+};
+}
+function toArray(arrayLike) {
+var array = [];
+for (var i = 0, len = arrayLike.length; i < len; i++) {
+array[i] = arrayLike[i];
+}
+return array;
+}
+</script> 
+ 
+<script type="text/javascript"> 
+storeCookie("currmenu","fon");
+</script> 
+<!-- ../home/fonbuch.js --> 
+<style type="text/css"> 
+<!--
+.Pic {width: 16px}
+#tList {font-size: 13px; table-layout:fixed;}
+#tList td {padding: 1px 2px; overflow:hidden; vertical-align:top;}
+#tList th {padding: 1px 2px; overflow:hidden; }
+#tList .c1 {width: 60px;} /* text-align: center;}*/
+#tList .c2 {width: 60px;}
+#tList .c3 {width: 178px;}
+#tList .c4 {width: 38px;}
+#tList .c5 {width: 140px;}
+#tList .c6 {width: 65px;}
+#tList td.c6 {text-align:center;}
+#tList .c7 {width: 52px;}
+#tList img {width: 16px; height: 16px;}
+#tList button {width: 36px;}
+#tFonbook .c1 {padding: 1px;}
+#tFonbook .c2 {padding: 1px 1px 1px 5px;}
+#tFonbook img {width: 16px; height: 16px;}
+#tFonbook button {width: 36px;}
+.imexportC {padding: 2px;}
+-->
+</style> 
+<script type="text/javascript"> 
+// ../js/val.js
+var g_val_mldErrorText1 = "Der Wert darf nur aus Ziffern bestehen.";
+var g_val_mldErrorText2_1 = "Ungültige Eingabe. Der Wertebereich ist ";
+var g_val_mldErrorText2_2 = " - 65535.";
+function valIsZahl (nummer) {
+if (nummer.match("[^0-9]") != null) return false;
+return true;
+}
+function valIsZahlVorhanden (nummer) {
+if (nummer.length == 0) return false;
+return valIsZahl(nummer);
+}
+function valDoValidateInteger (Integer) {
+var error = null;
+if (valIsZahl(Integer)) {return null;}
+error = g_val_mldErrorText1;
+return error;
+}
+function valDoValidatePort (Integer, minport) {
+var error = null;
+error = valDoValidateInteger(Integer);
+if (error == null) {
+if ((Number(Integer) < minport) || (Number(Integer) > 65535)) error = g_val_mldErrorText2_1+minport+g_val_mldErrorText2_2;
+}
+return error;
+}
+function valIsSipname (name) {
+if (name.match("[^0-9a-zA-Z\-_\.\!~\*\'\(\)&=\+$,;\?/:]") != null) return false;
+return true;
+}
+function valIsAtSipname (name) {
+if (name.match("[^0-9a-zA-Z\-_\.\!~\*\'\(\)&=\+$,;\?/:@]") != null) return false;
+return true;
+}
+function valIsEMailAdress (name) {
+// addr-spec
+var parts = name.match(/^(.+)@(.+)$/);
+if (!parts) return false;
+var local=parts[1];
+var domain=parts[2];
+// valid characters
+var specials = "\\(\\)<>@,;:\\\\\\\"\\.\\[\\]";
+var atom = "[^"+specials+"\\s]";
+// go
+var words = new RegExp("^"+atom+"+(\\."+atom+"+)*$");
+if (!local.match(words)) return false;
+if (!domain.match(words)) return false;
+return true;
+}
+function valIsPassword(name) {
+if (name.match("[^0-9a-zA-Z/]") != null) return false;
+return true;
+}
+function valIsAOLUsername(name) {
+if (name.match("[^0-9a-zA-Z]") != null) return false;
+return true;
+}
+function valIsHexValue(hexVakue) {
+if ( hexVakue.match("[^0-9a-fA-f]") != null) return false;
+return true;
+}
+ 
+// ../js/jsl.js
+function doLoadPage(id,page) {
+var handle = document.getElementById(id);
+if (handle!=null) handle.src=page;
+}
+function jslIsString(id) {
+if (document.getElementById(id).value.match("[a-zA-Z0-9_]+")!=null) return true;
+return false;
+}
+function jslDoEliminateBlanks(text) {
+var newText = text;
+while ( newText.indexOf( " ") != (-1)) {
+newText = newText.replace(/ /,"");
+}
+return newText;
+}
+function jslGetName (id) {
+var h = document.getElementById(id);
+if (h != null) return h.name;
+return "";
+}
+function jslSetName(id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.name=wert;
+}
+function jslCopyValue(id_to, id_from) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id_to+'.value = document.uiViewForm.'+id_from+'.value');
+} else {
+var h1 = document.getElementById(id_to);
+var h2 = document.getElementById(id_from);
+if (h1 != null && h2 != null) h1.value=h2.value;
+}
+}
+function jslGetChecked (id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+return eval('document.uiViewForm.'+id+'.checked');
+} else {
+var h = document.getElementById(id);
+if (h != null) return h.checked;
+}
+return false;
+}
+function jslSetChecked (id, wert) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiViewForm.'+id+'.checked = '+wert);
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.checked = wert;
+}
+}
+function jslSetCheckValue (to, from) {
+var h1 = document.getElementById(to);
+var h2 = document.getElementById(from);
+if (h1 == null || h2 == null) {
+return;
+}
+if (h2.checked) {
+h1.value = "1";
+} else {
+h1.value = "0";
+}
+}
+function jslGetCheckValue (to, from) {
+var h1 = document.getElementById(to);
+var h2 = document.getElementById(from);
+if (h1 == null || h2 == null) {
+return;
+}
+h1.checked = (h2.value != "0");
+}
+function jslGrayLabels(elem,color) {
+var p = elem.parentNode;
+if (p) p = p.parentNode;
+p = p || document;
+if (p) {
+var labels = p.getElementsByTagName('label');
+for (var i = 0, len = labels.length; i < len; i++) {
+if (labels[i].htmlFor == elem.id) {
+labels[i].style.color = color;
+}
+}
+}
+}
+function jslDisable(id) {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled=true;
+jslGrayLabels(h1,"#999999");
+}
+}
+function jslEnable(id) {
+if (navigator.appName=='Microsoft Pocket Internet Explorer') {
+eval('document.uiPostForm.'+id+'.disabled=false');
+} else {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+}
+function jslCopyAndEnableValue(id_to, id_from)
+{
+if (navigator.appName=='Microsoft Pocket Internet Explorer')
+{
+eval('document.uiPostForm.'+id_to+'.value = document.uiViewForm.'+id_from+'.value');
+eval('document.uiPostForm.'+id+'.disabled=false');
+return;
+}
+var h1 = document.getElementById(id_to);
+var h2 = document.getElementById(id_from);
+if ((h1 != null) && (h2 != null))
+{
+h1.value=h2.value;
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+function jslSetAndEnableValue(id, wert)
+{
+if (navigator.appName=='Microsoft Pocket Internet Explorer')
+{
+eval('document.uiPostForm.'+id+'.value="'+wert+'"');
+eval('document.uiPostForm.'+id+'.disabled=false');
+return;
+}
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.value=wert;
+h1.disabled=false;
+jslGrayLabels(h1,"#3F464C");
+}
+}
+function jslSetEnabled (id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null)
+{
+h1.disabled = !wert;
+var color="#3F464C";
+if (h1.disabled==true)
+color="#999999";
+jslGrayLabels(h1,color);
+}
+}
+function jslGetEnabled (id) {
+var h1 = document.getElementById(id);
+if (h1 != null) return !(h1.disabled);
+}
+function jslIsVisible(id) {
+var h1 = document.getElementById(id);
+if (h1 != null) {
+return (h1.style.display!="none");
+}
+return false;
+}
+function jslDisplay(id, toDisplay) {
+var h1 = document.getElementById(id);
+if (h1 != null) {
+if ( toDisplay) h1.style.display="";
+else h1.style.display="none";
+}
+}
+function jslSetClass(id, wert) {
+var h1 = document.getElementById(id);
+if (h1 != null) h1.className=wert;
+}
+function jslGoToEx(Menu, Page, Titel) {
+jslGoTo(Menu,Page);
+}
+function jslFormSubmitEx (Menu, Page, Errorpage) {
+jslSubmitFormEx(Menu, Page, Errorpage);
+}
+function jslSubmitFormEx (Menu, Page, Errorpage) {
+if ((Menu!=null) && (Menu!="")) jslSetValue("uiPostMenu", Menu);
+if ((Page!=null) && (Page!="")) {
+jslSetValue("uiPostPageName", Page);
+jslSetValue("uiPostErrorPageName", Page);
+}
+if ((Errorpage!=null) && (Errorpage!="")) {
+jslSetValue("uiPostErrorPageName", Errorpage);
+}
+jslFormSubmit("uiPostForm");
+}
+function UpdateDateTime() {
+var date = new Date();
+jslSetValue("uiPostDateTime", Math.floor(date.getTime()/1000) + "," + date.getTimezoneOffset());
+}
+function jslSetSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null) elem.childNodes[0].nodeValue = text;
+}
+function SetSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null) elem.childNodes[0].nodeValue = text;
+}
+function PasswortToHex(pwValue) {
+var hexString = "";
+for (var i = 0; i < pwValue.length; i += 1) {
+var asciiValue = pwValue.charCodeAt(i);
+hexString += "%"+asciiValue.toString(16);
+}
+return hexString;
+}
+function jslSetSelection (id, text) {
+var box = document.getElementById(id);
+if (box == null) {
+return;
+}
+var disabled = box.disabled; // wg. Opera box enablen
+box.disabled = false;
+var i=0;
+var n = -1;
+for (i=0; i<box.length; i++) {
+if (box.options[i].value == text) n = i;
+}
+if (n != -1) {
+for (i=0; i<box.length; i++) {
+box.options[i].selected = (n == i);
+}
+}
+box.disabled = disabled;
+}
+function jslAddOption (id, val, text, sel, check_double_val) {
+if (navigator.appName == 'Microsoft Pocket Internet Explorer') {
+var entry = new Option(text, val, false, sel);
+var element = eval('document.uiViewForm.'+id);
+if (element == null) return;
+element.add(entry);
+} else {
+var element = document.getElementById(id);
+if(element!=null) jslAddOption_pos (id, val, text, sel, element.length, check_double_val);
+}
+}
+function jslAddOption_pos (id, val, text, sel, pos, check_double_val) {
+// var entry = new Option(convertHTML2Text(text), val, false, sel);
+var entry = new Option(text, val, false, sel);
+var element = document.getElementById(id);
+if (element == null) return;
+if(check_double_val == true){
+for (var i=0; i<element.length; i++){
+if (element.options[i].value == val) return; // Wert schon vorhanden
+}
+}
+element.options[pos] = entry;
+}
+function PasswortToXCode (pwValue) {
+var hexString = "";
+for (var i = 0; i < pwValue.length; i += 1) {
+var asciiValue = pwValue.charCodeAt(i);
+hexString += asciiValue.toString(16);
+}
+return hexString;
+}
+function XCodeToPasswort (hexValue) {
+var str = "";
+for (var i = 0; i < hexValue.length; i += 2) {
+str += String.fromCharCode(parseInt(hexValue.substr(i, 2),16));
+}
+return str;
+}
+function jslIsValidPath (path) {
+if ((navigator.platform == "Win32") && (navigator.appName == "Microsoft Internet Explorer") && (navigator.appVersion.indexOf("MSIE 6.") >= 0)) {
+if (path.indexOf("\\") == 0) return true;
+if (path.indexOf(":") == 1) return true;
+return false;
+}
+return true;
+}
+function jslPrintf1 (str , p1) {
+var exp = new RegExp("%1(%[a-zA-Z]+%)?","g");
+return str.replace(exp, p1);
+}
+function jslPrintf (str) {
+var i,exp;
+for (i=1; i<arguments.length; ++i)
+{
+exp = new RegExp("%"+i+"(%[a-zA-Z]+%)?","g");
+str = str.replace(exp, arguments[i]);
+}
+return str;
+}
+function jslGetCountAString(TextArray ,n){
+return jslGetCountString(TextArray[0],TextArray[1],TextArray[2],n);
+}
+function jslGetCountString(Text0,Text1,Text2 ,n){
+var ncase=n;
+if(ncase>2)
+ncase=2;
+if(ncase<0)
+ncase=2;
+switch(ncase){
+case 0: return jslPrintf(Text0,n);
+case 1: return jslPrintf(Text1,n);
+case 2: return jslPrintf(Text2,n);
+default: return jslPrintf(Text2,n);
+}
+}
+function alert1 (str, p1) {
+alert(jslPrintf1(str, p1));
+}
+function uiSelect(id) {
+var h = document.getElementById(id);
+if (h != null) h.select();
+}
+function uiFocus(id) {
+var h = document.getElementById(id);
+if (h != null) {
+h.focus();
+var nn = (h.nodeName || "").toLowerCase();
+var t = (h.type || "").toLowerCase();
+var selectable = false;
+if (nn == 'input' && (t == 'text' || t == 'password')) {
+selectable = true;
+}
+if (nn == 'textarea') {
+selectable = true;
+}
+if (selectable) {
+h.select();
+}
+}
+}
+function jslChangeImage ( imageName, newSource, newTitle) {
+var image = document.images[imageName];
+if ( image == null) {
+return;
+}
+image.src = newSource;
+image.title = newTitle;
+}
+function jslZebrastreifen (id) {
+var even = false;
+var evenColor = arguments[1] ? arguments[1] : "#FFFFFF";
+var oddColor = arguments[2] ? arguments[2] : "#EEEEEE";
+var table = document.getElementById(id);
+if (! table) {
+return;
+}
+var tbodies = table.getElementsByTagName("tbody");
+for (var h = 0; h < tbodies.length; h++) {
+var trs = tbodies[h].getElementsByTagName("tr");
+for (var i = 0; i < trs.length; i++) {
+if (trs[i].style.display!="none" && !trs[i].style.backgroundColor) {
+var ths = trs[i].getElementsByTagName("th");
+for (var j = 0; j < ths.length; j++) {
+var myth = ths[j];
+if (!myth.style.backgroundColor) {
+myth.style.backgroundColor = even ? evenColor : oddColor;
+}
+}
+var tds = trs[i].getElementsByTagName("td");
+for (var j = 0; j < tds.length; j++) {
+var mytd = tds[j];
+if (!mytd.style.backgroundColor) {
+mytd.style.backgroundColor = even ? evenColor : oddColor;
+}
+}
+even = !even;
+}
+}
+}
+}
+function convertHTML2Text(str) {
+if (str) {
+str = str.replace(/</g,"&lt;");
+str = str.replace(/>/g,"&gt;");
+var tst = document.createElement('div');
+tst.innerHTML = str;
+str = tst.innerText || tst.textContent;
+}
+return str;
+}
+function jslSetColor(id, NewColor, FontStrength) {
+var h1 = document.getElementById(id);
+if (h1 != null){
+h1.style.color=NewColor;
+h1.style.fontWeight=FontStrength;
+}
+}
+function jslEatWhitespace(instring){
+if(!instring)
+return instring;
+returnstr = instring.replace(/[\s,\xa0]+/g, "");
+return returnstr;
+}
+function jslGetStorageLink(protocol, display_link_name, path_extension, samba_ftp_object)
+{
+var samba_server_enabled = (samba_ftp_object && samba_ftp_object.samba_server_enabled) ? samba_ftp_object.samba_server_enabled : "1";
+var frominternet = (samba_ftp_object && samba_ftp_object.frominternet) ? samba_ftp_object.frominternet : "1";
+var connection_ip = (samba_ftp_object && samba_ftp_object.connection_ip) ? samba_ftp_object.connection_ip : "88.64.170.194";
+var interface_ip = (samba_ftp_object && samba_ftp_object.interface_ip) ? samba_ftp_object.interface_ip : "192.168.178.1";
+var ftp_server_enabled = (samba_ftp_object && samba_ftp_object.ftp_server_enabled) ? samba_ftp_object.ftp_server_enabled : "1";
+var ftp_password = (samba_ftp_object && samba_ftp_object.ftp_password) ? samba_ftp_object.ftp_password : "";
+var storage_ftp_internet = (samba_ftp_object && samba_ftp_object.storage_ftp_internet) ? samba_ftp_object.storage_ftp_internet : "0";
+var pppoe_ip = (samba_ftp_object && samba_ftp_object.pppoe_ip) ? samba_ftp_object.pppoe_ip : "88.64.170.194";
+var ddns_activated = (samba_ftp_object && samba_ftp_object.ddns_activated) ? samba_ftp_object.ddns_activated : "1";
+var ddns_password = (samba_ftp_object && samba_ftp_object.ddns_password) ? samba_ftp_object.ddns_password : "****";
+var ddns_username = (samba_ftp_object && samba_ftp_object.ddns_username) ? samba_ftp_object.ddns_username : "jowi24";
+var ddns_provider = (samba_ftp_object && samba_ftp_object.ddns_provider) ? samba_ftp_object.ddns_provider : "dyndns.org";
+var ddns_domain = (samba_ftp_object && samba_ftp_object.ddns_domain) ? samba_ftp_object.ddns_domain : "majo.dyndns.info";
+var link_head = "";
+var fritz_nas = "";
+if(path_extension == "Interner Speicher")
+{
+path_extension = "";
+}
+if(path_extension != "")
+{
+if(path_extension.indexOf("/") != 0)
+path_extension = "/"+path_extension;
+if((path_extension.lastIndexOf("/") + 1) != path_extension.length)
+path_extension = path_extension+"/";
+}
+if(protocol.match(/samba/) == "samba")
+{
+if (samba_server_enabled == "1")
+{
+if (frominternet != "1" && typeof g_IE != 'undefined' && g_IE == true)
+{
+if (("0" == "1" || "1" == "0" ) && "pppoe"=="bridge")
+link_head = connection_ip;
+else
+link_head = interface_ip;
+if (ftp_password == null || ftp_password != "****")
+fritz_nas="/fritz.nas";
+else
+path_extension = "";
+return '<a href="file://'+link_head+fritz_nas+path_extension+'" target="_blank">'+display_link_name+'</a>';
+}
+}
+}
+if(protocol.match(/ftp/) == "ftp")
+{
+if (ftp_server_enabled == "1")
+{
+if (ftp_password != "")
+link_head = "ftpuser@";
+if (frominternet == "1" && storage_ftp_internet == "1")
+{
+if (!(pppoe_ip != "" && pppoe_ip != "-" && pppoe_ip != "er" && pppoe_ip != "0.0.0.0"))
+pppoe_ip="";
+if(ddns_activated=="1" && ddns_password!="" && ddns_username!="" && ddns_provider!="")
+link_head += ddns_domain;
+else
+link_head += pppoe_ip;
+}
+else if (("0" == "1" || "1" == "0" ) && "pppoe"=="bridge")
+link_head += connection_ip;
+else
+link_head += interface_ip;
+return'<a href="ftp://'+link_head+path_extension+'" target="_blank">'+display_link_name+'</a>';
+}
+}
+return "";
+}
+ 
+<!-- ../home/fonbuchBasis.js -->
+function isOnlinePbId(pbId) {
+var num = parseInt(pbId,10) || -1;
+return 240 <= num && num <= 254;
+}
+var gPhoneBooks = {};
+// telcfg:settings/Phonebook/Books/Refresh = "";
+// telcfg:settings/Phonebook/Refresh = "62";
+gPhoneBooks.cntLocal = 0;
+gPhoneBooks.cntOnline = 0;
+gPhoneBooks.books = [];
+ 
+gPhoneBooks.books[0] = {
+Id: "0",
+Name: "Telefonbuch"
+};
+ 
+for (var i = 0; i < gPhoneBooks.books.length; i++) {
+if (isOnlinePbId(gPhoneBooks.books[i].Id)) {
+gPhoneBooks.cntOnline++;
+}
+else {
+gPhoneBooks.cntLocal++;
+}
+}
+function pbLimitReached(type) {
+var maxLocal = 10;
+var maxOnline = 0;
+ 
+maxLocal = 6;
+maxOnline = 6;
+ 
+switch(type) {
+case "local": return gPhoneBooks.cntLocal >= maxLocal;
+case "online": return gPhoneBooks.cntOnline >= maxOnline;
+default: return gPhoneBooks.cntLocal + gPhoneBooks.cntOnline >= maxLocal + maxOnline;
+}
+}
+function setNextOntelIdx() {
+var ontelEnabled = [];
+ 
+var idx = 0;
+while (idx < ontelEnabled.length && ontelEnabled[idx]) {
+idx += 1;
+}
+if (!isNaN(idx)) {
+jslSetValue("uiPostNextOntelIdx",idx);
+return true;
+}
+return false;
+}
+function getOntelIdx(pbId) {
+ 
+return 0;
+}
+var g_onTel = false;
+var g_cntFonbook = parseInt("1",10) || 0;
+function fillFonbook(id) {
+var phonebookName="";
+ 
+phonebookName = jslGetValue("uiPostPhonebookName"+"0");
+if (phonebookName == "") {
+phonebookName = "Telefonbuch";
+}
+jslAddOption(id, jslGetValue("uiPostPhonebookId"+"0"), phonebookName, false);
+ 
+}
+function deletePhonebook (idN) {
+ 
+if (idN == jslGetValue("uiPostPhonebookId"+"0")) {
+var id="Phonebook/Books/Id"+"0";
+jslSetEnabled("uiPostDelete", true);
+jslSetName("uiPostDelete", "telcfg:command/"+id);
+if (isOnlinePbId(idN)) {
+var ontelIdx = getOntelIdx(idN);
+jslSetName("uiPostOntelDelete","ontel:command/ontel" + ontelIdx);
+jslEnable("uiPostOntelDelete");
+}
+}
+ 
+}
+ 
+var g_mldDelete = "Wollen Sie diesen Eintrag löschen ?";
+var g_qstDial = "Wollen Sie die Verbindung jetzt herstellen?";
+var g_txtBtn_Delete = "Löschen";
+var g_txtBtn_Change = "Bearbeiten";
+var g_NoKennwortNoDial="Die Wählhilfe steht nur bei aktivem Kennwortschutz zur Verfügung. Wollen Sie den Kennwortschutz aktivieren?";
+var g_txtmld_1 = "Verbindung mit %1%NameOderTelefonNummer% wird hergestellt...\x0A\x0AHeben Sie jetzt bitte den Hörer von %2  ab bzw. drücken Sie die grüne Hörertaste auf Ihrem Telefon.\x0A\x0AUm die Anwahl zu beenden, klicken Sie auf Abbrechen. ";
+var g_txtIsdn = "ISDN-Telefone";
+var g_deleteFonbook = "Wollen Sie das Telefonbuch löschen?";
+var g_deleteFonbookEntry = "WARNUNG: Alle Einträge im Telefonbuch werden damit unwiederbringlich gelöscht. Sind Sie ganz sicher, dass Sie den Vorgang fortsetzen möchten?";
+var g_deleteOnlineFonbookEntry = "Alle Einträge im Telefonbuch sind bei Ihrem Online-Anbieter gespeichert. Wenn Sie das im Internet verwaltete Telefonbuch zu einem späteren Zeitpunkt erneut hinzufügen, sind sämtliche Einträge wieder verfügbar.";
+// telcfg:settings/Phonebook/Refresh = "< ? q u e r y telcfg:settings/Phonebook/Refresh ? >"
+//Jetzt sollen auch die internen Geräte mit in die Liste aufgenommen werden.
+// telcfg:settings/Phonebook/Refresh = "62"
+var g_cntEntry = Number("60");
+function uiDoOnLoad()
+{
+document.title = "FRITZ!Box Telefonbuch";
+if (jslGetValue("uiPostShowDialing") != "") {
+var mld =jslPrintf(g_txtmld_1,jslGetValue("uiPostShowDialing"),GetFonDeviceName(jslGetValue("uiPostDialPort")));
+jslSetValue("uiPostShowDialing", "");
+if (!confirm(mld)) {
+jslEnable("uiPostHangup");
+jslFormSubmitEx("", "");
+}
+}
+jslEnable("uiViewNewButton");
+if (g_cntFonbook <= 1) {
+jslDisplay("tFonbook", false);
+}
+if (g_cntFonbook >0 ) {
+fillFonbook("uiViewFonbook");
+jslSetSelection("uiViewFonbook", jslGetValue("uiPostPhonebookId"));
+if (jslGetValue("uiPostPhonebookId") == "0") {
+jslSetEnabled("uiViewDeleteFonbook", false);
+jslSetEnabled("uiViewEditFonbook", false);
+} else {
+jslDisplay("uiViewThKW", false);
+jslDisplay("uiViewThVanity", false);
+jslDisplay("uiViewThVIP", false);
+jslDisplay("uiViewKW", false);
+jslDisplay("uiViewVanity", false);
+jslDisplay("uiViewVIP", false);
+jslDisplay("uiViewKW1", false);
+jslDisplay("uiViewVanity1", false);
+jslDisplay("uiViewVIP1", false);
+jslDisplay("uiViewVIP2", false);
+}
+g_onTel = isOnlinePbId(jslGetValue("uiPostPhonebookId"));
+if (g_onTel) {
+jslSetEnabled("uiExport", false);
+jslSetEnabled("uiImportButton", false);
+jslSetEnabled("uiViewNewButton", true);
+var entryCnt = Number("60");
+for (var i=0; i<entryCnt; i++) {
+jslDisplay("uiViewEdit"+i, true);
+jslDisplay("uiViewDelete"+i, false);
+}
+}
+}
+if (isNaN(g_cntEntry))
+g_cntEntry=0;
+if (g_cntEntry == 0)
+jslSetEnabled("uiExport", false);
+jslSetValue("uiPostVonFoncalls", "0");
+jslSetEnabled("uiNewTB",!pbLimitReached());
+}
+function uiDoDeleteEntry(nr) {
+if (!confirm(g_mldDelete)) return;
+document.getElementById('uiPostDelete'+nr).disabled = false;
+jslSubmitFormEx("", "fonbuch", "fonbuch");
+}
+function uiDoEdit(nr, wahl) {
+jslSetValue("uiPostKurzwahl", wahl);
+jslCopyValue("uiPostCode", "uiPostCode"+nr);
+jslCopyValue("uiPostVanity", "uiPostVanity"+nr);
+jslCopyValue("uiPostNumber", "uiPostNumber"+nr);
+jslCopyValue("uiPostName", "uiPostName"+nr);
+jslSetValue("uiPostPageMaster", "fonbuch");
+jslSubmitFormEx("", "fonbuch1", "fonbuch");
+}
+function uiDoEdit1(nr,wahl) {
+jslSetValue("uiPostEntryNew", wahl); // Editiere diesen Eintrag
+//jslSetValue("uiPostEntryNumber", nr);
+jslSetValue("uiPostPageMaster", "fonbuch");
+//if (jslGetValue("uiPostPhonebookId") == "0") {
+var pbId = jslGetValue("uiPostPhonebookId");
+if (!isOnlinePbId(pbId)) {
+jslSetValue("uiPostCurrFonbookID", pbId);
+jslGoTo("", "fonbuch2", "fonbuch");
+}
+else {
+jslGoTo("", "fonbuch2_new", "fonbuch");
+}
+}
+function uiDoNew(wahl) {
+jslSetValue("uiPostKurzwahl", wahl);
+jslSetValue("uiPostCode", GetFreeCode());
+jslSetValue("uiPostVanity", "");
+jslSetValue("uiPostNumber", "");
+jslSetValue("uiPostName", "");
+jslSetValue("uiPostPageMaster", "fonbuch");
+jslSubmitFormEx("", "fonbuch1", "fonbuch");
+}
+function uiDoNew1(wahl) {
+jslSetValue("uiPostEntryNew", wahl); // Diese Auswahl ist neu
+jslSetValue("uiPostEntryNewCode", GetFreeCode1()); // Neue Kurzwahl
+jslSetValue("uiPostEntryXCount", "0"); // Es sind noch keine Einträge vorhanden
+jslSetValue("uiPostPageMaster", "fonbuch");
+var pbId = jslGetValue("uiPostPhonebookId");
+//if (jslGetValue("uiPostPhonebookId") == "0")
+if (!isOnlinePbId(pbId)) {
+jslSetValue("uiPostCurrFonbookID", pbId);
+jslGoTo("", "fonbuch2", "fonbuch");
+}
+else {
+jslGoTo("", "fonbuch2_new", "fonbuch");
+}
+}
+function GetFreeCode () {
+var n = 0;
+var i;
+var c = 0;
+while (c<99) {
+c = c+1;
+var code_besetzt = false;
+for (i=0; i<n; i++) {
+if (jslGetValue("uiPostCode"+i) == c) code_besetzt = true;
+}
+if (!code_besetzt) {
+if (c < 10) return "0"+c;
+return c;
+}
+}
+return "01";
+}
+function GetFreeCode1() {
+var returnvalue="23";
+if(returnvalue=="" || returnvalue=="er"){
+return "";
+}
+return returnvalue;
+}
+function uiDoHelp() {
+jslPopHelp("hilfe_fon_telefonbuch");
+}
+function uiDoShowPrintView() {
+var url = "../cgi-bin/webcm?getpage=../html/de/home/ppFonbuch.html";
+url += "&sid=3a8ef4a34cfcf8a7";
+var ppWindow = window.open(url, "Zweitfenster", "width=720,height=600,statusbar,resizable=yes,scrollbars=yes");
+ppWindow.focus();
+}
+function span(str) {
+var t = str.replace(/<br>/g, " \n");
+return "<nobr><span title=\""+ t + "\">" + str + "</span></nobr>";
+}
+function isVIP (name) {
+return name.length > 0 && name.charAt(0) == '!';
+}
+function GetBuchName (name) {
+if (isVIP(name)) return name.substr(1);
+return name;
+}
+function GetVIP (name) {
+if (isVIP(name)) return "X";
+return "";
+}
+function NummerDisplay (nr,shortdial) {
+if (nr != "" && "1" == "1") {
+if (nr.indexOf("@")!=-1)
+{
+if (shortdial=="" || shortdial=="&nbsp;" || shortdial==" ")
+return span(nr);
+return "<nobr><a href=\"javascript:Dial('"+shortdial+"')\" title=\""+nr+"\">"+nr+"</a></nobr>";
+}
+return "<nobr><a href=\"javascript:Dial('"+nr+"')\" title=\""+nr+"\">"+(nr.substr(0,26))+"</a></nobr>";
+} else {
+return "<nobr><span title=\""+nr+"\">"+(nr.substr(0,26))+"</span></nobr>";
+}
+}
+function TrFon(id, name, rufnr, code, vanity)
+{
+var code2 = "";
+var vanity2 = "";
+if (code != "") code2 = "**7"+code;
+if (vanity != "") vanity2 = "**8"+vanity;
+var phonebookId = "0";
+var str = "<tr>";
+str += "<td class=\"c5\">"+span(GetBuchName(name))+"</td>";
+str += "<td class=\"c3\">"+NummerDisplay(rufnr)+"</td>";
+if (phonebookId == "0" || phonebookId == "er") {
+str += "<td id=\"uiViewKW\" class=\"c1\">"+code2+"</td>";
+str += "<td id=\"uiViewVanity\" class=\"c2\">"+span(vanity2)+"</td>";
+str += "<td id=\"uiViewVIP\" class=\"c6\">"+GetVIP(name)+"</td>";
+} else {
+str += "<td class=\"c1\"></td>";
+str += "<td class=\"c2\"></td>";
+str += "<td class=\"c6\"></td>";
+}
+str += "<td class=\"c4\">"+ IconBtn("uiViewEdit"+id, "uiDoEdit('"+id+"', 'HotDialEntry"+id+"')", g_txtBtn_Change, "bearbeiten.gif" ) +"</td>";
+str += "<td class=\"c4\">"+ IconBtn("uiViewDelete"+id, "uiDoDeleteEntry('"+id+"')", g_txtBtn_Delete, "loeschen.gif") +"</td>";
+str += "</tr>";
+return str;
+}
+function GetVIP1 (category) {
+if (category == "1") return "X";
+return "";
+}
+function GetTypeAnzeigename(type) {
+switch (type) {
+case "home" : return "privat";
+case "mobile" : return "mobil";
+case "work" : return "geschäftl.";
+case "intern" :
+g_fbintern=true;
+return "intern";
+case "other" : return "sonstige";
+}
+return type;
+}
+var g_fbId;
+var g_fbName;
+var g_fbCategory;
+var g_fbTypes;
+var g_fbRufnr;
+var g_fbCodes;
+var g_fbImage;
+var g_fbVanitys;
+var g_fbNr;
+var g_fbintern;
+var g_count = 1;
+function TrFonName (id, name, category, image) {
+g_fbId = id;
+g_fbName = name;
+g_fbCategory = category;
+g_fbTypes = "";
+g_fbRufnr = "";
+g_fbCodes = "";
+g_fbImage = image;
+g_fbVanitys = "";
+g_fbNr = 0;
+g_fbintern=false;
+}
+function TrFonNr (type, rufnr, code, vanity)
+{
+if (rufnr == "") return;
+if (g_fbRufnr != "") g_fbRufnr += "\n";
+g_fbRufnr += rufnr;
+if (g_fbTypes != "") g_fbTypes += "\n";
+g_fbTypes += GetTypeAnzeigename(type);
+if (g_fbCodes!= "") g_fbCodes+= "\n";
+var c = "&nbsp;";
+if (code != "") {
+c = (Number(code) < 10 ? "**70"+code : "**7"+code);
+}
+g_fbCodes += c;
+if (g_fbVanitys != "") g_fbVanitys += "\n";
+var v = "&nbsp;";
+if (vanity != "") v = "**8"+vanity;
+g_fbVanitys += v;
+g_fbNr++;
+}
+function TrFon1()
+{
+if (g_fbintern) {
+return "";
+}
+var t = g_fbTypes.split("\n");
+var n = g_fbRufnr.split("\n");
+var c = g_fbCodes.split("\n");
+var v = g_fbVanitys.split("\n");
+var backcolor = (g_count%2 == 1) ? "#FFFFFF":"#EEEEEE";
+var phonebookId = "0";
+g_count++;
+if (g_fbNr == 0)
+{
+return "<tr style=\"background-color:" + backcolor + ";\">"
++ "<td class=\"Pic\">"
++ (((i == 0) && (g_fbImage != "")) ? "<img src=\"../html/de/images/Listico_Foto.gif\">" : "")
++ "</td>"
++ "<td class=\"c5\">" + span(g_fbName) + "</td>"
++ "<td class=\"c3\"></td>"
++ "<td class=\"c7\"></td>"
++ "<td class=\"c1\"></td>"
++ "<td class=\"c2\"></td>"
++ ( (phonebookId == "0") ? ("<td id=\"uiViewVIP2\" class=\"c6\">" + GetVIP1(g_fbCategory) + "</td>")
+: "<td class=\"c6\"></td>"
+)
++ "<td class=\"c4\">"
++ IconBtn( "uiViewEdit"+g_fbId, "uiDoEdit1('" + g_fbId + "', 'Entry" + g_fbId + "')",
+g_txtBtn_Change, "bearbeiten.gif",
+g_fbintern
+)
++ "</td>"
++ "<td class=\"c4\">"
++ IconBtn("uiViewDelete"+g_fbId, "uiDoDeleteEntry('"+g_fbId+"')", g_txtBtn_Delete, "loeschen.gif", g_fbintern)
++ "</td>"
++ "</tr>";
+}
+var str = "";
+for (var i = 0; i < g_fbNr; i++)
+{
+str += "<tr style=\"background-color:" + backcolor + ";\">"
++ "<td class=\"Pic\">"
++ (((i == 0) && (g_fbImage != "")) ? "<img src=\"../html/de/images/Listico_Foto.gif\">" : "")
++ "</td>"
++ ((i==0) ? ("<td class=\"c5\" rowspan=\"" + g_fbNr + "\">" + span(g_fbName) + "</td>") : "")
++ "<td class=\"c3\">" + NummerDisplay(n[i],c[i]) + "</td>"
++ "<td class=\"c7\">" + t[i] + "</td>"
++ ( (phonebookId == "0") ? ( "<td id=\"uiViewKW1\" class=\"c1\">" + c[i] + "</td>"
++ "<td id=\"uiViewVanity1\" class=\"c2\">" + span(v[i]) + "</td>"
+)
+: ( "<td class=\"c1\"></td>"
++ "<td class=\"c2\"></td>"
+)
+)
++ ( (i != 0) ? ""
+: ( ( (phonebookId == "0")
+? ( "<td id=\"uiViewVIP1\" class=\"c6\" rowspan=\"" + g_fbNr + "\">"
++ GetVIP1(g_fbCategory) + "</td>"
+)
+: ("<td class=\"c6\" rowspan=\"" + g_fbNr + "\"></td>")
+)
++ "<td class=\"c4\" rowspan=\"" + g_fbNr + "\">"
++ IconBtn( "uiViewEdit" + g_fbId, "uiDoEdit1('" + g_fbId + "', 'Entry" + g_fbId + "')",
+g_txtBtn_Change, "bearbeiten.gif", g_fbintern
+)
++ "</td>"
++ "<td class=\"c4\" rowspan=\"" + g_fbNr + "\">"
++ IconBtn( "uiViewDelete" + g_fbId, "uiDoDeleteEntry('" + g_fbId + "')", g_txtBtn_Delete,
+"loeschen.gif", g_fbintern
+)
++ "</td>"
+)
+)
++ "</tr>";
+}
+return str;
+}
+function IsNoKennwortSet(){
+var strPw="****";
+return (strPw.length == 0)?true:false;
+}
+function Dial (n) {
+if (jslGetValue("uiPostClickToDial") != "1") return;
+if(IsNoKennwortSet()){
+if(confirm(g_NoKennwortNoDial)) {
+var dialstr = "fon";
+dialstr += ";";
+dialstr += "fonbuch";
+jslSetValue("uiWaehlhilfeVon", dialstr);
+jslFormSubmitEx("system","user");
+}
+return;
+}
+if (!confirm(g_qstDial)) return;
+jslSetValue("uiPostDial", n);
+jslSetValue("uiPostShowDialing", n);
+jslEnable("uiPostDial");
+jslFormSubmitEx("", "");
+}
+function uiDialPortDisplay (n) {
+var name = n;
+switch (n) {
+case "1":
+name = jslGetValue("uiPostFon0");
+if (name.length == 0) name = g_Fon1;
+break;
+case "2":
+name = jslGetValue("uiPostFon1");
+if (name.length == 0) name = g_Fon2;
+break;
+case "50": name = g_txtIsdn; break;
+ case "51": name = jslGetValue("uiPostIsdnNumber1"); break;
+ case "52": name = jslGetValue("uiPostIsdnNumber2"); break;
+ case "53": name = jslGetValue("uiPostIsdnNumber3"); break;
+ case "54": name = jslGetValue("uiPostIsdnNumber4"); break;
+ case "55": name = jslGetValue("uiPostIsdnNumber5"); break;
+ case "56": name = jslGetValue("uiPostIsdnNumber6"); break;
+ case "57": name = jslGetValue("uiPostIsdnNumber7"); break;
+ case "58": name = jslGetValue("uiPostIsdnNumber8"); break;
+ 
+}
+return name;
+}
+var g_msgTextNoFile = "Keine Datei angegeben !";
+var g_mldPfad = "Bitte geben den vollständigen Pfadnamen an.";
+function uiDoExport () {
+jslFormSubmit("uiPostExportForm");
+}
+function uiDoImport () {
+if (jslGetValue("PhonebookImportFile") == "") {alert(g_msgTextNoFile);return;}
+if (!window.opera && jslIsValidPath(jslGetValue("PhonebookImportFile")) == false) {alert(g_mldPfad); return;}
+//document.getElementById("uiPostImportForm").submit();
+jslFormSubmit("uiPostImportForm");
+}
+function uiShowImport () {
+jslDisplay("uiViewImport", true);
+}
+function uiDoNewFonbook() {
+//jslFormSubmitEx("", "newfonbuch");
+ 
+setNextOntelIdx();
+ 
+jslGoTo("", "newfonbuch");
+}
+function OnFonbook(value) {
+jslSetValue("uiPostPhonebookSelect", value);
+jslEnable("uiPostPhonebookSelect");
+jslFormSubmitEx("", "fonbuch");
+}
+function OnEdit() {
+jslSetValue("uiPostEditPhonebook", "1");
+//jslFormSubmitEx("", "newfonbuch");
+jslGoTo("", "newfonbuch");
+}
+function OnDeletePhonebook() {
+var countEntries = parseInt("60",10) || 0;
+var idN = jslGetValue("uiViewFonbook");
+var confirmText = g_deleteFonbook;
+if (countEntries > 0) {
+if (isOnlinePbId(idN)) {
+confirmText = g_deleteOnlineFonbookEntry;
+}
+else {
+confirmText = g_deleteFonbookEntry;
+}
+}
+if (!confirm(confirmText)) {
+return;
+}
+deletePhonebook(idN);
+//DECT-Zuordnung auch löschen
+ 
+if (jslGetValue("uiPostUserPhonebook"+"0") == idN) {
+jslSetValue("uiPostUserPhonebook"+"0", "0");
+jslEnable("uiPostUserPhonebook"+"0");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"1") == idN) {
+jslSetValue("uiPostUserPhonebook"+"1", "0");
+jslEnable("uiPostUserPhonebook"+"1");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"2") == idN) {
+jslSetValue("uiPostUserPhonebook"+"2", "0");
+jslEnable("uiPostUserPhonebook"+"2");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"3") == idN) {
+jslSetValue("uiPostUserPhonebook"+"3", "0");
+jslEnable("uiPostUserPhonebook"+"3");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"4") == idN) {
+jslSetValue("uiPostUserPhonebook"+"4", "0");
+jslEnable("uiPostUserPhonebook"+"4");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"5") == idN) {
+jslSetValue("uiPostUserPhonebook"+"5", "0");
+jslEnable("uiPostUserPhonebook"+"5");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"6") == idN) {
+jslSetValue("uiPostUserPhonebook"+"6", "0");
+jslEnable("uiPostUserPhonebook"+"6");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"7") == idN) {
+jslSetValue("uiPostUserPhonebook"+"7", "0");
+jslEnable("uiPostUserPhonebook"+"7");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"8") == idN) {
+jslSetValue("uiPostUserPhonebook"+"8", "0");
+jslEnable("uiPostUserPhonebook"+"8");
+}
+ 
+if (jslGetValue("uiPostUserPhonebook"+"9") == idN) {
+jslSetValue("uiPostUserPhonebook"+"9", "0");
+jslEnable("uiPostUserPhonebook"+"9");
+}
+ 
+// Pb 0 auswählen
+jslSetValue("uiPostPhonebookSelect","0");
+jslFormSubmitEx("", "fonbuch");
+}
+function GetFonDeviceName( id) {
+var deviceName = "";
+var intern = "";
+switch (id) {
+case "1":
+deviceName = jslGetValue("uiPostFon0");
+if (deviceName.length == 0) deviceName = g_Fon1;
+break;
+case "2":
+deviceName = jslGetValue("uiPostFon1");
+if (deviceName.length == 0) deviceName = g_Fon2;
+break;
+case "3":
+deviceName = jslGetValue("uiPostFon2");
+if (deviceName.length == 0) deviceName = g_Fon3;
+break;
+case "51":
+deviceName = jslGetValue("uiPostIsdn1");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "52":
+deviceName = jslGetValue("uiPostIsdn2");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "53":
+deviceName = jslGetValue("uiPostIsdn3");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "54":
+deviceName = jslGetValue("uiPostIsdn4");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "55":
+deviceName = jslGetValue("uiPostIsdn5");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "56":
+deviceName = jslGetValue("uiPostIsdn6");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "57":
+deviceName = jslGetValue("uiPostIsdn7");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "58":
+deviceName = jslGetValue("uiPostIsdn8");
+if (deviceName.length == 0) deviceName = g_txtIsdn;
+break;
+case "50":
+deviceName = g_txtFon50;
+break;
+case "60":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+1))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+1);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+1);
+}
+}
+break;
+case "61":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+2))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+2);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+2);
+}
+}
+break;
+case "62":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+3))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+3);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+3);
+}
+}
+break;
+case "63":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+4))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+4);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+4);
+}
+}
+break;
+case "64":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+5))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+5);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+5);
+}
+}
+break;
+case "65":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+6))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+6);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+6);
+}
+}
+break;
+case "66":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+7))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+7);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+7);
+}
+}
+break;
+case "67":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+8))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+8);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+8);
+}
+}
+break;
+case "68":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+9))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+9);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+9);
+}
+}
+break;
+case "69":
+deviceName = id;
+if (document.getElementById("uiPostFoncontrol"+10))
+{
+intern = jslGetValue("uiPostFoncontrolIntern"+10);
+if (intern.length > 0)
+{
+deviceName = jslGetValue("uiPostFoncontrol"+10);
+}
+}
+break;
+default: deviceName = id;
+break;
+}
+return deviceName;
+}
+</script> 
+ 
+ 
+<script type="text/javascript"> 
+var jxl = jxl || {
+get: function (idOrElement) {
+if (typeof idOrElement == 'string') {
+return document.getElementById(idOrElement);
+}
+return idOrElement;
+},
+setHtml: function (idOrElement,txt) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.innerHTML = txt;
+}
+},
+setText: function (idOrElement,txt) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.hasChildNodes()) {
+elem.innerHTML = "";
+}
+elem.appendChild(document.createTextNode(txt));
+}
+},
+getBy: function (idOrElement,tag,filter) {
+var elem = jxl.get(idOrElement) || document;
+var result = [];
+if (elem) {
+tag = tag || "*";
+var noFilter = !(typeof filter == 'function');
+var nodes = elem.getElementsByTagName(tag);
+for (var i = 0, len = nodes.length; i < len; i++) {
+if (noFilter || filter(nodes[i])) {
+result.push(nodes[i]);
+}
+}
+}
+return result;
+},
+cssStrToCamelCase: function (str) {
+var strArr = str.split("-");
+var ret = strArr[0];
+for (var i = 1, len = strArr.length; i < len; i++) {
+ret += strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1);
+}
+return ret;
+},
+setOpacity: function (idOrElement, val) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style.opacity = val;
+elem.style.filter = 'alpha(opacity=' + (val * 100).toFixed(0) + ')';
+}
+},
+setStyleFloat: function (idOrElement, val) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style.cssFloat = val;
+elem.style.styleFloat = val;
+}
+},
+setStyle: function (idOrElement, cssName, cssValue) {
+if (typeof cssName == 'string') {
+switch (cssName) {
+case 'opacity':
+jxl.setOpacity(idOrElement, cssValue);
+break;
+case 'float':
+jxl.setStyleFloat(idOrElement, cssValue);
+break;
+default:
+var elem = jxl.get(idOrElement);
+if (elem) {
+elem.style[jxl.cssStrToCamelCase(cssName)] = cssValue;
+}
+break;
+}
+}
+},
+setStyles: function (idOrElement, css) {
+for (var cssName in css) {
+jxl.setStyle(idOrElement, cssName, css[cssName]);
+}
+},
+getCurrentStyle: function (idOrElement,cssName) {
+var elem = jxl.get(idOrElement);
+var theStyle = null;
+if (elem) {
+if (window.getComputedStyle) {
+theStyle = window.getComputedStyle(elem, null);
+}
+else if (document.defaultView && document.defaultView.getComputedStyle) {
+theStyle = document.defaultView.getComputedStyle(elem, null);
+}
+else if (elem.currentStyle) {
+theStyle = elem.currentStyle;
+}
+}
+if (!theStyle) {
+theStyle = elem.style;
+}
+if (theStyle && cssName) {
+return theStyle[jxl.cssStrToCamelCase(cssName)];
+}
+return theStyle;
+},
+reduceWhiteSpace: function (str) {
+str = str.replace(/^\s+|\s+$/g, "");
+str = str.replace(/[\s,\xa0]+/g, " ");
+return str;
+},
+classNameCache: {},
+classNameRegExp: function (theClassName) {
+if (!jxl.classNameCache[theClassName]) {
+jxl.classNameCache[theClassName] = new RegExp('(?:^|\\s+)' + theClassName + '(?:\\s+|$)');
+}
+return jxl.classNameCache[theClassName];
+},
+hasClass: function (idOrElement, theClassName) {
+var elem = jxl.get(idOrElement);
+if (!elem) {
+return false;
+}
+var r = jxl.classNameRegExp(theClassName);
+return r.test(elem.className);
+},
+addClass: function (idOrElement, theClassNames) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+var theClasses = jxl.reduceWhiteSpace(theClassNames).split(' ');
+for (var i = 0, len = theClasses.length; i < len; i++) {
+if (!jxl.hasClass(elem, theClasses[i])) {
+elem.className = [elem.className,theClasses[i]].join(' ');
+}
+}
+elem.className = jxl.reduceWhiteSpace(elem.className);
+}
+},
+removeClass: function (idOrElement, theClassNames) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+var theClasses = jxl.reduceWhiteSpace(theClassNames).split(' ');
+var r;
+for (var i = 0, len = theClasses.length; i < len; i++) {
+r = jxl.classNameRegExp(theClasses[i]);
+if (r.test(elem.className)) {
+elem.className = elem.className.replace(r," ");
+}
+}
+elem.className = jxl.reduceWhiteSpace(elem.className);
+}
+},
+isQuirksMode: function () {
+return (typeof document.compatMode != 'string' || document.compatMode.indexOf('CSS') == -1);
+},
+toNumber: function (num,defaultNum) {
+var n = parseInt(num);
+return isNaN(n) ? (defaultNum || 0) : n;
+},
+getDoc: function () {
+return (jxl.isQuirksMode()) ? document.body : document.documentElement;
+},
+getDocSizes: function () {
+var ret = {};
+var doc = jxl.getDoc();
+for (var i = 0; i < arguments.length; i++) {
+ret[arguments[i]] = jxl.toNumber(doc[arguments[i]],0);
+}
+return ret;
+},
+addEventHandler: function (idOrElement,eventName,handlerFunction) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.addEventListener) {
+if (eventName == 'mousewheel') {
+elem.addEventListener('DOMMouseScroll', handlerFunction, false);
+}
+elem.addEventListener(eventName, handlerFunction, false);
+return true;
+}
+else if (elem.attachEvent) {
+elem.attachEvent("on" + eventName, handlerFunction);
+return true;
+}
+return false;
+}
+return false;
+},
+removeEventHandler: function (idOrElement,eventName,handlerFunction) {
+var elem = jxl.get(idOrElement);
+if (elem) {
+if (elem.addEventListener) {
+if (eventName == 'mousewheel') {
+elem.removeEventListener('DOMMouseScroll', handlerFunction, false);
+}
+elem.removeEventListener(eventName, handlerFunction, false);
+}
+else if (elem.attachEvent) {
+elem.detachEvent("on" + eventName, handlerFunction);
+}
+}
+},
+cancelEvent: function (evt) {
+evt = evt || window.event;
+if(evt.stopPropagation) {
+evt.stopPropagation();
+}
+if(evt.preventDefault) {
+evt.preventDefault();
+}
+evt.cancelBubble = true;
+evt.cancel = true;
+evt.returnValue = false;
+return false;
+}
+};
+ 
+var globalOnClick = (function() {
+function checkElem(elem) {
+var tag = (elem.tagName || "").toLowerCase();
+//var type = (elem.type || "").toLowerCase();
+var target = (elem.target || "").toLowerCase();
+switch (tag) {
+case "a":
+return target == "";
+case "button":
+return elem.id == "uiSubmitLogin";
+}
+return false;
+}
+function isLinkWithOnclick(elem) {
+var tag = (elem.tagName || "").toLowerCase();
+return tag == "a" && elem.onclick;
+}
+function isChrome() {
+var s = navigator.userAgent;
+return s.indexOf("Chrome") > -1
+}
+function globalClickHandler(evt) {
+evt = evt || window.event;
+var elem = evt.target || evt.srcElement;
+if (isLinkWithOnclick(elem)) {
+return false;
+}
+if (checkElem(elem)) {
+jxl.setStyle(elem, "cursor", "wait");
+setTimeout(function() { jxl.setStyle(elem, "cursor", ""); elem = null; }, 3000);
+}
+return true;
+}
+function init() {
+if (isChrome()) {
+return;
+}
+jxl.addEventHandler(document, "click", globalClickHandler);
+}
+return {
+init: init
+};
+})();
+ 
+function jslAddSpanText(id, text) {
+var elem = document.getElementById(id);
+if (elem != null)
+elem.childNodes[0].nodeValue += text;
+}
+function WriteTime(id)
+{
+if (g_StopTimeWrite)
+return;
+var CurTimeObj = new Date();
+var time = CurTimeObj.getTime();
+//jslAddSpanText("uiCurrentTime","("+id+" -- "+(time-g_StartTime)+" --)");
+jslSetSpanText("uiCurrentTime","("+(time-g_StartTime)+" ms)");
+return;
+}
+function uiDoOnLoadFirst()
+{
+globalOnClick.init();
+uiDoOnLoad();
+WriteTime(0);
+}
+</script> 
+ 
+ 
+ 
+ 
+ 
+</head> 
+<body onload="uiDoOnLoadFirst()"> 
+<div id="uiTooltip" style="position:absolute;display:none;background-color:lightyellow;padding:5px;border:1px;border-color:black;border-style:solid;"></div> 
+<table style="margin: auto;"> 
+<tr><td> 
+<div class="fw_header"> 
+<img src="../html/de/images/leer.gif" width="120" height="70" usemap="#logo"> 
+<map name="logo"> 
+<area shape="rect" coords="10,0,110,70" href="javascript:OnOverview()"> 
+</map> 
+</div> 
+<div class="fw_bg_body"> 
+<table> 
+<tr> 
+<td id="Menuhead">&nbsp;
+</td> 
+<td id="Datahead"> 
+<div id="contenthead" align="center" > 
+<table style="width:787px;table-layout:fixed;margin-bottom:8px;font-size:13px;"> 
+<tr style="padding:0;"> 
+<td id="sub_menu_head" style="text-align:right; padding:0;padding-right:8px;" > 
+ 
+<a href="/logout.lua?sid=3a8ef4a34cfcf8a7&amp;" title="Von der Benutzeroberfläche abmelden" style=""> 
+<img src="/css/default/images/icon_abmelden.gif" style="vertical-align: middle;">Abmelden
+</a> 
+ 
+<a href="javascript:jslGoTo('system','extended');" title="Ansicht" > 
+ 
+<img src="/css/default/images/icon_ansicht_expert.gif" style="vertical-align: middle;"><span>Ansicht:</span></a><span style="vertical-align:-2px;"> Experte</span> 
+ 
+<a href="javascript:GoToSitemap();" title="Inhalt" style=""> 
+<img src="/css/default/images/icon_sitemap.gif" style="vertical-align: middle;">Inhalt
+</a> 
+<a href="javascript:jslPopHelpEx('home', '')" title="Hilfe" style=""> 
+<img src="/css/default/images/help.gif" style="vertical-align: middle;">Hilfe
+</a> 
+</td> 
+</tr> 
+</table> 
+</div> 
+</td> 
+</tr> 
+<tr> 
+<td id="Menuspalte"> 
+<div id="menucontent"> 
+ 
+<div style=""> 
+<div class="menu_bar_left_head"></div> 
+<div class="menu_bar_right_head"></div> 
+<div class="menu_bar_back_head"> 
+<div id="MainMenuhead"> 
+</div> 
+</div> 
+</div> 
+<div class="menu_body_outer"> 
+<ul class="LMenu"> 
+ 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('home','home')">Übersicht</a> 
+</li> 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('internet','inetstat')">Internet</a> 
+</li> 
+ 
+ 
+<li class="selected submenu"> 
+<a href="javascript:jslGoTo('fon','foncalls')">Telefonie</a> 
+<ul> 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','foncalls')">Anrufe</a><span class="PTextOnly">Anrufe</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="selected"><a href="javascript:jslGoTo('fon','fonbuch')">Telefonbuch</a><span class="PTextOnly">Telefonbuch</span></li> 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','wecker')">Weckruf</a><span class="PTextOnly">Weckruf</span></li> 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','rulall')">Rufumleitung</a><span class="PTextOnly">Rufumleitung</span></li> 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','routing')">Wahlregeln</a><span class="PTextOnly">Wahlregeln</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','fondevices')">Telefoniegeräte</a><span class="PTextOnly">Telefoniegeräte</span></li> 
+ 
+ 
+ 
+ 
+ 
+ 
+<li class="LSubitem"><a href="javascript:jslGoTo('fon','siplist')">Internettelefonie</a><span class="PTextOnly">Internettelefonie</span></li> 
+ 
+ 
+ 
+ 
+</ul> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('net','net')">Heimnetz</a> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('wlan','wlan')">WLAN</a> 
+</li> 
+ 
+ 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('dect','setting')">DECT</a> 
+</li> 
+ 
+ 
+<li class="LMenuitemTop"> 
+<a href="javascript:jslGoTo('system','syslog')">System</a> 
+</li> 
+ 
+</ul> 
+ 
+</div> 
+<div style="position:relative;top:-21px"> 
+<div class="menu_bar_left_bottom"></div> 
+<div class="menu_bar_right_bottom"></div> 
+<div class="menu_bar_back_bottom"> 
+<div id="MainMenubottom"> 
+</div> 
+</div> 
+</div> 
+<div class="clear_float"></div> 
+<div style="position:relative;top:-21px"> 
+<div class="small_bar_left_head"></div> 
+<div class="small_bar_right_head"></div> 
+<div class="small_bar_back_head"> 
+<div id="MainWizardhead" style="padding-top:2px;"> 
+<ul> 
+ 
+<li> 
+<a href="javascript:jslGoTo('konfig','home')">Assistenten</a> 
+</li> 
+ 
+<li class="explain"> 
+Einrichten, Update, Telefone
+</li> 
+</ul> 
+</div> 
+</div> 
+<div class="small_bar_left_bottom"></div> 
+<div class="small_bar_right_bottom"></div> 
+<div class="small_bar_back_bottom"> 
+<div id="MainWizardbottom"> 
+</div> 
+</div> 
+</div> 
+<div class="clear_float"></div> 
+ 
+</div> 
+</td> 
+<td id="Dataspalte"> 
+<div align=center> 
+<div id="content"> 
+ 
+<div class="backtitel"><div class="rundrt"><div class="rundlt"><div class="ecklb"><div class="eckrb"><div class="foretitel"> 
+ 
+Telefonbuch
+</div></div></div></div></div></div> 
+<div class="backframe"><div class="ecklm"><div class="eckrm"><div class="rundrb"><div class="rundlb"><div class="foredialog"><div class="ie_b10"> 
+<ul class="tabs"> 
+<li class="tabs_on"><div class="activtab">Telefonbuch</div></li> 
+<li><a href="javascript:jslGoTo('','fonintern')">Interne Nummern</a></li> 
+<li><a href="javascript:jslGoTo('','dialbuch')">Wählhilfe</a></li> 
+</ul> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="ecklb"><div class="eckrb"><div class="foredialog"> 
+<p style="padding-bottom: 10px"> 
+Hier können Sie die Rufnummern Ihrer Bekannten angeben. In der Anrufliste werden diese Rufnummern durch den jeweiligen Namen ersetzt.
+</p> 
+<div id="uiFonBookSelect"> 
+<table class="mt5 mb20" id="tFonbook"> 
+<tr> 
+<td class="c1">Telefonbuch</td> 
+<td class="c2"><select size="1" id="uiViewFonbook" onchange="OnFonbook(value)" class="Eingabefeld" style="width:260px;"></select></td> 
+<td style="width: 38px; text-align: center;"> 
+<script type="text/javascript">document.write(IconBtn("uiViewEditFonbook", "OnEdit()", "Bearbeiten", "bearbeiten.gif"));</script> 
+</td> 
+<td style="width: 38px; text-align: center;"> 
+<script type="text/javascript">document.write(IconBtn("uiViewDeleteFonbook", "OnDeletePhonebook()", "Löschen", "loeschen.gif"));</script> 
+</td> 
+</tr> 
+</table> 
+</div> 
+<table id="tList" class="tborder" style="margin:auto; width: 100%;"> 
+<colgroup> 
+<col class="Pic"> 
+<col class="c5"> 
+<col class="c3"> 
+<col class="c7"> 
+<col class="c1"> 
+<col class="c2"> 
+<col class="c6"> 
+<col class="c4"> 
+<col class="c4"> 
+</colgroup> 
+<tr> 
+<th class="Pic"></th> 
+<th class="c5">Name</th> 
+<th colspan=2>Rufnummer</th> 
+ 
+<th id="uiViewThKW" class="c1">Kurzwahl</th> 
+<th id="uiViewThVanity" class="c2">Vanity</th> 
+<th id="uiViewThVIP" class="c6">Wichtig</th> 
+ 
+<th class="c4"></th> 
+<th class="c4"></th> 
+</tr> 
+ 
+<script type="text/javascript">TrFonName("0", "Alle (Rundruf)", "", "");</script> 
+ 
+<script type="text/javascript">TrFonNr("intern", "**9", "", "");</script> 
+ 
+<script type="text/javascript">document.write(TrFon1());</script> 
+ 
+<script type="text/javascript">TrFonName("1", "A. Muster", "", "");</script> 
+ 
+<script type="text/javascript">TrFonNr("work", "07216080", "2", "1");</script> 
+ 
+<script type="text/javascript">TrFonNr("mobile", "017011223344", "", "");</script> 
+ 
+<script type="text/javascript">document.write(TrFon1());</script> 
+ 
+<script type="text/javascript">TrFonName("2", "B. Muster", "", "");</script> 
+ 
+<script type="text/javascript">TrFonNr("home", "0304711", "3", "");</script> 
+ 
+<script type="text/javascript">TrFonNr("mobile", "015533221100", "", "");</script> 
+ 
+<script type="text/javascript">document.write(TrFon1());</script> 
+  
+ 
+ 
+</table> 
+<script type="text/javascript">jslZebrastreifen("tList");</script> 
+<form method="POST" action="../cgi-bin/firmwarecfg" enctype="multipart/form-data" id="uiPostExportForm" name="uiPostExportForm" onsubmit="return false"> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7"> 
+<input type="hidden" name="PhonebookId" value="0"> 
+<input type="hidden" name="PhonebookExportName" value="Telefonbuch"> 
+<input type="hidden" name="PhonebookExport" value=""> 
+</form> 
+<table class="mt10" style="width:100%;"> 
+<tr> 
+<td style="width:130px;" class="imexportC"> 
+<input type="button" value="Sichern" onclick="uiDoExport()" id="uiExport" class="Pushbutton" style="width:120px"> 
+</td> 
+<td style="width:130px;" class="imexportC"> 
+<input type="button" id="uiImportButton" onclick="uiShowImport()" value="Wiederherstellen" class="PushbuttonBig"> 
+</td> 
+<td style="width:100%;" class="imexportC"> 
+<input type="button" onclick="uiDoShowPrintView()" value="Druckansicht" class="PushbuttonBig"> 
+</td> 
+<td style="width:200px;" class="imexportC"> 
+<input type="button" id="uiViewNewButton" onclick="uiDoNew1('Entry60')" value="Neuer Eintrag" class="PushbuttonBig" style="width:180px" disabled> 
+</td> 
+</tr> 
+</table> 
+<div id="uiViewImport" style="display:none" class="mb10 mt10"> 
+<form method="POST" action="../cgi-bin/firmwarecfg" enctype="multipart/form-data" id="uiPostImportForm" name="uiPostImportForm" onsubmit="return false"> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7"> 
+<input type="hidden" name="PhonebookId" value="0"> 
+<p class="mb10"><b>Telefonbuch wiederherstellen </b></p> 
+<p class="mb10">Bitte geben Sie die Datei an, aus der die Telefonbucheinträge wieder hergestellt werden sollen. Sämtliche bisherigen Einträge im Telefonbuch werden bei diesem Vorgang gelöscht. </p> 
+<p class="left20 mb10"><input type="file" size="40" value="" name="PhonebookImportFile" id="PhonebookImportFile"> </p> 
+<p class="ar"><input type="button" value="Telefonbuch wiederherstellen" onclick="uiDoImport()" id="uiImport" class="Pushbutton" style="width:240px"></p> 
+</form> 
+</div> 
+ 
+ 
+</div></div></div></div></div></div> 
+<div class="backdialog"><div class="ecklm"><div class="eckrm"><div class="rundrb"><div class="rundlb"><div class="forebuttons"> 
+<table style="width:100%"> 
+<tr> 
+<td style="width:100%" class="imexportC"><input type="button" id="uiNewTB" onclick="uiDoNewFonbook()" style="width:200px;" value="Neues Telefonbuch" class="PushbuttonBig"></td> 
+<td class="imexportC"><input type="button" onclick="uiDoHelp()" value="Hilfe" class="Pushbutton"></td> 
+</tr> 
+</table> 
+</div></div></div></div></div></div> 
+</div></div></div></div></div></div></div> 
+</div> 
+ 
+</div> 
+<div class="clear_float"></div> 
+<div style="position:relative; top:-5px;"> 
+<div class="page_left_bottom"></div> 
+<div class="page_right_bottom"></div> 
+<div class="page_back_bottom" style=""> 
+<div id="MainPagebottom"> 
+</div> 
+</div> 
+</div> 
+</td> 
+</tr> 
+</table> 
+</div> 
+<div class="fw_footer"> 
+</div> 
+</td></tr> 
+</table> 
+<!-- Post Form --> 
+<form method="POST" action="../cgi-bin/webcm" target="_self" id="uiPostForm" name="uiPostForm"> 
+<!-- Refresh Form --> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7" id="uiPostSid"> 
+<input type="hidden" name="getpage" value="../html/de/menus/menu2.html" id="uiPostGetPage"> 
+<input type="hidden" name="errorpage" value="../html/de/menus/menu2.html" id="uiPostErrPage"> 
+<input type="hidden" name="var:pagename" value="fonbuch" id="uiPostPageName"> 
+<input type="hidden" name="var:errorpagename" value="fonbuch" id="uiPostErrorPageName"> 
+<input type="hidden" name="var:menu" value="fon" id="uiPostMenu"> 
+<input type="hidden" name="var:pagemaster" value="" id="uiPostPageMaster"> 
+<input type="hidden" name="time:settings/time" value="" id="uiPostDateTime"> 
+<input type="hidden" name="box:settings/webui_cookie" value="" disabled> 
+<!-- END Refresh Form --> 
+ 
+<input type="hidden" name="var:showDialing" value="" id="uiPostShowDialing" /> 
+<input type="hidden" name="telcfg:settings/UseClickToDial" value="1" id="uiPostClickToDial" disabled> 
+<input type="hidden" name="telcfg:settings/DialPort" value="1" id="uiPostDialPort" disabled> 
+<input type="hidden" name="telcfg:command/Dial" value="" id="uiPostDial" disabled> 
+<input type="hidden" name="telcfg:command/Hangup" value="" id="uiPostHangup" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port0/Name" value="DECT extern" id="uiPostFon0" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port1/Name" value="" id="uiPostFon1" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/MSN/Port2/Name" value="" id="uiPostFon2" disabled> 
+ 
+<input type="hidden" name="var:vonFoncalls" value="" id="uiPostVonFoncalls"> 
+<input type="hidden" name="var:PhonebookEntryNew" value="" id="uiPostEntryNew"> 
+<input type="hidden" name="var:PhonebookEntryXCount" value="" id="uiPostEntryXCount"> 
+<input type="hidden" name="var:PhonebookEntryNewCode" value="" id="uiPostEntryNewCode"> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry0" value="delete" id="uiPostDelete0" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry1" value="delete" id="uiPostDelete1" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry2" value="delete" id="uiPostDelete2" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry3" value="delete" id="uiPostDelete3" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry4" value="delete" id="uiPostDelete4" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry5" value="delete" id="uiPostDelete5" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry6" value="delete" id="uiPostDelete6" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry7" value="delete" id="uiPostDelete7" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry8" value="delete" id="uiPostDelete8" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry9" value="delete" id="uiPostDelete9" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry10" value="delete" id="uiPostDelete10" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry11" value="delete" id="uiPostDelete11" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry12" value="delete" id="uiPostDelete12" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry13" value="delete" id="uiPostDelete13" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry14" value="delete" id="uiPostDelete14" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry15" value="delete" id="uiPostDelete15" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry16" value="delete" id="uiPostDelete16" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry17" value="delete" id="uiPostDelete17" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry18" value="delete" id="uiPostDelete18" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry19" value="delete" id="uiPostDelete19" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry20" value="delete" id="uiPostDelete20" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry21" value="delete" id="uiPostDelete21" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry22" value="delete" id="uiPostDelete22" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry23" value="delete" id="uiPostDelete23" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry24" value="delete" id="uiPostDelete24" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry25" value="delete" id="uiPostDelete25" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry26" value="delete" id="uiPostDelete26" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry27" value="delete" id="uiPostDelete27" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry28" value="delete" id="uiPostDelete28" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry29" value="delete" id="uiPostDelete29" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry30" value="delete" id="uiPostDelete30" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry31" value="delete" id="uiPostDelete31" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry32" value="delete" id="uiPostDelete32" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry33" value="delete" id="uiPostDelete33" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry34" value="delete" id="uiPostDelete34" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry35" value="delete" id="uiPostDelete35" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry36" value="delete" id="uiPostDelete36" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry37" value="delete" id="uiPostDelete37" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry38" value="delete" id="uiPostDelete38" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry39" value="delete" id="uiPostDelete39" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry40" value="delete" id="uiPostDelete40" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry41" value="delete" id="uiPostDelete41" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry42" value="delete" id="uiPostDelete42" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry43" value="delete" id="uiPostDelete43" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry44" value="delete" id="uiPostDelete44" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry45" value="delete" id="uiPostDelete45" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry46" value="delete" id="uiPostDelete46" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry47" value="delete" id="uiPostDelete47" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry48" value="delete" id="uiPostDelete48" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry49" value="delete" id="uiPostDelete49" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry50" value="delete" id="uiPostDelete50" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry51" value="delete" id="uiPostDelete51" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry52" value="delete" id="uiPostDelete52" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry53" value="delete" id="uiPostDelete53" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry54" value="delete" id="uiPostDelete54" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry55" value="delete" id="uiPostDelete55" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry56" value="delete" id="uiPostDelete56" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry57" value="delete" id="uiPostDelete57" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry58" value="delete" id="uiPostDelete58" disabled> 
+ 
+<input type="hidden" name="telcfg:command/Phonebook/Entry59" value="delete" id="uiPostDelete59" disabled> 
+ 
+<input type="hidden" name="var:WaehlhilfeVon" value="" id="uiWaehlhilfeVon"> 
+<input type="hidden" name="telcfg:settings/Phonebook/Id" value="0" id="uiPostPhonebookId" disabled> 
+<input type="hidden" name="telcfg:settings/Phonebook/Books/Select" value="" id="uiPostPhonebookSelect" disabled> 
+ 
+<input type="hidden" name="telcfg:settings/Phonebook/Books/Name0" value="Telefonbuch" id="uiPostPhonebookName0" disabled> 
+<input type="hidden" name="telcfg:settings/Phonebook/Books/Id0" value="0" id="uiPostPhonebookId0" disabled> 
+ 
+<input type="hidden" name="telcfg:command/$1" value="delete" id="uiPostDelete" disabled> 
+<input type="hidden" name="ontel:command/$1" value="delete" id="uiPostOntelDelete" disabled> 
+ 
+<input type="hidden" name="var:nextOntelIdx" value="" id="uiPostNextOntelIdx"> 
+ 
+<input type="hidden" name="var:EditPhonebook" value="0" id="uiPostEditPhonebook"> 
+ 
+ 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/Name" value="" id="uiPostFoncontrol0" disabled> 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/Intern" value="" id="uiPostFoncontrolIntern0" disabled> 
+<input type="hidden" name="telcfg:settings/Foncontrol/User0/Phonebook" value="0" id="uiPostUserPhonebook0" disabled> 
+ 
+ 
+<input type="hidden" name="var:currFonbookID" value="" id="uiPostCurrFonbookID" > 
+ 
+</form> 
+<!-- END Post Form --> 
+ 
+<form name="logoutForm" action="../cgi-bin/webcm" method="POST"> 
+<input type="hidden" name="sid" value="3a8ef4a34cfcf8a7"> 
+<input type="hidden" name="security:command/logout" value=""> 
+<input type="hidden" name="getpage" value="../html/confirm_logout.html"> 
+</form> 
+</body> 
+</html> 

@@ -1,0 +1,24 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Content-type: text/html; charset=utf-8
+Expires: -1
+Pragma: no-cache
+
+sep=;
+Typ;Datum;Name;Rufnummer;Nebenstelle;Eigene Rufnummer;Dauer
+
+3;19.12.10 14:23;AVM Ansage (HD);**799;DECT extern;Internet: 111;0:01
+1;19.12.10 12:55;;;DECT extern;Internet: 111;0:04
+2;16.12.10 18:57;;;;Internet: 111;0:00
+2;11.12.10 11:20;;;;Internet: 111;0:00
+1;10.12.10 16:06;;;;Internet: 111;0:01
+1;09.12.10 19:30;;;DECT extern;Internet: 111;0:17
+1;08.12.10 23:33;;015533221100;DECT extern;Internet: 111;0:01
+1;08.12.10 23:07;;015533221100;DECT extern;Internet: 111;0:02
+2;08.12.10 17:29;;0304712;;Internet: 111;0:00
+3;08.12.10 12:40;A. Muster;07216080;DECT extern;Internet: 222;0:01
+3;08.12.10 12:26;A. Muster;07216080;DECT extern;Internet: 222;0:01
+3;08.12.10 12:21;A. Muster;07216080;DECT extern;Internet: 222;0:01
+3;06.12.10 18:37;A. Muster;07216080;DECT extern;Internet: 222;0:01
+1;04.12.10 12:30;A. Muster Eltern;0304711;DECT extern;Internet: 222;0:08
+1

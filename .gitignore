@@ -4,3 +4,5 @@
 *.moc
 test/Makefile
 test/test
+test/server
+

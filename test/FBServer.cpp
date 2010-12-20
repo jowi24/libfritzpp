@@ -5,9 +5,12 @@
  *      Author: jo
  */
 
-#include "FBServer.h"
+#include <iostream>
+#include <fstream>
 #include <cc++/thread.h>
 #include <cc++/socket.h>
+
+#include "FBServer.h"
 
 FBCallMonitor::FBCallMonitor(responseType r, int port) {
 	ost::Thread::setException(ost::Thread::throwException);
@@ -49,8 +52,9 @@ void FBCallMonitor::run() {
 
 }
 
-FBWebServer::FBWebServer(int port) {
+FBWebServer::FBWebServer(int port, std::string fw) {
 	ost::InetAddress addr = "127.0.0.1";
+	this->fw = fw;
 	socket = new ost::TCPSocket(addr, port);
 	start();
 
@@ -68,27 +72,54 @@ void FBWebServer::run() {
 		if (socket->isPendingConnection()){
 			std::cout << "FBWebServer connected " << std::endl;
 			ost::TCPStream tcp(*socket, true, 2000);
-			ost::Thread::sleep(1000);
-			char request[1024];
-			tcp.getline(request, sizeof(request));
-			std::cout << "FBWebServer got request: " << request << std::endl;
-			if (std::string(request).find("POST") != std::string::npos) {
-				while (std::string(request).length() > 0) {
-					tcp.getline(request, sizeof(request));
-					std::cout << "FBWebServer got request: " << request << std::endl;
+//			ost::Thread::sleep(1000);
+			char requestLine[1024];
+			std::string request;
+			tcp.getline(requestLine, sizeof(requestLine));
+			std::cout << "FBWebServer got request: " << requestLine << std::endl;
+			request += requestLine;
+			if (std::string(requestLine).find("POST") != std::string::npos) {
+				while (std::string(requestLine).length() > 0) {
+					tcp.getline(requestLine, sizeof(requestLine));
+					request += requestLine;
+					std::cout << "FBWebServer got request: " << requestLine << std::endl;
 				}
 			}
-			std::string content;
-			for (int i=0; i<26*1000; i++) {
-				content += (char)(i%26+0x41);
+			std::string file = fw + "/";
+			if (request.find("login_sid.xml") != std::string::npos) {
+				file += "login_sid";
+			} else if (request.find("POST") != std::string::npos) {
+				file += "fonbuch"; //workaround for login
+			} else if (request.find("html/en/menus") != std::string::npos) {
+				file += "error_404";
+			} else if (request.find("pagename=sipoptionen") != std::string::npos) {
+				file += "sipoptionen";
+			} else if (request.find("pagename=siplist") != std::string::npos) {
+				file += "siplist";
+			} else if (request.find("pagename=foncalls") != std::string::npos) {
+				file += "foncalls";
+			} else if (request.find("csv") != std::string::npos) {
+				file += "foncalls_csv";
+			} else if (request.find("pagename=fonbuch") != std::string::npos) {
+				file += "fonbuch";
+			} else if (request.find("PhonebookExportName") != std::string::npos) {
+				file += "fonbuch_xml";
+			} else {
+				file += "empty_response";
 			}
-			tcp << "HTTP/0.9 200 OK\r\n"
-				<< "Date: Tue, 30 Nov 2010 07:27:15 GMT\r\n"
-				<< "Content-Length: 13\r\n\r\n"
-				<< "<html> "
-				<< content
-				<< " </html>";
-			std::cout << "FBWebServer responded." << std::endl;
+
+			std::string line;
+			std::ifstream responseFile(file.c_str());
+			if (responseFile.is_open())
+			{
+				while ( responseFile.good() )
+				{
+					std::getline (responseFile,line);
+					tcp << line << "\r\n";
+				}
+				responseFile.close();
+			}
+			std::cout << "FBWebServer responded with file " << file << "." << std::endl;
 			tcp.disconnect();
 			std::cout << "FBWebServer disconnected " << std::endl;
 		}
