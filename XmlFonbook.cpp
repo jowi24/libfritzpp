@@ -23,6 +23,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <sstream>
 
 #include "Config.h"
 #include "Tools.h"
