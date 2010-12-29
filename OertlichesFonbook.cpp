@@ -60,7 +60,7 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 		std::string host = "www.dasoertliche.de";
 		tcpclient::HttpClient tc(host);
 		tc << tcpclient::get
-		   << "/Controller?topKw=0&form_name=search_nat&context=0&choose=true&page=0&rci=yes&action=43&kw=" << Tools::NormalizeNumber(number)
+		   << "/Controller?form_name=search_inv&ph=" << Tools::NormalizeNumber(number)
 		   << "\nAccept-Charset: ISO-8859-1\nUser-Agent: Lynx/2.8.5"
 		   << std::flush;
 		tc >> msg;
@@ -69,13 +69,13 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("class=\"preview\">");
+	size_t start = msg.find("onclick=\"logDetail()\">");
 	if (start == std::string::npos) {
 		INF("no entry found.");
 		return result;
 	}
 	// add the length of search pattern
-	start += 16;
+	start += 22;
 
 	size_t stop  = msg.find("<", start);
 	name = msg.substr(start, stop - start);
