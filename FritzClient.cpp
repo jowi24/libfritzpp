@@ -37,7 +37,7 @@
 #define RETRY_END																							\
 			dataRead = true;                                                                                \
 		} catch (tcpclient::TcpException te) {																\
-			ERR("Exception - " << te.what());								\
+			ERR("Exception in connection to " << gConfig->getUrl() << " - " << te.what());								\
 			ERR("waiting " << retry_delay << " seconds before retrying");	\
 			sleep(retry_delay); /* delay a possible retry */												\
 		}																									\
