@@ -126,6 +126,12 @@ public:
 	 */
 	bool static Init( bool *locationSettingsDetected = NULL, std::string *countryCode = NULL, std::string *regionCode = NULL );
 
+	/**
+	 * Closes all pending connections and objects held by libfritz++.
+	 * Stores unsaved data.
+	 */
+	bool static Shutdown();
+
 	std::string &getConfigDir( )                      { return mConfig.configDir; }
 	std::string &getLang( )                           { return mConfig.lang; }
 	void setLang( std::string l )                     { mConfig.lang = l; }

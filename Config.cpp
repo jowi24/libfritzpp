@@ -23,6 +23,7 @@
 #include <cc++/thread.h>
 
 #include "Config.h"
+#include "CallList.h"
 #include "FonbookManager.h"
 #include "Tools.h"
 
@@ -66,6 +67,18 @@ bool Config::Init(bool *locationSettingsDetected, std::string *countryCode, std:
 	Tools::GetSipSettings();
 
 	return validPassword;
+}
+
+bool Config::Shutdown() {
+	fritz::Listener::DeleteListener();
+	fritz::FonbookManager::DeleteFonbookManager();
+	fritz::CallList::DeleteCallList();
+	if (gConfig) {
+		delete gConfig;
+		gConfig = NULL;
+	}
+	INF("Shutdown of libfritz++ completed.");
+	return true;
 }
 
 void Config::SetupPorts ( int listener, int ui, int upnp ) {
