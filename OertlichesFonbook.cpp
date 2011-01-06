@@ -68,6 +68,12 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 		ERR("Exception - " << te.what());
 		return result;
 	}
+	// check that at most one result is returned
+	size_t second_result = msg.find("id=\"entry_1\"");
+	if (second_result != std::string::npos) {
+		INF("multiple entries found, not returning any.");
+		return result;
+	}
 	// parse answer
 	size_t start = msg.find("onclick=\"logDetail()\">");
 	if (start == std::string::npos) {
