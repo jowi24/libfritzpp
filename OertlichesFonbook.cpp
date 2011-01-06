@@ -75,13 +75,14 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("onclick=\"logDetail()\">");
+	size_t start = msg.find("onclick=\"logDetail()\"");
 	if (start == std::string::npos) {
 		INF("no entry found.");
 		return result;
 	}
-	// add the length of search pattern
-	start += 22;
+	start = msg.find(">", start);
+	// add the length of the last search pattern
+	start += 1;
 
 	size_t stop  = msg.find("<", start);
 	name = msg.substr(start, stop - start);
