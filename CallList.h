@@ -69,6 +69,7 @@ private:
 	std::vector<CallEntry> callListAll;
 	time_t lastCall;
 	time_t lastMissedCall;
+	bool valid;
 	static CallList *me;
     CallList();
 public:
@@ -84,7 +85,7 @@ public:
 	static void DeleteCallList();
     virtual ~CallList();
 	void run();
-	bool isValid() { return !isRunning(); }
+	bool isValid() { return valid; }
 	CallEntry *RetrieveEntry(CallEntry::eCallType type, size_t id);
 	size_t GetSize(CallEntry::eCallType type);
 	size_t MissedCalls(time_t since);

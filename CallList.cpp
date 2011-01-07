@@ -86,6 +86,7 @@ CallList::CallList()
 	setName("CallList");
 	setCancel(cancelDeferred);
 	lastMissedCall = 0;
+	valid = false;
 	start();
 }
 
@@ -118,13 +119,8 @@ CallList::~CallList()
 void CallList::run() {
 	FritzClient fc;
 	std::string msg = fc.RequestCallList();
+	std::vector<CallEntry> callList;
 	// parse answer
-	callListAll.clear();
-	callListIn.clear();
-	callListOut.clear();
-	callListMissed.clear();
-	lastCall = 0;
-	lastMissedCall = 0;
 	size_t pos = 0;
 	// skip HTTP header data
 	while (msg[pos] != '\r' && msg[pos] != '\n') {
@@ -185,10 +181,26 @@ void CallList::run() {
 		if (ce.remoteNumber.compare("1234567") == 0 && ce.date.compare("12.03.2005") == 0)
 			continue;
 
-		callListAll.push_back(ce);
+		callList.push_back(ce);
+
+		count++;
+	}
+	INF("CallList -> read " << count << " entries.");
+
+	valid = false;
+	callListAll = callList;
+	callListIn.clear();
+	callListOut.clear();
+	callListMissed.clear();
+	lastCall = 0;
+	lastMissedCall = 0;
+
+	for(std::vector<CallEntry>::iterator it = callListAll.begin(); it < callListAll.end(); it++) {
+		CallEntry ce = *it;
 
 		if (lastCall < ce.timestamp)
 			lastCall = ce.timestamp;
+
 		switch (ce.type) {
 		case CallEntry::INCOMING:
 			callListIn.push_back(ce);
@@ -205,9 +217,8 @@ void CallList::run() {
 			DBG("parser skipped unknown call type");
 			continue;
 		}
-		count++;
 	}
-	INF("CallList -> read " << count << " entries.");
+	valid = true;
 	exit();
 }
 
