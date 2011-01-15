@@ -184,6 +184,7 @@ void Listener::run() {
 					DBG("Got unknown message " << data);
 					throw this;
 				}
+				retry_delay = RETRY_DELAY;
 			}
 		} catch(ost::SockException& se) {
 			ERR("Exception - " << se.what());
