@@ -173,6 +173,8 @@ std::string XmlFonbook::ExtractXmlElementValue(std::string element, std::string 
 	size_t posStart = xml.find("<"+element);
 	if (posStart != std::string::npos) {
 		posStart = xml.find(">", posStart);
+		if (xml[posStart-1] == '/')
+			return "";
 		size_t posEnd   = xml.find("</"+element+">");
 		if (posEnd != std::string::npos)
 			return xml.substr(posStart + 1, posEnd - posStart - 1);
