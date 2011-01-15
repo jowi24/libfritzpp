@@ -88,7 +88,7 @@ void FBWebServer::run() {
 			std::string file = fw + "/";
 			if (request.find("login_sid.xml") != std::string::npos) {
 				file += "login_sid";
-			} else if (request.find("POST") != std::string::npos) {
+			} else if (request.find("POST /cgi-bin/webcm") != std::string::npos) {
 				file += "fonbuch"; //workaround for login
 			} else if (request.find("html/en/menus") != std::string::npos) {
 				file += "error_404";
@@ -102,7 +102,7 @@ void FBWebServer::run() {
 				file += "foncalls_csv";
 			} else if (request.find("pagename=fonbuch") != std::string::npos) {
 				file += "fonbuch";
-			} else if (request.find("PhonebookExportName") != std::string::npos) {
+			} else if (request.find("POST /cgi-bin/firmwarecfg") != std::string::npos) {
 				file += "fonbuch_xml";
 			} else {
 				file += "empty_response";

@@ -11,5 +11,8 @@ type="home" quickdial="2" vanity="1" prio="1">07216080</number><number
 type="mobile" quickdial="" vanity="" prio="0">017011223344</number></telephony><services /><setup /></contact><contact><category>0</category><person><realName>B. Muster</realName></person><telephony><number
 type="work" quickdial="3" vanity="" prio="1">0304711</number><number
 type="mobile" quickdial="" vanity="" prio="0">015533221100</number></telephony><services /><setup /></contact>
+<contact><category>0</category><person><realName>C. Muster</realName></person><telephony><number
+type="work" prio="0"/><number
+type="mobile" quickdial="" vanity="" prio="1">0815</number></telephony><services /><setup /></contact>
 </phonebook>
 </phonebooks>
