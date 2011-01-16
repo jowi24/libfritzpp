@@ -161,3 +161,19 @@
 - Splitted Config::Setup into Config::Setup and Config::Init
 - Fix reverse lookup in OertlichesFonbook
 - Add missing include to XmlFonbook
+
+2011-01:
+- Add Config::Shutdown() to gracefully shutdown the library
+  This can be used for re-inits as well as on program exit
+- Improve checks when parsing result list in OertlichesFonbook
+  Check that at most one result is returned
+- Fix parser of OertlichesFonbook again
+  Looking for the onclick=... as a last attribute does not always work
+  New method looks for the first element containing the onclick attribute
+  and then moves to the end of the element
+- Keep current call list as long as possible on reload
+  Current call list is now cleared after the new call list
+  has been parsed (Fixes #514)
+- Fix XmlFonbook parser
+  XmlFonbook Parser was not aware of empty <number /> tags
+- Fix retry delay calculation in Listener
