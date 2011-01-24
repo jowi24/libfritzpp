@@ -130,14 +130,16 @@ void FonbookManager::NextFonbook() {
 		while (pos < gConfig->getFonbookIDs().size() &&
 				fonbooks[gConfig->getFonbookIDs()[pos]]->isDisplayable() == false)
 			pos++;
-		// if this fails, too, just return 0
+		// if this fails, too, just return npos
 		if (pos == gConfig->getFonbookIDs().size()) {
-			pos = 0;
+			pos = std::string::npos;
 		}
 	}
 	activeFonbookPos = pos;
-	// save the tech-id of the active fonbook in setup
-	gConfig->setActiveFonbook( gConfig->getFonbookIDs()[pos] );
+	if (activeFonbookPos != std::string::npos) {
+		// save the tech-id of the active fonbook in setup
+		gConfig->setActiveFonbook( gConfig->getFonbookIDs()[pos] );
+	}
 }
 
 Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
@@ -152,8 +154,13 @@ Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
 }
 
 Fonbook *FonbookManager::GetActiveFonbook() {
+	// try to get a valid book
 	if (activeFonbookPos == std::string::npos) {
-		NextFonbook(); //todo: what if no fonebook is configured at all?
+		NextFonbook();
+	}
+	// else return NULL
+	if (activeFonbookPos == std::string::npos) {
+		return NULL;
 	}
 	return fonbooks[gConfig->getFonbookIDs()[activeFonbookPos]];
 }
