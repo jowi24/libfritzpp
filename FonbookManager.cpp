@@ -87,7 +87,7 @@ void FonbookManager::CreateFonbookManager( std::vector <std::string> vFonbookID,
 			if (activeFonbookValid)
 				gConfig->setActiveFonbook(activeFonbook);
 			else
-				ERR("Invalid call parameter. ActiveFonbook '" << activeFonbook << "'is not enabled or unknown");
+				ERR("Invalid call parameter. ActiveFonbook '" << activeFonbook << "' is not enabled or unknown");
 		}
 		// create fonbookmanger (was deleted above) so that it can initialize all fonbooks
 		me = new FonbookManager();
