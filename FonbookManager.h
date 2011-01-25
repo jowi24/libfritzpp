@@ -82,7 +82,7 @@ public:
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or NULL, if unsuccesful
 	 */
-	FonbookEntry *RetrieveFonbookEntry(size_t id);
+	const FonbookEntry *RetrieveFonbookEntry(size_t id);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry

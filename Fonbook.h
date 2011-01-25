@@ -71,6 +71,11 @@ public:
 	 * @param important Whether contact is flagged as important
 	 */
 	FonbookEntry(std::string name, bool important = false);
+	/*
+	 * Copy constructor
+	 * @param the fonbook entry to be copied
+	 */
+	FonbookEntry(const FonbookEntry *fe) { *this = *fe; }
 	/**
 	 * Adds new number to this contact
 	 * @param number The number to be added
@@ -84,17 +89,17 @@ public:
 	void setName(std::string name) { this->name = name; }
 	std::string getNumber(eType type) const { return numbers[type].number; }
 	void setNumber(std::string number, eType type) { numbers[type].number = number; }
-	bool isImportant() { return important; }
+	bool isImportant() const { return important; }
 	void setImportant(bool important) { this->important = important; }
-	eType getDefaultType();
+	eType getDefaultType() const;
 	void setDefaultType(eType type);
-	std::string getQuickdialFormatted(eType type = TYPES_COUNT);
-	std::string getQuickdial(eType type = TYPES_COUNT);
+	std::string getQuickdialFormatted(eType type = TYPES_COUNT) const;
+	std::string getQuickdial(eType type = TYPES_COUNT) const;
 	void setQuickdial(std::string quickdial, eType type = TYPES_COUNT);
-	std::string getVanity(eType type = TYPES_COUNT);
-	std::string getVanityFormatted(eType type = TYPES_COUNT);
+	std::string getVanity(eType type = TYPES_COUNT) const;
+	std::string getVanityFormatted(eType type = TYPES_COUNT) const;
 	void setVanity(std::string vanity, eType type = TYPES_COUNT);
-	int getPriority(eType type) { return numbers[type].priority; }
+	int getPriority(eType type) const { return numbers[type].priority; }
 	void setPrioriy(int priority, eType type) { numbers[type].priority = priority; }
 	bool operator<(const FonbookEntry & fe) const;
 	/*
@@ -179,7 +184,21 @@ public:
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or NULL, if unsuccessful
 	 */
-	virtual FonbookEntry *RetrieveFonbookEntry(size_t id);
+	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id);
+	/**
+	 * Changes the Fonbook entry with the given id
+	 * @param id unique identifier to the entry to be changed
+	 * @param fe FonbookEntry with the new content
+	 * @return true, if successful
+	 */
+	virtual bool ChangeFonbookEntry(size_t id, FonbookEntry &fe);
+	/**
+	 * Sets the default number for a Fonbook entry with the given id
+	 * @param id unique identifier to the entry to be changed
+	 * @param type the new default
+	 * @return true, if successful
+	 */
+	virtual bool SetDefaultType(size_t id, fritz::FonbookEntry::eType type);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry

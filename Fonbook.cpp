@@ -40,7 +40,7 @@ void FonbookEntry::addNumber(std::string number, eType type, std::string quickdi
 	numbers[type].priority  = priority;
 }
 
-FonbookEntry::eType FonbookEntry::getDefaultType() {
+FonbookEntry::eType FonbookEntry::getDefaultType() const {
 	eType t = (eType) 0;
 	while (t < TYPES_COUNT) {
 		if (getPriority(t) == 1)
@@ -62,7 +62,7 @@ void FonbookEntry::setDefaultType(eType type) {
 	}
 }
 
-std::string FonbookEntry::getQuickdialFormatted(eType type) {
+std::string FonbookEntry::getQuickdialFormatted(eType type) const {
 	switch (getQuickdial(type).length()) {
 	case 1:
 		return "**70" + getQuickdial(type);
@@ -73,7 +73,7 @@ std::string FonbookEntry::getQuickdialFormatted(eType type) {
 	}
 }
 
-std::string FonbookEntry::getQuickdial(eType type) {
+std::string FonbookEntry::getQuickdial(eType type) const {
 	// if no special type is given, the default "TYPES_COUNT" indicates,
 	// that the correct type has to be determined first, i.e., priority == 1
 
@@ -84,11 +84,11 @@ void FonbookEntry::setQuickdial(std::string quickdial, eType type) { //TODO: san
 	numbers[type == TYPES_COUNT ? getDefaultType() : type].quickdial = quickdial;
 }
 
-std::string FonbookEntry::getVanity(eType type) {
+std::string FonbookEntry::getVanity(eType type) const {
 	return numbers[type == TYPES_COUNT ? getDefaultType() : type].vanity;
 }
 
-std::string FonbookEntry::getVanityFormatted(eType type) {
+std::string FonbookEntry::getVanityFormatted(eType type) const {
 	return getVanity(type).length() ? "**8"+getVanity(type) : "";
 }
 
@@ -183,10 +183,30 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	return result;
 }
 
-FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) {
+const FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) {
 	if (id >= GetFonbookSize())
 		return NULL;
 	return &fonbookList[id];
+}
+
+bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
+	if (id < GetFonbookSize()) {
+		fonbookList[id] = fe;
+		//TODO: track written
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
+	if (id < GetFonbookSize()) {
+		fonbookList[id].setDefaultType(type);
+		//TODO: track written
+		return true;
+	} else {
+		return false;
+	}
 }
 
 size_t Fonbook::GetFonbookSize() {

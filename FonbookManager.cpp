@@ -158,7 +158,7 @@ Fonbook *FonbookManager::GetActiveFonbook() {
 	return fonbooks[gConfig->getFonbookIDs()[activeFonbookPos]];
 }
 
-FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
+const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
 	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : NULL;
 }
 
