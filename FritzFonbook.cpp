@@ -41,7 +41,6 @@ FritzFonbook::FritzFonbook()
 
 FritzFonbook::~FritzFonbook() {
 	terminate();
-	Save();
 }
 
 bool FritzFonbook::Initialize() {
@@ -50,7 +49,7 @@ bool FritzFonbook::Initialize() {
 
 void FritzFonbook::run() {
 	setInitialized(false);
-	fonbookList.clear();
+	Clear();
 
 	FritzClient fc;
 	std::string msg = fc.RequestFonbook();
@@ -64,7 +63,7 @@ void FritzFonbook::run() {
 
 	setInitialized(true);
 
-	std::sort(fonbookList.begin(), fonbookList.end());
+	Sort(FonbookEntry::ELEM_NAME, true);
 	exit();
 }
 
@@ -104,8 +103,8 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 		std::string numberPart = msgConv.substr(numberStart, numberStop - numberStart+1);
 		if (namePart2.length() && numberPart.length()) {
 			FonbookEntry fe(namePart2, false); // TODO: important is not parsed here
-			fe.addNumber(numberPart, FonbookEntry::TYPE_NONE);
-			fonbookList.push_back(fe);
+			fe.AddNumber(numberPart, FonbookEntry::TYPE_NONE);
+			AddFonbookEntry(fe);
 			//DBG("(%s / %s)", fe.number.c_str(), fe.name.c_str());
 		}
 		pos += 10;
@@ -142,21 +141,21 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 				type = FonbookEntry::TYPE_WORK;
 
 			if (namePartConv.length() && numberPart.length()) {
-				fe.addNumber(numberPart, type); // TODO: quickdial, vanity and priority not parsed here
+				fe.AddNumber(numberPart, type); // TODO: quickdial, vanity and priority not parsed here
 				//DBG("(%s / %s / %i)", fe.number.c_str(), fe.name.c_str(), fe.type);
 			}
 			count++;
 		}
-		fonbookList.push_back(fe);
+		AddFonbookEntry(fe);
 	}
-	INF("read " << fonbookList.size() << " entries.");
+	INF("read " << GetFonbookSize() << " entries.");
 }
 
 void FritzFonbook::Reload() {
 	start();
 }
 
-void FritzFonbook::Save() {
+void FritzFonbook::Write() {
 	if (writeable) {
 		INF("Uploading phonebook to Fritz!Box.");
 		FritzClient fc;

@@ -71,6 +71,11 @@ public:
 	 * @param important Whether contact is flagged as important
 	 */
 	FonbookEntry(std::string name, bool important = false);
+	/*
+	 * Copy constructor
+	 * @param the fonbook entry to be copied
+	 */
+	FonbookEntry(const FonbookEntry *fe) { *this = *fe; }
 	/**
 	 * Adds new number to this contact
 	 * @param number The number to be added
@@ -79,29 +84,29 @@ public:
 	 * @param vanity The vanity extension
 	 * @param prority '1' marks the default number of this contact, otherwise 0
 	 */
-	void addNumber(std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
-	std::string getName() const { return name; }
-	void setName(std::string name) { this->name = name; }
-	std::string getNumber(eType type) const { return numbers[type].number; }
-	void setNumber(std::string number, eType type) { numbers[type].number = number; }
-	bool isImportant() { return important; }
-	void setImportant(bool important) { this->important = important; }
-	eType getDefaultType();
-	void setDefaultType(eType type);
-	std::string getQuickdialFormatted(eType type = TYPES_COUNT);
-	std::string getQuickdial(eType type = TYPES_COUNT);
-	void setQuickdial(std::string quickdial, eType type = TYPES_COUNT);
-	std::string getVanity(eType type = TYPES_COUNT);
-	std::string getVanityFormatted(eType type = TYPES_COUNT);
-	void setVanity(std::string vanity, eType type = TYPES_COUNT);
-	int getPriority(eType type) { return numbers[type].priority; }
-	void setPrioriy(int priority, eType type) { numbers[type].priority = priority; }
+	void AddNumber(std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
+	std::string GetName() const { return name; }
+	void SetName(std::string name) { this->name = name; }
+	std::string GetNumber(eType type) const { return numbers[type].number; }
+	void SetNumber(std::string number, eType type) { numbers[type].number = number; }
+	bool IsImportant() const { return important; }
+	void SetImportant(bool important) { this->important = important; }
+	eType GetDefaultType() const;
+	void SetDefaultType(eType type);
+	std::string GetQuickdialFormatted(eType type = TYPES_COUNT) const;
+	std::string GetQuickdial(eType type = TYPES_COUNT) const;
+	void SetQuickdial(std::string quickdial, eType type = TYPES_COUNT);
+	std::string GetVanity(eType type = TYPES_COUNT) const;
+	std::string GetVanityFormatted(eType type = TYPES_COUNT) const;
+	void SetVanity(std::string vanity, eType type = TYPES_COUNT);
+	int GetPriority(eType type) const { return numbers[type].priority; }
+	void SetPrioriy(int priority, eType type) { numbers[type].priority = priority; }
 	bool operator<(const FonbookEntry & fe) const;
 	/*
 	 * Get number of typed numbers (TYPE_NONE is ignored)
 	 * @return count of different numbers available
 	 */
-	size_t getSize();
+	size_t GetSize();
 };
 
 inline FonbookEntry::eType& operator++(FonbookEntry::eType& t) {
@@ -126,6 +131,18 @@ private:
 	 * True, if this phonebook is ready to use.
 	 */
 	bool initialized;
+	/**
+	 * True, if changes are pending that are not yet saved
+	 */
+	bool dirty;
+	/**
+	 * Sets dirty member if applicable
+	 */
+	void SetDirty();
+    /**
+     * Data structure for storing the phonebook.
+     */
+	std::vector<FonbookEntry> fonbookList;
 protected:
 	/**
 	 * The constructor may only be used by cFonbookManager.
@@ -135,7 +152,7 @@ protected:
 	/**
 	 * Method to persist contents of the phone book (if writeable)
 	 */
-	virtual void Save() {}
+	virtual void Write() { }
 	/**
 	 * The descriptive title of this phonebook.
 	 */
@@ -152,16 +169,13 @@ protected:
 	 * True, if this phonebook is writeable
 	 */
 	bool writeable;
-    /**
-     * Data structure for storing the phonebook.
-     */
-	std::vector<FonbookEntry> fonbookList;
+
 public:
 	struct sResolveResult {
 		std::string name;
 		FonbookEntry::eType type;
 	};
-	virtual ~Fonbook() { Save(); }
+	virtual ~Fonbook() { }
 	/**
 	 * Take action to fill phonebook with content.
 	 * Initialize() may be called more than once per session.
@@ -179,13 +193,41 @@ public:
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or NULL, if unsuccessful
 	 */
-	virtual FonbookEntry *RetrieveFonbookEntry(size_t id);
+	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id);
+	/**
+	 * Changes the Fonbook entry with the given id
+	 * @param id unique identifier to the entry to be changed
+	 * @param fe FonbookEntry with the new content
+	 * @return true, if successful
+	 */
+	virtual bool ChangeFonbookEntry(size_t id, FonbookEntry &fe);
+	/**
+	 * Sets the default number for a Fonbook entry with the given id
+	 * @param id unique identifier to the entry to be changed
+	 * @param type the new default
+	 * @return true, if successful
+	 */
+	virtual bool SetDefaultType(size_t id, fritz::FonbookEntry::eType type);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
-	 * @return true, if add was successful
 	 */
-	virtual bool AddFonbookEntry(FonbookEntry fe __attribute__((unused))) { return false; }
+	virtual void AddFonbookEntry(FonbookEntry &fe);
+	/**
+	 * Adds a new entry to the phonebook.
+	 * @param id unique id to the entry to be deleted
+	 * @return true, if deletion was successful
+	 */
+	virtual bool DeleteFonbookEntry(size_t id);
+	/**
+	 * Clears all entries from phonebook.
+	 */
+	virtual void Clear() { SetDirty(); fonbookList.clear(); }
+	/**
+	 * Save pending changes.
+	 * Can be called periodically to assert pending changes in a phone book are written.
+	 */
+	void Save();
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.

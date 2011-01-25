@@ -66,6 +66,8 @@ FonbookManager::~FonbookManager()
 {
 	for (size_t i= 0; i < fonbooks.size(); i++) {
 		DBG("deleting fonbook with ID: " << fonbooks[i]->GetTechId());
+		// save pending changes
+		fonbooks[i]->Save();
 		delete(fonbooks[i]);
 	}
 }
@@ -165,12 +167,30 @@ Fonbook *FonbookManager::GetActiveFonbook() {
 	return fonbooks[gConfig->getFonbookIDs()[activeFonbookPos]];
 }
 
-FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
+const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
 	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : NULL;
 }
 
-bool FonbookManager::AddFonbookEntry(FonbookEntry fe) {
-	return GetActiveFonbook() ? GetActiveFonbook()->AddFonbookEntry(fe) : false;
+bool FonbookManager::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
+	return GetActiveFonbook() ? GetActiveFonbook()->ChangeFonbookEntry(id, fe) : false;
+}
+
+bool FonbookManager::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
+	return GetActiveFonbook() ? GetActiveFonbook()->SetDefaultType(id, type) : false;
+}
+
+void FonbookManager::AddFonbookEntry(FonbookEntry &fe) {
+	if (GetActiveFonbook())
+		GetActiveFonbook()->AddFonbookEntry(fe);
+}
+
+bool FonbookManager::DeleteFonbookEntry(size_t id) {
+	return GetActiveFonbook() ? GetActiveFonbook()->DeleteFonbookEntry(id) : false;
+}
+
+void FonbookManager::Clear() {
+	if (GetActiveFonbook())
+		GetActiveFonbook()->Clear();
 }
 
 bool FonbookManager::isDisplayable() {

@@ -79,7 +79,7 @@ LocalFonbook::LocalFonbook() {
 
 bool LocalFonbook::Initialize() {
 	setInitialized(false);
-	fonbookList.clear();
+	Clear();
 
 	// first, try xml phonebook
 	int ret = asprintf(&filePath, "%s/localphonebook.xml", gConfig->getConfigDir().c_str());
@@ -92,6 +92,7 @@ bool LocalFonbook::Initialize() {
 			return false;
 		std::string xmlData((std::istreambuf_iterator<char>(file)),std::istreambuf_iterator<char>());
 		ParseXmlFonbook(&xmlData);
+		setInitialized(true);
 		return true;
 	} else
 		DBG("XML phonebook not found, trying old csv based ones.");
@@ -116,6 +117,7 @@ bool LocalFonbook::Initialize() {
 	if (filePath) {
 		ParseCsvFonbook(filePath);
 		free(filePath);
+		setInitialized(true);
 		// convert to xml when saving
 		int res = asprintf(&filePath, "%s/localphonebook.xml", gConfig->getConfigDir().c_str());
 		if (res <= 0)
@@ -138,11 +140,6 @@ void LocalFonbook::Reload() {
 	Initialize();
 }
 
-bool LocalFonbook::AddFonbookEntry(FonbookEntry fe) {
-	fonbookList.push_back(fe);
-	return true;
-}
-
 void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 	INF("loading " << filePath);
 	FILE *f = fopen(filePath.c_str(), "r");
@@ -160,15 +157,17 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 				std::string number 			= number_buffer;
 				// search for existing fe
 				bool feExists = false;
-				for (size_t feNr = 0; feNr < fonbookList.size(); feNr++)
-					if (fonbookList[feNr].getName() == name) {
-						fonbookList[feNr].addNumber(number, type); //TODO: quickdial, vanity and priority not supported here
+				for (size_t feNr = 0; feNr < GetFonbookSize(); feNr++)
+					if (RetrieveFonbookEntry(feNr)->GetName() == name) {
+						FonbookEntry fe(RetrieveFonbookEntry(feNr));
+						fe.AddNumber(number, type); //TODO: quickdial, vanity and priority not supported here
+						ChangeFonbookEntry(feNr, fe);
 						feExists = true;
 					}
 				// add to new fe
 				if (!feExists) {
 					FonbookEntry fe(name, false); //TODO: important not supported here
-					fe.addNumber(number, type);
+					fe.AddNumber(number, type);
 					AddFonbookEntry(fe);
 				}
 			}
@@ -176,14 +175,13 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 				ERR("parse error at " << s);
 			}
 		}
-		setInitialized(true);
-		INF("read " << fonbookList.size() << " entries.");
-		std::sort(fonbookList.begin(), fonbookList.end());
+		INF("read " << GetFonbookSize() << " entries.");
+		Sort(FonbookEntry::ELEM_NAME, true);
 		fclose(f);
 	}
 }
 
-void LocalFonbook::Save() {
+void LocalFonbook::Write() {
 	DBG("Saving to " << filePath << ".");
 	// filePath should always contain a valid content, this is just to be sure
 	if (!filePath)
