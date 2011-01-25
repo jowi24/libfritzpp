@@ -227,10 +227,10 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 			}
 			posNumber = msgPart.find("<number", posNumber+1);
 		}
-		fonbookList.push_back(fe);
+		AddFonbookEntry(fe);
 		pos = msgConv.find("<contact>", pos+1);
 	}
-	INF("read " << fonbookList.size() << " entries.");
+	INF("read " << GetFonbookSize() << " entries.");
 }
 
 std::string XmlFonbook::SerializeToXml() {
@@ -239,16 +239,16 @@ std::string XmlFonbook::SerializeToXml() {
 	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>"
 			  "<phonebooks>"
 			  "<phonebook>";
-	for (size_t i = 0; i < fonbookList.size(); i++) {
-		FonbookEntry &fe = fonbookList[i];
+	for (size_t i = 0; i < GetFonbookSize(); i++) {
+		const FonbookEntry *fe = RetrieveFonbookEntry(i);
 		result << "<contact>"
-			   << "<category>" << (fe.IsImportant() ? "1" : "0") << "</category>"
+			   << "<category>" << (fe->IsImportant() ? "1" : "0") << "</category>"
 			   << "<person>"
-		       << "<realName>" << fe.GetName() << "</realName>"
+		       << "<realName>" << fe->GetName() << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
 		for (int type = 0; type < FonbookEntry::TYPES_COUNT; type++)
-			if (fe.GetNumber((fritz::FonbookEntry::eType) type).length() > 0) {
+			if (fe->GetNumber((fritz::FonbookEntry::eType) type).length() > 0) {
 				std::string typeName = "";
 				switch (type) {
 				case FonbookEntry::TYPE_NONE:
@@ -263,10 +263,10 @@ std::string XmlFonbook::SerializeToXml() {
 					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe.GetQuickdial((fritz::FonbookEntry::eType) type) << "\" "
-						          "vanity=\""    << fe.GetVanity((fritz::FonbookEntry::eType) type)    << "\" "
-						          "prio=\""      << fe.GetPriority((fritz::FonbookEntry::eType) type)  << "\">"
-				       << fe.GetNumber((fritz::FonbookEntry::eType) type)
+						          "quickdial=\"" << fe->GetQuickdial((fritz::FonbookEntry::eType) type) << "\" "
+						          "vanity=\""    << fe->GetVanity((fritz::FonbookEntry::eType) type)    << "\" "
+						          "prio=\""      << fe->GetPriority((fritz::FonbookEntry::eType) type)  << "\">"
+				       << fe->GetNumber((fritz::FonbookEntry::eType) type)
 				       << "</number>";
 			}
 

@@ -79,7 +79,7 @@ LocalFonbook::LocalFonbook() {
 
 bool LocalFonbook::Initialize() {
 	setInitialized(false);
-	fonbookList.clear();
+	Clear();
 
 	// first, try xml phonebook
 	int ret = asprintf(&filePath, "%s/localphonebook.xml", gConfig->getConfigDir().c_str());
@@ -155,9 +155,11 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 				std::string number 			= number_buffer;
 				// search for existing fe
 				bool feExists = false;
-				for (size_t feNr = 0; feNr < fonbookList.size(); feNr++)
-					if (fonbookList[feNr].GetName() == name) {
-						fonbookList[feNr].AddNumber(number, type); //TODO: quickdial, vanity and priority not supported here
+				for (size_t feNr = 0; feNr < GetFonbookSize(); feNr++)
+					if (RetrieveFonbookEntry(feNr)->GetName() == name) {
+						FonbookEntry fe(RetrieveFonbookEntry(feNr));
+						fe.AddNumber(number, type); //TODO: quickdial, vanity and priority not supported here
+						ChangeFonbookEntry(feNr, fe);
 						feExists = true;
 					}
 				// add to new fe
@@ -172,8 +174,8 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 			}
 		}
 		setInitialized(true);
-		INF("read " << fonbookList.size() << " entries.");
-		std::sort(fonbookList.begin(), fonbookList.end());
+		INF("read " << GetFonbookSize() << " entries.");
+		Sort(FonbookEntry::ELEM_NAME, true);
 		fclose(f);
 	}
 }

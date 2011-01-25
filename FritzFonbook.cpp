@@ -50,7 +50,7 @@ bool FritzFonbook::Initialize() {
 
 void FritzFonbook::run() {
 	setInitialized(false);
-	fonbookList.clear();
+	Clear();
 
 	FritzClient fc;
 	std::string msg = fc.RequestFonbook();
@@ -64,7 +64,7 @@ void FritzFonbook::run() {
 
 	setInitialized(true);
 
-	std::sort(fonbookList.begin(), fonbookList.end());
+	Sort(FonbookEntry::ELEM_NAME, true);
 	exit();
 }
 
@@ -105,7 +105,7 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 		if (namePart2.length() && numberPart.length()) {
 			FonbookEntry fe(namePart2, false); // TODO: important is not parsed here
 			fe.AddNumber(numberPart, FonbookEntry::TYPE_NONE);
-			fonbookList.push_back(fe);
+			AddFonbookEntry(fe);
 			//DBG("(%s / %s)", fe.number.c_str(), fe.name.c_str());
 		}
 		pos += 10;
@@ -147,9 +147,9 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 			}
 			count++;
 		}
-		fonbookList.push_back(fe);
+		AddFonbookEntry(fe);
 	}
-	INF("read " << fonbookList.size() << " entries.");
+	INF("read " << GetFonbookSize() << " entries.");
 }
 
 void FritzFonbook::Reload() {

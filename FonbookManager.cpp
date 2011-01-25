@@ -179,6 +179,11 @@ bool FonbookManager::DeleteFonbookEntry(size_t id) {
 	return GetActiveFonbook() ? GetActiveFonbook()->DeleteFonbookEntry(id) : false;
 }
 
+void FonbookManager::Clear() {
+	if (GetActiveFonbook())
+		GetActiveFonbook()->Clear();
+}
+
 bool FonbookManager::isDisplayable() {
 	return GetActiveFonbook() ? GetActiveFonbook()->isDisplayable() : false;
 }

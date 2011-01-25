@@ -131,6 +131,10 @@ private:
 	 * True, if this phonebook is ready to use.
 	 */
 	bool initialized;
+    /**
+     * Data structure for storing the phonebook.
+     */
+	std::vector<FonbookEntry> fonbookList;
 protected:
 	/**
 	 * The constructor may only be used by cFonbookManager.
@@ -157,10 +161,7 @@ protected:
 	 * True, if this phonebook is writeable
 	 */
 	bool writeable;
-    /**
-     * Data structure for storing the phonebook.
-     */
-	std::vector<FonbookEntry> fonbookList;
+
 public:
 	struct sResolveResult {
 		std::string name;
@@ -210,6 +211,10 @@ public:
 	 * @return true, if deletion was successful
 	 */
 	virtual bool DeleteFonbookEntry(size_t id);
+	/**
+	 * Clears all entries from phonebook.
+	 */
+	virtual void Clear() { fonbookList.clear(); }
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.
