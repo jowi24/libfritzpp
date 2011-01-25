@@ -66,6 +66,8 @@ FonbookManager::~FonbookManager()
 {
 	for (size_t i= 0; i < fonbooks.size(); i++) {
 		DBG("deleting fonbook with ID: " << fonbooks[i]->GetTechId());
+		// save pending changes
+		fonbooks[i]->Save();
 		delete(fonbooks[i]);
 	}
 }

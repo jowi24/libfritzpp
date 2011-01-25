@@ -41,7 +41,6 @@ FritzFonbook::FritzFonbook()
 
 FritzFonbook::~FritzFonbook() {
 	terminate();
-	Save();
 }
 
 bool FritzFonbook::Initialize() {
@@ -156,7 +155,7 @@ void FritzFonbook::Reload() {
 	start();
 }
 
-void FritzFonbook::Save() {
+void FritzFonbook::Write() {
 	if (writeable) {
 		INF("Uploading phonebook to Fritz!Box.");
 		FritzClient fc;

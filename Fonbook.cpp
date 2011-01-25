@@ -164,6 +164,12 @@ Fonbook::Fonbook()
 	displayable = false;
 	initialized = false;
 	writeable   = false;
+	dirty       = false;
+}
+
+void Fonbook::SetDirty() {
+	if (initialized)
+		dirty = true;
 }
 
 Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
@@ -192,7 +198,7 @@ const FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) {
 bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
 	if (id < GetFonbookSize()) {
 		fonbookList[id] = fe;
-		//TODO: track written
+		SetDirty();
 		return true;
 	} else {
 		return false;
@@ -202,7 +208,7 @@ bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
 bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
 	if (id < GetFonbookSize()) {
 		fonbookList[id].SetDefaultType(type);
-		//TODO: track written
+		SetDirty();
 		return true;
 	} else {
 		return false;
@@ -211,16 +217,23 @@ bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
 
 void Fonbook::AddFonbookEntry(FonbookEntry &fe) {
 	fonbookList.push_back(fe);
-	//TODO: track written
+	SetDirty();
 }
 
 bool Fonbook::DeleteFonbookEntry(size_t id) {
 	if (id < GetFonbookSize()) {
 		fonbookList.erase(fonbookList.begin() + id);
-		//TODO: track written
+		SetDirty();
 		return true;
 	} else {
 		return false;
+	}
+}
+
+void Fonbook::Save() {
+	if (dirty && writeable) {
+		Write();
+		dirty = false;
 	}
 }
 

@@ -33,7 +33,7 @@ class FritzFonbook : public ost::Thread, public XmlFonbook {
 private:
 	FritzFonbook();
 	void ParseHtmlFonbook(std::string *msg);
-	virtual void Save();
+	virtual void Write();
 public:
 	virtual ~FritzFonbook();
 	bool Initialize();

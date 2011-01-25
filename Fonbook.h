@@ -131,6 +131,14 @@ private:
 	 * True, if this phonebook is ready to use.
 	 */
 	bool initialized;
+	/**
+	 * True, if changes are pending that are not yet saved
+	 */
+	bool dirty;
+	/**
+	 * Sets dirty member if applicable
+	 */
+	void SetDirty();
     /**
      * Data structure for storing the phonebook.
      */
@@ -144,7 +152,7 @@ protected:
 	/**
 	 * Method to persist contents of the phone book (if writeable)
 	 */
-	virtual void Save() {}
+	virtual void Write() { }
 	/**
 	 * The descriptive title of this phonebook.
 	 */
@@ -167,7 +175,7 @@ public:
 		std::string name;
 		FonbookEntry::eType type;
 	};
-	virtual ~Fonbook() { Save(); }
+	virtual ~Fonbook() { }
 	/**
 	 * Take action to fill phonebook with content.
 	 * Initialize() may be called more than once per session.
@@ -214,7 +222,12 @@ public:
 	/**
 	 * Clears all entries from phonebook.
 	 */
-	virtual void Clear() { fonbookList.clear(); }
+	virtual void Clear() { SetDirty(); fonbookList.clear(); }
+	/**
+	 * Save pending changes.
+	 * Can be called periodically to assert pending changes in a phone book are written.
+	 */
+	void Save();
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.

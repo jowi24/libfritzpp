@@ -92,6 +92,7 @@ bool LocalFonbook::Initialize() {
 			return false;
 		std::string xmlData((std::istreambuf_iterator<char>(file)),std::istreambuf_iterator<char>());
 		ParseXmlFonbook(&xmlData);
+		setInitialized(true);
 		return true;
 	} else
 		DBG("XML phonebook not found, trying old csv based ones.");
@@ -116,6 +117,7 @@ bool LocalFonbook::Initialize() {
 	if (filePath) {
 		ParseCsvFonbook(filePath);
 		free(filePath);
+		setInitialized(true);
 		// convert to xml when saving
 		int res = asprintf(&filePath, "%s/localphonebook.xml", gConfig->getConfigDir().c_str());
 		if (res <= 0)
@@ -173,14 +175,13 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 				ERR("parse error at " << s);
 			}
 		}
-		setInitialized(true);
 		INF("read " << GetFonbookSize() << " entries.");
 		Sort(FonbookEntry::ELEM_NAME, true);
 		fclose(f);
 	}
 }
 
-void LocalFonbook::Save() {
+void LocalFonbook::Write() {
 	DBG("Saving to " << filePath << ".");
 	// filePath should always contain a valid content, this is just to be sure
 	if (!filePath)
