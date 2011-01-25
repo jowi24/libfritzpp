@@ -104,7 +104,7 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 		std::string numberPart = msgConv.substr(numberStart, numberStop - numberStart+1);
 		if (namePart2.length() && numberPart.length()) {
 			FonbookEntry fe(namePart2, false); // TODO: important is not parsed here
-			fe.addNumber(numberPart, FonbookEntry::TYPE_NONE);
+			fe.AddNumber(numberPart, FonbookEntry::TYPE_NONE);
 			fonbookList.push_back(fe);
 			//DBG("(%s / %s)", fe.number.c_str(), fe.name.c_str());
 		}
@@ -142,7 +142,7 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 				type = FonbookEntry::TYPE_WORK;
 
 			if (namePartConv.length() && numberPart.length()) {
-				fe.addNumber(numberPart, type); // TODO: quickdial, vanity and priority not parsed here
+				fe.AddNumber(numberPart, type); // TODO: quickdial, vanity and priority not parsed here
 				//DBG("(%s / %s / %i)", fe.number.c_str(), fe.name.c_str(), fe.type);
 			}
 			count++;

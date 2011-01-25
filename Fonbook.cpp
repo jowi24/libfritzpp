@@ -33,67 +33,67 @@ FonbookEntry::FonbookEntry(std::string name, bool important) {
 		numbers[type].priority = 0;
 }
 
-void FonbookEntry::addNumber(std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
+void FonbookEntry::AddNumber(std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
 	numbers[type].number    = number;
 	numbers[type].quickdial = quickdial;
 	numbers[type].vanity    = vanity;
 	numbers[type].priority  = priority;
 }
 
-FonbookEntry::eType FonbookEntry::getDefaultType() const {
+FonbookEntry::eType FonbookEntry::GetDefaultType() const {
 	eType t = (eType) 0;
 	while (t < TYPES_COUNT) {
-		if (getPriority(t) == 1)
+		if (GetPriority(t) == 1)
 			return t;
 		t = (eType) (t+1);
 	}
 	return TYPE_NONE;
 }
 
-void FonbookEntry::setDefaultType(eType type) {
-	eType oldType = getDefaultType();
+void FonbookEntry::SetDefaultType(eType type) {
+	eType oldType = GetDefaultType();
 	if (type != oldType) {
-		setPrioriy(0, oldType);
-		setPrioriy(1, type);
-		setQuickdial(getQuickdial(oldType), type);
-		setVanity(getVanity(oldType), type);
-		setQuickdial("", oldType);
-		setVanity("", oldType);
+		SetPrioriy(0, oldType);
+		SetPrioriy(1, type);
+		SetQuickdial(GetQuickdial(oldType), type);
+		SetVanity(GetVanity(oldType), type);
+		SetQuickdial("", oldType);
+		SetVanity("", oldType);
 	}
 }
 
-std::string FonbookEntry::getQuickdialFormatted(eType type) const {
-	switch (getQuickdial(type).length()) {
+std::string FonbookEntry::GetQuickdialFormatted(eType type) const {
+	switch (GetQuickdial(type).length()) {
 	case 1:
-		return "**70" + getQuickdial(type);
+		return "**70" + GetQuickdial(type);
 	case 2:
-		return "**7"  + getQuickdial(type);
+		return "**7"  + GetQuickdial(type);
 	default:
 		return "";
 	}
 }
 
-std::string FonbookEntry::getQuickdial(eType type) const {
+std::string FonbookEntry::GetQuickdial(eType type) const {
 	// if no special type is given, the default "TYPES_COUNT" indicates,
 	// that the correct type has to be determined first, i.e., priority == 1
 
-	return numbers[type == TYPES_COUNT ? getDefaultType() : type].quickdial;
+	return numbers[type == TYPES_COUNT ? GetDefaultType() : type].quickdial;
 }
 
-void FonbookEntry::setQuickdial(std::string quickdial, eType type) { //TODO: sanity check
-	numbers[type == TYPES_COUNT ? getDefaultType() : type].quickdial = quickdial;
+void FonbookEntry::SetQuickdial(std::string quickdial, eType type) { //TODO: sanity check
+	numbers[type == TYPES_COUNT ? GetDefaultType() : type].quickdial = quickdial;
 }
 
-std::string FonbookEntry::getVanity(eType type) const {
-	return numbers[type == TYPES_COUNT ? getDefaultType() : type].vanity;
+std::string FonbookEntry::GetVanity(eType type) const {
+	return numbers[type == TYPES_COUNT ? GetDefaultType() : type].vanity;
 }
 
-std::string FonbookEntry::getVanityFormatted(eType type) const {
-	return getVanity(type).length() ? "**8"+getVanity(type) : "";
+std::string FonbookEntry::GetVanityFormatted(eType type) const {
+	return GetVanity(type).length() ? "**8"+GetVanity(type) : "";
 }
 
-void FonbookEntry::setVanity(std::string vanity, eType type) { //TODO: sanity check
-	numbers[type == TYPES_COUNT ? getDefaultType() : type].vanity = vanity;
+void FonbookEntry::SetVanity(std::string vanity, eType type) { //TODO: sanity check
+	numbers[type == TYPES_COUNT ? GetDefaultType() : type].vanity = vanity;
 }
 
 bool FonbookEntry::operator<(const FonbookEntry &fe) const {
@@ -103,7 +103,7 @@ bool FonbookEntry::operator<(const FonbookEntry &fe) const {
 	return (cresult < 0);
 }
 
-size_t FonbookEntry::getSize() {
+size_t FonbookEntry::GetSize() {
 	size_t size = 0;
 	// ignore TYPE_NONE
 	for (int type = 1; type < TYPES_COUNT; type++)
@@ -124,7 +124,7 @@ public:
 	bool operator() (FonbookEntry fe1, FonbookEntry fe2){
 		switch(element) {
 		case FonbookEntry::ELEM_NAME:
-			return (ascending ? (fe1.getName() < fe2.getName()) : (fe1.getName() > fe2.getName()));
+			return (ascending ? (fe1.GetName() < fe2.GetName()) : (fe1.GetName() > fe2.GetName()));
 			break;
 //		case FonbookEntry::ELEM_TYPE:
 //			return (ascending ? (fe1.getType() < fe2.getType()) : (fe1.getType() > fe2.getType()));
@@ -133,17 +133,17 @@ public:
 //			return (ascending ? (fe1.getNumber() < fe2.getNumber()) : (fe1.getNumber() > fe2.getNumber()));
 //			break;
 		case FonbookEntry::ELEM_IMPORTANT:
-			return (ascending ? (fe1.isImportant() < fe2.isImportant()) : (fe1.isImportant() > fe2.isImportant()));
+			return (ascending ? (fe1.IsImportant() < fe2.IsImportant()) : (fe1.IsImportant() > fe2.IsImportant()));
 			break;
 		case FonbookEntry::ELEM_QUICKDIAL: {
-			int qd1 = atoi(fe1.getQuickdial().c_str());
-			int qd2 = atoi(fe2.getQuickdial().c_str());
+			int qd1 = atoi(fe1.GetQuickdial().c_str());
+			int qd2 = atoi(fe2.GetQuickdial().c_str());
 			return (ascending ? (qd1 < qd2) : (qd1 > qd2));
 		}
 			break;
 		case FonbookEntry::ELEM_VANITY: {
-			int vt1 = atoi(fe1.getVanity().c_str());
-			int vt2 = atoi(fe2.getVanity().c_str());
+			int vt1 = atoi(fe1.GetVanity().c_str());
+			int vt2 = atoi(fe2.GetVanity().c_str());
 			return (ascending ? (vt1 < vt2) : (vt1 > vt2));
 		}
 //			break;
@@ -173,9 +173,9 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	if (number.length() > 0)
 		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
 			for (int type=0; type < FonbookEntry::TYPES_COUNT; type++) {
-				std::string fonbookNumber = fonbookList[pos].getNumber((FonbookEntry::eType)type);
+				std::string fonbookNumber = fonbookList[pos].GetNumber((FonbookEntry::eType)type);
 				if (fonbookNumber.length() > 0 && Tools::CompareNormalized(number, fonbookNumber) == 0) {
-					result.name = fonbookList[pos].getName();
+					result.name = fonbookList[pos].GetName();
 					result.type = (FonbookEntry::eType) type;
 					return result;
 				}
@@ -201,7 +201,7 @@ bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
 
 bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
 	if (id < GetFonbookSize()) {
-		fonbookList[id].setDefaultType(type);
+		fonbookList[id].SetDefaultType(type);
 		//TODO: track written
 		return true;
 	} else {

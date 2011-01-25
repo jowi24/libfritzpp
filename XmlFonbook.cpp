@@ -223,7 +223,7 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 				if (typeStr == "work")
 					type = FonbookEntry::TYPE_WORK;
 
-				fe.addNumber(number, type, quickdial, vanity, atoi(prio.c_str()));
+				fe.AddNumber(number, type, quickdial, vanity, atoi(prio.c_str()));
 			}
 			posNumber = msgPart.find("<number", posNumber+1);
 		}
@@ -242,13 +242,13 @@ std::string XmlFonbook::SerializeToXml() {
 	for (size_t i = 0; i < fonbookList.size(); i++) {
 		FonbookEntry &fe = fonbookList[i];
 		result << "<contact>"
-			   << "<category>" << (fe.isImportant() ? "1" : "0") << "</category>"
+			   << "<category>" << (fe.IsImportant() ? "1" : "0") << "</category>"
 			   << "<person>"
-		       << "<realName>" << fe.getName() << "</realName>"
+		       << "<realName>" << fe.GetName() << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
 		for (int type = 0; type < FonbookEntry::TYPES_COUNT; type++)
-			if (fe.getNumber((fritz::FonbookEntry::eType) type).length() > 0) {
+			if (fe.GetNumber((fritz::FonbookEntry::eType) type).length() > 0) {
 				std::string typeName = "";
 				switch (type) {
 				case FonbookEntry::TYPE_NONE:
@@ -263,10 +263,10 @@ std::string XmlFonbook::SerializeToXml() {
 					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe.getQuickdial((fritz::FonbookEntry::eType) type) << "\" "
-						          "vanity=\""    << fe.getVanity((fritz::FonbookEntry::eType) type)    << "\" "
-						          "prio=\""      << fe.getPriority((fritz::FonbookEntry::eType) type)  << "\">"
-				       << fe.getNumber((fritz::FonbookEntry::eType) type)
+						          "quickdial=\"" << fe.GetQuickdial((fritz::FonbookEntry::eType) type) << "\" "
+						          "vanity=\""    << fe.GetVanity((fritz::FonbookEntry::eType) type)    << "\" "
+						          "prio=\""      << fe.GetPriority((fritz::FonbookEntry::eType) type)  << "\">"
+				       << fe.GetNumber((fritz::FonbookEntry::eType) type)
 				       << "</number>";
 			}
 

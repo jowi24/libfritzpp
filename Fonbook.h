@@ -84,29 +84,29 @@ public:
 	 * @param vanity The vanity extension
 	 * @param prority '1' marks the default number of this contact, otherwise 0
 	 */
-	void addNumber(std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
-	std::string getName() const { return name; }
-	void setName(std::string name) { this->name = name; }
-	std::string getNumber(eType type) const { return numbers[type].number; }
-	void setNumber(std::string number, eType type) { numbers[type].number = number; }
-	bool isImportant() const { return important; }
-	void setImportant(bool important) { this->important = important; }
-	eType getDefaultType() const;
-	void setDefaultType(eType type);
-	std::string getQuickdialFormatted(eType type = TYPES_COUNT) const;
-	std::string getQuickdial(eType type = TYPES_COUNT) const;
-	void setQuickdial(std::string quickdial, eType type = TYPES_COUNT);
-	std::string getVanity(eType type = TYPES_COUNT) const;
-	std::string getVanityFormatted(eType type = TYPES_COUNT) const;
-	void setVanity(std::string vanity, eType type = TYPES_COUNT);
-	int getPriority(eType type) const { return numbers[type].priority; }
-	void setPrioriy(int priority, eType type) { numbers[type].priority = priority; }
+	void AddNumber(std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
+	std::string GetName() const { return name; }
+	void SetName(std::string name) { this->name = name; }
+	std::string GetNumber(eType type) const { return numbers[type].number; }
+	void SetNumber(std::string number, eType type) { numbers[type].number = number; }
+	bool IsImportant() const { return important; }
+	void SetImportant(bool important) { this->important = important; }
+	eType GetDefaultType() const;
+	void SetDefaultType(eType type);
+	std::string GetQuickdialFormatted(eType type = TYPES_COUNT) const;
+	std::string GetQuickdial(eType type = TYPES_COUNT) const;
+	void SetQuickdial(std::string quickdial, eType type = TYPES_COUNT);
+	std::string GetVanity(eType type = TYPES_COUNT) const;
+	std::string GetVanityFormatted(eType type = TYPES_COUNT) const;
+	void SetVanity(std::string vanity, eType type = TYPES_COUNT);
+	int GetPriority(eType type) const { return numbers[type].priority; }
+	void SetPrioriy(int priority, eType type) { numbers[type].priority = priority; }
 	bool operator<(const FonbookEntry & fe) const;
 	/*
 	 * Get number of typed numbers (TYPE_NONE is ignored)
 	 * @return count of different numbers available
 	 */
-	size_t getSize();
+	size_t GetSize();
 };
 
 inline FonbookEntry::eType& operator++(FonbookEntry::eType& t) {
