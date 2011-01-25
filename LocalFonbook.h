@@ -37,7 +37,6 @@ public:
 	virtual ~LocalFonbook() {Save();} //TODO
 	bool Initialize();
 	void Reload();
-	virtual bool AddFonbookEntry(FonbookEntry fe);
 };
 
 }

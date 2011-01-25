@@ -202,9 +202,14 @@ public:
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
-	 * @return true, if add was successful
 	 */
-	virtual bool AddFonbookEntry(FonbookEntry fe __attribute__((unused))) { return false; }
+	virtual void AddFonbookEntry(FonbookEntry &fe);
+	/**
+	 * Adds a new entry to the phonebook.
+	 * @param id unique id to the entry to be deleted
+	 * @return true, if deletion was successful
+	 */
+	virtual bool DeleteFonbookEntry(size_t id);
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.

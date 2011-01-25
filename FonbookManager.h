@@ -84,11 +84,31 @@ public:
 	 */
 	const FonbookEntry *RetrieveFonbookEntry(size_t id);
 	/**
+	 * Changes the Fonbook entry with the given id
+	 * @param id unique identifier to the entry to be changed
+	 * @param fe FonbookEntry with the new content
+	 * @return true, if successful
+	 */
+	virtual bool ChangeFonbookEntry(size_t id, FonbookEntry &fe);
+	/**
+	 * Sets the default number for a Fonbook entry with the given id
+	 * @param id unique identifier to the entry to be changed
+	 * @param type the new default
+	 * @return true, if successful
+	 */
+	virtual bool SetDefaultType(size_t id, fritz::FonbookEntry::eType type);
+	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
 	 * @return true, if add was sucessful
 	 */
-	virtual bool AddFonbookEntry(FonbookEntry fe);
+	virtual void AddFonbookEntry(FonbookEntry &fe);
+	/**
+	 * Adds a new entry to the phonebook.
+	 * @param id unique id to the entry to be deleted
+	 * @return true, if deletion was successful
+	 */
+	virtual bool DeleteFonbookEntry(size_t id);
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.

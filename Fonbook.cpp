@@ -209,6 +209,21 @@ bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
 	}
 }
 
+void Fonbook::AddFonbookEntry(FonbookEntry &fe) {
+	fonbookList.push_back(fe);
+	//TODO: track written
+}
+
+bool Fonbook::DeleteFonbookEntry(size_t id) {
+	if (id < GetFonbookSize()) {
+		fonbookList.erase(fonbookList.begin() + id);
+		//TODO: track written
+		return true;
+	} else {
+		return false;
+	}
+}
+
 size_t Fonbook::GetFonbookSize() {
 	return fonbookList.size();
 }

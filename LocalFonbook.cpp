@@ -138,11 +138,6 @@ void LocalFonbook::Reload() {
 	Initialize();
 }
 
-bool LocalFonbook::AddFonbookEntry(FonbookEntry fe) {
-	fonbookList.push_back(fe);
-	return true;
-}
-
 void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 	INF("loading " << filePath);
 	FILE *f = fopen(filePath.c_str(), "r");

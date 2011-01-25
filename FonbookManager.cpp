@@ -162,8 +162,21 @@ const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
 	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : NULL;
 }
 
-bool FonbookManager::AddFonbookEntry(FonbookEntry fe) {
-	return GetActiveFonbook() ? GetActiveFonbook()->AddFonbookEntry(fe) : false;
+bool FonbookManager::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
+	return GetActiveFonbook() ? GetActiveFonbook()->ChangeFonbookEntry(id, fe) : false;
+}
+
+bool FonbookManager::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
+	return GetActiveFonbook() ? GetActiveFonbook()->SetDefaultType(id, type) : false;
+}
+
+void FonbookManager::AddFonbookEntry(FonbookEntry &fe) {
+	if (GetActiveFonbook())
+		GetActiveFonbook()->AddFonbookEntry(fe);
+}
+
+bool FonbookManager::DeleteFonbookEntry(size_t id) {
+	return GetActiveFonbook() ? GetActiveFonbook()->DeleteFonbookEntry(id) : false;
 }
 
 bool FonbookManager::isDisplayable() {
