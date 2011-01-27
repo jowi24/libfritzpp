@@ -180,7 +180,7 @@ bool FritzClient::Login() {
 				std::stringstream().flush()
 				<< "login:command/response="
 				<< response
-				<< "&getpage=../html/de/menus/menu2.html&"); // Note the "&": It's a workaround for the Fritz!Box being confused if a new-line is added to the getpage parameter
+				<< "&getpage=../html/de/menus/menu2.html");
 			size_t sidStart = sMsg.find("name=\"sid\"");
 			if (sidStart == std::string::npos) {
 				ERR("Error - Expected sid field not found.");
@@ -217,7 +217,7 @@ bool FritzClient::Login() {
 			<< "/cgi-bin/webcm",
 			std::stringstream().flush()
 			<< "login:command/password="
-			<< UrlEncode(gConfig->getPassword()) << "&");
+			<< UrlEncode(gConfig->getPassword()));
 
 		// determine if login was successful
 		if (sMsg.find("class=\"errorMessage\"") != std::string::npos) {
@@ -270,7 +270,7 @@ bool FritzClient::InitCall(std::string &number) {
 		   << GetLang()
 		   << "/menus/menu2.html&var%3Apagename=fonbuch&var%3Amenu=home&telcfg%3Acommand/Dial="
 		   << number
-  	       << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid() << "&");
+  	       << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 		INF("call initiated.");
 	} catch (ost::SockException se) {
 		ERR("Exception - " << se.what());
