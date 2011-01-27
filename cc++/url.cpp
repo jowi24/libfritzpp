@@ -628,7 +628,6 @@ reformat:
                 ++args;
             }
             count = 0;
-            len += 2;
             str << "Content-Type: application/x-www-form-urlencoded" << "\r\n";
             str << "Content-Length: " << (unsigned)len << "\r\n";
             break;
@@ -756,7 +755,6 @@ reformat:
                 writeData(var, strlen(var));
             ++vars;
         }
-        writeData("\r\n", 2);
     }
 
 cont:
