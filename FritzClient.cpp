@@ -377,16 +377,16 @@ std::string FritzClient::RequestFonbook () {
 //			      "\n"
 //			      "-----------------------------177066101417337771721481521429--\n");
 
-			ost::MIMEMultipartForm *mmpf = new ost::MIMEMultipartForm();
+			ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
 
-			new ost::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
-			new ost::MIMEFormData( mmpf, "PhonebookId", "0");
-			new ost::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
-			new ost::MIMEFormData( mmpf, "PhonebookExport", "");
+			new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
+			new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
+			new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
+			new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
 
-			ost::URLStream urlStream;
+			ost2::URLStream urlStream;
 
-			ost::URLStream::Error rc = urlStream.post("http://fritz.box/cgi-bin/firmwarecfg",*mmpf);
+			ost2::URLStream::Error rc = urlStream.post("http://fritz.box/cgi-bin/firmwarecfg",*mmpf);
 //			                                           http://www.mx2.eu/test/post.php
 			DBG("Fonbook Return code:" << rc);
 

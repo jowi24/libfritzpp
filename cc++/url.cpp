@@ -48,7 +48,7 @@
 #ifndef CCXX_WITHOUT_EXTRAS
 #include <cc++/export.h>
 #endif
-#include <cc++/url.h>
+#include "url.h"
 
 #include <string>
 #include <cstdio>
@@ -80,8 +80,9 @@
 #endif
 
 #ifdef  CCXX_NAMESPACES
-namespace ost {
+namespace ost2 {
 using namespace std;
+using ost::setString;
 #endif
 
 URLStream::URLStream(Family fam, timeout_t to) :

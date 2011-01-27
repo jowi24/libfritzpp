@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 include_directories(../libtcpclient++)
 project (libfritz++)
-set(SRCS CallList.cpp Config.cpp Fonbooks.cpp Fonbook.cpp FonbookManager.cpp FritzClient.cpp FritzFonbook.cpp HttpClient.cpp Listener.cpp Tools.cpp LocalFonbook.cpp Nummerzoeker.cpp OertlichesFonbook.cpp TelLocalChFonbook.cpp XmlFonbook.cpp)
+set(SRCS cc++/url.cpp cc++/urlstring.cpp cc++/mime.cpp
+         CallList.cpp Config.cpp 
+         Fonbooks.cpp Fonbook.cpp FonbookManager.cpp FritzClient.cpp FritzFonbook.cpp 
+         HttpClient.cpp Listener.cpp LocalFonbook.cpp Nummerzoeker.cpp OertlichesFonbook.cpp 
+         TelLocalChFonbook.cpp Tools.cpp XmlFonbook.cpp)
 add_library(fritz++ STATIC ${SRCS})

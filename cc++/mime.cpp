@@ -47,11 +47,12 @@
 #ifndef CCXX_WITHOUT_EXTRAS
 #include <cc++/export.h>
 #endif
-#include <cc++/mime.h>
+#include "mime.h"
 
 #ifdef  CCXX_NAMESPACES
-namespace ost {
+namespace ost2 {
 using namespace std;
+  using ost::setString;
 #endif
 
 MIMEMultipart::MIMEMultipart(const char *mt)

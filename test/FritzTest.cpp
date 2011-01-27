@@ -118,14 +118,15 @@ void FritzTest::urlTest() {
 	//fritz::HttpClient hc("fritz.box", 80);
 
 
-	ost::MIMEMultipartForm *mmpf = new ost::MIMEMultipartForm();
+	ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
 
-	new ost::MIMEFormData( mmpf, "sid", "1234");
-	new ost::MIMEFormData( mmpf, "PhonebookId", "0");
+	new ost2::MIMEFormData( mmpf, "sid", "1234");
+	new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
 
-	ost::URLStream urlStream;
+	ost2::URLStream urlStream;
 
-	ost::URLStream::Error rc = urlStream.post("http://www.mx2.eu/test/post.php",*mmpf);
+//	ost2::URLStream::Error rc = urlStream.post("http://www.mx2.eu/test/post.php",*mmpf);
+	ost2::URLStream::Error rc = urlStream.post("http://localhost/test/post.php",*mmpf);
 	DBG("Return code: " << rc);
 
 

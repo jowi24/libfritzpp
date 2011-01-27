@@ -53,11 +53,16 @@
 #endif
 
 #ifndef CCXX_MIME_H_
-#include <cc++/mime.h>
+#include "mime.h"
 #endif
 
 #ifdef  CCXX_NAMESPACES
-namespace ost {
+namespace ost2 {
+	using ost::TCPStream;
+	using ost::IPV4Host;
+	using ost::IPV6Host;
+	using ost::tpport_t;
+	using ost::String;
 #endif
 
 /**

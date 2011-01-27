@@ -61,7 +61,7 @@
 #include <cctype>
 
 #ifdef  CCXX_NAMESPACES
-namespace ost {
+namespace ost2 {
 using namespace std;
 #endif
 

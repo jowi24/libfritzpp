@@ -53,7 +53,7 @@
 #endif
 
 #ifdef  CCXX_NAMESPACES
-namespace ost {
+namespace ost2 {
 #endif
 
 class __EXPORT MIMEMultipart;

@@ -23,7 +23,7 @@
 #ifndef HTTPCLIENT_H_
 #define HTTPCLIENT_H_
 
-#include <cc++/url.h>
+#include "cc++/url.h"
 
 namespace fritz {
 
@@ -31,8 +31,8 @@ class HttpClient {
 private:
 	std::string host;
 	int port;
-	ost::URLStream urlStream;
-	ost::URLStream::Error returnCode;
+	ost2::URLStream urlStream;
+	ost2::URLStream::Error returnCode;
 	std::string Result();
 public:
 	HttpClient(std::string host, int port);
