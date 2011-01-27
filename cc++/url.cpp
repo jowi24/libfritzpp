@@ -229,7 +229,9 @@ URLStream::Error URLStream::post(const char *path, MIMEMultipartForm &form, size
     if(!strnicmp(path, "http:", 5)) {
         urlmethod = methodHttpPostMultipart;
         path = strchr(path + 5, '/');
-        status = sendHTTPHeader(path, (const char **)form.getHeaders(), buf);
+        std::stringstream ss;
+        form.body(dynamic_cast<std::ostream *>(&ss));
+        status = sendHTTPHeader(path, (const char **)form.getHeaders(), buf, ss.str().c_str());
     }
 
     if(status == errInvalid || status == errTimeout) {
@@ -240,7 +242,6 @@ URLStream::Error URLStream::post(const char *path, MIMEMultipartForm &form, size
     saved = status;
     status = getHTTPHeaders();
     if(status == errSuccess) {
-        form.body(dynamic_cast<std::ostream *>(this));
         return saved;
     }
     if(status == errTimeout) {
@@ -450,7 +451,7 @@ void URLStream::close(void)
         Socket::state = AVAILABLE;
 }
 
-URLStream::Error URLStream::sendHTTPHeader(const char *url, const char **vars, size_t buf)
+URLStream::Error URLStream::sendHTTPHeader(const char *url, const char **vars, size_t buf, const char *form_body)
 {
     // TODO: implement authentication
     char reloc[4096];
@@ -632,6 +633,7 @@ reformat:
             str << "Content-Length: " << (unsigned)len << "\r\n";
             break;
         case methodHttpPostMultipart:
+        	str << "Content-Length: " << strlen(form_body) << "\r\n";
             while(*args)
                 str << *(args++) << "\r\n";
         default:
@@ -755,6 +757,9 @@ reformat:
                 writeData(var, strlen(var));
             ++vars;
         }
+    }
+    if(urlmethod == methodHttpPostMultipart && form_body) {
+    	writeData(form_body, strlen(form_body));
     }
 
 cont:

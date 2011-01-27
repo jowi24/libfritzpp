@@ -162,7 +162,7 @@ protected:
      * @param bufsize of stream buffering to use
      * @return success or class error
      */
-    Error sendHTTPHeader(const char *url, const char **vars, size_t bufsize);
+    Error sendHTTPHeader(const char *url, const char **vars, size_t bufsize, const char *form_body = NULL);
 
     /**
      * Called if stream buffer needs refilling.
