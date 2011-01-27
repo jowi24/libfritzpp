@@ -65,7 +65,7 @@ MIMEMultipart::MIMEMultipart(const char *mt)
     header[1] = NULL;
     header[0] = mtype;
     setString(boundry, sizeof(boundry), "xyzzy");
-    snprintf(mtype, sizeof(mtype), "Content-Type: multipart/%s, boundry=%s", mt, boundry);
+    snprintf(mtype, sizeof(mtype), "Content-Type: multipart/%s, boundary=%s", mt, boundry);
 }
 
 MIMEMultipart::~MIMEMultipart()
