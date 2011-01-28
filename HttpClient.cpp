@@ -25,7 +25,7 @@
 
 namespace fritz {
 
-HttpClient::HttpClient(std::string host, int port) {
+HttpClient::HttpClient(std::string &host, int port) {
 	this->host = host;
 	this->port = port;
 
@@ -52,6 +52,7 @@ std::string HttpClient::Get(const std::ostream& url) {
 	std::stringstream request;
 	request << "http://" <<  host << ":" << port << url.rdbuf(); //todo: url must start with '/'
 
+	urlStream.setAgent("Lynx/2.8.5");
 	returnCode = urlStream.get(request.str().c_str());
 
 	return Result();
@@ -75,5 +76,6 @@ std::string HttpClient::Post(const std::ostream &url, const std::ostream &postda
 
 	return Result();
 }
+
 
 }
