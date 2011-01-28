@@ -36,7 +36,7 @@
 
 #define RETRY_END																							\
 			dataRead = true;                                                                                \
-		} catch (tcpclient::TcpException te) {																\
+		} catch (tcpclient::TcpException &te) {																\
 			ERR("Exception in connection to " << gConfig->getUrl() << " - " << te.what());								\
 			ERR("waiting " << retry_delay << " seconds before retrying");	\
 			sleep(retry_delay); /* delay a possible retry */												\
@@ -283,7 +283,7 @@ bool FritzClient::InitCall(std::string &number) {
 		   << std::flush;
 		tc >> msg;
 		INF("call initiated.");
-	} catch (tcpclient::TcpException te) {
+	} catch (tcpclient::TcpException &te) {
 		ERR("Exception - " << te.what());
 		return false;
 	}

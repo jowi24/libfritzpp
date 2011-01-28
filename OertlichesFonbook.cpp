@@ -64,7 +64,7 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 		   << "\nAccept-Charset: ISO-8859-1\nUser-Agent: Lynx/2.8.5"
 		   << std::flush;
 		tc >> msg;
-	} catch (tcpclient::TcpException te) {
+	} catch (tcpclient::TcpException &te) {
 		ERR("Exception - " << te.what());
 		return result;
 	}
