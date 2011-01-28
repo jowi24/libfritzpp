@@ -186,6 +186,7 @@ class __EXPORT MIMEFormData : public MIMEItemPart
 protected:
     const char *content;
     const char *name;
+    const char *filename;
 
     virtual ~MIMEFormData();
 
@@ -212,6 +213,17 @@ public:
      * @param content of form data field
      */
     MIMEFormData(MIMEMultipartForm *top, const char *name, const char *content);
+
+    /**
+     * Construct form data field part of multipart form.
+     *
+     * @param top multipart form this is part of
+     * @param name of form data field
+     * @param filename
+     * @param type
+     * @param content of form data field
+     */
+    MIMEFormData(MIMEMultipartForm *top, const char *name, const char *filename, const char *type, const char *content);
 };
 
 #ifdef  CCXX_NAMESPACES

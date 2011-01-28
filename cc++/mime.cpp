@@ -120,7 +120,8 @@ MIMEMultipartForm::~MIMEMultipartForm()
 
 void MIMEItemPart::head(std::ostream *out)
 {
-    *out << "Content-Type: " << ctype << "\r" << endl;
+	if (ctype && strlen(ctype))
+		*out << "Content-Type: " << ctype << "\r" << endl;
 }
 
 MIMEFormData::MIMEFormData(MIMEMultipartForm *m, const char *n, const char *v) :
@@ -128,6 +129,15 @@ MIMEItemPart(m, "")
 {
     name = n;
     content = v;
+    filename = NULL;
+}
+
+MIMEFormData::MIMEFormData(MIMEMultipartForm *m, const char *n, const char *f, const char *t, const char *c) :
+MIMEItemPart(m, t)
+{
+	name = n;
+	filename = f;
+	content = c;
 }
 
 MIMEFormData::~MIMEFormData()
@@ -135,7 +145,12 @@ MIMEFormData::~MIMEFormData()
 
 void MIMEFormData::head(std::ostream *out)
 {
-    *out << "Content-Disposition: form-data; name=\"" << name << "\"\r\n";
+	if (filename) {
+		*out << "Content-Disposition: form-data; name=\"" << name << "\"; filename=\"" << filename << "\"\r\n";
+	} else {
+		*out << "Content-Disposition: form-data; name=\"" << name << "\"\r\n";
+	}
+	MIMEItemPart::head(out);
 }
 
 void MIMEFormData::body(std::ostream *out)
