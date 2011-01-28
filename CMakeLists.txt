@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 2.6)
-include_directories(../libtcpclient++)
 project (libfritz++)
 set(SRCS cc++/url.cpp cc++/urlstring.cpp cc++/mime.cpp
          CallList.cpp Config.cpp 

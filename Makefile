@@ -3,10 +3,6 @@ OBJS = cc++/url.o cc++/mime.o cc++/urlstring.o CallList.o Config.o Fonbooks.o Fo
 
 CXXFLAGS ?= -g -O2 -Wall -fPIC
 
-### libtcpclient++
-INCLUDES += -I../libtcpclient++
-#LIBS += libtcpclient++/tcpclient++.a
-
 ### for cc++ dir
 INCLUDES += -I.
 
