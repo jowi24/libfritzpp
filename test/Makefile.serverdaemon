@@ -3,9 +3,7 @@ OBJS = ServerDaemon.o FBServer.o
 
 CXXFLAGS ?= -g -O2 -Wall -fPIC
 
-### libtcpclient++
-INCLUDES += -I../libtcpclient++ -I .
-LIBS += ../../libtcpclient++/libtcpclient++.a ../libfritz++.a -lccgnu2 -lccext2
+LIBS += ../libfritz++.a -lccgnu2 -lccext2
 
 all: $(EXE)
 

@@ -1,5 +1,5 @@
 /*
- * TcpClientTest.cpp
+ * FritzTest.cpp
  *
  *  Created on: 29.12.2008
  *      Author: wilke
