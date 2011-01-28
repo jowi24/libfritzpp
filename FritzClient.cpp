@@ -38,7 +38,7 @@
 
 #define RETRY_END																							\
 			dataRead = true;                                                                                \
-		} catch (ost::SockException se) {																\
+		} catch (ost::SockException &se) {																\
 			ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());								\
 			ERR("waiting " << retry_delay << " seconds before retrying");	\
 			sleep(retry_delay); /* delay a possible retry */												\
@@ -272,7 +272,7 @@ bool FritzClient::InitCall(std::string &number) {
 		   << number
   	       << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 		INF("call initiated.");
-	} catch (ost::SockException se) {
+	} catch (ost::SockException &se) {
 		ERR("Exception - " << se.what());
 		return false;
 	}
@@ -359,24 +359,6 @@ std::string FritzClient::RequestFonbook () {
 	// detect if xml export of fonbook is possible
 	if (msg.find("uiPostExportForm") != std::string::npos) {
 		RETRY_BEGIN {
-//			msg = httpClient->Post(std::stringstream().flush()
-//			   << "/cgi-bin/firmwarecfg"
-//			   << "\nContent-Type: multipart/form-data; boundary=---------------------------177066101417337771721481521429",
-//			   std::stringstream().flush()
-//			   << "-----------------------------177066101417337771721481521429\n"
-//                  "Content-Disposition: form-data; name=\"sid\"\n\n"
-//               << gConfig->getSid() << "\n"
-//			   << "-----------------------------177066101417337771721481521429\n"
-//			      "Content-Disposition: form-data; name=\"PhonebookId\"\n\n"
-//			      "0\n"
-//			      "-----------------------------177066101417337771721481521429\n"
-//			      "Content-Disposition: form-data; name=\"PhonebookExportName\"\n\n"
-//			      "Telefonbuch\n"
-//			      "-----------------------------177066101417337771721481521429\n"
-//			      "Content-Disposition: form-data; name=\"PhonebookExport\"\n\n"
-//			      "\n"
-//			      "-----------------------------177066101417337771721481521429--\n");
-
 			ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
 
 			new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
@@ -384,24 +366,8 @@ std::string FritzClient::RequestFonbook () {
 			new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
 			new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
 
-			ost2::URLStream urlStream;
-
-			ost2::URLStream::Error rc = urlStream.post("http://fritz.box/cgi-bin/firmwarecfg",*mmpf);
-//			                                           http://www.mx2.eu/test/post.php
-			DBG("Fonbook Return code:" << rc);
-
-		    std::string response;
-			while (!urlStream.eof())  {
-			  char buffer[1024];
-			  urlStream.read(buffer, sizeof(buffer)-1);
-			  buffer[urlStream.gcount()] = 0;
-			  response += buffer;
-			}
-			urlStream.close();
-			DBG("Fonbook Result size: " << response.length());
-			DBG("Fonbook Response:" << response);
-			msg = response;
-
+			msg = httpClient->PostMIME(std::stringstream().flush()
+					<< "/cgi-bin/firmwarecfg", *mmpf);
 		} RETRY_END
 	}
 
@@ -412,21 +378,14 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 	std::string msg;
 	DBG("Saving XML Fonbook to FB...");
 	RETRY_BEGIN {
-		msg = httpClient->Post(std::stringstream().flush()
-		   << "/cgi-bin/firmwarecfg"
-		   << "\nContent-Type: multipart/form-data; boundary=---------------------------177066101417337771721481521429",
-		   std::stringstream().flush()
-		   << "-----------------------------177066101417337771721481521429\n"
-              "Content-Disposition: form-data; name=\"sid\"\n\n"
-           << gConfig->getSid() << "\n"
-		   << "-----------------------------177066101417337771721481521429\n"
-		      "Content-Disposition: form-data; name=\"PhonebookId\"\n\n"
-		      "0\n"
-		      "-----------------------------177066101417337771721481521429\n"
-		      "Content-Disposition: form-data; name=\"PhonebookImportFile\"; filename=\"FRITZ.Box_Telefonbuch_01.01.10_0000.xml\"\n"
-		      "Content-Type: text/xml\n\n"
-		   << xmlData <<
-		      "\n-----------------------------177066101417337771721481521429--\n");
+		ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
+
+		new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
+		new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
+		new ost2::MIMEFormData( mmpf, "PhonebookImportFile", "FRITZ.Box_Telefonbuch_01.01.10_0000.xml", "text/xml", xmlData.c_str());
+
+		msg = httpClient->PostMIME(std::stringstream().flush()
+				<< "/cgi-bin/firmwarecfg", *mmpf);
 	} RETRY_END
 }
 
@@ -434,7 +393,7 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 bool FritzClient::reconnectISP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	msg = httpClient->Post(std::stringstream().flush()
+	msg = httpClient->Post(std::stringstream().flush() //TODO fix
 	    << "/upnp/control/WANIPConn1"
 	    << "\nSoapAction: urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination"
 	    << "\nContent-Type: text/xml",
@@ -454,7 +413,7 @@ bool FritzClient::reconnectISP() {
 std::string FritzClient::getCurrentIP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	msg = httpClient->Post(std::stringstream().flush()
+	msg = httpClient->Post(std::stringstream().flush() //TODO fix
 		<< "/upnp/control/WANIPConn1"
 		<< "\nSoapAction: urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress"
 		<< "\nContent-Type: text/xml",

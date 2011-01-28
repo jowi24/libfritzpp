@@ -34,12 +34,13 @@ private:
 	ost2::URLStream urlStream;
 	ost2::URLStream::Error returnCode;
 	std::string Result();
+    std::string BuildUrl(const std::ostream & url);
 public:
 	HttpClient(std::string &host, int port = 80);
 	virtual ~HttpClient();
 	std::string Get(const std::ostream& os);
 	std::string Post(const std::ostream &url, const std::ostream &postdata);
-	std::string PostMIME(const std::ostream &url, const ost2::MIMEMultipartForm &form);
+	std::string PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form);
 };
 
 }

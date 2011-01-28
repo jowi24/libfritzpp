@@ -28,13 +28,16 @@ namespace fritz {
 HttpClient::HttpClient(std::string &host, int port) {
 	this->host = host;
 	this->port = port;
-
 }
 
 HttpClient::~HttpClient() {
-	// TODO Auto-generated destructor stub
 }
 
+std::string HttpClient::BuildUrl(const std::ostream & url){
+	std::stringstream request;
+	request << "http://" <<  host << ":" << port << url.rdbuf(); //todo: url must start with '/'
+	return request.str();
+}
 std::string HttpClient::Result() {
     std::string response;
 	while (!urlStream.eof())  {
@@ -44,36 +47,30 @@ std::string HttpClient::Result() {
 	  response += buffer;
 	}
 	urlStream.close();
-	DBG("Result size: " << response.length());
 	return response;
 }
 
 std::string HttpClient::Get(const std::ostream& url) {
-	std::stringstream request;
-	request << "http://" <<  host << ":" << port << url.rdbuf(); //todo: url must start with '/'
-
 	urlStream.setAgent("Lynx/2.8.5");
-	returnCode = urlStream.get(request.str().c_str());
 
+	returnCode = urlStream.get(BuildUrl(url).c_str());
 	return Result();
 }
 
 std::string HttpClient::Post(const std::ostream &url, const std::ostream &postdata) {
-	std::stringstream request;
-	request << "http://" <<  host << ":" << port << url.rdbuf();
-	DBG("Post request: " << request.str() );
-
 	const std::stringstream &payload = static_cast<const std::stringstream&>(postdata);
-	DBG("Post data: " << payload.str() );
 	char param0[payload.str().size()+1];
 	strcpy(param0, payload.str().c_str());
 	const char * params[2];
 	params[0] = param0;
 	params[1] = 0;
 
-	returnCode = urlStream.post(request.str().c_str(), params);
-	DBG("UrlStream return code: " << returnCode );
+	returnCode = urlStream.post(BuildUrl(url).c_str(), params);
+	return Result();
+}
 
+std::string HttpClient::PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form) {
+	returnCode = urlStream.post(BuildUrl(url).c_str(), form);
 	return Result();
 }
 
