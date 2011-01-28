@@ -21,9 +21,9 @@
 
 
 #include <unistd.h>
-#include <TcpClient++.h>
 #include "OertlichesFonbook.h"
 #include "Config.h"
+#include "HttpClient.h"
 #include "Tools.h"
 
 namespace fritz{
@@ -58,14 +58,11 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) {
 	try {
 		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo()? Tools::NormalizeNumber(number) : HIDDEN) << " to www.dasoertliche.de");
 		std::string host = "www.dasoertliche.de";
-		tcpclient::HttpClient tc(host);
-		tc << tcpclient::get
-		   << "/Controller?form_name=search_inv&ph=" << Tools::NormalizeNumber(number)
-		   << "\nAccept-Charset: ISO-8859-1\nUser-Agent: Lynx/2.8.5"
-		   << std::flush;
-		tc >> msg;
-	} catch (tcpclient::TcpException te) {
-		ERR("Exception - " << te.what());
+		HttpClient tc(host);
+		msg = tc.Get(std::stringstream().flush()
+		   << "/Controller?form_name=search_inv&ph=" << Tools::NormalizeNumber(number));
+	} catch (ost::SockException &se) {
+		ERR("Exception - " << se.what());
 		return result;
 	}
 	// check that at most one result is returned

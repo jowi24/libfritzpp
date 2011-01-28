@@ -22,9 +22,9 @@
 
 
 #include <unistd.h>
-#include <TcpClient++.h>
 #include "TelLocalChFonbook.h"
 #include "Config.h"
+#include "HttpClient.h"
 #include "Tools.h"
 
 namespace fritz{
@@ -59,15 +59,12 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::ResolveToName(std::string n
 	try {
 		DBG("sending reverse lookup request for " << Tools::NormalizeNumber(number) << " to tel.local.ch");
 		std::string host = "tel.local.ch";
-		tcpclient::HttpClient tc(host);
-		tc << tcpclient::get
+		HttpClient tc(host);
+		msg = tc.Get(std::stringstream().flush()
 		   << "/de/q/" <<  Tools::NormalizeNumber(number)
-		   << ".html"
-		   << "\nAccept-Charset: ISO-8859-1\nUser-Agent: Lynx/2.8.5"
-		   << std::flush;
-		tc >> msg;
-	} catch (tcpclient::TcpException te) {
-		ERR("Exception - " << te.what());
+		   << ".html");
+	} catch (ost::SockException &se) {
+		ERR("Exception - " << se.what());
 		return result;
 	}
 	// parse answer
