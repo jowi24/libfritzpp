@@ -100,6 +100,7 @@ TCPStream(fam)
     cookie = agent = pragma = referer = user = password = NULL;
     localif = NULL;
     setError(false);
+    contentType = "application/x-www-form-urlencoded";
 }
 
 int URLStream::aRead(char *buffer, size_t len, timeout_t timer)
@@ -629,7 +630,7 @@ reformat:
                 ++args;
             }
             count = 0;
-            str << "Content-Type: application/x-www-form-urlencoded" << "\r\n";
+            str << "Content-Type: " << contentType << "\r\n";
             str << "Content-Length: " << (unsigned)len << "\r\n";
             break;
         case methodHttpPostMultipart:

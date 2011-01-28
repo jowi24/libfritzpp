@@ -153,6 +153,7 @@ private:
 
 protected:
     ost::String m_host, m_address;
+    ost::String contentType;
 
     /**
      * Send http header to server.
