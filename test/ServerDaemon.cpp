@@ -13,5 +13,5 @@ int main() {
 	while (true) {
 		ost::Thread::sleep(1000);
 	}
-
+	return 0;
 }
