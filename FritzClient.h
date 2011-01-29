@@ -26,6 +26,7 @@
 
 #include "Tools.h"
 #include "HttpClient.h"
+#include "SoapClient.h"
 
 namespace fritz {
 
@@ -38,6 +39,7 @@ private:
 	std::string GetLang();
 	bool validPassword;
 	HttpClient *httpClient;
+	SoapClient *soapClient;
 public:
 	FritzClient ();
 	virtual ~FritzClient();

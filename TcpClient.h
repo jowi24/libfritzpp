@@ -1,7 +1,7 @@
 /*
  * libfritz++
  *
- * Copyright (C) 2007-2010 Joachim Wilke <libfritz@joachim-wilke.de>
+ * Copyright (C) 2007-2011 Joachim Wilke <libfritz@joachim-wilke.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,31 +19,24 @@
  *
  */
 
+#ifndef TCPCLIENT_H_
+#define TCPCLIENT_H_
 
-#ifndef HTTPCLIENT_H_
-#define HTTPCLIENT_H_
-
-#include "cc++/url.h"
-#include "TcpClient.h"
+#include <cc++/socket.h>
 
 namespace fritz {
 
-class HttpClient : public TcpClient {
-private:
-	ost2::URLStream *urlStream;
+class TcpClient {
 protected:
-	HttpClient(std::string &host, int port, ost2::URLStream *stream);
-	ost2::URLStream::Error returnCode;
-	std::string Result();
-    std::string BuildUrl(const std::ostream & url);
+	TcpClient(std::string &host, int port, ost::TCPStream *stream);
+	std::string host;
+	int port;
+	ost::TCPStream *stream;
 public:
-	HttpClient(std::string &host, int port = 80);
-	virtual ~HttpClient();
-	std::string Get(const std::ostream& os);
-	std::string Post(const std::ostream &url, const std::ostream &postdata);
-	std::string PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form);
+	TcpClient(std::string &host, int port);
+	virtual ~TcpClient();
 };
 
 }
 
-#endif /* HTTPCLIENT_H_ */
+#endif /* TCPCLIENT_H_ */

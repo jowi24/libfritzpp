@@ -58,6 +58,7 @@ FritzClient::FritzClient() {
     gcry_control (GCRYCTL_INITIALIZATION_FINISHED, 0);
     // init HttpClient
     httpClient = new HttpClient(gConfig->getUrl(), gConfig->getUiPort());
+    soapClient = new SoapClient(gConfig->getUrl(), gConfig->getUpnpPort());
 }
 
 FritzClient::~FritzClient() {
@@ -393,11 +394,13 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 bool FritzClient::reconnectISP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	msg = httpClient->Post(std::stringstream().flush() //TODO fix
-	    << "/upnp/control/WANIPConn1"
-	    << "\nSoapAction: urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination"
-	    << "\nContent-Type: text/xml",
-	    std::stringstream().flush()
+
+	msg = soapClient->Post(
+		std::stringstream().flush()
+		<< "/upnp/control/WANIPConn1",
+		std::stringstream().flush()
+		<< "urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
+		std::stringstream().flush()
 	    << "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
            "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
 		   "<s:Body>"
@@ -413,10 +416,11 @@ bool FritzClient::reconnectISP() {
 std::string FritzClient::getCurrentIP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	msg = httpClient->Post(std::stringstream().flush() //TODO fix
-		<< "/upnp/control/WANIPConn1"
-		<< "\nSoapAction: urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress"
-		<< "\nContent-Type: text/xml",
+	msg = soapClient->Post(
+		std::stringstream().flush()
+		<< "/upnp/control/WANIPConn1",
+		std::stringstream().flush()
+		<< "urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
 		std::stringstream().flush()
 		<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
 		   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"

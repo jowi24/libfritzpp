@@ -1,7 +1,7 @@
 /*
  * libfritz++
  *
- * Copyright (C) 2007-2010 Joachim Wilke <libfritz@joachim-wilke.de>
+ * Copyright (C) 2007-2011 Joachim Wilke <libfritz@joachim-wilke.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,31 +19,25 @@
  *
  */
 
+#ifndef SOAPCLIENT_H_
+#define SOAPCLIENT_H_
 
-#ifndef HTTPCLIENT_H_
-#define HTTPCLIENT_H_
-
-#include "cc++/url.h"
-#include "TcpClient.h"
+#include "cc++/soap.h"
+#include "HttpClient.h"
 
 namespace fritz {
 
-class HttpClient : public TcpClient {
+class SoapClient : protected HttpClient {
 private:
-	ost2::URLStream *urlStream;
-protected:
-	HttpClient(std::string &host, int port, ost2::URLStream *stream);
-	ost2::URLStream::Error returnCode;
-	std::string Result();
-    std::string BuildUrl(const std::ostream & url);
+	ost2::SOAPStream *soapStream;
+	std::string soapAction;
 public:
-	HttpClient(std::string &host, int port = 80);
-	virtual ~HttpClient();
-	std::string Get(const std::ostream& os);
-	std::string Post(const std::ostream &url, const std::ostream &postdata);
-	std::string PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form);
+	SoapClient(std::string &host, int port = 80);
+	virtual ~SoapClient();
+	std::string Post(const std::ostream &url, const std::ostream &action, const std::ostream &postdata);
+
 };
 
 }
 
-#endif /* HTTPCLIENT_H_ */
+#endif /* SOAPCLIENT_H_ */

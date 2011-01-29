@@ -25,9 +25,14 @@
 
 namespace fritz {
 
-HttpClient::HttpClient(std::string &host, int port) {
-	this->host = host;
-	this->port = port;
+HttpClient::HttpClient(std::string &host, int port) :
+	TcpClient(host, port, new ost2::URLStream()) {
+	urlStream = static_cast<ost2::URLStream *>(stream);
+}
+
+HttpClient::HttpClient(std::string &host, int port, ost2::URLStream *stream) :
+	TcpClient(host, port, stream) {
+	urlStream = static_cast<ost2::URLStream *>(stream);
 }
 
 HttpClient::~HttpClient() {
@@ -40,20 +45,20 @@ std::string HttpClient::BuildUrl(const std::ostream & url){
 }
 std::string HttpClient::Result() {
     std::string response;
-	while (!urlStream.eof())  {
+	while (!urlStream->eof())  {
 	  char buffer[1024];
-	  urlStream.read(buffer, sizeof(buffer)-1);
-	  buffer[urlStream.gcount()] = 0;
+	  urlStream->read(buffer, sizeof(buffer)-1);
+	  buffer[urlStream->gcount()] = 0;
 	  response += buffer;
 	}
-	urlStream.close();
+	urlStream->close();
 	return response;
 }
 
 std::string HttpClient::Get(const std::ostream& url) {
-	urlStream.setAgent("Lynx/2.8.5");
+	urlStream->setAgent("Lynx/2.8.5");
 
-	returnCode = urlStream.get(BuildUrl(url).c_str());
+	returnCode = urlStream->get(BuildUrl(url).c_str());
 	return Result();
 }
 
@@ -65,12 +70,12 @@ std::string HttpClient::Post(const std::ostream &url, const std::ostream &postda
 	params[0] = param0;
 	params[1] = 0;
 
-	returnCode = urlStream.post(BuildUrl(url).c_str(), params);
+	returnCode = urlStream->post(BuildUrl(url).c_str(), params);
 	return Result();
 }
 
 std::string HttpClient::PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form) {
-	returnCode = urlStream.post(BuildUrl(url).c_str(), form);
+	returnCode = urlStream->post(BuildUrl(url).c_str(), form);
 	return Result();
 }
 
