@@ -21,8 +21,8 @@
 
 
 #include <unistd.h>
-#include <TcpClient++.h>
 #include "Config.h"
+#include "HttpClient.h"
 #include "Nummerzoeker.h"
 #include "Tools.h"
 
@@ -61,16 +61,13 @@ Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) {
 	try {
 		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo() ? normNumber : HIDDEN) << " to www.nummerzoeker.com");
 		std::string host = "www.nummerzoeker.com";
-		tcpclient::HttpClient tc(host);
-		tc << tcpclient::get
+		HttpClient tc(host);
+		msg = tc.Get(std::stringstream().flush()
 		   << "/index.php?search=Zoeken&phonenumber="
 		   << normNumber
-		   << "&export=csv"
-		   << "\nAccept-Charset: ISO-8859-1\nUser-Agent: Lynx/2.8.5"
-		   << std::flush;
-		tc >> msg;
-	} catch (tcpclient::TcpException &te) {
-		ERR("Exception - " << te.what());
+		   << "&export=csv");
+	} catch (ost::SockException &se) {
+		ERR("Exception - " << se.what());
 		return result;
 	}
 

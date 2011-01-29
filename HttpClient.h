@@ -19,41 +19,31 @@
  *
  */
 
-#ifndef FRITZCLIENT_H_
-#define FRITZCLIENT_H_
 
-#include <stdlib.h>
+#ifndef HTTPCLIENT_H_
+#define HTTPCLIENT_H_
 
-#include "Tools.h"
-#include "HttpClient.h"
-#include "SoapClient.h"
+#include "cc++/url.h"
+#include "TcpClient.h"
 
 namespace fritz {
 
-class FritzClient {
+class HttpClient : public TcpClient {
 private:
-	static ost::Mutex *mutex;
-    std::string CalculateLoginResponse(std::string challenge);
-	std::string UrlEncode(std::string &s);
-	bool Login();
-	std::string GetLang();
-	bool validPassword;
-	HttpClient *httpClient;
-	SoapClient *soapClient;
+	ost2::URLStream *urlStream;
+protected:
+	HttpClient(std::string &host, int port, ost2::URLStream *stream);
+	ost2::URLStream::Error returnCode;
+	std::string Result();
+    std::string BuildUrl(const std::ostream & url);
 public:
-	FritzClient ();
-	virtual ~FritzClient();
-	bool InitCall(std::string &number);
-	std::string RequestLocationSettings();
-	std::string RequestSipSettings();
-	std::string RequestCallList();
-	std::string RequestFonbook();
-	void WriteFonbook(std::string xmlData);
-	bool hasValidPassword() { return validPassword; }
-	bool reconnectISP();
-	std::string getCurrentIP();
+	HttpClient(std::string &host, int port = 80);
+	virtual ~HttpClient();
+	std::string Get(const std::ostream& os);
+	std::string Post(const std::ostream &url, const std::ostream &postdata);
+	std::string PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form);
 };
 
 }
 
-#endif /* FRITZCLIENT_H_ */
+#endif /* HTTPCLIENT_H_ */

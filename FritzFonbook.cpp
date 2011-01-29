@@ -24,7 +24,6 @@
 #include "FritzFonbook.h"
 #include "FritzClient.h"
 #include "Config.h"
-#include <TcpClient++.h>
 
 namespace fritz {
 

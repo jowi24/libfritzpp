@@ -22,11 +22,13 @@
 #include <iomanip>
 #include <cstring>
 #include <gcrypt.h>
+#include <cc++/thread.h>
 
 #include "Config.h"
 #include "FritzClient.h"
 
 #define RETRY_BEGIN                                  \
+	    ost::Thread::setException(ost::Thread::throwException); \
     	unsigned int retry_delay = RETRY_DELAY / 2;  \
 		bool dataRead = false;                       \
 		do {  				                         \
@@ -36,8 +38,8 @@
 
 #define RETRY_END																							\
 			dataRead = true;                                                                                \
-		} catch (tcpclient::TcpException &te) {																\
-			ERR("Exception in connection to " << gConfig->getUrl() << " - " << te.what());								\
+		} catch (ost::SockException &se) {																\
+			ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());								\
 			ERR("waiting " << retry_delay << " seconds before retrying");	\
 			sleep(retry_delay); /* delay a possible retry */												\
 		}																									\
@@ -54,9 +56,13 @@ FritzClient::FritzClient() {
     // disable secure memory
     gcry_control (GCRYCTL_DISABLE_SECMEM, 0);
     gcry_control (GCRYCTL_INITIALIZATION_FINISHED, 0);
+    // init HttpClient
+    httpClient = new HttpClient(gConfig->getUrl(), gConfig->getUiPort());
+    soapClient = new SoapClient(gConfig->getUrl(), gConfig->getUpnpPort());
 }
 
 FritzClient::~FritzClient() {
+	delete httpClient;
 	mutex->leaveMutex();
 }
 
@@ -101,10 +107,13 @@ std::string FritzClient::UrlEncode(std::string &s_input) {
 			result += hex[(unsigned char) s[i] & 0x0f];
 		}
 	}
+//	TODO: With introduction of libccgnu2, this implementation could be replaced by
+//	char result[4*s_input.length()];
+//	ost::urlEncode(s_input.c_str(), result, sizeof(result));
 	return result;
 }
 
-bool FritzClient::Login() throw(tcpclient::TcpException) {
+bool FritzClient::Login() {
 	// when using SIDs, a new login is only needed if the last request was more than 5 minutes ago
 	if (gConfig->getLoginType() == Config::SID && (time(NULL) - gConfig->getLastRequestTime() < 300)) {
 		return true;
@@ -115,11 +124,8 @@ bool FritzClient::Login() throw(tcpclient::TcpException) {
 	if (gConfig->getLoginType() == Config::UNKNOWN || gConfig->getLoginType() == Config::SID) {
 		// detect if this Fritz!Box uses SIDs
 		DBG("requesting login_sid.xml from Fritz!Box.");
-		tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-		tc 	<< tcpclient::get
-			<< "/cgi-bin/webcm?getpage=../html/login_sid.xml"
-			<< std::flush;
-		tc 	>> sXml;
+		sXml = httpClient->Get(std::stringstream().flush()
+			<< "/cgi-bin/webcm?getpage=../html/login_sid.xml");
 		if (sXml.find("<iswriteaccess>") != std::string::npos)
 			gConfig->setLoginType(Config::SID);
 		else
@@ -132,15 +138,12 @@ bool FritzClient::Login() throw(tcpclient::TcpException) {
 			// logout, drop old SID (if FB has not already dropped this SID because of a timeout)
 			DBG("dropping old SID");
 			std::string sDummy;
-			tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-			tc 	<< tcpclient::post
-				<< "/cgi-bin/webcm"
-				<< std::flush
+			sDummy = httpClient->Post(std::stringstream().flush()
+				<< "/cgi-bin/webcm",
+				std::stringstream().flush()
 				<< "sid="
 				<< gConfig->getSid()
-				<< "&security:command/logout=abc"
-				<< std::flush;
-			tc 	>> sDummy;
+				<< "&security:command/logout=abc");
 		}
 		// check if no password is needed (SID is directly available)
 		size_t pwdFlag = sXml.find("<iswriteaccess>");
@@ -173,16 +176,12 @@ bool FritzClient::Login() throw(tcpclient::TcpException) {
             std::string response = CalculateLoginResponse(challenge);
             // send response to box
 			std::string sMsg;
-			tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-			tc 	<< tcpclient::post
-				<< "/cgi-bin/webcm"
-				<< std::flush
+			sMsg = httpClient->Post(std::stringstream().flush()
+				<< "/cgi-bin/webcm",
+				std::stringstream().flush()
 				<< "login:command/response="
 				<< response
-				<< "&getpage=../html/de/menus/menu2.html"
-				<< std::flush;
-			tc 	>> sMsg;
-			// get SID out of sMsg
+				<< "&getpage=../html/de/menus/menu2.html");
 			size_t sidStart = sMsg.find("name=\"sid\"");
 			if (sidStart == std::string::npos) {
 				ERR("Error - Expected sid field not found.");
@@ -215,14 +214,11 @@ bool FritzClient::Login() throw(tcpclient::TcpException) {
 
 		std::string sMsg;
 
-		tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-		tc 	<< tcpclient::post
-			<< "/cgi-bin/webcm"
-			<< std::flush
+		sMsg = httpClient->Post(std::stringstream().flush()
+			<< "/cgi-bin/webcm",
+			std::stringstream().flush()
 			<< "login:command/password="
-			<< UrlEncode(gConfig->getPassword())
-			<< std::flush;
-		tc 	>> sMsg;
+			<< UrlEncode(gConfig->getPassword()));
 
 		// determine if login was successful
 		if (sMsg.find("class=\"errorMessage\"") != std::string::npos) {
@@ -235,7 +231,7 @@ bool FritzClient::Login() throw(tcpclient::TcpException) {
 	return false;
 }
 
-std::string FritzClient::GetLang() throw(tcpclient::TcpException) {
+std::string FritzClient::GetLang() {
 	if ( gConfig && gConfig->getLang().size() == 0) {
 		std::vector<std::string> langs;
 		langs.push_back("en");
@@ -243,14 +239,11 @@ std::string FritzClient::GetLang() throw(tcpclient::TcpException) {
 		langs.push_back("fr");
 		for (unsigned int p=0; p<langs.size(); p++) {
 			std::string sMsg;
-			tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
-			tc 	<< tcpclient::get
+			sMsg = httpClient->Get(std::stringstream().flush()
 				<< "/cgi-bin/webcm?getpage=../html/"
 				<< langs[p]
 				<< "/menus/menu2.html"
-				<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-				<< std::flush;
-			tc 	>> sMsg;
+				<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 			if (sMsg.find("<html>") != std::string::npos) {
 				gConfig->setLang(langs[p]);
 				DBG("interface language is " << gConfig->getLang().c_str());
@@ -271,20 +264,17 @@ bool FritzClient::InitCall(std::string &number) {
 		return false;
 	try {
 		INF("sending call init request " << (gConfig->logPersonalInfo() ? number.c_str() : HIDDEN));
-		tcpclient::HttpClient tc( gConfig->getUrl(), gConfig->getUiPort());
-		tc << tcpclient::post
-		   << "/cgi-bin/webcm"
-		   << std::flush
+		msg = httpClient->Post(std::stringstream().flush()
+		   << "/cgi-bin/webcm",
+		   std::stringstream().flush()
 		   << "getpage=../html/"
 		   << GetLang()
 		   << "/menus/menu2.html&var%3Apagename=fonbuch&var%3Amenu=home&telcfg%3Acommand/Dial="
 		   << number
-  	       << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-		   << std::flush;
-		tc >> msg;
+  	       << (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 		INF("call initiated.");
-	} catch (tcpclient::TcpException &te) {
-		ERR("Exception - " << te.what());
+	} catch (ost::SockException &se) {
+		ERR("Exception - " << se.what());
 		return false;
 	}
 	return true;
@@ -294,16 +284,13 @@ std::string FritzClient::RequestLocationSettings() {
 	std::string msg;
 	RETRY_BEGIN {
 		DBG("Looking up Phone Settings...");
-		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
-		hc 	<< tcpclient::get
+		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
 			<<  GetLang()
 			<< "/menus/menu2.html&var%3Alang="
 			<<  GetLang()
 			<< "&var%3Apagename=sipoptionen&var%3Amenu=fon"
-			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-			<< std::flush;
-		hc >> msg;
+			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 	} RETRY_END
 	return msg;
 }
@@ -312,16 +299,13 @@ std::string FritzClient::RequestSipSettings() {
 	std::string msg;
 	RETRY_BEGIN {
 		DBG("Looking up SIP Settings...");
-		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
-		hc 	<< tcpclient::get
-			<< "/cgi-bin/webcm?getpage=../html/"
-			<< GetLang()
-			<< "/menus/menu2.html&var%3Alang="
-			<< GetLang()
-			<< "&var%3Apagename=siplist&var%3Amenu=fon"
-			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-			<< std::flush;
-		hc >> msg;
+		msg = httpClient->Get(std::stringstream().flush()
+				<< "/cgi-bin/webcm?getpage=../html/"
+				<< GetLang()
+				<< "/menus/menu2.html&var%3Alang="
+				<< GetLang()
+				<< "&var%3Apagename=siplist&var%3Amenu=fon"
+				<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 	} RETRY_END
 	return msg;
 }
@@ -332,16 +316,13 @@ std::string FritzClient::RequestCallList () {
 		// now, process call list
 		DBG("sending callList request.");
 		// force an update of the fritz!box csv list and wait until all data is received
-		tcpclient::HttpClient hc(gConfig->getUrl(), gConfig->getUiPort());
-		hc 	<< tcpclient::get
+		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
 			<<  GetLang()
 			<< "/menus/menu2.html&var:lang="
 			<<  GetLang()
 			<< "&var:pagename=foncalls&var:menu=fon"
-			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-			<< std::flush;
-		hc >> msg;
+			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 		// get the URL of the CSV-File-Export
 		unsigned int urlPos   = msg.find(".csv");
 		unsigned int urlStop  = msg.find('"', urlPos);
@@ -349,13 +330,10 @@ std::string FritzClient::RequestCallList () {
 		std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
 		// retrieve csv list
 		msg = "";
-		tcpclient::HttpClient hc2(gConfig->getUrl(), gConfig->getUiPort());
-		hc2 << tcpclient::get
+		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage="
 			<<  csvUrl
-			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-			<< std::flush;
-		hc2 >> msg;
+			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 		// convert answer to current SystemCodeSet (we assume, Fritz!Box sends its answer in latin15)
 		CharSetConv *conv = new CharSetConv("ISO-8859-15", CharSetConv::SystemCharacterTable());
 		const char *msg_converted = conv->Convert(msg.c_str());
@@ -369,42 +347,28 @@ std::string FritzClient::RequestFonbook () {
 	std::string msg;
 	RETRY_BEGIN {
 		DBG("sending fonbook request.");
-		tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
-		tc 	<< tcpclient::get
+		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
 			<< GetLang()
 			<< "/menus/menu2.html"
 			<< "&var:lang="
 			<< GetLang()
 			<< "&var:pagename=fonbuch&var:menu=fon"
-			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid()
-			<< std::flush;
-		tc >> msg;
+			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 	} RETRY_END
 
 	// detect if xml export of fonbook is possible
 	if (msg.find("uiPostExportForm") != std::string::npos) {
 		RETRY_BEGIN {
-			tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
-			tc << tcpclient::post
-			   << "/cgi-bin/firmwarecfg"
-			   << "\nContent-Type: multipart/form-data; boundary=---------------------------177066101417337771721481521429"
-			   << std::flush
-			   << "-----------------------------177066101417337771721481521429\n"
-                  "Content-Disposition: form-data; name=\"sid\"\n\n"
-               << gConfig->getSid() << "\n"
-			   << "-----------------------------177066101417337771721481521429\n"
-			      "Content-Disposition: form-data; name=\"PhonebookId\"\n\n"
-			      "0\n"
-			      "-----------------------------177066101417337771721481521429\n"
-			      "Content-Disposition: form-data; name=\"PhonebookExportName\"\n\n"
-			      "Telefonbuch\n"
-			      "-----------------------------177066101417337771721481521429\n"
-			      "Content-Disposition: form-data; name=\"PhonebookExport\"\n\n"
-			      "\n"
-			      "-----------------------------177066101417337771721481521429--\n"
-			   << std::flush;
-			tc >> msg;
+			ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
+
+			new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
+			new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
+			new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
+			new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
+
+			msg = httpClient->PostMIME(std::stringstream().flush()
+					<< "/cgi-bin/firmwarecfg", *mmpf);
 		} RETRY_END
 	}
 
@@ -415,24 +379,14 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 	std::string msg;
 	DBG("Saving XML Fonbook to FB...");
 	RETRY_BEGIN {
-		tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUiPort());
-		tc << tcpclient::post
-		   << "/cgi-bin/firmwarecfg"
-		   << "\nContent-Type: multipart/form-data; boundary=---------------------------177066101417337771721481521429"
-		   << std::flush
-		   << "-----------------------------177066101417337771721481521429\n"
-              "Content-Disposition: form-data; name=\"sid\"\n\n"
-           << gConfig->getSid() << "\n"
-		   << "-----------------------------177066101417337771721481521429\n"
-		      "Content-Disposition: form-data; name=\"PhonebookId\"\n\n"
-		      "0\n"
-		      "-----------------------------177066101417337771721481521429\n"
-		      "Content-Disposition: form-data; name=\"PhonebookImportFile\"; filename=\"FRITZ.Box_Telefonbuch_01.01.10_0000.xml\"\n"
-		      "Content-Type: text/xml\n\n"
-		   << xmlData <<
-		      "\n-----------------------------177066101417337771721481521429--\n"
-		   << std::flush;
-		tc >> msg;
+		ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
+
+		new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
+		new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
+		new ost2::MIMEFormData( mmpf, "PhonebookImportFile", "FRITZ.Box_Telefonbuch_01.01.10_0000.xml", "text/xml", xmlData.c_str());
+
+		msg = httpClient->PostMIME(std::stringstream().flush()
+				<< "/cgi-bin/firmwarecfg", *mmpf);
 	} RETRY_END
 }
 
@@ -440,20 +394,19 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 bool FritzClient::reconnectISP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUpnpPort());
-	tc  << tcpclient::post
-	    << "/upnp/control/WANIPConn1"
-	    << "\nSoapAction: urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination"
-	    << "\nContent-Type: text/xml"
-	    << std::flush
+
+	msg = soapClient->Post(
+		std::stringstream().flush()
+		<< "/upnp/control/WANIPConn1",
+		std::stringstream().flush()
+		<< "urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
+		std::stringstream().flush()
 	    << "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
            "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
 		   "<s:Body>"
            "<u:ForceTermination xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
            "</s:Body>"
-           "</s:Envelope>"
-	    << std::flush;
-	tc >> msg;
+           "</s:Envelope>");
 	if (msg.find("ForceTerminationResponse") == std::string::npos)
 		return false;
 	else
@@ -463,20 +416,18 @@ bool FritzClient::reconnectISP() {
 std::string FritzClient::getCurrentIP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	tcpclient::HttpClient tc(gConfig->getUrl(), gConfig->getUpnpPort());
-	tc  << tcpclient::post
-		<< "/upnp/control/WANIPConn1"
-		<< "\nSoapAction: urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress"
-		<< "\nContent-Type: text/xml"
-		<< std::flush
+	msg = soapClient->Post(
+		std::stringstream().flush()
+		<< "/upnp/control/WANIPConn1",
+		std::stringstream().flush()
+		<< "urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
+		std::stringstream().flush()
 		<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
 		   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
 		   "<s:Body>"
 		   "<u:GetExternalIPAddress xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
 		   "</s:Body>"
-		   "</s:Envelope>"
-		<< std::flush;
-	tc >> msg;
+		   "</s:Envelope>");
 	DBG("Parsing reply...");
 	std::string::size_type start = msg.find("<NewExternalIPAddress>");
 	std::string::size_type stop = msg.find("</NewExternalIPAddress>");
