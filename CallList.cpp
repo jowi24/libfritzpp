@@ -86,6 +86,7 @@ CallList::CallList()
 	setName("CallList");
 	setCancel(cancelDeferred);
 	lastMissedCall = 0;
+	lastCall = 0;
 	valid = false;
 	start();
 }
