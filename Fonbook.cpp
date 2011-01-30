@@ -238,7 +238,10 @@ void Fonbook::Save() {
 }
 
 size_t Fonbook::GetFonbookSize() {
-	return fonbookList.size();
+	if (initialized)
+		return fonbookList.size();
+	else
+		return 0;
 }
 
 void Fonbook::Sort(FonbookEntry::eElements element, bool ascending) {
