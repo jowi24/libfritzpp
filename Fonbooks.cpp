@@ -32,7 +32,7 @@ Fonbooks::~Fonbooks()
 {
 }
 
-Fonbook *Fonbooks::operator[](std::string key) {
+Fonbook *Fonbooks::operator[](std::string key) const {
 	for (size_t i=0; i<this->size(); i++) {
 		if ((*this)[i]->GetTechId() == key) {
 			return ((*this)[i]);
@@ -41,7 +41,7 @@ Fonbook *Fonbooks::operator[](std::string key) {
 	return NULL;
 }
 
-Fonbook *Fonbooks::operator[](size_t i) {
+Fonbook *Fonbooks::operator[](size_t i) const {
 	return (*((std::vector<Fonbook*>*) this))[i];
 }
 

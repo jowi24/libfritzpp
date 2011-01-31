@@ -48,18 +48,18 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number);
+	virtual sResolveResult ResolveToName(std::string number) const;
 	/**
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries
 	 */
-	virtual size_t GetFonbookSize() { return 0; }
+	virtual size_t GetFonbookSize() const { return 0; }
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or NULL, if unsuccesful
 	 */
-	virtual FonbookEntry *RetrieveFonbookEntry(size_t id __attribute__((unused))) { return NULL; }
+	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id __attribute__((unused))) const { return NULL; }
 
 };
 

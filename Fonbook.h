@@ -187,13 +187,13 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number);
+	virtual sResolveResult ResolveToName(std::string number) const;
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or NULL, if unsuccessful
 	 */
-	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id);
+	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id) const;
 	/**
 	 * Changes the Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
@@ -232,17 +232,17 @@ public:
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.
 	 */
-	virtual bool isDisplayable() { return displayable; }
+	virtual bool isDisplayable() const { return displayable; }
 	/**
 	 * Returns if this phonebook is ready to use.
 	 * @return true, if this phonebook is ready to use
 	 */
-	virtual bool isInitialized() { return initialized; }
+	virtual bool isInitialized() const { return initialized; }
 	/**
 	 * Returns if this phonebook is writeable, e.g. entries can be added or modified.
 	 * @return true, if this phonebook is writeable
 	 */
-	virtual bool isWriteable() { return writeable; }
+	virtual bool isWriteable() const { return writeable; }
 	/**
 	 * Sets the initialized-status.
 	 * @param isInititalized the value initialized is set to
@@ -252,7 +252,7 @@ public:
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries
 	 */
-	virtual size_t GetFonbookSize();
+	virtual size_t GetFonbookSize() const;
 	/**
 	 *  Reloads the telephonebook's content
 	 */

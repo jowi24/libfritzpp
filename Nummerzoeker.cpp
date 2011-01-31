@@ -44,7 +44,7 @@ bool NummerzoekerFonbook::Initialize() {
 	return true;
 }
 
-Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) {
+Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) const {
 	Fonbook::sResolveResult result;
 	result.name = number;
 	result.type = FonbookEntry::TYPE_NONE;

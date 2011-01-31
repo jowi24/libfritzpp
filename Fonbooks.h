@@ -34,8 +34,8 @@ class Fonbooks : public std::vector<Fonbook *>
 public:
 	Fonbooks();
 	virtual ~Fonbooks();
-	Fonbook *operator[](std::string key);
-	Fonbook *operator[](size_t i);
+	Fonbook *operator[](std::string key) const;
+	Fonbook *operator[](size_t i) const;
 };
 
 }

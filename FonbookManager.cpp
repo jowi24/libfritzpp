@@ -60,6 +60,9 @@ FonbookManager::FonbookManager()
 		if (fonbooks[gConfig->getFonbookIDs()[pos]]->isDisplayable())
 			activeFonbookPos = pos;
 	}
+	// if no valid phone book is selected, advance to the next valid one
+	if (!GetActiveFonbook())
+		NextFonbook();
 }
 
 FonbookManager::~FonbookManager()
@@ -144,7 +147,7 @@ void FonbookManager::NextFonbook() {
 	}
 }
 
-Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
+Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) const {
 	sResolveResult result;
 	for (size_t i=0; i<gConfig->getFonbookIDs().size(); i++) {
 		result = fonbooks[gConfig->getFonbookIDs()[i]]->ResolveToName(number);
@@ -155,19 +158,14 @@ Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
 	return result;
 }
 
-Fonbook *FonbookManager::GetActiveFonbook() {
-	// try to get a valid book
-	if (activeFonbookPos == std::string::npos) {
-		NextFonbook();
-	}
-	// else return NULL
+Fonbook *FonbookManager::GetActiveFonbook() const {
 	if (activeFonbookPos == std::string::npos) {
 		return NULL;
 	}
 	return fonbooks[gConfig->getFonbookIDs()[activeFonbookPos]];
 }
 
-const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) {
+const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) const {
 	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : NULL;
 }
 
@@ -193,15 +191,15 @@ void FonbookManager::Clear() {
 		GetActiveFonbook()->Clear();
 }
 
-bool FonbookManager::isDisplayable() {
+bool FonbookManager::isDisplayable() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->isDisplayable() : false;
 }
 
-bool FonbookManager::isInitialized() {
+bool FonbookManager::isInitialized() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->isInitialized() : false;
 }
 
-bool FonbookManager::isWriteable() {
+bool FonbookManager::isWriteable() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->isWriteable() : false;
 }
 
@@ -215,7 +213,7 @@ void FonbookManager::Sort(FonbookEntry::eElements element, bool ascending){
 		GetActiveFonbook()->Sort(element, ascending);
 }
 
-size_t FonbookManager::GetFonbookSize() {
+size_t FonbookManager::GetFonbookSize() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->GetFonbookSize() : 0;
 }
 

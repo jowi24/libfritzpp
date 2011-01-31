@@ -172,7 +172,7 @@ void Fonbook::SetDirty() {
 		dirty = true;
 }
 
-Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
+Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) const {
 	sResolveResult result;
 	result.name = number;
 	result.type = FonbookEntry::TYPE_NONE;
@@ -189,7 +189,7 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	return result;
 }
 
-const FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) {
+const FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) const {
 	if (id >= GetFonbookSize())
 		return NULL;
 	return &fonbookList[id];
@@ -237,7 +237,7 @@ void Fonbook::Save() {
 	}
 }
 
-size_t Fonbook::GetFonbookSize() {
+size_t Fonbook::GetFonbookSize() const {
 	if (initialized)
 		return fonbookList.size();
 	else

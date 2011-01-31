@@ -35,7 +35,7 @@ private:
 	static FonbookManager* me;
 	Fonbooks fonbooks;
 	FonbookManager();
-	Fonbook *GetActiveFonbook();
+	Fonbook *GetActiveFonbook() const;
 	size_t activeFonbookPos;
 public:
 	virtual ~FonbookManager();
@@ -76,13 +76,13 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number);
+	virtual sResolveResult ResolveToName(std::string number) const;
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or NULL, if unsuccesful
 	 */
-	const FonbookEntry *RetrieveFonbookEntry(size_t id);
+	const FonbookEntry *RetrieveFonbookEntry(size_t id) const;
 	/**
 	 * Changes the Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
@@ -117,17 +117,17 @@ public:
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.
 	 */
-	virtual bool isDisplayable();
+	virtual bool isDisplayable() const;
 	/**
 	 * Returns if this phonebook is ready to use.
 	 * @return true, if this phonebook is ready to use
 	 */
-	virtual bool isInitialized();
+	virtual bool isInitialized() const;
 	/**
 	 * Returns if this phonebook is writeable, e.g. entries can be added or modified.
 	 * @return true, if this phonebook is writeable
 	 */
-	virtual bool isWriteable();
+	virtual bool isWriteable() const;
 	/**
 	 * Sets the initialized-status.
 	 * @param isInititalized the value initialized is set to
@@ -143,7 +143,7 @@ public:
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries or cFonbook::npos, if requesting specific telephonebook entries is not possible for this telephonebook
 	 */
-	size_t GetFonbookSize();
+	size_t GetFonbookSize() const;
 	/**
 	 *  Reloads the telephonebook's content
 	 */

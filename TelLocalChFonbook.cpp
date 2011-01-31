@@ -45,7 +45,7 @@ bool TelLocalChFonbook::Initialize() {
 	return true;
 }
 
-TelLocalChFonbook::sResolveResult TelLocalChFonbook::ResolveToName(std::string number) {
+TelLocalChFonbook::sResolveResult TelLocalChFonbook::ResolveToName(std::string number) const {
 	TelLocalChFonbook::sResolveResult result;
 	result.name = number;
 	result.type = FonbookEntry::TYPE_NONE;
