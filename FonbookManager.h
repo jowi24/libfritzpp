@@ -102,7 +102,7 @@ public:
 	 * @param fe a new phonebook entry
 	 * @return true, if add was sucessful
 	 */
-	virtual void AddFonbookEntry(FonbookEntry &fe);
+	virtual void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param id unique id to the entry to be deleted

@@ -215,8 +215,11 @@ bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
 	}
 }
 
-void Fonbook::AddFonbookEntry(FonbookEntry &fe) {
-	fonbookList.push_back(fe);
+void Fonbook::AddFonbookEntry(FonbookEntry &fe, size_t position) {
+	if (position == std::string::npos || position > fonbookList.size())
+		fonbookList.push_back(fe);
+	else
+		fonbookList.insert(fonbookList.begin() + position, fe);
 	SetDirty();
 }
 

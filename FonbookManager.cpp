@@ -177,9 +177,9 @@ bool FonbookManager::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) 
 	return GetActiveFonbook() ? GetActiveFonbook()->SetDefaultType(id, type) : false;
 }
 
-void FonbookManager::AddFonbookEntry(FonbookEntry &fe) {
+void FonbookManager::AddFonbookEntry(FonbookEntry &fe, size_t position) {
 	if (GetActiveFonbook())
-		GetActiveFonbook()->AddFonbookEntry(fe);
+		GetActiveFonbook()->AddFonbookEntry(fe, position);
 }
 
 bool FonbookManager::DeleteFonbookEntry(size_t id) {
