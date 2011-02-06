@@ -131,6 +131,7 @@ bool LocalFonbook::Initialize() {
 		int res = asprintf(&filePath, "%s/localphonebook.xml", gConfig->getConfigDir().c_str());
 		if (res <= 0)
 			return false;
+		setInitialized(true);
 		return false;
 	}
 	return false;
