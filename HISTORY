@@ -177,3 +177,41 @@
 - Fix XmlFonbook parser
   XmlFonbook Parser was not aware of empty <number /> tags
 - Fix retry delay calculation in Listener
+- Fix FonbookManager if no phone book is configured at all
+- Add several consts to Fonbook, FonbookEntry and Reverse Lookup Fonbooks
+- Add copy constructor to FonbookEntry
+- Add Fonbook::ChangeFonbookEntry, Fonbook::SetDefaultType
+- Add methods for adding and deleting fonbook entries
+  Fonbook::AddFonbookEntry and ::DeleteFonbookEntry
+- Make Fonbook::fonbookList private, add a Clear() method to erase it
+- Only write phone books back if changes are pending
+- Fixed setInitialized in LocalFonbook
+- Added HttpClient to libfritz++ to replace remaining functionality of libtcpclient++
+- Adapted Makefile / CMakeLists.txt to add HttpClient
+- Adapted FritzClient's get and post calls
+- Adapted CallList, because new implementation doesn't return the header lines
+- Imported some files from libcommoncpp to fix issues
+  * remove newline after HTTP POST data
+    An unnecessary \r\n was added to data in HTTP POST requests,
+    with certain webservers this causes errors
+  * boundary spelling error
+    In MIME multipart requests, boundary is spelled boundry
+  * HTTP POST multipart
+    consider form data in content length, send from data together with HTTP header
+  * Extend MIMEFormData
+    support for filename and content-type is added
+  * SOAPStream
+    Flexibilize URLStream with regard to content type in http posts
+    Add SOAPStream class
+- Improve HttpClient to use default HTTP port
+- Migrate reverse lookup phone books to use new HttpClient
+- Provide PostMIME method in HttpClient
+- Make Fonbook::GetFonbookSize() more robust
+  If not initialized, always return 0 and not the current intermediate state
+- Fix missing initialization in CallList
+
+2011-02:
+- Extend Fonbook::AddFonbookEntry() to allow arbitrary position for new entry
+- Fix initialization of LocalFonbook
+  Add setInitialized(true) in case of no local phonebook file exists
+
