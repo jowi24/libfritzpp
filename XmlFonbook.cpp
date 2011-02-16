@@ -157,7 +157,7 @@ XmlFonbook::~XmlFonbook() {
 
 
 std::string XmlFonbook::ExtractXmlAttributeValue(std::string element, std::string attribute, std::string xml) {
-	size_t posStart = xml.find("<"+element);
+	size_t posStart = xml.find('<'+element);
 	if (posStart != std::string::npos) {
 		posStart = xml.find(attribute+"=\"", posStart);
 		if (posStart != std::string::npos) {
@@ -170,12 +170,12 @@ std::string XmlFonbook::ExtractXmlAttributeValue(std::string element, std::strin
 }
 
 std::string XmlFonbook::ExtractXmlElementValue(std::string element, std::string xml) {
-	size_t posStart = xml.find("<"+element);
+	size_t posStart = xml.find('<'+element);
 	if (posStart != std::string::npos) {
 		posStart = xml.find(">", posStart);
 		if (xml[posStart-1] == '/')
 			return "";
-		size_t posEnd   = xml.find("</"+element+">");
+		size_t posEnd   = xml.find("</"+element+'>');
 		if (posEnd != std::string::npos)
 			return xml.substr(posStart + 1, posEnd - posStart - 1);
 	}

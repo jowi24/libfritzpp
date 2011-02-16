@@ -85,7 +85,7 @@ void FBWebServer::run() {
 					std::cout << "FBWebServer got request: " << requestLine << std::endl;
 				}
 			}
-			std::string file = fw + "/";
+			std::string file = fw + '/';
 			if (request.find("login_sid.xml") != std::string::npos) {
 				file += "login_sid";
 			} else if (request.find("POST /cgi-bin/webcm") != std::string::npos) {

@@ -55,7 +55,7 @@ Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) c
 		return result;
 
 	// __FILE__om works only with national number: remove 0031 prefix, add 0
-	normNumber = "0" + normNumber.substr(4);
+	normNumber = '0' + normNumber.substr(4);
 
 	std::string msg;
 	try {
@@ -87,7 +87,7 @@ Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) c
 			size_t streetStart  = msg.find(",", surnameStart+1);
 			name                = msg.substr(nameStart, surnameStart-nameStart-1);
 			surname             = msg.substr(surnameStart, streetStart-surnameStart-1);
-			name = surname + " " + name;
+			name = surname + ' ' + name;
 			break;
 	  }
 	}
