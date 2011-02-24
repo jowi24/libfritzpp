@@ -20,6 +20,8 @@
  */
 
 
+#include <cc++/socket.h>
+
 #include "HttpClient.h"
 #include "Config.h"
 
@@ -59,6 +61,8 @@ std::string HttpClient::Get(const std::ostream& url) {
 	urlStream->setAgent("Lynx/2.8.5");
 
 	returnCode = urlStream->get(BuildUrl(url).c_str());
+	if (returnCode != ost2::URLStream::errSuccess)
+		THROW(ost::SockException("Could not connect", ost::Socket::errNotConnected));
 	return Result();
 }
 
@@ -71,11 +75,16 @@ std::string HttpClient::Post(const std::ostream &url, const std::ostream &postda
 	params[1] = 0;
 
 	returnCode = urlStream->post(BuildUrl(url).c_str(), params);
+	if (returnCode != ost2::URLStream::errSuccess)
+		THROW(ost::SockException("Could not connect", ost::Socket::errNotConnected));
 	return Result();
+
 }
 
 std::string HttpClient::PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form) {
 	returnCode = urlStream->post(BuildUrl(url).c_str(), form);
+	if (returnCode != ost2::URLStream::errSuccess)
+		THROW(ost::SockException("Could not connect", ost::Socket::errNotConnected));
 	return Result();
 }
 
