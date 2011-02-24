@@ -115,7 +115,7 @@ void Listener::run() {
 						// resolve SIP names
 						std::string mediumName;
 						if (partD.find("SIP")           != std::string::npos &&
-						    gConfig->getSipNames().size() >= (size_t)atoi(&partD[3]))
+						    gConfig->getSipNames().size() > (size_t)atoi(&partD[3]))
 							mediumName = gConfig->getSipNames()[atoi(&partD[3])];
 						else
 							mediumName = partD;
@@ -138,7 +138,7 @@ void Listener::run() {
 						// resolve SIP names
 						std::string mediumName;
 						if (partC.find("SIP")           != std::string::npos &&
-						    gConfig->getSipNames().size() >= (size_t)atoi(&partC[3]))
+						    gConfig->getSipNames().size() > (size_t)atoi(&partC[3]))
 							mediumName = gConfig->getSipNames()[atoi(&partC[3])];
 						else
 							mediumName = partC;
