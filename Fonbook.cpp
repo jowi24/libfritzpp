@@ -240,6 +240,12 @@ void Fonbook::Save() {
 	}
 }
 
+void Fonbook::setInitialized(bool isInitialized) {
+	initialized = isInitialized;
+	if (displayable && isInitialized)
+		INF(title << " initialized (" << GetFonbookSize() << " entries).");
+}
+
 size_t Fonbook::GetFonbookSize() const {
 	if (initialized)
 		return fonbookList.size();

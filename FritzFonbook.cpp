@@ -147,7 +147,6 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 		}
 		AddFonbookEntry(fe);
 	}
-	INF("read " << GetFonbookSize() << " entries.");
 }
 
 void FritzFonbook::Reload() {

@@ -247,7 +247,7 @@ public:
 	 * Sets the initialized-status.
 	 * @param isInititalized the value initialized is set to
 	 */
-	virtual void setInitialized(bool isInitialized) { initialized = isInitialized; }
+	virtual void setInitialized(bool isInitialized);
 	/**
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries

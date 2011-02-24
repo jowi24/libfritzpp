@@ -176,7 +176,6 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 				ERR("parse error at " << s);
 			}
 		}
-		INF("read " << GetFonbookSize() << " entries.");
 		Sort(FonbookEntry::ELEM_NAME, true);
 		fclose(f);
 	}

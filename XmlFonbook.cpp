@@ -230,7 +230,6 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 		AddFonbookEntry(fe);
 		pos = msgConv.find("<contact>", pos+1);
 	}
-	INF("read " << GetFonbookSize() << " entries.");
 }
 
 std::string XmlFonbook::SerializeToXml() {
