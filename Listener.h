@@ -58,6 +58,9 @@ private:
 	EventHandler *event;
 	std::vector<int> activeConnections;
 	Listener(EventHandler *event);
+	void HandleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium);
+	void HandleConnect(int connId);
+	void HandleDisconnect(int connId, std::string duration);
 public:
 	/**
 	 * Activate listener support.

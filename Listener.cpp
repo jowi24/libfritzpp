@@ -67,6 +67,55 @@ void Listener::DeleteListener() {
 	}
 }
 
+void Listener::HandleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium) {
+	if ( Tools::MatchesMsnFilter(localParty) ) {
+		// do reverse lookup
+		Fonbook::sResolveResult result = FonbookManager::GetFonbook()->ResolveToName(remoteNumber);
+		// resolve SIP names
+		std::string mediumName;
+		if (medium.find("SIP")           != std::string::npos &&
+				gConfig->getSipNames().size() > (size_t)atoi(&medium[3]))
+			mediumName = gConfig->getSipNames()[atoi(&medium[3])];
+		else
+			mediumName = medium;
+		// notify application
+		if (event) event->HandleCall(outgoing, connId, remoteNumber, result.name, result.type, localParty, medium, mediumName);
+		activeConnections.push_back(connId);
+	}
+}
+
+void Listener::HandleConnect(int connId) {
+	// only notify application if this connection is part of activeConnections
+	bool notify = false;
+	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
+		if (*it == connId) {
+			notify = true;
+			break;
+		}
+	}
+	if (notify)
+		if (event) event->HandleConnect(connId);
+}
+
+void Listener::HandleDisconnect(int connId, std::string duration) {
+	// only notify application if this connection is part of activeConnections
+	bool notify = false;
+	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
+		if (*it == connId) {
+			activeConnections.erase(it);
+			notify = true;
+			break;
+		}
+	}
+	if (notify) {
+		if (event) event->HandleDisconnect(connId, duration);
+		// force reload of callList
+		CallList *callList = CallList::getCallList(false);
+		if (callList)
+			callList->start();
+	}
+}
+
 void Listener::run() {
 
 	Thread::setException(Thread::throwException);
@@ -91,6 +140,11 @@ void Listener::run() {
 				std::string partC = Tools::Tokenize(data, ';', 5);
 				std::string partD = Tools::Tokenize(data, ';', 6);
 
+#if 0 // some strings sent from the FB, made available to xgettext
+					I18N_NOOP("POTS");
+					I18N_NOOP("ISDN");
+#endif
+
 				if (type.compare("CALL") == 0) {
 					// partA => box port
 					// partB => caller Id (local)
@@ -101,28 +155,11 @@ void Listener::run() {
 		                        << ", " << (gConfig->logPersonalInfo() ? partC : HIDDEN)
 		                        << ", " << partD);
 
-#if 0 // some strings sent from the FB, made available to xgettext
-					I18N_NOOP("POTS");
-					I18N_NOOP("ISDN");
-#endif
 					// an '#' can be appended to outgoing calls by the phone, so delete it
 					if (partC[partC.length()-1] == '#')
 						partC = partC.substr(0, partC.length()-1);
 
-					if ( Tools::MatchesMsnFilter(partB) ) {
-						// do reverse lookup
-						Fonbook::sResolveResult result = FonbookManager::GetFonbook()->ResolveToName(partC);
-						// resolve SIP names
-						std::string mediumName;
-						if (partD.find("SIP")           != std::string::npos &&
-						    gConfig->getSipNames().size() > (size_t)atoi(&partD[3]))
-							mediumName = gConfig->getSipNames()[atoi(&partD[3])];
-						else
-							mediumName = partD;
-						// notify application
-						if (event) event->HandleCall(true, connId, partC, result.name, result.type, partB, partD, mediumName);
-						activeConnections.push_back(connId);
-					}
+					HandleNewCall(true, connId, partC, partB, partD);
 
 				} else if (type.compare("RING") == 0) {
 					// partA => caller Id (remote)
@@ -132,54 +169,22 @@ void Listener::run() {
 							    << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN)
 		                        << ", " << partC);
 
-					if ( Tools::MatchesMsnFilter(partB) ) {
-						// do reverse lookup
-						Fonbook::sResolveResult result = FonbookManager::GetFonbook()->ResolveToName(partA);
-						// resolve SIP names
-						std::string mediumName;
-						if (partC.find("SIP")           != std::string::npos &&
-						    gConfig->getSipNames().size() > (size_t)atoi(&partC[3]))
-							mediumName = gConfig->getSipNames()[atoi(&partC[3])];
-						else
-							mediumName = partC;
-						// notify application
-						if (event) event->HandleCall(false, connId, partA, result.name, result.type, partB, partC, mediumName);
-						activeConnections.push_back(connId);
-					}
+					HandleNewCall(false, connId, partA, partB, partC);
+
 				} else if (type.compare("CONNECT") == 0) {
 					// partA => box port
 					// partB => local/remote Id
 					DBG("CONNECT " << ", " << partA
 							       << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN));
-					// only notify application if this connection is part of activeConnections
-					bool notify = false;
-					for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
-						if (*it == connId) {
-							notify = true;
-							break;
-						}
-					}
-					if (notify)
-						if (event) event->HandleConnect(connId);
+
+					HandleConnect(connId);
+
 				} else if (type.compare("DISCONNECT") == 0) {
 					// partA => call duration
 					DBG("DISCONNECT " << ", " << partA );
-					// only notify application if this connection is part of activeConnections
-					bool notify = false;
-					for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
-						if (*it == connId) {
-							activeConnections.erase(it);
-							notify = true;
-							break;
-						}
-					}
-					if (notify) {
-						if (event) event->HandleDisconnect(connId, partA);
-						// force reload of callList
-						CallList *callList = CallList::getCallList(false);
-						if (callList)
-							callList->start();
-					}
+
+					HandleDisconnect(connId, partA);
+
 				} else {
 					DBG("Got unknown message " << data);
 					throw this;
