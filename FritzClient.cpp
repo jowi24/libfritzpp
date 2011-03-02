@@ -163,6 +163,7 @@ bool FritzClient::Login() {
 			// save SID
 			gConfig->setSid(sXml.substr(sidStart, 16));
 			gConfig->updateLastRequestTime();
+			return true;
 		} else {
 			// generate response out of challenge and password
 			size_t challengeStart = sXml.find("<Challenge>");
