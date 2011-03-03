@@ -87,7 +87,7 @@ void Listener::HandleNewCall(bool outgoing, int connId, std::string remoteNumber
 void Listener::HandleConnect(int connId) {
 	// only notify application if this connection is part of activeConnections
 	bool notify = false;
-	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
+	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); ++it) {
 		if (*it == connId) {
 			notify = true;
 			break;
@@ -100,7 +100,7 @@ void Listener::HandleConnect(int connId) {
 void Listener::HandleDisconnect(int connId, std::string duration) {
 	// only notify application if this connection is part of activeConnections
 	bool notify = false;
-	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); it++) {
+	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); ++it) {
 		if (*it == connId) {
 			activeConnections.erase(it);
 			notify = true;

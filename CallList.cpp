@@ -196,7 +196,7 @@ void CallList::run() {
 	lastCall = 0;
 	lastMissedCall = 0;
 
-	for(std::vector<CallEntry>::iterator it = callListAll.begin(); it < callListAll.end(); it++) {
+	for(std::vector<CallEntry>::iterator it = callListAll.begin(); it < callListAll.end(); ++it) {
 		CallEntry ce = *it;
 
 		if (lastCall < ce.timestamp)
