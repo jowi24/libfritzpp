@@ -37,7 +37,7 @@ protected:
 	std::string Result();
     std::string BuildUrl(const std::ostream & url);
 public:
-	HttpClient(std::string &host, int port = 80);
+	explicit HttpClient(std::string &host, int port = 80);
 	virtual ~HttpClient();
 	std::string Get(const std::ostream& os);
 	std::string Post(const std::ostream &url, const std::ostream &postdata);

@@ -32,7 +32,7 @@ private:
 	ost2::SOAPStream *soapStream;
 	std::string soapAction;
 public:
-	SoapClient(std::string &host, int port = 80);
+	explicit SoapClient(std::string &host, int port = 80);
 	virtual ~SoapClient();
 	std::string Post(const std::ostream &url, const std::ostream &action, const std::ostream &postdata);
 

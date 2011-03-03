@@ -70,7 +70,7 @@ public:
 	 * @param name Full name of contact
 	 * @param important Whether contact is flagged as important
 	 */
-	FonbookEntry(std::string name, bool important = false);
+	explicit FonbookEntry(std::string name, bool important = false);
 	/*
 	 * Copy constructor
 	 * @param the fonbook entry to be copied
