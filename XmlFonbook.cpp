@@ -35,7 +35,7 @@ const char *Entities[97][2] = {
 	{"&iexcl;", "¡"},
 	{"&cent;",  "¢"},
 	{"&pound;", "£"},
-	{"&curren;","€"},
+	{"&curren;","€"}, //krazy:exclude=spelling
 	{"&yen;",   "¥"},
 	{"&brvbar;","Š"},
 	{"&sect;",  "§"},
