@@ -19,9 +19,8 @@
  *
  */
 
-
-#ifndef FONBOOK_H_
-#define FONBOOK_H_
+#ifndef FONBOOK_H
+#define FONBOOK_H
 
 #include <string>
 #include <vector>
@@ -70,7 +69,7 @@ public:
 	 * @param name Full name of contact
 	 * @param important Whether contact is flagged as important
 	 */
-	FonbookEntry(std::string name, bool important = false);
+	explicit FonbookEntry(std::string name, bool important = false);
 	/*
 	 * Copy constructor
 	 * @param the fonbook entry to be copied

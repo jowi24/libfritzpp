@@ -19,10 +19,10 @@
  *
  */
 
+#include "HttpClient.h"
 
 #include <cc++/socket.h>
 
-#include "HttpClient.h"
 #include "Config.h"
 
 namespace fritz {

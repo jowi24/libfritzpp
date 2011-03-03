@@ -19,17 +19,18 @@
  *
  */
 
-#include <string.h>
-#include <stdlib.h>
+#include "Tools.h"
+
+#include <string>
+#include <cstdlib>
 #include <locale.h>
 #include <langinfo.h>
 #include <sstream>
 #include <iostream>
 #include <errno.h>
-#include "FritzClient.h"
-#include "Tools.h"
-#include "Config.h"
 
+#include "Config.h"
+#include "FritzClient.h"
 
 namespace fritz{
 

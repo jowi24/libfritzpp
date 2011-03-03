@@ -19,9 +19,8 @@
  *
  */
 
-
-#ifndef HTTPCLIENT_H_
-#define HTTPCLIENT_H_
+#ifndef HTTPCLIENT_H
+#define HTTPCLIENT_H
 
 #include "cc++/url.h"
 #include "TcpClient.h"
@@ -37,7 +36,7 @@ protected:
 	std::string Result();
     std::string BuildUrl(const std::ostream & url);
 public:
-	HttpClient(std::string &host, int port = 80);
+	explicit HttpClient(std::string &host, int port = 80);
 	virtual ~HttpClient();
 	std::string Get(const std::ostream& os);
 	std::string Post(const std::ostream &url, const std::ostream &postdata);

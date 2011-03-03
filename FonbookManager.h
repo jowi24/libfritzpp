@@ -19,11 +19,11 @@
  *
  */
 
-
-#ifndef FONBOOKMANAGER_H_
-#define FONBOOKMANAGER_H_
+#ifndef FONBOOKMANAGER_H
+#define FONBOOKMANAGER_H
 
 #include <string>
+
 #include "Fonbook.h"
 #include "Fonbooks.h"
 
@@ -80,7 +80,7 @@ public:
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
-	 * @return the entry with key id or NULL, if unsuccesful
+	 * @return the entry with key id or NULL, if unsuccessful
 	 */
 	const FonbookEntry *RetrieveFonbookEntry(size_t id) const;
 	/**
@@ -100,7 +100,7 @@ public:
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
-	 * @return true, if add was sucessful
+	 * @return true, if add was successful
 	 */
 	virtual void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos);
 	/**
