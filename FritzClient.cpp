@@ -19,13 +19,14 @@
  *
  */
 
-#include <iomanip>
-#include <cstring>
-#include <gcrypt.h>
+#include "FritzClient.h"
+
 #include <cc++/thread.h>
+#include <cstring>
+#include <iomanip>
+#include <gcrypt.h>
 
 #include "Config.h"
-#include "FritzClient.h"
 
 #define RETRY_BEGIN                                  \
 	    ost::Thread::setException(ost::Thread::throwException); \

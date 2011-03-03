@@ -19,13 +19,15 @@
  *
  */
 
-#include <string.h>
-#include <algorithm>
-#include <iostream>
-#include <fstream>
-#include "Tools.h"
 #include "LocalFonbook.h"
+
+#include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <string>
+
 #include "Config.h"
+#include "Tools.h"
 
 namespace fritz {
 

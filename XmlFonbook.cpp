@@ -21,8 +21,8 @@
 
 #include "XmlFonbook.h"
 
-#include <string.h>
-#include <stdlib.h>
+#include <string>
+#include <cstdlib>
 #include <sstream>
 
 #include "Config.h"

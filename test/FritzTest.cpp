@@ -19,18 +19,17 @@
  *
  */
 
-#include <QtTest>
-#include <QtCore>
-#include <string>
+#include <cc++/url.h>
+#include <cc++/mime.h>
 #include <iostream>
+#include <QtTest/QTest>
+#include <QtCore/QObject>
+#include <string>
+
 #include <Config.h>
 #include <Listener.h>
 #include <FritzClient.h>
-//#include <HttpClient.h>
 #include <Tools.h>
-#include <iostream>
-#include <cc++/url.h>
-#include <cc++/mime.h>
 
 #include "FBServer.h"
 

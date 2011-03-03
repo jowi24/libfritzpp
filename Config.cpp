@@ -19,10 +19,10 @@
  *
  */
 
+#include "Config.h"
 
 #include <cc++/thread.h>
 
-#include "Config.h"
 #include "CallList.h"
 #include "FonbookManager.h"
 #include "Tools.h"

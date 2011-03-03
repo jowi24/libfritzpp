@@ -20,12 +20,14 @@
  */
 
 #include "CallList.h"
+
+#include <algorithm>
+#include <cstdlib>
+#include <time.h>
+
 #include "Tools.h"
 #include "Config.h"
 #include "FritzClient.h"
-#include <time.h>
-#include <stdlib.h>
-#include <algorithm>
 
 namespace fritz{
 

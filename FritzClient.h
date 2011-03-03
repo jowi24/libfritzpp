@@ -19,14 +19,14 @@
  *
  */
 
-#ifndef FRITZCLIENT_H_
-#define FRITZCLIENT_H_
+#ifndef FRITZCLIENT_H
+#define FRITZCLIENT_H
 
-#include <stdlib.h>
+#include <cstdlib>
 
-#include "Tools.h"
 #include "HttpClient.h"
 #include "SoapClient.h"
+#include "Tools.h"
 
 namespace fritz {
 

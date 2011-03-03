@@ -19,13 +19,12 @@
  *
  */
 
+#ifndef FRITZLISTENER_H
+#define FRITZLISTENER_H
 
-#ifndef FRITZLISTENER_H_
-#define FRITZLISTENER_H_
-
+#include <cc++/thread.h>
 #include <string>
 #include <vector>
-#include <cc++/thread.h>
 
 #include "Fonbook.h"
 

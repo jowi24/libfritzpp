@@ -19,11 +19,13 @@
  *
  */
 
+#include "FritzFonbook.h"
+
 #include <algorithm>
 #include <sstream>
-#include "FritzFonbook.h"
-#include "FritzClient.h"
+
 #include "Config.h"
+#include "FritzClient.h"
 
 namespace fritz {
 

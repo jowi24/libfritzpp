@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef XMLFONBOOK_H_
-#define XMLFONBOOK_H_
+#ifndef XMLFONBOOK_H
+#define XMLFONBOOK_H
 
 #include "Fonbook.h"
 

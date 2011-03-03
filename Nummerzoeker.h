@@ -19,11 +19,11 @@
  *
  */
 
-
-#ifndef NUMMERZOEKER_H_
-#define NUMMERZOEKER_H_
+#ifndef NUMMERZOEKER_H
+#define NUMMERZOEKER_H
 
 #include <string>
+
 #include "Fonbook.h"
 
 namespace fritz{

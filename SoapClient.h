@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef SOAPCLIENT_H_
-#define SOAPCLIENT_H_
+#ifndef SOAPCLIENT_H
+#define SOAPCLIENT_H
 
 #include "cc++/soap.h"
 #include "HttpClient.h"

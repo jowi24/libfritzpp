@@ -19,9 +19,8 @@
  *
  */
 
-
-#ifndef FONBOOK_H_
-#define FONBOOK_H_
+#ifndef FONBOOK_H
+#define FONBOOK_H
 
 #include <string>
 #include <vector>

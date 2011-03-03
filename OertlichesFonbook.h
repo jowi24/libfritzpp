@@ -19,11 +19,11 @@
  *
  */
 
-
-#ifndef OERTLICHESFONBOOK_H_
-#define OERTLICHESFONBOOK_H_
+#ifndef OERTLICHESFONBOOK_H
+#define OERTLICHESFONBOOK_H
 
 #include <string>
+
 #include "Fonbook.h"
 
 namespace fritz{

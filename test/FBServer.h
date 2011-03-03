@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef FBSERVER_H_
-#define FBSERVER_H_
+#ifndef FBSERVER_H
+#define FBSERVER_H
 
 #include <cc++/socket.h>
 #include <cc++/thread.h>

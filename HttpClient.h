@@ -19,9 +19,8 @@
  *
  */
 
-
-#ifndef HTTPCLIENT_H_
-#define HTTPCLIENT_H_
+#ifndef HTTPCLIENT_H
+#define HTTPCLIENT_H
 
 #include "cc++/url.h"
 #include "TcpClient.h"

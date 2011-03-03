@@ -19,13 +19,13 @@
  *
  */
 
-
-#ifndef FRITZTOOLS_H_
-#define FRITZTOOLS_H_
+#ifndef FRITZTOOLS_H
+#define FRITZTOOLS_H
 
 #include <iconv.h>
 #include <stdexcept>
 #include <string>
+
 #include "Listener.h"
 
 #define I18N_NOOP(x) x

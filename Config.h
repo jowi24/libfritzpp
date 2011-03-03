@@ -19,13 +19,12 @@
  *
  */
 
-
-#ifndef CONFIG_H_
-#define CONFIG_H_
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 #define NAMESPACE "libfritz++"
 #define LOCATOR "[" << NAMESPACE << "/" <<  \

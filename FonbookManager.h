@@ -19,11 +19,11 @@
  *
  */
 
-
-#ifndef FONBOOKMANAGER_H_
-#define FONBOOKMANAGER_H_
+#ifndef FONBOOKMANAGER_H
+#define FONBOOKMANAGER_H
 
 #include <string>
+
 #include "Fonbook.h"
 #include "Fonbooks.h"
 

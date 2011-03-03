@@ -20,11 +20,11 @@
  *
  */
 
-
-#ifndef TelLocalChFonbook_H_
-#define TelLocalChFonbook_H_
+#ifndef TelLocalChFonbook_H
+#define TelLocalChFonbook_H
 
 #include <string>
+
 #include "Fonbook.h"
 
 namespace fritz{

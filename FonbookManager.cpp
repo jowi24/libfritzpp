@@ -20,14 +20,16 @@
  */
 
 
-#include <string>
 #include "FonbookManager.h"
+
+#include <string>
+
+#include "Config.h"
 #include "FritzFonbook.h"
+#include "LocalFonbook.h"
+#include "Nummerzoeker.h"
 #include "OertlichesFonbook.h"
 #include "TelLocalChFonbook.h"
-#include "Nummerzoeker.h"
-#include "LocalFonbook.h"
-#include "Config.h"
 
 namespace fritz{
 

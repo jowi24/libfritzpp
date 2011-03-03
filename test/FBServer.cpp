@@ -19,12 +19,12 @@
  *
  */
 
+#include "FBServer.h"
+
 #include <iostream>
 #include <fstream>
 #include <cc++/thread.h>
 #include <cc++/socket.h>
-
-#include "FBServer.h"
 
 FBCallMonitor::FBCallMonitor(responseType r, int port) {
 	ost::Thread::setException(ost::Thread::throwException);
