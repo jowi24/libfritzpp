@@ -163,9 +163,6 @@ void CallList::run() {
 		// put the number into the name field if name is not available
 		if (ce.remoteName.size() == 0)
 			ce.remoteName = ce.remoteNumber;
-		// if also no number is available, put "unknown" into the name field
-		if (ce.remoteName.size() == 0)
-			ce.remoteName = I18N_NOOP("unknown");
 
 		//       01234567        01234
 		// date: dd.mm.yy, time: hh:mm
