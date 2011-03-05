@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef LOCALFONBOOK_H_
-#define LOCALFONBOOK_H_
+#ifndef LOCALFONBOOK_H
+#define LOCALFONBOOK_H
 
 #include "XmlFonbook.h"
 

@@ -20,12 +20,14 @@
  */
 
 #include "CallList.h"
+
+#include <algorithm>
+#include <cstdlib>
+#include <time.h>
+
 #include "Tools.h"
 #include "Config.h"
 #include "FritzClient.h"
-#include <time.h>
-#include <stdlib.h>
-#include <algorithm>
 
 namespace fritz{
 
@@ -196,7 +198,7 @@ void CallList::run() {
 	lastCall = 0;
 	lastMissedCall = 0;
 
-	for(std::vector<CallEntry>::iterator it = callListAll.begin(); it < callListAll.end(); it++) {
+	for(std::vector<CallEntry>::iterator it = callListAll.begin(); it < callListAll.end(); ++it) {
 		CallEntry ce = *it;
 
 		if (lastCall < ce.timestamp)

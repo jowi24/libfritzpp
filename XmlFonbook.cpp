@@ -21,8 +21,8 @@
 
 #include "XmlFonbook.h"
 
-#include <string.h>
-#include <stdlib.h>
+#include <string>
+#include <cstdlib>
 #include <sstream>
 
 #include "Config.h"
@@ -35,7 +35,7 @@ const char *Entities[97][2] = {
 	{"&iexcl;", "¡"},
 	{"&cent;",  "¢"},
 	{"&pound;", "£"},
-	{"&curren;","€"},
+	{"&curren;","€"}, //krazy:exclude=spelling
 	{"&yen;",   "¥"},
 	{"&brvbar;","Š"},
 	{"&sect;",  "§"},

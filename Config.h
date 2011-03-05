@@ -19,13 +19,12 @@
  *
  */
 
-
-#ifndef CONFIG_H_
-#define CONFIG_H_
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 #define NAMESPACE "libfritz++"
 #define LOCATOR "[" << NAMESPACE << "/" <<  \
@@ -69,6 +68,7 @@ private:
 		std::string countryCode;            			// fritz!box country-code
 		std::string regionCode;             			// fritz!box region-code
 		std::vector <std::string> sipNames;				// the SIP provider names
+		std::vector <std::string> sipMsns;              // the SIP provider msn numbers
 		std::vector <std::string> msn;      			// msn's we are interesed in
 		std::vector <std::string> selectedFonbookIDs; 	// active phone books
 		std::string activeFonbook;						// currently selected Fonbook
@@ -152,6 +152,8 @@ public:
 	void setRegionCode( std::string rc )              { mConfig.regionCode = rc; }
 	std::vector <std::string> &getSipNames( )         { return mConfig.sipNames; }
 	void setSipNames( std::vector<std::string> names) { mConfig.sipNames = names; }
+	std::vector <std::string> &getSipMsns( )          { return mConfig.sipMsns; }
+	void setSipMsns( std::vector<std::string> msns)   { mConfig.sipMsns = msns; }
 	std::vector <std::string> getMsnFilter( )         { return mConfig.msn; }
 	std::vector <std::string> getFonbookIDs( )        { return mConfig.selectedFonbookIDs; }
 	void setFonbookIDs(std::vector<std::string> v)    { mConfig.selectedFonbookIDs = v; }

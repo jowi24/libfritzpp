@@ -19,9 +19,8 @@
  *
  */
 
-
-#ifndef CALLLIST_H_
-#define CALLLIST_H_
+#ifndef CALLLIST_H
+#define CALLLIST_H
 
 #include <string>
 #include <vector>

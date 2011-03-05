@@ -19,11 +19,11 @@
  *
  */
 
-
-#ifndef OERTLICHESFONBOOK_H_
-#define OERTLICHESFONBOOK_H_
+#ifndef OERTLICHESFONBOOK_H
+#define OERTLICHESFONBOOK_H
 
 #include <string>
+
 #include "Fonbook.h"
 
 namespace fritz{
@@ -56,7 +56,7 @@ public:
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
-	 * @return the entry with key id or NULL, if unsuccesful
+	 * @return the entry with key id or NULL, if unsuccessful
 	 */
 	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id __attribute__((unused))) const { return NULL; }
 

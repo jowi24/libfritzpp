@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef TCPCLIENT_H_
-#define TCPCLIENT_H_
+#ifndef TCPCLIENT_H
+#define TCPCLIENT_H
 
 #include <cc++/socket.h>
 

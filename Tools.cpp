@@ -19,17 +19,18 @@
  *
  */
 
-#include <string.h>
-#include <stdlib.h>
+#include "Tools.h"
+
+#include <string>
+#include <cstdlib>
 #include <locale.h>
 #include <langinfo.h>
 #include <sstream>
 #include <iostream>
 #include <errno.h>
-#include "FritzClient.h"
-#include "Tools.h"
-#include "Config.h"
 
+#include "Config.h"
+#include "FritzClient.h"
 
 namespace fritz{
 
@@ -276,6 +277,7 @@ void Tools::GetSipSettings() {
 	std::string msg = fc.RequestSipSettings();
 
 	std::vector<std::string> sipNames;
+	std::vector<std::string> sipMsns;
 
 	// check if the structure of the HTML page matches our search pattern
 	if (msg.find("function AuswahlDisplay") == std::string::npos){
@@ -291,6 +293,17 @@ void Tools::GetSipSettings() {
 			// end of list reached
 			break;
 		}
+		size_t msnStart = msg.rfind("<td class=\"c2\">", sipStart);
+		if (msnStart == std::string::npos) {
+			// something is wrong with the structure of the HTML page
+			ERR("Parser error in GetSipSettings(). Could not find SIP provider name.");
+			ERR("SIP provider names not set! Usage of SIP provider names not possible.");
+			return;
+		}
+		msnStart += 15;
+		size_t msnStop = msg.find("</td>", msnStart);
+		std::string msn = msg.substr(msnStart, msnStop - msnStart);
+
 		size_t hostStart = msg.rfind("ProviderDisplay(\"",sipStart);
 		if (hostStart == std::string::npos) {
 			// something is wrong with the structure of the HTML page
@@ -339,9 +352,11 @@ void Tools::GetSipSettings() {
 		}
 
 		sipNames.push_back(sipName);
-		DBG("Found SIP" << i << " (" << hostName << ") provider name " << sipName);
+		sipMsns.push_back(msn);
+		DBG("Found SIP" << i << " (" << hostName << ") provider name " << sipName << " / MSN " << msn);
 	}
 	gConfig->setSipNames(sipNames);
+	gConfig->setSipMsns(sipMsns);
 
 }
 

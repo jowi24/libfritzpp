@@ -19,13 +19,14 @@
  *
  */
 
-#include <iomanip>
-#include <cstring>
-#include <gcrypt.h>
+#include "FritzClient.h"
+
 #include <cc++/thread.h>
+#include <cstring>
+#include <iomanip>
+#include <gcrypt.h>
 
 #include "Config.h"
-#include "FritzClient.h"
 
 #define RETRY_BEGIN                                  \
 	    ost::Thread::setException(ost::Thread::throwException); \
@@ -163,6 +164,7 @@ bool FritzClient::Login() {
 			// save SID
 			gConfig->setSid(sXml.substr(sidStart, 16));
 			gConfig->updateLastRequestTime();
+			return true;
 		} else {
 			// generate response out of challenge and password
 			size_t challengeStart = sXml.find("<Challenge>");

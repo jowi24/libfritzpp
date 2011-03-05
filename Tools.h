@@ -19,13 +19,13 @@
  *
  */
 
-
-#ifndef FRITZTOOLS_H_
-#define FRITZTOOLS_H_
+#ifndef FRITZTOOLS_H
+#define FRITZTOOLS_H
 
 #include <iconv.h>
 #include <stdexcept>
 #include <string>
+
 #include "Listener.h"
 
 #define I18N_NOOP(x) x
@@ -90,7 +90,7 @@ private:
   size_t length;
   static char *systemCharacterTable;
 public:
-  CharSetConv(const char *FromCode = NULL, const char *ToCode = NULL);
+  explicit CharSetConv(const char *FromCode = NULL, const char *ToCode = NULL);
      ///< Sets up a character set converter to convert from FromCode to ToCode.
      ///< If FromCode is NULL, the previously set systemCharacterTable is used.
      ///< If ToCode is NULL, "UTF-8" is used.

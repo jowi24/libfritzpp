@@ -19,11 +19,11 @@
  *
  */
 
-
-#ifndef FRITZFONBUCH_H_
-#define FRITZFONBUCH_H_
+#ifndef FRITZFONBOOK_H
+#define FRITZFONBOOK_H
 
 #include <cc++/thread.h>
+
 #include "XmlFonbook.h"
 
 namespace fritz{
