@@ -440,7 +440,7 @@ std::string FritzClient::getCurrentIP() {
 	} else {
 		ERR("Error parsing response in getCurrentIP().");
 	}
-	return I18N_NOOP("unknown");
+	return "";
 }
 
 //TODO: update lastRequestTime with any request
