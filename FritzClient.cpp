@@ -396,19 +396,23 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 bool FritzClient::reconnectISP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-
-	msg = soapClient->Post(
-		std::stringstream().flush()
-		<< "/upnp/control/WANIPConn1",
-		std::stringstream().flush()
-		<< "urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
-		std::stringstream().flush()
-	    << "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-           "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-		   "<s:Body>"
-           "<u:ForceTermination xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
-           "</s:Body>"
-           "</s:Envelope>");
+	try {
+		msg = soapClient->Post(
+				std::stringstream().flush()
+				<< "/upnp/control/WANIPConn1",
+				std::stringstream().flush()
+				<< "urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
+				std::stringstream().flush()
+				<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+				   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
+				   "<s:Body>"
+				   "<u:ForceTermination xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
+				   "</s:Body>"
+				   "</s:Envelope>");
+	} catch (ost::SockException &se) {
+		ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());
+		return false;
+	}
 	if (msg.find("ForceTerminationResponse") == std::string::npos)
 		return false;
 	else
@@ -418,18 +422,23 @@ bool FritzClient::reconnectISP() {
 std::string FritzClient::getCurrentIP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
-	msg = soapClient->Post(
-		std::stringstream().flush()
-		<< "/upnp/control/WANIPConn1",
-		std::stringstream().flush()
-		<< "urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
-		std::stringstream().flush()
-		<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-		   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-		   "<s:Body>"
-		   "<u:GetExternalIPAddress xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
-		   "</s:Body>"
-		   "</s:Envelope>");
+	try {
+		msg = soapClient->Post(
+				std::stringstream().flush()
+				<< "/upnp/control/WANIPConn1",
+				std::stringstream().flush()
+				<< "urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
+				std::stringstream().flush()
+				<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+				   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
+				   "<s:Body>"
+				   "<u:GetExternalIPAddress xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
+				   "</s:Body>"
+				   "</s:Envelope>");
+	} catch (ost::SockException &se) {
+		ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());
+		return "";
+	}
 	DBG("Parsing reply...");
 	std::string::size_type start = msg.find("<NewExternalIPAddress>");
 	std::string::size_type stop = msg.find("</NewExternalIPAddress>");
