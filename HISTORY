@@ -214,4 +214,19 @@
 - Extend Fonbook::AddFonbookEntry() to allow arbitrary position for new entry
 - Fix initialization of LocalFonbook
   Add setInitialized(true) in case of no local phonebook file exists
+- Fix possible segfault on incoming or outgoing calls  
+  Calls using SIP0 provider caused an invalid read, if
+  gConfig->getSipNames() returns an empty array. 
+  Fixes #572 [VDR]
+- Throw exceptions in HttpClient
+  This fixes various issues when the network connection is not
+  available at startup, e.g. empty phone book or call list.
+  Fixes #573, #574, possibly #551 [VDR]
+- Fix log information about phone book size
+  Fixes #577 [VDR]
 
+2011-03:
+- Remove translatable string 'unknown' from CallList
+
+Bugtracker references:  
+[VDR] -> http://projects.vdr-developer.org/issues/
