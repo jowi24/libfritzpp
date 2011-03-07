@@ -60,7 +60,9 @@
 namespace ost2 {
 	using ost::TCPStream;
 	using ost::IPV4Host;
+#ifdef  CCXX_IPV6
 	using ost::IPV6Host;
+#endif
 	using ost::tpport_t;
 	using ost::String;
 #endif
