@@ -47,6 +47,7 @@ bool FritzFonbook::Initialize() {
 }
 
 void FritzFonbook::run() {
+	DBG("FritzFonbook thread started");
 	setInitialized(false);
 	Clear();
 
@@ -64,6 +65,7 @@ void FritzFonbook::run() {
 
 	Sort(FonbookEntry::ELEM_NAME, true);
 	exit();
+	DBG("FritzFonbook thread ended");
 }
 
 void FritzFonbook::ParseHtmlFonbook(std::string *msg) {

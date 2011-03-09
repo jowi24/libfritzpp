@@ -117,7 +117,7 @@ void Listener::HandleDisconnect(int connId, std::string duration) {
 }
 
 void Listener::run() {
-
+	DBG("Listener thread started");
 	Thread::setException(Thread::throwException);
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {
@@ -202,6 +202,7 @@ void Listener::run() {
 		ERR("waiting " << retry_delay << " seconds before retrying");
 		ost::Thread::sleep(retry_delay*1000); // delay the retry
 	}
+	DBG("Listener thread ended");
 }
 
 }

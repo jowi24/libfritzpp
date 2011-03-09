@@ -118,6 +118,7 @@ CallList::~CallList()
 }
 
 void CallList::run() {
+	DBG("CallList thread started");
 	FritzClient fc;
 	std::string msg = fc.RequestCallList();
 	std::vector<CallEntry> callList;
@@ -218,6 +219,7 @@ void CallList::run() {
 	}
 	valid = true;
 	exit();
+	DBG("CallList thread ended");
 }
 
 CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
