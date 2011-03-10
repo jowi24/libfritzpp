@@ -218,7 +218,6 @@ void CallList::run() {
 		}
 	}
 	valid = true;
-	exit();
 	DBG("CallList thread ended");
 }
 
