@@ -53,8 +53,9 @@ void FritzFonbook::run() {
 	setInitialized(false);
 	Clear();
 
-	FritzClient fc;
-	std::string msg = fc.RequestFonbook();
+	FritzClient *fc = new FritzClient();
+	std::string msg = fc->RequestFonbook();
+	delete fc;
 
 	if (msg.find("<?xml") == std::string::npos)
 		ParseHtmlFonbook(&msg);
