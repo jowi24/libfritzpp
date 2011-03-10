@@ -119,8 +119,11 @@ CallList::~CallList()
 
 void CallList::run() {
 	DBG("CallList thread started");
-	FritzClient fc;
-	std::string msg = fc.RequestCallList();
+
+	FritzClient *fc = new FritzClient();
+	std::string msg = fc->RequestCallList();
+	delete fc;
+
 	std::vector<CallEntry> callList;
 	// parse answer
 	size_t pos = 0;
