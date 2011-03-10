@@ -66,7 +66,6 @@ void FritzFonbook::run() {
 	setInitialized(true);
 
 	Sort(FonbookEntry::ELEM_NAME, true);
-	exit();
 	DBG("FritzFonbook thread ended");
 }
 
