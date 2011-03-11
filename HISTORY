@@ -227,6 +227,17 @@
 
 2011-03:
 - Remove translatable string 'unknown' from CallList
+- Fix compile error with libcommoncpp2 / IPv6
+  Systems with libcommoncpp2 without IPv6 support experienced
+  a build error because of missing ost::IPV6Host
+- Add some debug output regarding threading
+- Remove calls to exit() at end of threads
+  This fixes an issue with missing mutex releases at the
+  end of CallList and FritzFonbook threads
+  Fixes #551 [VDR]
+- Initialization speedup
+  Shortened time the lock to FritzClient is held by
+  FritzFonbook and CallList
 
 Bugtracker references:  
 [VDR] -> http://projects.vdr-developer.org/issues/
