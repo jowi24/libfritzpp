@@ -30,6 +30,7 @@
 namespace fritz {
 
 Config* gConfig = NULL;
+ost::Mutex *syslogMutex = new ost::Mutex();
 std::ostream *dsyslog = &std::clog;
 std::ostream *isyslog = &std::cout;
 std::ostream *esyslog = &std::cerr;

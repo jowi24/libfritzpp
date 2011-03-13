@@ -22,6 +22,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#include <cc++/thread.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -31,9 +32,9 @@
                 std::string(__FILE__, std::string(__FILE__).rfind('/') == std::string::npos ? \
                 		          0 : std::string(__FILE__).rfind('/')+1, std::string::npos ) \
                 << ":" << __LINE__ << "] "
-#define DBG(x) *::fritz::dsyslog << LOCATOR << x << std::endl;
-#define INF(x) *::fritz::isyslog << LOCATOR << x << std::endl;
-#define ERR(x) *::fritz::esyslog << LOCATOR << x << std::endl;
+#define DBG(x) {fritz::syslogMutex->enterMutex(); *::fritz::dsyslog << LOCATOR << x << std::endl; fritz::syslogMutex->leaveMutex();}
+#define INF(x) {fritz::syslogMutex->enterMutex(); *::fritz::isyslog << LOCATOR << x << std::endl; fritz::syslogMutex->leaveMutex();}
+#define ERR(x) {fritz::syslogMutex->enterMutex(); *::fritz::esyslog << LOCATOR << x << std::endl; fritz::syslogMutex->leaveMutex();}
 
 #define HIDDEN "<hidden>"
 
@@ -164,6 +165,7 @@ public:
 };
 
 extern Config* gConfig;
+extern ost::Mutex *syslogMutex;
 extern std::ostream *dsyslog;
 extern std::ostream *isyslog;
 extern std::ostream *esyslog;
