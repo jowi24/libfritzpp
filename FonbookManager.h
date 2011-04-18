@@ -34,9 +34,10 @@ class FonbookManager : public Fonbook
 private:
 	static FonbookManager* me;
 	Fonbooks fonbooks;
-	FonbookManager();
+	FonbookManager(bool saveOnShutdown);
 	Fonbook *GetActiveFonbook() const;
 	size_t activeFonbookPos;
+	bool saveOnShutdown;
 public:
 	virtual ~FonbookManager();
 	/**
@@ -52,8 +53,9 @@ public:
 	 * "active" fonbook. This pointer can be moved, using FonbookManager::NextFonbook().
 	 * @param the list of enabled fonbooks
 	 * @param the currently "active" fonbook
+	 * @param wether changes to fonbooks are saved on FonbookManager deletion
 	 */
-	static void CreateFonbookManager( std::vector <std::string> vFonbookID, std::string activeFonbook);
+	static void CreateFonbookManager( std::vector <std::string> vFonbookID, std::string activeFonbook, bool saveOnShutdown = true);
 	/**
 	 * Returns the instance object of the FonbookManager casted to Fonbook.
 	 */

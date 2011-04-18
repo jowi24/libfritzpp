@@ -35,8 +35,9 @@ namespace fritz{
 
 FonbookManager* FonbookManager::me = NULL;
 
-FonbookManager::FonbookManager()
+FonbookManager::FonbookManager(bool saveOnShutdown)
 {
+	this->saveOnShutdown = saveOnShutdown;
 	// create all fonbooks
 	fonbooks.push_back(new FritzFonbook());
 	fonbooks.push_back(new OertlichesFonbook());
@@ -72,12 +73,13 @@ FonbookManager::~FonbookManager()
 	for (size_t i= 0; i < fonbooks.size(); i++) {
 		DBG("deleting fonbook with ID: " << fonbooks[i]->GetTechId());
 		// save pending changes
-		fonbooks[i]->Save();
+		if (saveOnShutdown)
+			fonbooks[i]->Save();
 		delete(fonbooks[i]);
 	}
 }
 
-void FonbookManager::CreateFonbookManager( std::vector <std::string> vFonbookID, std::string activeFonbook){
+void FonbookManager::CreateFonbookManager(std::vector <std::string> vFonbookID, std::string activeFonbook, bool saveOnShutdown) {
 	if (gConfig) {
 		// if there is already a FonbookManager, delete it, so it can adapt to configuration changes
 		DeleteFonbookManager();
@@ -97,21 +99,17 @@ void FonbookManager::CreateFonbookManager( std::vector <std::string> vFonbookID,
 				ERR("Invalid call parameter. ActiveFonbook '" << activeFonbook << "' is not enabled or unknown");
 		}
 		// create fonbookmanger (was deleted above) so that it can initialize all fonbooks
-		me = new FonbookManager();
+		me = new FonbookManager(saveOnShutdown);
 	} else {
 		ERR("Wrong call sequence. Configuration does not exist when trying to create FonbookManager." );
 	}
 }
 
 Fonbook* FonbookManager::GetFonbook() {
-	if (!me)
-		me = new FonbookManager();
 	return (Fonbook*) me;
 }
 
 FonbookManager* FonbookManager::GetFonbookManager() {
-	if (!me)
-		me = new FonbookManager();
 	return me;
 }
 
