@@ -191,6 +191,11 @@ void FonbookManager::Clear() {
 		GetActiveFonbook()->Clear();
 }
 
+void FonbookManager::Save() {
+	if (GetActiveFonbook())
+			GetActiveFonbook()->Save();
+}
+
 bool FonbookManager::isDisplayable() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->isDisplayable() : false;
 }
