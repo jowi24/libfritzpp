@@ -131,6 +131,11 @@ public:
 	 */
 	virtual bool isWriteable() const;
 	/**
+	 * Returns if this phonebook has changes that are not yet written.
+	 * @return true, if changes are pending
+	 */
+	virtual bool isModified() const;
+	/**
 	 * Sets the initialized-status.
 	 * @param isInititalized the value initialized is set to
 	 */

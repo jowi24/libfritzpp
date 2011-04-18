@@ -203,6 +203,10 @@ bool FonbookManager::isWriteable() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->isWriteable() : false;
 }
 
+bool FonbookManager::isModified() const {
+	return GetActiveFonbook() ? GetActiveFonbook()->isModified() : false;
+}
+
 void FonbookManager::setInitialized(bool isInitialized) {
 	if (GetActiveFonbook())
 		GetActiveFonbook()->setInitialized(isInitialized);
