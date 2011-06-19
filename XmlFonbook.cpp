@@ -206,6 +206,7 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 		std::string name     = convertEntities(ExtractXmlElementValue("realName", msgPart));
 		FonbookEntry fe(name, category == "1");
 		size_t posNumber = msgPart.find("<number");
+		size_t numberCount = 0;
 		while (posNumber != std::string::npos) {
 			std::string msgPartofPart = msgPart.substr(posNumber, msgPart.find("</number>", posNumber) - posNumber + 9);
 			std::string number    = ExtractXmlElementValue  ("number",              msgPartofPart);
@@ -223,7 +224,7 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 				if (typeStr == "work")
 					type = FonbookEntry::TYPE_WORK;
 
-				fe.AddNumber(number, type, quickdial, vanity, atoi(prio.c_str()));
+				fe.AddNumber(numberCount++, number, type, quickdial, vanity, atoi(prio.c_str()));
 			}
 			posNumber = msgPart.find("<number", posNumber+1);
 		}
@@ -246,10 +247,10 @@ std::string XmlFonbook::SerializeToXml() {
 		       << "<realName>" << fe->GetName() << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
-		for (int type = 0; type < FonbookEntry::TYPES_COUNT; type++)
-			if (fe->GetNumber((fritz::FonbookEntry::eType) type).length() > 0) {
+		for (size_t numberPos = 0; numberPos < FonbookEntry::TYPES_COUNT; numberPos++)
+			if (fe->GetNumber(numberPos).length() > 0) {  //just iterate over all numbers
 				std::string typeName = "";
-				switch (type) {
+				switch (fe->GetType(numberPos)) {
 				case FonbookEntry::TYPE_NONE:
 				case FonbookEntry::TYPE_HOME:
 					typeName="home";
@@ -262,13 +263,13 @@ std::string XmlFonbook::SerializeToXml() {
 					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe->GetQuickdial((fritz::FonbookEntry::eType) type) << "\" "
-						          "vanity=\""    << fe->GetVanity((fritz::FonbookEntry::eType) type)    << "\" "
-						          "prio=\""      << fe->GetPriority((fritz::FonbookEntry::eType) type)  << "\">"
-				       << fe->GetNumber((fritz::FonbookEntry::eType) type)
+						          "quickdial=\"" << fe->GetQuickdial(numberPos) << "\" "
+						          "vanity=\""    << fe->GetVanity(numberPos)    << "\" "
+						          "prio=\""      << fe->GetPriority(numberPos)  << "\">"
+				       << fe->GetNumber(numberPos)
 				       << "</number>";
 			}
-
+        //TODO: add <mod_time>1306951031</mod_time>
 		result << "</telephony>"
 			   << "<services/>"
                << "<setup/>"

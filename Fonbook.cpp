@@ -31,71 +31,74 @@ namespace fritz{
 FonbookEntry::FonbookEntry(std::string name, bool important) {
 	this->name      = name;
 	this->important = important;
-	for (int type=0; type < TYPES_COUNT; type++)
-		numbers[type].priority = 0;
+	for (int pos=0; pos < TYPES_COUNT; pos++) {
+		numbers[pos].priority = 0;
+		numbers[pos].type     = TYPE_NONE;
+	}
 }
 
-void FonbookEntry::AddNumber(std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
-	numbers[type].number    = number;
-	numbers[type].quickdial = quickdial;
-	numbers[type].vanity    = vanity;
-	numbers[type].priority  = priority;
+void FonbookEntry::AddNumber(size_t pos, std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
+	numbers[pos].number    = number;
+	numbers[pos].type      = type;
+	numbers[pos].quickdial = quickdial;
+	numbers[pos].vanity    = vanity;
+	numbers[pos].priority  = priority;
 }
 
-FonbookEntry::eType FonbookEntry::GetDefaultType() const {
-	eType t = (eType) 0;
+size_t FonbookEntry::GetDefault() const {
+	size_t t = 0;
 	while (t < TYPES_COUNT) {
 		if (GetPriority(t) == 1)
 			return t;
-		t = (eType) (t+1);
+		t++;
 	}
-	return TYPE_NONE;
+	return 0;
 }
 
-void FonbookEntry::SetDefaultType(eType type) {
-	eType oldType = GetDefaultType();
-	if (type != oldType) {
-		SetPrioriy(0, oldType);
-		SetPrioriy(1, type);
-		SetQuickdial(GetQuickdial(oldType), type);
-		SetVanity(GetVanity(oldType), type);
-		SetQuickdial("", oldType);
-		SetVanity("", oldType);
+void FonbookEntry::SetDefault(size_t pos) {
+	size_t oldPos = GetDefault();
+	if (pos != oldPos) {
+		SetPrioriy(0, oldPos);
+		SetPrioriy(1, pos);
+		SetQuickdial(GetQuickdial(oldPos), pos);
+		SetVanity(GetVanity(oldPos), pos);
+		SetQuickdial("", oldPos);
+		SetVanity("", oldPos);
 	}
 }
 
-std::string FonbookEntry::GetQuickdialFormatted(eType type) const {
-	switch (GetQuickdial(type).length()) {
+std::string FonbookEntry::GetQuickdialFormatted(size_t pos) const {
+	switch (GetQuickdial(pos).length()) {
 	case 1:
-		return "**70" + GetQuickdial(type);
+		return "**70" + GetQuickdial(pos);
 	case 2:
-		return "**7"  + GetQuickdial(type);
+		return "**7"  + GetQuickdial(pos);
 	default:
 		return "";
 	}
 }
 
-std::string FonbookEntry::GetQuickdial(eType type) const {
+std::string FonbookEntry::GetQuickdial(size_t pos) const {
 	// if no special type is given, the default "TYPES_COUNT" indicates,
 	// that the correct type has to be determined first, i.e., priority == 1
 
-	return numbers[type == TYPES_COUNT ? GetDefaultType() : type].quickdial;
+	return numbers[pos == TYPES_COUNT ? GetDefault() : pos].quickdial;
 }
 
-void FonbookEntry::SetQuickdial(std::string quickdial, eType type) { //TODO: sanity check
-	numbers[type == TYPES_COUNT ? GetDefaultType() : type].quickdial = quickdial;
+void FonbookEntry::SetQuickdial(std::string quickdial, size_t pos) { //TODO: sanity check
+	numbers[pos == TYPES_COUNT ? GetDefault() : pos].quickdial = quickdial;
 }
 
-std::string FonbookEntry::GetVanity(eType type) const {
-	return numbers[type == TYPES_COUNT ? GetDefaultType() : type].vanity;
+std::string FonbookEntry::GetVanity(size_t pos) const {
+	return numbers[pos == TYPES_COUNT ? GetDefault() : pos].vanity;
 }
 
-std::string FonbookEntry::GetVanityFormatted(eType type) const {
-	return GetVanity(type).length() ? "**8"+GetVanity(type) : "";
+std::string FonbookEntry::GetVanityFormatted(size_t pos) const {
+	return GetVanity(pos).length() ? "**8"+GetVanity(pos) : "";
 }
 
-void FonbookEntry::SetVanity(std::string vanity, eType type) { //TODO: sanity check
-	numbers[type == TYPES_COUNT ? GetDefaultType() : type].vanity = vanity;
+void FonbookEntry::SetVanity(std::string vanity, size_t pos) { //TODO: sanity check
+	numbers[pos == TYPES_COUNT ? GetDefault() : pos].vanity = vanity;
 }
 
 bool FonbookEntry::operator<(const FonbookEntry &fe) const {
@@ -207,9 +210,9 @@ bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
 	}
 }
 
-bool Fonbook::SetDefaultType(size_t id, fritz::FonbookEntry::eType type) {
+bool Fonbook::SetDefault(size_t id, size_t pos) {
 	if (id < GetFonbookSize()) {
-		fonbookList[id].SetDefaultType(type);
+		fonbookList[id].SetDefault(pos);
 		SetDirty();
 		return true;
 	} else {

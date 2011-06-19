@@ -98,7 +98,7 @@ public:
 	 * @param type the new default
 	 * @return true, if successful
 	 */
-	virtual bool SetDefaultType(size_t id, fritz::FonbookEntry::eType type);
+	virtual bool SetDefault(size_t id, size_t pos);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry

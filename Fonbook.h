@@ -55,14 +55,15 @@ public:
 	};
 	struct sNumber {
 		std::string number;
+		eType       type;
 		std::string quickdial;
 		std::string vanity;
-		int priority;
+		int         priority;
 	};
 private:
 	std::string name;
 	bool important;
-	sNumber numbers[TYPES_COUNT];
+	sNumber numbers[TYPES_COUNT]; //TODO: add explicit size of array
 public:
 	/*
 	 * Constructs a new FonbookEntry object
@@ -83,23 +84,25 @@ public:
 	 * @param vanity The vanity extension
 	 * @param prority '1' marks the default number of this contact, otherwise 0
 	 */
-	void AddNumber(std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
+	void AddNumber(size_t pos, std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
 	std::string GetName() const { return name; }
 	void SetName(std::string name) { this->name = name; }
-	std::string GetNumber(eType type) const { return numbers[type].number; }
-	void SetNumber(std::string number, eType type) { numbers[type].number = number; }
+	std::string GetNumber(size_t pos) const { return numbers[pos].number; }
+	void SetNumber(std::string number,size_t pos) { numbers[pos].number = number; }
+	eType GetType(size_t pos) const { return numbers[pos].type; }
+	void SetType(eType type, size_t pos) { numbers[pos].type = type; }
 	bool IsImportant() const { return important; }
 	void SetImportant(bool important) { this->important = important; }
-	eType GetDefaultType() const;
-	void SetDefaultType(eType type);
-	std::string GetQuickdialFormatted(eType type = TYPES_COUNT) const;
-	std::string GetQuickdial(eType type = TYPES_COUNT) const;
-	void SetQuickdial(std::string quickdial, eType type = TYPES_COUNT);
-	std::string GetVanity(eType type = TYPES_COUNT) const;
-	std::string GetVanityFormatted(eType type = TYPES_COUNT) const;
-	void SetVanity(std::string vanity, eType type = TYPES_COUNT);
-	int GetPriority(eType type) const { return numbers[type].priority; }
-	void SetPrioriy(int priority, eType type) { numbers[type].priority = priority; }
+	size_t GetDefault() const;
+	void SetDefault(size_t pos);
+	std::string GetQuickdialFormatted( size_t pos = TYPES_COUNT) const;
+	std::string GetQuickdial(size_t pos = TYPES_COUNT) const;
+	void SetQuickdial(std::string quickdial, size_t pos = TYPES_COUNT);
+	std::string GetVanity(size_t pos = TYPES_COUNT) const;
+	std::string GetVanityFormatted(size_t pos = TYPES_COUNT) const;
+	void SetVanity(std::string vanity, size_t pos = TYPES_COUNT);
+	int GetPriority(size_t pos) const { return numbers[pos].priority; }
+	void SetPrioriy(int priority, size_t pos) { numbers[pos].priority = priority; }
 	bool operator<(const FonbookEntry & fe) const;
 	/*
 	 * Get number of typed numbers (TYPE_NONE is ignored)
@@ -203,10 +206,10 @@ public:
 	/**
 	 * Sets the default number for a Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
-	 * @param type the new default
+	 * @param pos the new default number
 	 * @return true, if successful
 	 */
-	virtual bool SetDefaultType(size_t id, fritz::FonbookEntry::eType type);
+	virtual bool SetDefault(size_t id, size_t pos);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
