@@ -73,16 +73,16 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) con
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("onclick=\"logDetail()\"");
+	size_t start = msg.find("na: \"");
 	if (start == std::string::npos) {
 		INF("no entry found.");
 		return result;
 	}
-	start = msg.find(">", start);
+	start = msg.find("\"", start);
 	// add the length of the last search pattern
 	start += 1;
 
-	size_t stop  = msg.find("<", start);
+	size_t stop  = msg.find("\"", start);
 	name = msg.substr(start, stop - start);
 	// convert the string from latin1 to current system character table
 	CharSetConv *conv = new CharSetConv("ISO-8859-1", CharSetConv::SystemCharacterTable());
