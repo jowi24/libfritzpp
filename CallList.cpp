@@ -292,5 +292,9 @@ bool CallEntry::MatchesFilter() {
 	}
 }
 
+bool CallEntry::MatchesRemoteNumber(std::string number) {
+	return (Tools::NormalizeNumber(number).compare(Tools::NormalizeNumber(remoteNumber)) == 0);
+}
+
 }
 

@@ -57,6 +57,7 @@ public:
 	std::string duration;
 	time_t      timestamp;
 	bool MatchesFilter();
+	bool MatchesRemoteNumber(std::string number);
 };
 
 class CallList : public ost::Thread
