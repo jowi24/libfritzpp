@@ -183,11 +183,11 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) const {
 	result.type = FonbookEntry::TYPE_NONE;
 	if (number.length() > 0)
 		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
-			for (int type=0; type < FonbookEntry::TYPES_COUNT; type++) {
-				std::string fonbookNumber = fonbookList[pos].GetNumber((FonbookEntry::eType)type);
+			for (int num=0; num < FonbookEntry::TYPES_COUNT; num++) {
+				std::string fonbookNumber = fonbookList[pos].GetNumber(num);
 				if (fonbookNumber.length() > 0 && Tools::CompareNormalized(number, fonbookNumber) == 0) {
 					result.name = fonbookList[pos].GetName();
-					result.type = (FonbookEntry::eType) type;
+					result.type = fonbookList[pos].GetType(num);
 					return result;
 				}
 			}
