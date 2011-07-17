@@ -42,7 +42,6 @@ public:
 		TYPE_WORK,
 		TYPES_COUNT
 	};
-
 	enum eElements {
 		ELEM_NAME   = 0,
 		ELEM_TYPE   = 1,
@@ -60,10 +59,11 @@ public:
 		std::string vanity;
 		int         priority;
 	};
+	static const size_t MAX_NUMBERS = 3;
 private:
 	std::string name;
 	bool important;
-	sNumber numbers[TYPES_COUNT]; //TODO: add explicit size of array
+	sNumber numbers[MAX_NUMBERS]; //TODO: add explicit size of array
 public:
 	/*
 	 * Constructs a new FonbookEntry object
@@ -95,12 +95,12 @@ public:
 	void SetImportant(bool important) { this->important = important; }
 	size_t GetDefault() const;
 	void SetDefault(size_t pos);
-	std::string GetQuickdialFormatted( size_t pos = TYPES_COUNT) const;
-	std::string GetQuickdial(size_t pos = TYPES_COUNT) const;
-	void SetQuickdial(std::string quickdial, size_t pos = TYPES_COUNT);
-	std::string GetVanity(size_t pos = TYPES_COUNT) const;
-	std::string GetVanityFormatted(size_t pos = TYPES_COUNT) const;
-	void SetVanity(std::string vanity, size_t pos = TYPES_COUNT);
+	std::string GetQuickdialFormatted( size_t pos = std::string::npos) const;
+	std::string GetQuickdial(size_t pos = std::string::npos) const;
+	void SetQuickdial(std::string quickdial, size_t pos = std::string::npos);
+	std::string GetVanity(size_t pos = std::string::npos) const;
+	std::string GetVanityFormatted(size_t pos = std::string::npos) const;
+	void SetVanity(std::string vanity, size_t pos = std::string::npos);
 	int GetPriority(size_t pos) const { return numbers[pos].priority; }
 	void SetPrioriy(int priority, size_t pos) { numbers[pos].priority = priority; }
 	bool operator<(const FonbookEntry & fe) const;
