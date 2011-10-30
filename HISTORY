@@ -215,3 +215,29 @@
 - Fix initialization of LocalFonbook
   Add setInitialized(true) in case of no local phonebook file exists
 
+
+2011-03:
+- Add parsing of sipMsns
+- Fix logging into Fritz!Box without password
+- Fix krazy issues
+- Remove translatable string 'unknown'
+- Fix catching exceptions in FritzClient
+- Fix compile error with libcommoncpp2 / IPv6
+- Add some debug output regarding threading
+- Remove unnecessary calls to exit() at end of threads
+- Initialization speedup
+- Add mutex to access syslog
+
+2011-04:
+- Add new parameter 'saveOnShutdown' to CreateFonbookManager()
+- Add Fonbook::isModified()
+- Add missing FonbookManager::Save() to forward calls to Fonbook::Save()
+
+2011-06:
+- Adapt to more flexible Fritz!Box phone books
+
+2011-07:
+- Fix resolve in OertlichesFonbook
+- Add MatchesRemoteNumber to CallEntry
+- Fix fonbook ResolveToName
+- Get rid of TYPES_COUNT in FonbookEntry
