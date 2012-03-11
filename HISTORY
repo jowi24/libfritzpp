@@ -241,3 +241,7 @@
 - Add MatchesRemoteNumber to CallEntry
 - Fix fonbook ResolveToName
 - Get rid of TYPES_COUNT in FonbookEntry
+
+2012-03:
+- Fix resolve in OertlichesFonbook
+
