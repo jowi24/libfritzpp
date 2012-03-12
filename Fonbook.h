@@ -268,13 +268,13 @@ public:
 	 *  Returns a string that should be displayed as title in the menu when the telephonebook is displayed.
 	 * @return the long title of this phonebook
 	 */
-	virtual std::string GetTitle() { return title; }
+	virtual std::string GetTitle() const { return title; }
 	/**
 	 * Returns the technical id of this phonebook. This id has to be unique among all phonebooks and is used when storing
 	 * the plugin's setup.
 	 * @return the technical id
 	 */
-	virtual std::string GetTechId() { return techId; }
+	virtual std::string GetTechId() const { return techId; }
 	/**
 	 * Sorts the phonebook's entries by the given element and in given order.
 	 * @param the element used for sorting

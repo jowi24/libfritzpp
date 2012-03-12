@@ -226,11 +226,11 @@ size_t FonbookManager::GetFonbookSize() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->GetFonbookSize() : 0;
 }
 
-std::string FonbookManager::GetTitle() {
+std::string FonbookManager::GetTitle() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->GetTitle() : "";
 }
 
-std::string FonbookManager::GetTechId() {
+std::string FonbookManager::GetTechId() const {
 	return GetActiveFonbook() ? GetActiveFonbook()->GetTechId() : "";
 }
 

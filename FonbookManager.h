@@ -163,13 +163,13 @@ public:
 	/**
 	 *  Returns a string that should be displayed as title in the menu when the telephonebook is displayed.
 	 */
-	std::string GetTitle();
+	std::string GetTitle() const;
 	/**
 	 * Returns the technical id of this phonebook. This id has to be unique among all phonebooks and is used when storing
 	 * the plugin's setup.
 	 * @return the technical id
 	 */
-	virtual std::string GetTechId();
+	virtual std::string GetTechId() const;
 	/**
 	 *
 	 */
