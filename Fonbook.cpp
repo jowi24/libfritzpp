@@ -31,7 +31,7 @@ namespace fritz{
 FonbookEntry::FonbookEntry(std::string name, bool important) {
 	this->name      = name;
 	this->important = important;
-	for (int pos=0; pos < MAX_NUMBERS; pos++) {
+	for (size_t pos=0; pos < MAX_NUMBERS; pos++) {
 		numbers[pos].priority = 0;
 		numbers[pos].type     = TYPE_NONE;
 	}
@@ -111,7 +111,7 @@ bool FonbookEntry::operator<(const FonbookEntry &fe) const {
 size_t FonbookEntry::GetSize() {
 	size_t size = 0;
 	// ignore TYPE_NONE
-	for (int type = 1; type < MAX_NUMBERS; type++)
+	for (size_t type = 1; type < MAX_NUMBERS; type++)
 		if (numbers[type].number.size())
 			size++;
 	return size;
@@ -183,7 +183,7 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) const {
 	result.type = FonbookEntry::TYPE_NONE;
 	if (number.length() > 0)
 		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
-			for (int num=0; num < FonbookEntry::MAX_NUMBERS; num++) {
+			for (size_t num=0; num < FonbookEntry::MAX_NUMBERS; num++) {
 				std::string fonbookNumber = fonbookList[pos].GetNumber(num);
 				if (fonbookNumber.length() > 0 && Tools::CompareNormalized(number, fonbookNumber) == 0) {
 					result.name = fonbookList[pos].GetName();
