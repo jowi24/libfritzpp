@@ -261,6 +261,9 @@ std::string XmlFonbook::SerializeToXml() {
 				case FonbookEntry::TYPE_WORK:
 					typeName="work";
 					break;
+				default:
+					// should not happen
+					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
 						          "quickdial=\"" << fe->GetQuickdial(numberPos) << "\" "
