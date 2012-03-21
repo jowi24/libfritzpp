@@ -141,20 +141,6 @@ private:
 	 * Sets dirty member if applicable
 	 */
 	void SetDirty();
-    /**
-     * Data structure for storing the phonebook.
-     */
-	std::vector<FonbookEntry> fonbookList;
-protected:
-	/**
-	 * The constructor may only be used by cFonbookManager.
-	 * Subclasses must make their constructor private, too.
-	 */
-	Fonbook();
-	/**
-	 * Method to persist contents of the phone book (if writeable)
-	 */
-	virtual void Write() { }
 	/**
 	 * The descriptive title of this phonebook.
 	 */
@@ -164,16 +150,32 @@ protected:
 	 */
 	std::string techId;
 	/**
-	 * True, if this phonebook has displayable entries.
-	 */
-	bool displayable;
-	/**
 	 * True, if this phonebook is writeable
 	 */
 	bool writeable;
+    /**
+     * Data structure for storing the phonebook.
+     */
+	std::vector<FonbookEntry> fonbookList;
+protected:
+	/**
+	 * The constructor may only be used by cFonbookManager.
+	 * Subclasses must make their constructor private, too.
+	 */
+	Fonbook(std::string title, std::string techId, bool writeable = false);
+	/**
+	 * Method to persist contents of the phone book (if writeable)
+	 */
+	virtual void Write() { }
+	/**
+	 * True, if this phonebook has displayable entries.
+	 */
+	bool displayable;
 
 public:
 	struct sResolveResult {
+		sResolveResult(std::string name, FonbookEntry::eType type = FonbookEntry::TYPE_NONE)
+		: name(name), type(type) {}
 		std::string name;
 		FonbookEntry::eType type;
 	};
@@ -255,6 +257,10 @@ public:
 	 * @param isInititalized the value initialized is set to
 	 */
 	virtual void setInitialized(bool isInitialized);
+	/**
+	 * Sets writeable to true
+	 */
+	virtual void setWriteable() { writeable = true; }
 	/**
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries

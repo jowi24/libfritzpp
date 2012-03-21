@@ -26,7 +26,7 @@
 
 namespace fritz {
 
-class XmlFonbook: public fritz::Fonbook {
+class XmlFonbook: public Fonbook {
 private:
 	std::string ExtractXmlAttributeValue(std::string element, std::string attribute, std::string xml);
 	std::string ExtractXmlElementValue(std::string element, std::string xml);
@@ -36,7 +36,7 @@ protected:
 	void ParseXmlFonbook(std::string *msg);
 	std::string SerializeToXml();
 public:
-	XmlFonbook();
+	XmlFonbook(std::string title, std::string techId, bool writeable);
 	virtual ~XmlFonbook();
 };
 

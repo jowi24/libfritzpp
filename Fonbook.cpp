@@ -162,13 +162,11 @@ public:
 	}
 };
 
-Fonbook::Fonbook()
+Fonbook::Fonbook(std::string title, std::string techId, bool writeable)
+: title(title), techId(techId), writeable(writeable)
 {
-	title       = "Phonebook";
-	techId      = "BASE";
-	displayable = false;
+	displayable = true;
 	initialized = false;
-	writeable   = false;
 	dirty       = false;
 }
 
@@ -178,9 +176,7 @@ void Fonbook::SetDirty() {
 }
 
 Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) const {
-	sResolveResult result;
-	result.name = number;
-	result.type = FonbookEntry::TYPE_NONE;
+	sResolveResult result(number);
 	if (number.length() > 0)
 		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
 			for (size_t num=0; num < FonbookEntry::MAX_NUMBERS; num++) {

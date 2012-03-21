@@ -30,25 +30,11 @@
 namespace fritz{
 
 NummerzoekerFonbook::NummerzoekerFonbook()
-{
-	title = I18N_NOOP("nummerzoeker.com");
-	techId = "ZOEK";
-	displayable = false;
-}
+: LookupFonbook(I18N_NOOP("nummerzoeker.com"), "ZOEK")
+{}
 
-NummerzoekerFonbook::~NummerzoekerFonbook()
-{
-}
-
-bool NummerzoekerFonbook::Initialize() {
-	setInitialized(true);
-	return true;
-}
-
-Fonbook::sResolveResult NummerzoekerFonbook::ResolveToName(std::string number) const {
-	Fonbook::sResolveResult result;
-	result.name = number;
-	result.type = FonbookEntry::TYPE_NONE;
+Fonbook::sResolveResult NummerzoekerFonbook::Lookup(std::string number) const {
+	Fonbook::sResolveResult result(number);
 
 	// resolve only NL phone numbers
 	std::string normNumber = Tools::NormalizeNumber(number);

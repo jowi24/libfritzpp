@@ -148,7 +148,8 @@ std::string XmlFonbook::convertEntities(std::string s) {
 }
 
 
-XmlFonbook::XmlFonbook() {
+XmlFonbook::XmlFonbook(std::string title, std::string techId, bool writeable)
+: Fonbook(title, techId, writeable) {
 	charset = CharSetConv::SystemCharacterTable() ? CharSetConv::SystemCharacterTable() : "UTF-8";
 }
 

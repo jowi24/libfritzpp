@@ -30,13 +30,9 @@
 namespace fritz {
 
 FritzFonbook::FritzFonbook()
-:Thread()
+:Thread(), XmlFonbook(I18N_NOOP("Fritz!Box phone book"), "FRITZ", true)
 {
-	setName("FritzFonbook");
 	setCancel(cancelDeferred);
-	title = I18N_NOOP("Fritz!Box phone book");
-	techId = "FRITZ";
-	displayable = true;
 	setInitialized(false);
 }
 
@@ -61,7 +57,7 @@ void FritzFonbook::run() {
 		ParseHtmlFonbook(&msg);
 	else {
 		ParseXmlFonbook(&msg);
-		writeable = true; // we can write xml back to the FB
+		setWriteable(); // we can write xml back to the FB
 	}
 
 	setInitialized(true);
@@ -159,7 +155,7 @@ void FritzFonbook::Reload() {
 }
 
 void FritzFonbook::Write() {
-	if (writeable) {
+	if (isWriteable()) {
 		INF("Uploading phonebook to Fritz!Box.");
 		FritzClient fc;
 		fc.WriteFonbook(SerializeToXml());

@@ -30,25 +30,11 @@
 namespace fritz{
 
 OertlichesFonbook::OertlichesFonbook()
-{
-	title = I18N_NOOP("das-oertliche.de");
-	techId = "OERT";
-	displayable = false;
-}
+:LookupFonbook(I18N_NOOP("das-oertliche.de"), "OERT")
+{}
 
-OertlichesFonbook::~OertlichesFonbook()
-{
-}
-
-bool OertlichesFonbook::Initialize() {
-	setInitialized(true);
-	return true;
-}
-
-Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) const {
-	Fonbook::sResolveResult result;
-	result.name = number;
-	result.type = FonbookEntry::TYPE_NONE;
+Fonbook::sResolveResult OertlichesFonbook::Lookup(std::string number) const {
+	Fonbook::sResolveResult result(number);
 
 	// resolve only (german) phone numbers
 	if (number.length() == 0 || Tools::NormalizeNumber(number).find("0049") != 0)

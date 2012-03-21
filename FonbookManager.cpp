@@ -36,6 +36,7 @@ namespace fritz{
 FonbookManager* FonbookManager::me = NULL;
 
 FonbookManager::FonbookManager(bool saveOnShutdown)
+:Fonbook("Manager", "MNGR")
 {
 	this->saveOnShutdown = saveOnShutdown;
 	// create all fonbooks
@@ -148,7 +149,7 @@ void FonbookManager::NextFonbook() {
 }
 
 Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) const {
-	sResolveResult result;
+	sResolveResult result(number);
 	for (size_t i=0; i<gConfig->getFonbookIDs().size(); i++) {
 		result = fonbooks[gConfig->getFonbookIDs()[i]]->ResolveToName(number);
 		DBG("ResolveToName: " << gConfig->getFonbookIDs()[i] << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));

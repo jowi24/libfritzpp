@@ -31,25 +31,11 @@
 namespace fritz{
 
 TelLocalChFonbook::TelLocalChFonbook()
-{
-	title = I18N_NOOP("tel.local.ch");
-	techId = "LOCCH";
-	displayable = false;
-}
+: LookupFonbook(I18N_NOOP("tel.local.ch"), "LOCCH")
+{}
 
-TelLocalChFonbook::~TelLocalChFonbook()
-{
-}
-
-bool TelLocalChFonbook::Initialize() {
-	setInitialized(true);
-	return true;
-}
-
-TelLocalChFonbook::sResolveResult TelLocalChFonbook::ResolveToName(std::string number) const {
-	TelLocalChFonbook::sResolveResult result;
-	result.name = number;
-	result.type = FonbookEntry::TYPE_NONE;
+TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) const {
+	TelLocalChFonbook::sResolveResult result(number);
 
 	// resolve only (swiss) phone numbers
 	if (number.length() == 0 || Tools::NormalizeNumber(number).find("0041") != 0)

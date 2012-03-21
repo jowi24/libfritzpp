@@ -71,11 +71,8 @@ char *ReadLine::Read(FILE *f)
 }
 
 
-LocalFonbook::LocalFonbook() {
-	title       = I18N_NOOP("Local phone book");
-	techId      = "LOCL";
-	displayable = true;
-	writeable   = true;
+LocalFonbook::LocalFonbook()
+: XmlFonbook(I18N_NOOP("Local phone book"), "LOCL", true) {
 	filePath    = NULL;
 }
 
