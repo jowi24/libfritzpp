@@ -23,8 +23,6 @@
 #define FRITZLISTENER_H
 
 #include <cc++/thread.h>
-#include <string>
-#include <vector>
 
 #include "Fonbook.h"
 

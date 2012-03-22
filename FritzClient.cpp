@@ -27,6 +27,7 @@
 #include <gcrypt.h>
 
 #include "Config.h"
+#include "Tools.h"
 
 #define RETRY_BEGIN                                  \
 	    ost::Thread::setException(ost::Thread::throwException); \

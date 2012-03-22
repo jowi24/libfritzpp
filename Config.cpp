@@ -25,6 +25,7 @@
 
 #include "CallList.h"
 #include "FonbookManager.h"
+#include "Listener.h"
 #include "Tools.h"
 
 namespace fritz {

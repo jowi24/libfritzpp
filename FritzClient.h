@@ -24,9 +24,7 @@
 
 #include <cstdlib>
 
-#include "HttpClient.h"
 #include "SoapClient.h"
-#include "Tools.h"
 
 namespace fritz {
 

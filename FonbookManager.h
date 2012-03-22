@@ -22,9 +22,6 @@
 #ifndef FONBOOKMANAGER_H
 #define FONBOOKMANAGER_H
 
-#include <string>
-
-#include "Fonbook.h"
 #include "Fonbooks.h"
 
 namespace fritz{

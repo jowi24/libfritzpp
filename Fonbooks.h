@@ -22,9 +22,6 @@
 #ifndef FONBOOKS_H
 #define FONBOOKS_H
 
-#include <string>
-#include <vector>
-
 #include "Fonbook.h"
 
 namespace fritz{
