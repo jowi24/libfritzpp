@@ -75,7 +75,7 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number) const;
+	virtual sResolveResult ResolveToName(std::string number);
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry

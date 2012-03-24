@@ -174,10 +174,11 @@ protected:
 
 public:
 	struct sResolveResult {
-		sResolveResult(std::string name, FonbookEntry::eType type = FonbookEntry::TYPE_NONE)
-		: name(name), type(type) {}
+		sResolveResult(std::string name, FonbookEntry::eType type = FonbookEntry::TYPE_NONE, bool successful = false)
+		: name(name), type(type), successful(successful) {}
 		std::string name;
 		FonbookEntry::eType type;
+		bool successful;
 	};
 	virtual ~Fonbook() { }
 	/**
@@ -191,7 +192,7 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number) const;
+	virtual sResolveResult ResolveToName(std::string number);
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry

@@ -21,6 +21,8 @@
 
 #include "LookupFonbook.h"
 
+#include "Config.h"
+
 namespace fritz {
 
 LookupFonbook::LookupFonbook(std::string title, std::string techId, bool writeable)
@@ -35,17 +37,18 @@ bool LookupFonbook::Initialize() {
 	return true;
 }
 
-Fonbook::sResolveResult LookupFonbook::ResolveToName(std::string number) const {
+Fonbook::sResolveResult LookupFonbook::ResolveToName(std::string number) {
 	// First, try to get a cached result
-	sResolveResult result = Fonbook::ResolveToName(number);
+	sResolveResult resolve = Fonbook::ResolveToName(number);
 	// Second, to lookup (e.g., via HTTP)
-	if (result.name.compare(number) == 0) {
-		result = Lookup(number);
+	if (! resolve.successful) {
+		resolve = Lookup(number);
 		// cache result despite it was successful
-		FonbookEntry fe(result.name, false);
-		fe.AddNumber(0, number, result.type, "", "", 0);
+		FonbookEntry fe(resolve.name, false);
+		fe.AddNumber(0, number, resolve.type, "", "", 0);
+		AddFonbookEntry(fe);
 	}
-	return result;
+	return resolve;
 }
 
 Fonbook::sResolveResult LookupFonbook::Lookup(std::string number) const {

@@ -86,6 +86,7 @@ Fonbook::sResolveResult NummerzoekerFonbook::Lookup(std::string number) const {
 	delete (conv);
 	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
 	result.name = name;
+	result.successful = true;
 	return result;
 }
 

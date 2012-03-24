@@ -41,7 +41,7 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number) const;
+	virtual sResolveResult ResolveToName(std::string number);
 	/**
 	 * Resolves number doing a (costly) lookup
 	 * @param number to resolve

@@ -74,6 +74,7 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) 
 	delete (conv);
 	INF("resolves to " << name.c_str());
 	result.name = name;
+	result.successful = true;
 	return result;
 }
 

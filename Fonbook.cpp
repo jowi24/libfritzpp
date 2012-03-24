@@ -175,7 +175,7 @@ void Fonbook::SetDirty() {
 		dirty = true;
 }
 
-Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) const {
+Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	sResolveResult result(number);
 	if (number.length() > 0)
 		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
@@ -184,6 +184,7 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) const {
 				if (fonbookNumber.length() > 0 && Tools::CompareNormalized(number, fonbookNumber) == 0) {
 					result.name = fonbookList[pos].GetName();
 					result.type = fonbookList[pos].GetType(num);
+					result.successful = true;
 					return result;
 				}
 			}
