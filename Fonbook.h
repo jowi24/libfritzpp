@@ -215,6 +215,7 @@ public:
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
+	 * @param position position at which fe is added (at the end of the list per default)
 	 */
 	virtual void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos);
 	/**
