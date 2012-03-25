@@ -244,4 +244,20 @@
 
 2012-03:
 - Fix resolve in OertlichesFonbook
+- Add missing const in Fonbook / FonbookManager
+- Fix compiler warnings -Wsign-compare and -Wswitch
+- Improve constructor Fonbook() to ask for title, techid, writeable
+  * Removes direct access to these members
+  * Adds setWriteable() if a fonbook is determined to be writeable later
+- Add LookupFonbook class
+  * Lookup-only foonbooks now inherit this class
+  * Simplifies OertlichesFonbook, Nummerzoeker, TelLocalChFonbook significantly
+  * Caches lookups in memory
+  * Add successful field to sResolveResult
+  * Removed const qualifier from Fonbook::ResolveToName
+- Add constructor to sResolveResult
+  * Adapt users of sResolveResult
+- Reorganized some includes
+- Provide Doxyfile
+- Add missing documentation in Fonbook class
 
