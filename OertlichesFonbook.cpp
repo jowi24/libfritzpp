@@ -72,17 +72,18 @@ Fonbook::sResolveResult OertlichesFonbook::ResolveToName(std::string number) con
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("onclick=\"logDetail()\">");
+	size_t start = msg.find("getItemData(");
 	if (start == std::string::npos) {
 		INF("no entry found.");
 		return result;
 	}
-	start = msg.find(">", start);
 	// add the length of the last search pattern
-	start += 1;
+	start += 12;
 
-	size_t stop  = msg.find("&", start);
-	name = msg.substr(start, stop - start);
+	size_t stop  = msg.find(");", start);
+	std::string dataset = msg.substr(start, stop - start);
+	name = Tools::Tokenize(dataset, ',', 5);
+	name = name.substr(2, name.length()-3);
 	// convert the string from latin1 to current system character table
 	CharSetConv *conv = new CharSetConv("ISO-8859-1", CharSetConv::SystemCharacterTable());
 	const char *s_converted = conv->Convert(name.c_str());
