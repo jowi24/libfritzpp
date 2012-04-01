@@ -27,6 +27,8 @@
 #include <string>
 #include <vector>
 
+#include "FritzClient.h"
+
 #define NAMESPACE "libfritz++"
 #define LOCATOR "[" << NAMESPACE << "/" <<  \
                 std::string(__FILE__, std::string(__FILE__).rfind('/') == std::string::npos ? \
@@ -162,6 +164,8 @@ public:
 	void setActiveFonbook( std::string f )            { mConfig.activeFonbook = f; }
 	bool logPersonalInfo( )							  { return mConfig.logPersonalInfo; };
 	virtual ~Config();
+
+	FritzClientFactory *fritzClientFactory;
 };
 
 extern Config* gConfig;

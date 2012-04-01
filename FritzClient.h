@@ -41,15 +41,24 @@ private:
 public:
 	FritzClient ();
 	virtual ~FritzClient();
-	bool InitCall(std::string &number);
-	std::string RequestLocationSettings();
-	std::string RequestSipSettings();
-	std::string RequestCallList();
-	std::string RequestFonbook();
-	void WriteFonbook(std::string xmlData);
-	bool hasValidPassword() { return validPassword; }
-	bool reconnectISP();
-	std::string getCurrentIP();
+	virtual bool InitCall(std::string &number);
+	virtual std::string RequestLocationSettings();
+	virtual std::string RequestSipSettings();
+	virtual std::string RequestCallList();
+	virtual std::string RequestFonbook();
+	virtual void WriteFonbook(std::string xmlData);
+	virtual bool hasValidPassword() { return validPassword; }
+	virtual bool reconnectISP();
+	virtual std::string getCurrentIP();
+};
+
+class FritzClientFactory {
+public:
+	virtual ~FritzClientFactory() {}
+
+	virtual FritzClient *create() {
+		return new FritzClient;
+	}
 };
 
 }

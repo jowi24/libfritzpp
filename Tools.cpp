@@ -234,14 +234,16 @@ int Tools::CompareNormalized(std::string number1, std::string number2) {
 
 bool Tools::GetLocationSettings() {
 	//	get settings from Fritz!Box.
-	FritzClient fc;
-	std::string msg = fc.RequestLocationSettings();
+	FritzClient *fc = gConfig->fritzClientFactory->create();
+	std::string msg = fc->RequestLocationSettings();
 
 	size_t lkzStart = msg.find("telcfg:settings/Location/LKZ");
 	if (lkzStart == std::string::npos) {
 		ERR("Parser error in GetLocationSettings(). Could not find LKZ.");
 		ERR("LKZ/OKZ not set! Resolving phone numbers may not always work.");
-		return fc.hasValidPassword();
+		bool returnValue = fc->hasValidPassword();
+		delete fc;
+		return returnValue;
 	}
 	lkzStart += 37;
 	size_t lkzStop  = msg.find("\"", lkzStart);
@@ -249,7 +251,9 @@ bool Tools::GetLocationSettings() {
 	if (okzStart == std::string::npos) {
 		ERR("Parser error in GetLocationSettings(). Could not find OKZ.");
 		ERR("OKZ not set! Resolving phone numbers may not always work.");
-		return fc.hasValidPassword();
+		bool returnValue = fc->hasValidPassword();
+		delete fc;
+		return returnValue;
 	}
 	okzStart += 37;
 	size_t okzStop = msg.find("\"", okzStart);
@@ -265,7 +269,9 @@ bool Tools::GetLocationSettings() {
 	} else {
 		ERR("OKZ not set! Resolving phone numbers may not always work.");
 	}
-	return fc.hasValidPassword();
+	bool returnValue = fc->hasValidPassword();
+	delete fc;
+	return returnValue;
 }
 
 void Tools::GetSipSettings() {
@@ -273,8 +279,8 @@ void Tools::GetSipSettings() {
 	if ( gConfig->getSipNames().size() > 0 )
 		return;
 	// ...otherwise get settings from Fritz!Box.
-	FritzClient fc;
-	std::string msg = fc.RequestSipSettings();
+	FritzClient *fc = gConfig->fritzClientFactory->create();
+	std::string msg = fc->RequestSipSettings();
 
 	std::vector<std::string> sipNames;
 	std::vector<std::string> sipMsns;
@@ -357,7 +363,7 @@ void Tools::GetSipSettings() {
 	}
 	gConfig->setSipNames(sipNames);
 	gConfig->setSipMsns(sipMsns);
-
+	delete fc;
 }
 
 std::string Tools::Tokenize(const std::string &buffer, const char delimiter, size_t pos) {

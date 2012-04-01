@@ -122,7 +122,7 @@ CallList::~CallList()
 void CallList::run() {
 	DBG("CallList thread started");
 
-	FritzClient *fc = new FritzClient();
+	FritzClient *fc = gConfig->fritzClientFactory->create();
 	std::string msg = fc->RequestCallList();
 	delete fc;
 

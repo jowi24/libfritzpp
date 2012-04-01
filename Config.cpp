@@ -119,6 +119,7 @@ Config::Config( std::string url, std::string password) {
 	mConfig.lastRequestTime = 0;
 	mConfig.logPersonalInfo = false;
 	CharSetConv::DetectCharset();
+	fritzClientFactory = new FritzClientFactory();
 }
 
 Config::~Config() {

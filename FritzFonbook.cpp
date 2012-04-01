@@ -50,7 +50,7 @@ void FritzFonbook::run() {
 	setInitialized(false);
 	Clear();
 
-	FritzClient *fc = new FritzClient();
+	FritzClient *fc = gConfig->fritzClientFactory->create();
 	std::string msg = fc->RequestFonbook();
 	delete fc;
 
@@ -158,8 +158,9 @@ void FritzFonbook::Reload() {
 void FritzFonbook::Write() {
 	if (isWriteable()) {
 		INF("Uploading phonebook to Fritz!Box.");
-		FritzClient fc;
-		fc.WriteFonbook(SerializeToXml());
+		FritzClient *fc = gConfig->fritzClientFactory->create();
+		fc->WriteFonbook(SerializeToXml());
+		delete fc;
 	}
 }
 }
