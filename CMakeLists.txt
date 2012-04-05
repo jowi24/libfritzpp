@@ -30,7 +30,7 @@ add_library(fritz++ STATIC ${SRCS})
 
 # --- tests -------------------------------------------------------------------
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-undef")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-undef -DSOURCE_DIR=\\\"${libfritz++_SOURCE_DIR}\\\"")
 include_directories(${libfritz++_SOURCE_DIR}/test)
 AUX_SOURCE_DIRECTORY(test LIBTESTFILES)
 add_executable(libfritztest ${LIBTESTFILES} test/gtest/gtest-all.cc test/gtest/gtest_main.cc)

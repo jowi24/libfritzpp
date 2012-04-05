@@ -6,46 +6,21 @@
  */
 
 #include "gtest/gtest.h"
+#include "BasicInitFixture.h"
 
 #include <Config.h>
 #include <FonbookManager.h>
 #include <Fonbook.h>
 #include <FritzClient.h>
 
-class FakeClient : public fritz::FritzClient {
-public:
-	virtual std::string RequestLocationSettings() {
-		return "";
-	}
-	virtual std::string RequestSipSettings() {
-		return "";
-	}
+namespace test {
 
-};
-
-class FakeClientFactory : public fritz::FritzClientFactory {
-	virtual ~FakeClientFactory() {}
-
-	virtual fritz::FritzClient *create() {
-		return new FakeClient;
-	}
-};
-
-
-class OertlichesFonbook : public ::testing::Test {
+class OertlichesFonbook : public BasicInitFixture {
 protected:
 	fritz::FonbookManager *fbm;
 
 	void SetUp() {
-		fritz::Config::Setup("localhost", "pwd", true);
-
-		delete fritz::gConfig->fritzClientFactory;
-		fritz::gConfig->fritzClientFactory = new FakeClientFactory();
-
-		bool locsettings;
-		std::string countryCode = "49";
-		std::string cityCode = "7251";
-		fritz::Config::Init(&locsettings, &countryCode, &cityCode);
+		BasicInitFixture::SetUp();
 
 		std::vector <std::string> vFonbookID;
 		vFonbookID.push_back("OERT");
@@ -58,4 +33,11 @@ protected:
 TEST_F(OertlichesFonbook, Resolve) {
 	fritz::Fonbook::sResolveResult result = fbm->ResolveToName("740");
 	ASSERT_EQ("Finanzamt Bruchsal", result.name);
+}
+
+TEST_F(OertlichesFonbook, NoResolve) {
+	fritz::Fonbook::sResolveResult result = fbm->ResolveToName("998877");
+	ASSERT_EQ("998877", result.name);
+}
+
 }
