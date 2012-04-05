@@ -281,6 +281,7 @@ void Tools::GetSipSettings() {
 	// ...otherwise get settings from Fritz!Box.
 	FritzClient *fc = gConfig->fritzClientFactory->create();
 	std::string msg = fc->RequestSipSettings();
+	delete fc;
 
 	std::vector<std::string> sipNames;
 	std::vector<std::string> sipMsns;
@@ -363,7 +364,6 @@ void Tools::GetSipSettings() {
 	}
 	gConfig->setSipNames(sipNames);
 	gConfig->setSipMsns(sipMsns);
-	delete fc;
 }
 
 std::string Tools::Tokenize(const std::string &buffer, const char delimiter, size_t pos) {
