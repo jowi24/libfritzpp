@@ -1,5 +1,7 @@
+*~
 *.o
 *.a
+.directory
 .dependencies
 *.moc
 test/Makefile
