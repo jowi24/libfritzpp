@@ -4,8 +4,6 @@
 .directory
 .dependencies
 *.moc
-test/Makefile
-test/test
-test/server
+test/libfritztest
 doc/
 
