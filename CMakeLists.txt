@@ -29,10 +29,12 @@ set(SRCS cc++/url.cpp cc++/urlstring.cpp cc++/mime.cpp cc++/soap.cpp
 add_library(fritz++ STATIC ${SRCS})
 
 # --- tests -------------------------------------------------------------------
+if (EXISTS ${libfritz++_SOURCE_DIR}/test)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-undef -DSOURCE_DIR=\\\"${libfritz++_SOURCE_DIR}\\\"")
+  include_directories(${libfritz++_SOURCE_DIR}/test)
+  AUX_SOURCE_DIRECTORY(test LIBTESTFILES)
+  add_executable(libfritztest ${LIBTESTFILES} test/gtest/gtest-all.cc test/gtest/gtest_main.cc)
+  target_link_libraries(libfritztest fritz++ 
+                        ${GCRYPT_LIBRARIES} ${CC++_LDFLAGS})
+endif (EXISTS ${libfritz++_SOURCE_DIR}/test)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-undef -DSOURCE_DIR=\\\"${libfritz++_SOURCE_DIR}\\\"")
-include_directories(${libfritz++_SOURCE_DIR}/test)
-AUX_SOURCE_DIRECTORY(test LIBTESTFILES)
-add_executable(libfritztest ${LIBTESTFILES} test/gtest/gtest-all.cc test/gtest/gtest_main.cc)
-target_link_libraries(libfritztest fritz++ 
-                      ${GCRYPT_LIBRARIES} ${CC++_LDFLAGS})
