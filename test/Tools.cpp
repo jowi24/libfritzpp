@@ -13,6 +13,9 @@
 namespace test {
 
 class Tools : public BasicInitFixture {
+public:
+	Tools()
+	:BasicInitFixture("49", "7251") {};
 protected:
 	void SetUp() {
 		BasicInitFixture::SetUp();

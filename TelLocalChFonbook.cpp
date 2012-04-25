@@ -55,7 +55,7 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) 
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("<h2");
+	size_t start = msg.find("<h2 class");
 
 	if (start == std::string::npos) {
 		INF("no entry found.");
@@ -68,10 +68,13 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) 
 	name = msg.substr(start, stop - start);
 	
 	// convert the string from latin1 to current system character table
-	CharSetConv *conv = new CharSetConv("ISO-8859-1", CharSetConv::SystemCharacterTable());
+	CharSetConv *conv = new CharSetConv("UTF-8", CharSetConv::SystemCharacterTable());
 	const char *s_converted = conv->Convert(name.c_str());
 	name = s_converted;
 	delete (conv);
+
+	name = convertEntities(name);
+
 	INF("resolves to " << name.c_str());
 	result.name = name;
 	result.successful = true;

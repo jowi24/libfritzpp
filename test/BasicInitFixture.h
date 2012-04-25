@@ -17,6 +17,11 @@ namespace test {
 
 class BasicInitFixture : public ::testing::Test {
 protected:
+	std::string countryCode;
+	std::string cityCode;
+
+	BasicInitFixture(std::string countryCode, std::string cityCode)
+	:countryCode(countryCode), cityCode(cityCode) {}
 
 	void SetUp() {
 		fritz::Config::Setup("localhost", "pwd", true);
@@ -25,8 +30,6 @@ protected:
 		fritz::gConfig->fritzClientFactory = new FakeNoopClientFactory();
 
 		bool locsettings;
-		std::string countryCode = "49";
-		std::string cityCode = "7251";
 		fritz::Config::Init(&locsettings, &countryCode, &cityCode);
 	}
 
