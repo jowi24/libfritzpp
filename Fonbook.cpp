@@ -26,7 +26,151 @@
 #include "Config.h"
 #include "Tools.h"
 
-namespace fritz{
+namespace fritz {
+
+const char *Entities[97][2] = {
+	{"&nbsp;",  " "},
+	{"&iexcl;", "¡"},
+	{"&cent;",  "¢"},
+	{"&pound;", "£"},
+	{"&curren;","€"}, //krazy:exclude=spelling
+	{"&yen;",   "¥"},
+	{"&brvbar;","Š"},
+	{"&sect;",  "§"},
+	{"&uml;",   "š"},
+	{"&copy;",  "©"},
+	{"&ordf;",  "ª"},
+	{"&laquo;", "«"},
+	{"&not;",   "¬"},
+	{"&shy;",   "­"},
+	{"&reg;",   "®"},
+	{"&macr;",  "¯"},
+	{"&deg;",   "°"},
+	{"&plusmn;","±"},
+	{"&sup2;",  "²"},
+	{"&sup3;",  "³"},
+	{"&acute;", "Ž"},
+	{"&micro;", "µ"},
+	{"&para;",  "¶"},
+	{"&middot;","·"},
+	{"&cedil;", "ž"},
+	{"&sup1;",  "¹"},
+	{"&ordm;",  "º"},
+	{"&raquo;", "»"},
+	{"&frac14;","Œ"},
+	{"&frac12;","œ"},
+	{"&frac34;","Ÿ"},
+	{"&iquest;","¿"},
+	{"&Agrave;","À"},
+	{"&Aacute;","Á"},
+	{"&Acirc;", "Â"},
+	{"&Atilde;","Ã"},
+	{"&Auml;",  "Ä"},
+	{"&Aring;", "Å"},
+	{"&AElig;", "Æ"},
+	{"&Ccedil;","Ç"},
+	{"&Egrave;","È"},
+	{"&Eacute;","É"},
+	{"&Ecirc;", "Ê"},
+	{"&Euml;",  "Ë"},
+	{"&Igrave;","Ì"},
+	{"&Iacute;","Í"},
+	{"&Icirc;", "Î"},
+	{"&Iuml;",  "Ï"},
+	{"&ETH;",   "Ð"},
+	{"&Ntilde;","Ñ"},
+	{"&Ograve;","Ò"},
+	{"&Oacute;","Ó"},
+	{"&Ocirc;", "Ô"},
+	{"&Otilde;","Õ"},
+	{"&Ouml;",  "Ö"},
+	{"&times;", "×"},
+	{"&Oslash;","Ø"},
+	{"&Ugrave;","Ù"},
+	{"&Uacute;","Ú"},
+	{"&Ucirc;", "Û"},
+	{"&Uuml;",  "Ü"},
+	{"&Yacute;","Ý"},
+	{"&THORN;", "Þ"},
+	{"&szlig;", "ß"},
+	{"&agrave;","à"},
+	{"&aacute;","á"},
+	{"&acirc;", "â"},
+	{"&atilde;","ã"},
+	{"&auml;",  "ä"},
+	{"&aring;", "å"},
+	{"&aelig;", "æ"},
+	{"&ccedil;","ç"},
+	{"&egrave;","è"},
+	{"&eacute;","é"},
+	{"&ecirc;", "ê"},
+	{"&euml;",  "ë"},
+	{"&igrave;","ì"},
+	{"&iacute;","í"},
+	{"&icirc;", "î"},
+	{"&iuml;",  "ï"},
+	{"&eth;",   "ð"},
+	{"&ntilde;","ñ"},
+	{"&ograve;","ò"},
+	{"&oacute;","ó"},
+	{"&ocirc;", "ô"},
+	{"&otilde;","õ"},
+	{"&ouml;",  "ö"},
+	{"&divide;","÷"},
+	{"&oslash;","ø"},
+	{"&ugrave;","ù"},
+	{"&uacute;","ú"},
+	{"&ucirc;", "û"},
+	{"&uuml;",  "ü"},
+	{"&yacute;","ý"},
+	{"&thorn;", "þ"},
+	{"&yuml;",  "ÿ"},
+	{"&amp;",   "&"},
+};
+
+std::string Fonbook::convertEntities(std::string s) const {
+	if (s.find("&") != std::string::npos) {
+		// convert the entities from UTF-8 to current system character table
+		CharSetConv *conv = new CharSetConv("UTF-8", CharSetConv::SystemCharacterTable());
+
+		// convert entities of format &#xFF; (unicode)
+		while (s.find("&#x") != std::string::npos) {
+			size_t pos = s.find("&#x");
+			size_t end = s.find(";", pos);
+			// get hex code
+			std::string unicode = s.substr(pos+3, end - pos - 3);
+			// convert to int
+			std::stringstream ss;
+			ss << std::hex << unicode;
+			int codepoint;
+			ss >> codepoint;
+			// get corresponding char
+			char out_buffer[8];
+			memset(out_buffer, 0, 8);
+			char *out = &(out_buffer[0]);
+			wchar_t in_buffer = codepoint;
+			char *in = (char *)&(in_buffer);
+			size_t inlen = sizeof(in_buffer), outlen = sizeof(out_buffer);
+			iconv_t cd;
+			cd = iconv_open("utf-8", "ucs-2");
+			iconv(cd, &in, &inlen, &out, &outlen);
+			iconv_close(cd);
+			// replace it
+			s.replace(pos, end-pos+1, std::string(out_buffer));
+		}
+
+		// convert other entities with table
+		for (int i=0; i<97; i++) {
+			std::string::size_type pos = s.find(Entities[i][0]);
+			if (pos != std::string::npos) {
+				s.replace(pos, strlen(Entities[i][0]), conv->Convert(Entities[i][1]));
+				i--; //search for the same entity again
+			}
+		}
+		delete (conv);
+	}
+	return s;
+}
 
 FonbookEntry::FonbookEntry(std::string name, bool important) {
 	this->name      = name;

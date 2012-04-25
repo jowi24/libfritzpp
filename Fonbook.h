@@ -171,7 +171,10 @@ protected:
 	 * True, if this phonebook has displayable entries.
 	 */
 	bool displayable;
-
+	/**
+	 *
+	 */
+	std::string convertEntities(std::string s) const;
 public:
 	struct sResolveResult {
 		sResolveResult(std::string name, FonbookEntry::eType type = FonbookEntry::TYPE_NONE, bool successful = false)

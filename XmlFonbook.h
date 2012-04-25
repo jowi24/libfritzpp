@@ -32,7 +32,6 @@ private:
 	std::string ExtractXmlElementValue(std::string element, std::string xml);
 	std::string charset;
 protected:
-	std::string convertEntities(std::string s);
 	void ParseXmlFonbook(std::string *msg);
 	std::string SerializeToXml();
 public:
