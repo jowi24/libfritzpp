@@ -32,7 +32,6 @@ private:
 	ost2::URLStream *urlStream;
 protected:
 	HttpClient(std::string &host, int port, ost2::URLStream *stream);
-	ost2::URLStream::Error returnCode;
 	std::string Result();
     std::string BuildUrl(const std::ostream & url);
 public:

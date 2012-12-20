@@ -60,7 +60,7 @@ std::string HttpClient::Result() {
 std::string HttpClient::Get(const std::ostream& url) {
 	urlStream->setAgent("Lynx/2.8.5");
 
-	returnCode = urlStream->get(BuildUrl(url).c_str());
+	ost2::URLStream::Error returnCode = urlStream->get(BuildUrl(url).c_str());
 	if (returnCode != ost2::URLStream::errSuccess)
 		THROW(ost::SockException("Could not connect", ost::Socket::errNotConnected));
 	return Result();
@@ -74,7 +74,7 @@ std::string HttpClient::Post(const std::ostream &url, const std::ostream &postda
 	params[0] = param0;
 	params[1] = 0;
 
-	returnCode = urlStream->post(BuildUrl(url).c_str(), params);
+	ost2::URLStream::Error returnCode = urlStream->post(BuildUrl(url).c_str(), params);
 	if (returnCode != ost2::URLStream::errSuccess)
 		THROW(ost::SockException("Could not connect", ost::Socket::errNotConnected));
 	return Result();
@@ -82,7 +82,7 @@ std::string HttpClient::Post(const std::ostream &url, const std::ostream &postda
 }
 
 std::string HttpClient::PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form) {
-	returnCode = urlStream->post(BuildUrl(url).c_str(), form);
+	ost2::URLStream::Error returnCode = urlStream->post(BuildUrl(url).c_str(), form);
 	if (returnCode != ost2::URLStream::errSuccess)
 		THROW(ost::SockException("Could not connect", ost::Socket::errNotConnected));
 	return Result();
