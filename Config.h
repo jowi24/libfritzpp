@@ -54,7 +54,8 @@ public:
 	enum eLoginType {
 		UNKNOWN,
 		PASSWORD,
-		SID
+		SID,
+		LUA
 	};
 private:
 	struct sConfig {

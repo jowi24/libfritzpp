@@ -52,6 +52,7 @@ namespace fritz {
 ost::Mutex* FritzClient::mutex = new ost::Mutex();
 
 FritzClient::FritzClient() {
+	validPassword = false;
 	mutex->enterMutex();
 	// init libgcrypt
 	gcry_check_version (NULL);
@@ -123,34 +124,45 @@ bool FritzClient::Login() {
 
 	// detect type of login once
 	std::string sXml; // sXml is used twice!
-	if (gConfig->getLoginType() == Config::UNKNOWN || gConfig->getLoginType() == Config::SID) {
+	if (gConfig->getLoginType() == Config::UNKNOWN || gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) {
 		// detect if this Fritz!Box uses SIDs
-		DBG("requesting login_sid.xml from Fritz!Box.");
+		DBG("requesting login_sid.lua from Fritz!Box.");
 		sXml = httpClient->Get(std::stringstream().flush()
-			<< "/cgi-bin/webcm?getpage=../html/login_sid.xml");
-		if (sXml.find("<iswriteaccess>") != std::string::npos)
-			gConfig->setLoginType(Config::SID);
-		else
-			gConfig->setLoginType(Config::PASSWORD);
+			<< "/login_sid.lua");
+		if (sXml.find("<SID>") != std::string::npos)
+			gConfig->setLoginType(Config::LUA);
+		else {
+			DBG("requesting login_sid.xml from Fritz!Box.");
+			sXml = httpClient->Get(std::stringstream().flush()
+					<< "/cgi-bin/webcm?getpage=../html/login_sid.xml");
+			if (sXml.find("<iswriteaccess>") != std::string::npos)
+				gConfig->setLoginType(Config::SID);
+			else
+				gConfig->setLoginType(Config::PASSWORD);
+		}
 	}
 
-	if (gConfig->getLoginType() == Config::SID) {
+	if (gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) {
+		std::stringstream loginPath;
+		std::stringstream postdataLogout;
+		if (gConfig->getLoginType() == Config::LUA) {
+			loginPath << "/login_sid.lua";
+			postdataLogout << "sid=" << gConfig->getSid() << "&logout=abc";
+		} else {
+			loginPath << "/cgi-bin/webcm";
+			postdataLogout << "sid=" << gConfig->getSid() << "&security:command/logout=abc";
+		}
 		DBG("logging into fritz box using SIDs.");
 		if (gConfig->getSid().length() > 0) {
 			// logout, drop old SID (if FB has not already dropped this SID because of a timeout)
 			DBG("dropping old SID");
 			std::string sDummy;
-			sDummy = httpClient->Post(std::stringstream().flush()
-				<< "/cgi-bin/webcm",
-				std::stringstream().flush()
-				<< "sid="
-				<< gConfig->getSid()
-				<< "&security:command/logout=abc");
+			sDummy = httpClient->Post(loginPath, postdataLogout);
 		}
 		// check if no password is needed (SID is directly available)
 		size_t pwdFlag = sXml.find("<iswriteaccess>");
 		if (pwdFlag == std::string::npos) {
-			ERR("Error - Expected <iswriteacess> not found in login_sid.xml.");
+			ERR("Error - Expected <iswriteaccess> not found in login_sid.xml or login_sid.lua.");
 			return false;
 		}
 		pwdFlag += 15;
@@ -158,7 +170,7 @@ bool FritzClient::Login() {
 			// extract SID
 			size_t sidStart = sXml.find("<SID>");
 			if (sidStart == std::string::npos) {
-				ERR("Error - Expected <SID> not found in login_sid.xml.");
+				ERR("Error - Expected <SID> not found in login_sid.xml or login_sid.lua.");
 				return false;
 			}
 			sidStart += 5;
@@ -170,7 +182,7 @@ bool FritzClient::Login() {
 			// generate response out of challenge and password
 			size_t challengeStart = sXml.find("<Challenge>");
 			if (challengeStart == std::string::npos) {
-				ERR("Error - Expected <Challenge> not found in login_sid.xml.");
+				ERR("Error - Expected <Challenge> not found in login_sid.xml or login_sid.lua.");
 				return false;
 			}
 			challengeStart += 11;
@@ -179,19 +191,32 @@ bool FritzClient::Login() {
             std::string response = CalculateLoginResponse(challenge);
             // send response to box
 			std::string sMsg;
-			sMsg = httpClient->Post(std::stringstream().flush()
-				<< "/cgi-bin/webcm",
-				std::stringstream().flush()
-				<< "login:command/response="
-				<< response
-				<< "&getpage=../html/de/menus/menu2.html");
-			size_t sidStart = sMsg.find("name=\"sid\"");
-			if (sidStart == std::string::npos) {
-				ERR("Error - Expected sid field not found.");
-				return false;
+
+			std::stringstream postdata;
+			if (gConfig->getLoginType() == Config::SID)
+				postdata  << "login:command/response=" << response
+				          << "&getpage=../html/de/menus/menu2.html";
+			else
+				postdata << "username=&response=" << response;
+			sMsg = httpClient->Post(loginPath, postdata);
+			size_t sidStart, sidStop;
+			if (gConfig->getLoginType() == Config::SID) {
+				sidStart = sMsg.find("name=\"sid\"");
+				if (sidStart == std::string::npos) {
+					ERR("Error - Expected sid field not found.");
+					return false;
+				}
+				sidStart = sMsg.find("value=\"", sidStart + 10) + 7;
+				sidStop = sMsg.find("\"", sidStart);
+			} else {
+				sidStart = sMsg.find("<SID>");
+				if (sidStart == std::string::npos) {
+					ERR("Error - Expected sid field not found.");
+					return false;
+				}
+				sidStart += 5;
+				sidStop = sMsg.find("</SID>");
 			}
-			sidStart = sMsg.find("value=\"", sidStart + 10) + 7;
-			size_t sidStop = sMsg.find("\"", sidStart);
 			// save SID
 			gConfig->setSid(sMsg.substr(sidStart, sidStop-sidStart));
 			// check if SID is valid
