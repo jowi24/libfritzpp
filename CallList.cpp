@@ -128,12 +128,7 @@ void CallList::run() {
 
 	std::vector<CallEntry> callList;
 	// parse answer
-	size_t pos = 0;
-	// skip HTTP header data
-//	while (msg[pos] != '\r' && msg[pos] != '\n') {
-//		pos = msg.find("\n", pos) + 1;
-//	}
-	pos += 2;
+	size_t pos = 2;
 	// parse body
 	int count = 0;
 	while ((pos = msg.find("\n", pos)) != std::string::npos /*&& msg[pos+1] != '\n'*/) {
@@ -155,7 +150,9 @@ void CallList::run() {
 			durationStop--;
 
 		CallEntry ce;
-		ce.type           = (CallEntry::eCallType)atoi(&msg[type]);
+		// FB developers introduce new numbering in call type column: '4' is the new '3'
+		type = atoi(&msg[type]);
+		ce.type           = (CallEntry::eCallType) (type == 4 ? 3: type);
 		ce.date           = msg.substr(dateStart,     timeStart     - dateStart     -1);
 		ce.time           = msg.substr(timeStart,     nameStart     - timeStart     -1);
 		ce.remoteName     = msg.substr(nameStart,     numberStart   - nameStart     -1);

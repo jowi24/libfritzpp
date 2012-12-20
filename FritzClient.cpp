@@ -152,30 +152,24 @@ bool FritzClient::Login() {
 			loginPath << "/cgi-bin/webcm";
 			postdataLogout << "sid=" << gConfig->getSid() << "&security:command/logout=abc";
 		}
-		DBG("logging into fritz box using SIDs.");
-		if (gConfig->getSid().length() > 0) {
-			// logout, drop old SID (if FB has not already dropped this SID because of a timeout)
-			DBG("dropping old SID");
-			std::string sDummy;
-			sDummy = httpClient->Post(loginPath, postdataLogout);
-		}
+//		DBG("logging into fritz box using SIDs.");
+//		if (gConfig->getSid().length() > 0) {
+//			// logout, drop old SID (if FB has not already dropped this SID because of a timeout)
+//			DBG("dropping old SID");
+//			std::string sDummy;
+//			sDummy = httpClient->Post(loginPath, postdataLogout);
+//		}
 		// check if no password is needed (SID is directly available)
-		size_t pwdFlag = sXml.find("<iswriteaccess>");
-		if (pwdFlag == std::string::npos) {
-			ERR("Error - Expected <iswriteaccess> not found in login_sid.xml or login_sid.lua.");
+		size_t sidStart = sXml.find("<SID>");
+		if (sidStart == std::string::npos) {
+			ERR("Error - Expected field <SID> not found in login_sid.xml or login_sid.lua.");
 			return false;
 		}
-		pwdFlag += 15;
-		if (sXml[pwdFlag] == '1') {
-			// extract SID
-			size_t sidStart = sXml.find("<SID>");
-			if (sidStart == std::string::npos) {
-				ERR("Error - Expected <SID> not found in login_sid.xml or login_sid.lua.");
-				return false;
-			}
-			sidStart += 5;
+		sidStart += 5;
+		std::string sid = sXml.substr(sidStart, 16);
+		if (sid.compare("0000000000000000") != 0) {
 			// save SID
-			gConfig->setSid(sXml.substr(sidStart, 16));
+			gConfig->setSid(sid);
 			gConfig->updateLastRequestTime();
 			return true;
 		} else {
@@ -339,7 +333,8 @@ std::string FritzClient::RequestSipSettings() {
 }
 
 std::string FritzClient::RequestCallList () {
-	std::string msg;
+	std::string msg = "";
+	std::string csv = "";
 	RETRY_BEGIN {
 		// now, process call list
 		DBG("sending callList request.");
@@ -351,24 +346,33 @@ std::string FritzClient::RequestCallList () {
 			<<  GetLang()
 			<< "&var:pagename=foncalls&var:menu=fon"
 			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
-		// get the URL of the CSV-File-Export
-		unsigned int urlPos   = msg.find(".csv");
-		unsigned int urlStop  = msg.find('"', urlPos);
-		unsigned int urlStart = msg.rfind('"', urlPos) + 1;
-		std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
-		// retrieve csv list
-		msg = "";
-		msg = httpClient->Get(std::stringstream().flush()
-			<< "/cgi-bin/webcm?getpage="
-			<<  csvUrl
-			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
+
+		// new method to request call list (FW >= xx.05.50?)
+		try {
+			csv = httpClient->Get(std::stringstream().flush() << "/fon_num/foncalls_list.lua?"
+			  	                  << "csv=&sid=" << gConfig->getSid());
+		} catch (ost::SockException e) {}
+
+		// old method, parsing url to csv from page above
+		if (csv.length() == 0) {
+			// get the URL of the CSV-File-Export
+			unsigned int urlPos   = msg.find(".csv");
+			unsigned int urlStop  = msg.find('"', urlPos);
+			unsigned int urlStart = msg.rfind('"', urlPos) + 1;
+			std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
+			// retrieve csv list
+			csv = httpClient->Get(std::stringstream().flush()
+					<< "/cgi-bin/webcm?getpage="
+					<<  csvUrl
+					<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
+		}
 		// convert answer to current SystemCodeSet (we assume, Fritz!Box sends its answer in latin15)
 		CharSetConv *conv = new CharSetConv("ISO-8859-15", CharSetConv::SystemCharacterTable());
-		const char *msg_converted = conv->Convert(msg.c_str());
-		msg = msg_converted;
+		const char *csv_converted = conv->Convert(csv.c_str());
+		csv = csv_converted;
 		delete(conv);
 	} RETRY_END
-	return msg;
+	return csv;
 }
 
 std::string FritzClient::RequestFonbook () {
