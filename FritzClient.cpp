@@ -377,6 +377,23 @@ std::string FritzClient::RequestCallList () {
 
 std::string FritzClient::RequestFonbook () {
 	std::string msg;
+	// new method, returns an XML
+	{ RETRY_BEGIN {
+		ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
+
+		new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
+		new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
+		new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
+		new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
+
+		msg = httpClient->PostMIME(std::stringstream().flush()
+				<< "/cgi-bin/firmwarecfg", *mmpf);
+		if (msg.find("<phonebooks>") != std::string::npos) {
+			return msg;
+		}
+	} RETRY_END }
+
+	// use old fashioned website (for old FW versions)
 	RETRY_BEGIN {
 		DBG("sending fonbook request.");
 		msg = httpClient->Get(std::stringstream().flush()
@@ -388,21 +405,6 @@ std::string FritzClient::RequestFonbook () {
 			<< "&var:pagename=fonbuch&var:menu=fon"
 			<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
 	} RETRY_END
-
-	// detect if xml export of fonbook is possible
-	if (msg.find("uiPostExportForm") != std::string::npos) {
-		RETRY_BEGIN {
-			ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
-
-			new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
-			new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
-			new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
-			new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
-
-			msg = httpClient->PostMIME(std::stringstream().flush()
-					<< "/cgi-bin/firmwarecfg", *mmpf);
-		} RETRY_END
-	}
 
 	return msg;
 }
