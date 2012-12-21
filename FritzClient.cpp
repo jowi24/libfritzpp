@@ -304,8 +304,19 @@ bool FritzClient::InitCall(std::string &number) {
 
 std::string FritzClient::RequestLocationSettings() {
 	std::string msg;
+
+	{ RETRY_BEGIN {
+		if (gConfig->getSid().size()) {
+			DBG("Looking up Phone Settings (using lua)...");
+			msg = httpClient->Get(std::stringstream().flush()
+					<< "/fon_num/sip_option.lua?sid=" << gConfig->getSid());
+			if (msg.find("<!-- pagename:/fon_num/sip_option.lua-->") != std::string::npos)
+				return msg;
+		}
+	} RETRY_END }
+
 	RETRY_BEGIN {
-		DBG("Looking up Phone Settings...");
+		DBG("Looking up Phone Settings (using webcm)...");
 		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
 			<<  GetLang()
@@ -319,8 +330,19 @@ std::string FritzClient::RequestLocationSettings() {
 
 std::string FritzClient::RequestSipSettings() {
 	std::string msg;
+
+	{ RETRY_BEGIN {
+		if (gConfig->getSid().size()) {
+			DBG("Looking up SIP Settings (using lua)...");
+			msg = httpClient->Get(std::stringstream().flush()
+					<< "/fon_num/fon_num_list.lua?sid=" << gConfig->getSid());
+			if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos)
+				return msg;
+		}
+	} RETRY_END }
+
 	RETRY_BEGIN {
-		DBG("Looking up SIP Settings...");
+		DBG("Looking up SIP Settings (using webcm)...");
 		msg = httpClient->Get(std::stringstream().flush()
 				<< "/cgi-bin/webcm?getpage=../html/"
 				<< GetLang()
@@ -379,23 +401,25 @@ std::string FritzClient::RequestFonbook () {
 	std::string msg;
 	// new method, returns an XML
 	{ RETRY_BEGIN {
-		ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
+		if (gConfig->getSid().length()) {
+			ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
 
-		new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
-		new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
-		new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
-		new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
-
-		msg = httpClient->PostMIME(std::stringstream().flush()
-				<< "/cgi-bin/firmwarecfg", *mmpf);
-		if (msg.find("<phonebooks>") != std::string::npos) {
-			return msg;
+			new ost2::MIMEFormData( mmpf, "sid", gConfig->getSid().c_str());
+			new ost2::MIMEFormData( mmpf, "PhonebookId", "0");
+			new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
+			new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
+			DBG("sending fonbook XML request.");
+			msg = httpClient->PostMIME(std::stringstream().flush()
+					<< "/cgi-bin/firmwarecfg", *mmpf);
+			if (msg.find("<phonebooks>") != std::string::npos) {
+				return msg;
+			}
 		}
 	} RETRY_END }
 
 	// use old fashioned website (for old FW versions)
 	RETRY_BEGIN {
-		DBG("sending fonbook request.");
+		DBG("sending fonbook HTML request.");
 		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
 			<< GetLang()

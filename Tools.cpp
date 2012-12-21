@@ -245,7 +245,8 @@ bool Tools::GetLocationSettings() {
 		delete fc;
 		return returnValue;
 	}
-	lkzStart += 37;
+	lkzStart += 30;
+	lkzStart        = msg.find("\"", lkzStart) +1;
 	size_t lkzStop  = msg.find("\"", lkzStart);
 	size_t okzStart = msg.find("telcfg:settings/Location/OKZ");
 	if (okzStart == std::string::npos) {
@@ -255,7 +256,8 @@ bool Tools::GetLocationSettings() {
 		delete fc;
 		return returnValue;
 	}
-	okzStart += 37;
+	okzStart += 30;
+	okzStart       = msg.find("\"", okzStart) +1;
 	size_t okzStop = msg.find("\"", okzStart);
 	gConfig->setCountryCode( msg.substr(lkzStart, lkzStop - lkzStart) );
 	gConfig->setRegionCode( msg.substr(okzStart, okzStop - okzStart) );
@@ -286,6 +288,35 @@ void Tools::GetSipSettings() {
 	std::vector<std::string> sipNames;
 	std::vector<std::string> sipMsns;
 
+	// new parser for lua page
+	if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos) {
+		std::string name, msn;
+
+		for (size_t i = 0; i < 10; i++) {
+			std::stringstream msnTag, nameTag;
+			msnTag << "telcfg:settings/SIP" << i << "/MSN";
+			nameTag << "telcfg:settings/SIP" << i << "/Name";
+			size_t msnPos = msg.find(msnTag.str());
+			size_t namePos = msg.find(nameTag.str());
+			if (msnPos == std::string::npos) {
+				sipNames.push_back("");
+				sipMsns.push_back("");
+				continue;
+			}
+			msnPos = msg.find("\"", msnPos + msnTag.str().length() + 1);
+			namePos = msg.find("\"", namePos + nameTag.str().length() + 1);
+			msn = msg.substr(msnPos + 1, msg.find("\"", msnPos + 1) - msnPos -1);
+			name = msg.substr(namePos + 1, msg.find("\"", namePos + 1) - namePos -1);
+			sipNames.push_back(name);
+			sipMsns.push_back(msn);
+			DBG("Found SIP" << i << " provider name " << name << " / MSN " << msn);
+		}
+		gConfig->setSipNames(sipNames);
+		gConfig->setSipMsns(sipMsns);
+		return;
+	}
+
+	// old parser
 	// check if the structure of the HTML page matches our search pattern
 	if (msg.find("function AuswahlDisplay") == std::string::npos){
 		ERR("Parser error in GetSipSettings(). Could not find SIP list.");
