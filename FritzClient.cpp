@@ -118,7 +118,7 @@ std::string FritzClient::UrlEncode(std::string &s_input) {
 
 bool FritzClient::Login() {
 	// when using SIDs, a new login is only needed if the last request was more than 5 minutes ago
-	if (gConfig->getLoginType() == Config::SID && (time(NULL) - gConfig->getLastRequestTime() < 300)) {
+	if ((gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) && (time(NULL) - gConfig->getLastRequestTime() < 300)) {
 		return true;
 	}
 
@@ -128,7 +128,7 @@ bool FritzClient::Login() {
 		// detect if this Fritz!Box uses SIDs
 		DBG("requesting login_sid.lua from Fritz!Box.");
 		sXml = httpClient->Get(std::stringstream().flush()
-			<< "/login_sid.lua");
+			<< "/login_sid.lua?sid=" << gConfig->getSid());
 		if (sXml.find("<SID>") != std::string::npos)
 			gConfig->setLoginType(Config::LUA);
 		else {
@@ -144,13 +144,13 @@ bool FritzClient::Login() {
 
 	if (gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) {
 		std::stringstream loginPath;
-		std::stringstream postdataLogout;
+//		std::stringstream postdataLogout;
 		if (gConfig->getLoginType() == Config::LUA) {
 			loginPath << "/login_sid.lua";
-			postdataLogout << "sid=" << gConfig->getSid() << "&logout=abc";
+//			postdataLogout << "sid=" << gConfig->getSid() << "&logout=abc";
 		} else {
 			loginPath << "/cgi-bin/webcm";
-			postdataLogout << "sid=" << gConfig->getSid() << "&security:command/logout=abc";
+//			postdataLogout << "sid=" << gConfig->getSid() << "&security:command/logout=abc";
 		}
 //		DBG("logging into fritz box using SIDs.");
 //		if (gConfig->getSid().length() > 0) {
@@ -169,10 +169,12 @@ bool FritzClient::Login() {
 		std::string sid = sXml.substr(sidStart, 16);
 		if (sid.compare("0000000000000000") != 0) {
 			// save SID
+			DBG("SID is still valid - all ok.");
 			gConfig->setSid(sid);
 			gConfig->updateLastRequestTime();
 			return true;
 		} else {
+			DBG("We need to log in.");
 			// generate response out of challenge and password
 			size_t challengeStart = sXml.find("<Challenge>");
 			if (challengeStart == std::string::npos) {
@@ -192,6 +194,7 @@ bool FritzClient::Login() {
 				          << "&getpage=../html/de/menus/menu2.html";
 			else
 				postdata << "username=&response=" << response;
+			DBG("Sending login request...");
 			sMsg = httpClient->Post(loginPath, postdata);
 			size_t sidStart, sidStop;
 			if (gConfig->getLoginType() == Config::SID) {
@@ -213,12 +216,7 @@ bool FritzClient::Login() {
 			}
 			// save SID
 			gConfig->setSid(sMsg.substr(sidStart, sidStop-sidStart));
-			// check if SID is valid
-			bool isValidSid = false;
-			for (size_t pos=0; pos < gConfig->getSid().length(); pos++)
-				if (gConfig->getSid()[pos] != '0')
-					isValidSid = true;
-			if (isValidSid) {
+			if (gConfig->getSid().compare("0000000000000000") != 0) {
 				DBG("login successful.");
 				gConfig->updateLastRequestTime();
 				return true;
