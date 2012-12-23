@@ -129,7 +129,7 @@ bool FritzClient::Login() {
 		DBG("requesting login_sid.lua from Fritz!Box.");
 		sXml = httpClient->Get(std::stringstream().flush()
 			<< "/login_sid.lua");
-		if (sXml.find("<SID>") != std::string::npos)
+		if (sXml.find("<Rights") != std::string::npos)
 			gConfig->setLoginType(Config::LUA);
 		else {
 			DBG("requesting login_sid.xml from Fritz!Box.");
