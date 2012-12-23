@@ -374,6 +374,10 @@ std::string FritzClient::RequestCallList () {
 			DBG("sending callList request (using lua)...");
 			csv = httpClient->Get(std::stringstream().flush() << "/fon_num/foncalls_list.lua?"
 			  	                  << "csv=&sid=" << gConfig->getSid());
+			if (csv.find("Typ;Datum;Name;") == std::string::npos) {
+				csv.clear();
+				DBG("failed.");
+			}
 		} catch (ost::SockException e) {}
 
 		// old method, parsing url to csv from page above
