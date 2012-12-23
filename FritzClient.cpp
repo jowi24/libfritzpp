@@ -310,6 +310,7 @@ std::string FritzClient::RequestLocationSettings() {
 					<< "/fon_num/sip_option.lua?sid=" << gConfig->getSid());
 			if (msg.find("<!-- pagename:/fon_num/sip_option.lua-->") != std::string::npos)
 				return msg;
+			DBG("failed.");
 		}
 	} RETRY_END }
 
@@ -336,6 +337,7 @@ std::string FritzClient::RequestSipSettings() {
 					<< "/fon_num/fon_num_list.lua?sid=" << gConfig->getSid());
 			if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos)
 				return msg;
+			DBG("failed.");
 		}
 	} RETRY_END }
 
@@ -357,7 +359,7 @@ std::string FritzClient::RequestCallList () {
 	std::string csv = "";
 	RETRY_BEGIN {
 		// now, process call list
-		DBG("sending callList request.");
+		DBG("sending callList update request.");
 		// force an update of the fritz!box csv list and wait until all data is received
 		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
@@ -369,6 +371,7 @@ std::string FritzClient::RequestCallList () {
 
 		// new method to request call list (FW >= xx.05.50?)
 		try {
+			DBG("sending callList request (using lua)...");
 			csv = httpClient->Get(std::stringstream().flush() << "/fon_num/foncalls_list.lua?"
 			  	                  << "csv=&sid=" << gConfig->getSid());
 		} catch (ost::SockException e) {}
@@ -381,6 +384,7 @@ std::string FritzClient::RequestCallList () {
 			unsigned int urlStart = msg.rfind('"', urlPos) + 1;
 			std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
 			// retrieve csv list
+			DBG("sending callList request (using webcm)...");
 			csv = httpClient->Get(std::stringstream().flush()
 					<< "/cgi-bin/webcm?getpage="
 					<<  csvUrl
