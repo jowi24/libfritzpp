@@ -1,7 +1,7 @@
 /*
  * libfritz++
  *
- * Copyright (C) 2007-2010 Joachim Wilke <libfritz@joachim-wilke.de>
+ * Copyright (C) 2007-2012 Joachim Wilke <libfritz@joachim-wilke.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -129,7 +129,7 @@ bool FritzClient::Login() {
 		DBG("requesting login_sid.lua from Fritz!Box.");
 		sXml = httpClient->Get(std::stringstream().flush()
 			<< "/login_sid.lua?sid=" << gConfig->getSid());
-		if (sXml.find("<SID>") != std::string::npos)
+		if (sXml.find("<Rights") != std::string::npos)
 			gConfig->setLoginType(Config::LUA);
 		else {
 			DBG("requesting login_sid.xml from Fritz!Box.");
