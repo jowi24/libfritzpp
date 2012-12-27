@@ -306,18 +306,18 @@ bool FritzClient::InitCall(std::string &number) {
 std::string FritzClient::RequestLocationSettings() {
 	std::string msg;
 
-	{ RETRY_BEGIN {
+	RETRY_BEGIN {
 		if (gConfig->getSid().size()) {
 			DBG("Looking up Phone Settings (using lua)...");
-			msg = httpClient->Get(std::stringstream().flush()
-					<< "/fon_num/sip_option.lua?sid=" << gConfig->getSid());
+			try {
+				msg = httpClient->Get(std::stringstream().flush()
+					  << "/fon_num/sip_option.lua?sid=" << gConfig->getSid());
+			} catch (ost::SockException &se) {}
 			if (msg.find("<!-- pagename:/fon_num/sip_option.lua-->") != std::string::npos)
 				return msg;
 			DBG("failed.");
 		}
-	} RETRY_END }
 
-	RETRY_BEGIN {
 		DBG("Looking up Phone Settings (using webcm)...");
 		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
@@ -333,18 +333,18 @@ std::string FritzClient::RequestLocationSettings() {
 std::string FritzClient::RequestSipSettings() {
 	std::string msg;
 
-	{ RETRY_BEGIN {
+	RETRY_BEGIN {
 		if (gConfig->getSid().size()) {
 			DBG("Looking up SIP Settings (using lua)...");
-			msg = httpClient->Get(std::stringstream().flush()
-					<< "/fon_num/fon_num_list.lua?sid=" << gConfig->getSid());
+			try {
+				msg = httpClient->Get(std::stringstream().flush()
+					  << "/fon_num/fon_num_list.lua?sid=" << gConfig->getSid());
+			} catch (ost::SockException &se) {}
 			if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos)
 				return msg;
 			DBG("failed.");
 		}
-	} RETRY_END }
 
-	RETRY_BEGIN {
 		DBG("Looking up SIP Settings (using webcm)...");
 		msg = httpClient->Get(std::stringstream().flush()
 				<< "/cgi-bin/webcm?getpage=../html/"
@@ -414,7 +414,7 @@ std::string FritzClient::RequestCallList () {
 std::string FritzClient::RequestFonbook () {
 	std::string msg;
 	// new method, returns an XML
-	{ RETRY_BEGIN {
+	RETRY_BEGIN {
 		if (gConfig->getSid().length()) {
 			ost2::MIMEMultipartForm *mmpf = new ost2::MIMEMultipartForm();
 
@@ -423,16 +423,16 @@ std::string FritzClient::RequestFonbook () {
 			new ost2::MIMEFormData( mmpf, "PhonebookExportName", "Telefonbuch");
 			new ost2::MIMEFormData( mmpf, "PhonebookExport", "");
 			DBG("sending fonbook XML request.");
-			msg = httpClient->PostMIME(std::stringstream().flush()
-					<< "/cgi-bin/firmwarecfg", *mmpf);
+			try {
+				msg = httpClient->PostMIME(std::stringstream().flush()
+				  	  << "/cgi-bin/firmwarecfg", *mmpf);
+			} catch (ost::SockException &se) {}
 			if (msg.find("<phonebooks>") != std::string::npos) {
 				return msg;
 			}
 		}
-	} RETRY_END }
 
 	// use old fashioned website (for old FW versions)
-	RETRY_BEGIN {
 		DBG("sending fonbook HTML request.");
 		msg = httpClient->Get(std::stringstream().flush()
 			<< "/cgi-bin/webcm?getpage=../html/"
