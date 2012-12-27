@@ -377,26 +377,31 @@ std::string FritzClient::RequestCallList () {
 			DBG("sending callList request (using lua)...");
 			csv = httpClient->Get(std::stringstream().flush() << "/fon_num/foncalls_list.lua?"
 			  	                  << "csv=&sid=" << gConfig->getSid());
-			if (csv.find("Typ;Datum;Name;") == std::string::npos) {
-				csv.clear();
-				DBG("failed.");
+			if (csv.find("Typ;Datum;Name;") != std::string::npos) {
+				// we assume utf8 as encoding
+				// the FB sends encoding in the response, however we do not parse it, yet
+				CharSetConv *conv = new CharSetConv("utf8", CharSetConv::SystemCharacterTable());
+				const char *csv_converted = conv->Convert(csv.c_str());
+				csv = csv_converted;
+				delete(conv);
+				return csv;
 			}
 		} catch (ost::SockException e) {}
 
 		// old method, parsing url to csv from page above
-		if (csv.length() == 0) {
-			// get the URL of the CSV-File-Export
-			unsigned int urlPos   = msg.find(".csv");
-			unsigned int urlStop  = msg.find('"', urlPos);
-			unsigned int urlStart = msg.rfind('"', urlPos) + 1;
-			std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
-			// retrieve csv list
-			DBG("sending callList request (using webcm)...");
-			csv = httpClient->Get(std::stringstream().flush()
-					<< "/cgi-bin/webcm?getpage="
-					<<  csvUrl
-					<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
-		}
+
+		// get the URL of the CSV-File-Export
+		unsigned int urlPos   = msg.find(".csv");
+		unsigned int urlStop  = msg.find('"', urlPos);
+		unsigned int urlStart = msg.rfind('"', urlPos) + 1;
+		std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
+		// retrieve csv list
+		DBG("sending callList request (using webcm)...");
+		csv = httpClient->Get(std::stringstream().flush()
+				<< "/cgi-bin/webcm?getpage="
+				<<  csvUrl
+				<< (gConfig->getSid().size() ? "&sid=" : "") << gConfig->getSid());
+
 		// convert answer to current SystemCodeSet (we assume, Fritz!Box sends its answer in latin15)
 		CharSetConv *conv = new CharSetConv("ISO-8859-15", CharSetConv::SystemCharacterTable());
 		const char *csv_converted = conv->Convert(csv.c_str());
