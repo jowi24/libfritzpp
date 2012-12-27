@@ -274,3 +274,5 @@
 - Hide msn in syslog if logPersonalInfo is disabled
 - Fixes login problems with old fw-versions that return 404 on login_sid.lua
   https://bugs.kde.org/show_bug.cgi?id=312204
+- Fix encoding conversion when requesting call list
+
