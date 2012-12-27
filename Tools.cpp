@@ -309,7 +309,7 @@ void Tools::GetSipSettings() {
 			name = msg.substr(namePos + 1, msg.find("\"", namePos + 1) - namePos -1);
 			sipNames.push_back(name);
 			sipMsns.push_back(msn);
-			DBG("Found SIP" << i << " provider name " << name << " / MSN " << msn);
+			DBG("Found SIP" << i << " provider name " << name << " / MSN " << (gConfig->logPersonalInfo() ? msn : HIDDEN));
 		}
 		gConfig->setSipNames(sipNames);
 		gConfig->setSipMsns(sipMsns);
@@ -391,7 +391,7 @@ void Tools::GetSipSettings() {
 
 		sipNames.push_back(sipName);
 		sipMsns.push_back(msn);
-		DBG("Found SIP" << i << " (" << hostName << ") provider name " << sipName << " / MSN " << msn);
+		DBG("Found SIP" << i << " (" << hostName << ") provider name " << sipName << " / MSN " << (gConfig->logPersonalInfo() ? msn : HIDDEN));
 	}
 	gConfig->setSipNames(sipNames);
 	gConfig->setSipMsns(sipMsns);
