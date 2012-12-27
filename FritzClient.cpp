@@ -127,8 +127,11 @@ bool FritzClient::Login() {
 	if (gConfig->getLoginType() == Config::UNKNOWN || gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) {
 		// detect if this Fritz!Box uses SIDs
 		DBG("requesting login_sid.lua from Fritz!Box.");
-		sXml = httpClient->Get(std::stringstream().flush()
-			<< "/login_sid.lua?sid=" << gConfig->getSid());
+		// might return 404 with older fw-versions, our httpClient throws a SockeException for this, catched here
+		try {
+		  sXml = httpClient->Get(std::stringstream().flush()
+			     << "/login_sid.lua?sid=" << gConfig->getSid());
+		} catch (ost::SockException &se) {}
 		if (sXml.find("<Rights") != std::string::npos)
 			gConfig->setLoginType(Config::LUA);
 		else {
