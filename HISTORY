@@ -275,4 +275,6 @@
 - Fixes login problems with old fw-versions that return 404 on login_sid.lua
   https://bugs.kde.org/show_bug.cgi?id=312204
 - Fix encoding conversion when requesting call list
+- Further fixes to allow access to older FB firmwares
+  https://bugs.kde.org/show_bug.cgi?id=312204
 
