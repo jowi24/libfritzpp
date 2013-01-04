@@ -130,7 +130,7 @@ std::string XmlFonbook::SerializeToXml() {
 		       << "<realName>" << fe->GetName() << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
-		for (size_t numberPos = 0; numberPos < FonbookEntry::MAX_NUMBERS; numberPos++)
+		for (size_t numberPos = 0; numberPos < fe->GetSize(); numberPos++)
 			if (fe->GetNumber(numberPos).length() > 0) {  //just iterate over all numbers
 				std::string typeName = "";
 				switch (fe->GetType(numberPos)) {

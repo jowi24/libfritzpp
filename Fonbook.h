@@ -59,11 +59,10 @@ public:
 		std::string vanity;
 		int         priority;
 	};
-	static const size_t MAX_NUMBERS = 3;
 private:
 	std::string name;
 	bool important;
-	sNumber numbers[MAX_NUMBERS]; //TODO: add explicit size of array
+	std::vector<sNumber> numbers;
 public:
 	/*
 	 * Constructs a new FonbookEntry object

@@ -175,23 +175,21 @@ std::string Fonbook::convertEntities(std::string s) const {
 FonbookEntry::FonbookEntry(std::string name, bool important) {
 	this->name      = name;
 	this->important = important;
-	for (size_t pos=0; pos < MAX_NUMBERS; pos++) {
-		numbers[pos].priority = 0;
-		numbers[pos].type     = TYPE_NONE;
-	}
 }
 
 void FonbookEntry::AddNumber(size_t pos, std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
-	numbers[pos].number    = number;
-	numbers[pos].type      = type;
-	numbers[pos].quickdial = quickdial;
-	numbers[pos].vanity    = vanity;
-	numbers[pos].priority  = priority;
+	sNumber sn;
+	sn.number = number;
+	sn.type = type;
+	sn.quickdial = quickdial;
+	sn.vanity = vanity;
+	sn.priority = priority;
+	numbers.push_back(sn);
 }
 
 size_t FonbookEntry::GetDefault() const {
 	size_t t = 0;
-	while (t < MAX_NUMBERS) {
+	while (t < numbers.size()) {
 		if (GetPriority(t) == 1)
 			return t;
 		t++;
@@ -255,8 +253,8 @@ bool FonbookEntry::operator<(const FonbookEntry &fe) const {
 size_t FonbookEntry::GetSize() const {
 	size_t size = 0;
 	// ignore TYPE_NONE
-	for (size_t type = 1; type < MAX_NUMBERS; type++)
-		if (numbers[type].number.size())
+	for (size_t pos = 0; pos < numbers.size(); pos++)
+		if (numbers[pos].number.size())
 			size++;
 	return size;
 }
@@ -323,7 +321,7 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	sResolveResult result(number);
 	if (number.length() > 0)
 		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
-			for (size_t num=0; num < FonbookEntry::MAX_NUMBERS; num++) {
+			for (size_t num=0; num < fonbookList[pos].GetSize(); num++) {
 				std::string fonbookNumber = fonbookList[pos].GetNumber(num);
 				if (fonbookNumber.length() > 0 && Tools::CompareNormalized(number, fonbookNumber) == 0) {
 					result.name = fonbookList[pos].GetName();
