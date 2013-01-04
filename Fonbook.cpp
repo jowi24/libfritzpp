@@ -252,7 +252,7 @@ bool FonbookEntry::operator<(const FonbookEntry &fe) const {
 	return (cresult < 0);
 }
 
-size_t FonbookEntry::GetSize() {
+size_t FonbookEntry::GetSize() const {
 	size_t size = 0;
 	// ignore TYPE_NONE
 	for (size_t type = 1; type < MAX_NUMBERS; type++)

@@ -108,7 +108,7 @@ public:
 	 * Get number of typed numbers (TYPE_NONE is ignored)
 	 * @return count of different numbers available
 	 */
-	size_t GetSize();
+	size_t GetSize() const;
 };
 
 inline FonbookEntry::eType& operator++(FonbookEntry::eType& t) {
