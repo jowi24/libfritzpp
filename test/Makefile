@@ -23,4 +23,14 @@ $(FRITZ_LIB):
 	
 clean:
 	@-make -C gtest clean
-	@-rm $(OBJS) $(EXEC)
+	@-rm $(OBJS) $(DEPFILE) $(EXEC)
+	
+###
+# Dependencies:
+
+MAKEDEP = $(CXX) -MM -MG
+DEPFILE = .dependencies
+$(DEPFILE): Makefile
+	@$(MAKEDEP) $(DEFINES) $(INCLUDES) $(OBJS:%.o=%.cpp) > $@
+
+-include $(DEPFILE)
