@@ -187,7 +187,9 @@ bool Tools::MatchesMsnFilter(const std::string &number){
 		return true;
 	// if number does contain a MSN out of the MSN filter, true is returned
 	for (size_t pos=0; pos < gConfig->getMsnFilter().size(); pos++) {
-		if (number.find(gConfig->getMsnFilter()[pos]) != std::string::npos ) {
+		std::string msn = gConfig->getMsnFilter()[pos];
+		size_t index = number.find(msn);
+		if ( index != std::string::npos && index + msn.length() == number.length()) {
 			//matched
 			return true;
 		}
