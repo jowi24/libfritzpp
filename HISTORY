@@ -278,3 +278,10 @@
 - Further fixes to allow access to older FB firmwares
   https://bugs.kde.org/show_bug.cgi?id=312204
 
+2013-01:
+- Fix MSN filter to only match if filter is equal number of postfix of number
+- Fix resolving test in tel.local.ch phonebook
+- Add support for FB phonebooks with >3 numbers per entry, fixes a sigsev 
+  on startup using such phonebooks
+ 
+
