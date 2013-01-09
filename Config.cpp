@@ -21,8 +21,6 @@
 
 #include "Config.h"
 
-#include <cc++/thread.h>
-
 #include "CallList.h"
 #include "FonbookManager.h"
 #include "Listener.h"
@@ -31,7 +29,7 @@
 namespace fritz {
 
 Config* gConfig = NULL;
-ost::Mutex *syslogMutex = new ost::Mutex();
+std::mutex *syslogMutex = new std::mutex();
 std::ostream *dsyslog = &std::clog;
 std::ostream *isyslog = &std::cout;
 std::ostream *esyslog = &std::cerr;

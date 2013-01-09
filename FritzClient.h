@@ -23,6 +23,7 @@
 #define FRITZCLIENT_H
 
 #include <cstdlib>
+#include <mutex>
 
 #include "SoapClient.h"
 
@@ -30,7 +31,7 @@ namespace fritz {
 
 class FritzClient {
 private:
-	static ost::Mutex *mutex;
+	static std::mutex *mutex;
     std::string CalculateLoginResponse(std::string challenge);
 	std::string UrlEncode(std::string &s);
 	bool Login();

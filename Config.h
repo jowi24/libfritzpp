@@ -22,7 +22,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include <cc++/thread.h>
+#include <mutex>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -34,9 +34,9 @@
                 std::string(__FILE__, std::string(__FILE__).rfind('/') == std::string::npos ? \
                 		          0 : std::string(__FILE__).rfind('/')+1, std::string::npos ) \
                 << ":" << __LINE__ << "] "
-#define DBG(x) {fritz::syslogMutex->enterMutex(); *::fritz::dsyslog << LOCATOR << x << std::endl; fritz::syslogMutex->leaveMutex();}
-#define INF(x) {fritz::syslogMutex->enterMutex(); *::fritz::isyslog << LOCATOR << x << std::endl; fritz::syslogMutex->leaveMutex();}
-#define ERR(x) {fritz::syslogMutex->enterMutex(); *::fritz::esyslog << LOCATOR << x << std::endl; fritz::syslogMutex->leaveMutex();}
+#define DBG(x) {fritz::syslogMutex->lock(); *::fritz::dsyslog << LOCATOR << x << std::endl; fritz::syslogMutex->unlock();}
+#define INF(x) {fritz::syslogMutex->lock(); *::fritz::isyslog << LOCATOR << x << std::endl; fritz::syslogMutex->unlock();}
+#define ERR(x) {fritz::syslogMutex->lock(); *::fritz::esyslog << LOCATOR << x << std::endl; fritz::syslogMutex->unlock();}
 
 #define HIDDEN "<hidden>"
 
@@ -170,7 +170,7 @@ public:
 };
 
 extern Config* gConfig;
-extern ost::Mutex *syslogMutex;
+extern std::mutex *syslogMutex;
 extern std::ostream *dsyslog;
 extern std::ostream *isyslog;
 extern std::ostream *esyslog;

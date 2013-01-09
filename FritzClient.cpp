@@ -21,7 +21,6 @@
 
 #include "FritzClient.h"
 
-#include <cc++/thread.h>
 #include <cstring>
 #include <iomanip>
 #include <gcrypt.h>
@@ -49,11 +48,11 @@
 
 namespace fritz {
 
-ost::Mutex* FritzClient::mutex = new ost::Mutex();
+std::mutex* FritzClient::mutex = new std::mutex();
 
 FritzClient::FritzClient() {
 	validPassword = false;
-	mutex->enterMutex();
+	mutex->lock();
 	// init libgcrypt
 	gcry_check_version (NULL);
     // disable secure memory
@@ -66,7 +65,7 @@ FritzClient::FritzClient() {
 
 FritzClient::~FritzClient() {
 	delete httpClient;
-	mutex->leaveMutex();
+	mutex->unlock();
 }
 
 std::string FritzClient::CalculateLoginResponse(std::string challenge) {
