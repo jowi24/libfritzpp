@@ -18,13 +18,13 @@ $(LIB): $(OBJS)
 	@-echo Built $(LIB).
 
 clean:
-	@-make -C test clean
+	@-test -d test && make -C test clean || true
 	@-rm $(LIB) $(OBJS) $(DEPFILE) $(TEST_OBJS) $(TEST_EXEC)
 
 ###
 # Tests
 test: 
-	@-make -C test
+	@test -d test && make -C test || true
 
 ###
 # Dependencies:
