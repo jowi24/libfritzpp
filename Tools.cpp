@@ -31,6 +31,7 @@
 
 #include "Config.h"
 #include "FritzClient.h"
+#include "Log.h"
 
 namespace fritz{
 

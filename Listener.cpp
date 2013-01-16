@@ -31,6 +31,7 @@
 #include "Config.h"
 #include "FonbookManager.h"
 #include "Tools.h"
+#include "Log.h"
 
 namespace fritz{
 

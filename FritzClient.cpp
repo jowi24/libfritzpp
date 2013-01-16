@@ -27,6 +27,7 @@
 
 #include "Config.h"
 #include "Tools.h"
+#include "Log.h"
 
 #define RETRY_BEGIN                                  \
 	    ost::Thread::setException(ost::Thread::throwException); \

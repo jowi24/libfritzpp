@@ -24,15 +24,12 @@
 #include "CallList.h"
 #include "FonbookManager.h"
 #include "Listener.h"
+#include "Log.h"
 #include "Tools.h"
 
 namespace fritz {
 
 Config* gConfig = NULL;
-std::mutex *syslogMutex = new std::mutex();
-std::ostream *dsyslog = &std::clog;
-std::ostream *isyslog = &std::cout;
-std::ostream *esyslog = &std::cerr;
 
 void Config::Setup(std::string hostname, std::string password, bool logPersonalInfo) {
 
@@ -102,9 +99,7 @@ void Config::SetupConfigDir(std::string dir)
 
 void Config::SetupLogging(std::ostream *d, std::ostream *i, std::ostream *e) {
 	// set own logging objects
-	dsyslog = d;
-	isyslog = i;
-	esyslog = e;
+	log.setLogStreams(e, i, d);
 }
 
 Config::Config( std::string url, std::string password) {

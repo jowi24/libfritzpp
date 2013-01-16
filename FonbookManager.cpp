@@ -30,6 +30,7 @@
 #include "Nummerzoeker.h"
 #include "OertlichesFonbook.h"
 #include "TelLocalChFonbook.h"
+#include "Log.h"
 
 namespace fritz{
 

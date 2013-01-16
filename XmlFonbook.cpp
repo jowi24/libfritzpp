@@ -27,6 +27,7 @@
 
 #include "Config.h"
 #include "Tools.h"
+#include "Log.h"
 
 namespace fritz {
 

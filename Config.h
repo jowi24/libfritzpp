@@ -29,18 +29,9 @@
 
 #include "FritzClient.h"
 
-#define NAMESPACE "libfritz++"
-#define LOCATOR "[" << NAMESPACE << "/" <<  \
-                std::string(__FILE__, std::string(__FILE__).rfind('/') == std::string::npos ? \
-                		          0 : std::string(__FILE__).rfind('/')+1, std::string::npos ) \
-                << ":" << __LINE__ << "] "
-#define DBG(x) {fritz::syslogMutex->lock(); *::fritz::dsyslog << LOCATOR << x << std::endl; fritz::syslogMutex->unlock();}
-#define INF(x) {fritz::syslogMutex->lock(); *::fritz::isyslog << LOCATOR << x << std::endl; fritz::syslogMutex->unlock();}
-#define ERR(x) {fritz::syslogMutex->lock(); *::fritz::esyslog << LOCATOR << x << std::endl; fritz::syslogMutex->unlock();}
+const std::string HIDDEN = "<hidden>";
 
-#define HIDDEN "<hidden>"
-
-#define RETRY_DELAY 60
+const size_t RETRY_DELAY = 60;
 
 namespace fritz {
 
@@ -170,10 +161,6 @@ public:
 };
 
 extern Config* gConfig;
-extern std::mutex *syslogMutex;
-extern std::ostream *dsyslog;
-extern std::ostream *isyslog;
-extern std::ostream *esyslog;
 
 }
 
