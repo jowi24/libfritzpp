@@ -35,14 +35,14 @@ TEST_F(FritzFonbook, ParseSimpleXMLFonbook) {
 	fritz::FonbookManager::CreateFonbookManager(vFonbookID, "FRITZ", false);
 	fritz::FonbookManager *fbm = fritz::FonbookManager::GetFonbookManager();
 	fritz::Fonbook *fb = fbm->GetFonbook();
-	fritz::FritzFonbook *ffb = static_cast<fritz::FritzFonbook*>(fb);
+	//fritz::FritzFonbook *ffb = static_cast<fritz::FritzFonbook*>(fb);
 
 	while (!fb->isInitialized()) {}
 	const fritz::FonbookEntry* fbe = fb->RetrieveFonbookEntry(0);
 
 	ASSERT_TRUE(fb->isInitialized());
 	ASSERT_STREQ("FRITZ", fb->GetTechId().c_str());
-	ASSERT_EQ(1, fb->GetFonbookSize());
+	ASSERT_EQ(1, (int) fb->GetFonbookSize());
 
 	ASSERT_EQ(4, (int) fbe->GetSize());
 	ASSERT_STREQ("00493062810000", fbe->GetNumber(0).c_str());
