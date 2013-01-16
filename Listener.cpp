@@ -21,11 +21,12 @@
 
 #include "Listener.h"
 
-#include <cc++/socket.h>
 #include <string>
 #include <cstdlib>
 #include <sstream>
 #include <vector>
+
+#include <boost/asio.hpp>
 
 #include "CallList.h"
 #include "Config.h"
@@ -119,27 +120,31 @@ void Listener::HandleDisconnect(int connId, std::string duration) {
 
 void Listener::run() {
 	DBG("Listener thread started");
-	Thread::setException(Thread::throwException);
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {
 		try {
 			retry_delay = retry_delay > 1800 ? 3600 : retry_delay * 2;
-			ost::TCPStream tcpStream(ost::IPV4Host(gConfig->getUrl().c_str()), gConfig->getListenerPort());
+			std::stringstream port;
+			port << gConfig->getListenerPort();
+			boost::asio::ip::tcp::iostream stream(gConfig->getUrl(), port.str());
+			if (!stream)
+				throw std::runtime_error("Could not connect to server.");
 			while (true) {
 				DBG("Waiting for a message.");
-				char data[1024];
-				tcpStream.getline(data, sizeof(data));
+				std::string line;
+				std::getline(stream, line);
+				line.erase(line.end()-1, line.end());
 				if (gConfig->logPersonalInfo())
-					DBG("Got message " << data);
+					DBG("Got message " << line);
 
 				// split line into tokens
-				std::string date  = Tools::Tokenize(data, ';', 0);
-				std::string type  = Tools::Tokenize(data, ';', 1);
-				int connId        = atoi(Tools::Tokenize(data, ';', 2).c_str());
-				std::string partA = Tools::Tokenize(data, ';', 3);
-				std::string partB = Tools::Tokenize(data, ';', 4);
-				std::string partC = Tools::Tokenize(data, ';', 5);
-				std::string partD = Tools::Tokenize(data, ';', 6);
+				std::string date  = Tools::Tokenize(line, ';', 0);
+				std::string type  = Tools::Tokenize(line, ';', 1);
+				int connId        = atoi(Tools::Tokenize(line, ';', 2).c_str());
+				std::string partA = Tools::Tokenize(line, ';', 3);
+				std::string partB = Tools::Tokenize(line, ';', 4);
+				std::string partC = Tools::Tokenize(line, ';', 5);
+				std::string partD = Tools::Tokenize(line, ';', 6);
 
 #if 0 // some strings sent from the FB, made available to xgettext
 					I18N_NOOP("POTS");
@@ -187,15 +192,16 @@ void Listener::run() {
 					HandleDisconnect(connId, partA);
 
 				} else {
-					DBG("Got unknown message " << data);
+					DBG("Got unknown message " << line);
 					throw this;
 				}
 				retry_delay = RETRY_DELAY;
 			}
-		} catch(ost::SockException& se) {
-			ERR("Exception - " << se.what());
-			if (se.getSocketError() == ost::Socket::errConnectRefused)
-				ERR("Make sure to enable the Fritz!Box call monitor by dialing #96*5* once.");
+		} catch(std::runtime_error &re) {
+			ERR("Exception - " << re.what());
+			// TODO: Detect reason for exception
+			//if (se.getSocketError() == ost::Socket::errConnectRefused)
+			ERR("Make sure to enable the Fritz!Box call monitor by dialing #96*5* once.");
 		} catch (Listener *listener) {
 			ERR("Exception unknown data received.");
 		}
