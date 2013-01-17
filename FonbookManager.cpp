@@ -34,7 +34,7 @@
 
 namespace fritz{
 
-FonbookManager* FonbookManager::me = NULL;
+FonbookManager* FonbookManager::me = nullptr;
 
 FonbookManager::FonbookManager(bool saveOnShutdown)
 :Fonbook("Manager", "MNGR")
@@ -119,7 +119,7 @@ void FonbookManager::DeleteFonbookManager() {
 	if (me) {
 		DBG("deleting Fonbook Manager");
 		delete me;
-		me = NULL;
+		me = nullptr;
 	}
 }
 
@@ -162,13 +162,13 @@ Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
 
 Fonbook *FonbookManager::GetActiveFonbook() const {
 	if (activeFonbookPos == std::string::npos) {
-		return NULL;
+		return nullptr;
 	}
 	return fonbooks[gConfig->getFonbookIDs()[activeFonbookPos]];
 }
 
 const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) const {
-	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : NULL;
+	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : nullptr;
 }
 
 bool FonbookManager::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {

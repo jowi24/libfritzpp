@@ -67,7 +67,7 @@ uint Utf8CharGet(const char *s, int Length)
 	return *s;
 }
 
-char *CharSetConv::systemCharacterTable = NULL;
+char *CharSetConv::systemCharacterTable = nullptr;
 
 CharSetConv::CharSetConv(const char *FromCode, const char *ToCode)
 {
@@ -76,7 +76,7 @@ CharSetConv::CharSetConv(const char *FromCode, const char *ToCode)
 	if (!ToCode)
 		ToCode = "UTF-8";
 	cd = iconv_open(ToCode, FromCode);
-	result = NULL;
+	result = nullptr;
 	length = 0;
 }
 
@@ -87,7 +87,7 @@ CharSetConv::~CharSetConv()
 }
 
 void CharSetConv::DetectCharset() {
-	char *CodeSet = NULL;
+	char *CodeSet = nullptr;
 	if (setlocale(LC_CTYPE, ""))
 		CodeSet = nl_langinfo(CODESET);
 	else {
@@ -107,7 +107,7 @@ void CharSetConv::DetectCharset() {
 void CharSetConv::SetSystemCharacterTable(const char *CharacterTable)
 {
 	free(systemCharacterTable);
-	systemCharacterTable = NULL;
+	systemCharacterTable = nullptr;
 	if (!strcasestr(CharacterTable, "UTF-8")) {
 		// Set up a map for the character values 128...255:
 		char buf[129];

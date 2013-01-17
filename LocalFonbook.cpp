@@ -45,7 +45,7 @@ public:
 ReadLine::ReadLine(void)
 {
   size = 0;
-  buffer = NULL;
+  buffer = nullptr;
 }
 
 ReadLine::~ReadLine()
@@ -68,13 +68,13 @@ char *ReadLine::Read(FILE *f)
         }
      return buffer;
      }
-  return NULL;
+  return nullptr;
 }
 
 
 LocalFonbook::LocalFonbook()
 : XmlFonbook(I18N_NOOP("Local phone book"), "LOCL", true) {
-	filePath    = NULL;
+	filePath    = nullptr;
 }
 
 bool LocalFonbook::Initialize() {
@@ -99,7 +99,7 @@ bool LocalFonbook::Initialize() {
 
 	// try deprecated filenames
 	free(filePath);
-	filePath = NULL;
+	filePath = nullptr;
 
 	char fileNames[3][20] = {"localphonebook.csv", "localfonbook.csv", "localfonbuch.csv"};
 	for (size_t pos = 0; pos < 3; pos++) {
@@ -112,7 +112,7 @@ bool LocalFonbook::Initialize() {
 			break;
 		}
 		free(filePath);
-		filePath = NULL;
+		filePath = nullptr;
 	}
 	if (filePath) {
 		ParseCsvFonbook(filePath);
@@ -147,11 +147,11 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 	if (f) {
 		char *s;
 		ReadLine ReadLine;
-		while ((s = ReadLine.Read(f)) != NULL) {
+		while ((s = ReadLine.Read(f)) != nullptr) {
 			if (s[0] == '#') continue;
 			char* name_buffer 	= strtok(s, ",;");
-			char* type_buffer 	= strtok(NULL, ",;");
-			char* number_buffer = strtok(NULL, ",;");
+			char* type_buffer 	= strtok(nullptr, ",;");
+			char* number_buffer = strtok(nullptr, ",;");
 			if (name_buffer && type_buffer && number_buffer) {
 				std::string name   		 	= name_buffer;
 				FonbookEntry::eType type   = (FonbookEntry::eType) atoi(type_buffer);

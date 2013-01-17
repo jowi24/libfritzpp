@@ -81,7 +81,7 @@ public:
 	}
 };
 
-CallList *CallList::me = NULL;
+CallList *CallList::me = nullptr;
 
 CallList::CallList()
 :Thread()
@@ -110,7 +110,7 @@ void CallList::DeleteCallList() {
 	if (me) {
 		DBG("deleting call list");
 		delete me;
-		me = NULL;
+		me = nullptr;
 	}
 }
 
@@ -235,7 +235,7 @@ CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
 	case CallEntry::MISSED:
 		return &callListMissed[id];
 	default:
-		return NULL;
+		return nullptr;
 	}
 }
 

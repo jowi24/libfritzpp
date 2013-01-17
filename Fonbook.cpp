@@ -336,7 +336,7 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 
 const FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) const {
 	if (id >= GetFonbookSize())
-		return NULL;
+		return nullptr;
 	return &fonbookList[id];
 }
 

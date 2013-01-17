@@ -46,7 +46,7 @@ uint Utf8CharGet(const char *s, int Length = 0);
     ///< Returns the UTF-8 symbol at the beginning of the given string.
     ///< Length can be given from a previous call to Utf8CharLen() to avoid calculating
     ///< it again. If no Length is given, Utf8CharLen() will be called.
-int Utf8CharSet(uint c, char *s = NULL);
+int Utf8CharSet(uint c, char *s = nullptr);
     ///< Converts the given UTF-8 symbol to a sequence of character bytes and copies
     ///< them to the given string. Returns the number of bytes written. If no string
     ///< is given, only the number of bytes is returned and nothing is copied.
@@ -90,12 +90,12 @@ private:
   size_t length;
   static char *systemCharacterTable;
 public:
-  explicit CharSetConv(const char *FromCode = NULL, const char *ToCode = NULL);
+  explicit CharSetConv(const char *FromCode = nullptr, const char *ToCode = nullptr);
      ///< Sets up a character set converter to convert from FromCode to ToCode.
-     ///< If FromCode is NULL, the previously set systemCharacterTable is used.
-     ///< If ToCode is NULL, "UTF-8" is used.
+     ///< If FromCode is nullptr, the previously set systemCharacterTable is used.
+     ///< If ToCode is nullptr, "UTF-8" is used.
   ~CharSetConv();
-  const char *Convert(const char *From, char *To = NULL, size_t ToLength = 0);
+  const char *Convert(const char *From, char *To = nullptr, size_t ToLength = 0);
      ///< Converts the given Text from FromCode to ToCode (as set in the constructor).
      ///< If To is given, it is used to copy at most ToLength bytes of the result
      ///< (including the terminating 0) into that buffer. If To is not given,

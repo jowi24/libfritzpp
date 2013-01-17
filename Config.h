@@ -31,7 +31,7 @@
 
 const std::string HIDDEN = "<hidden>";
 
-const size_t RETRY_DELAY = 60;
+constexpr size_t RETRY_DELAY = 60;
 
 namespace fritz {
 
@@ -119,7 +119,7 @@ public:
 	 * @param Sets the default value for countryCode. If locationSettingsDetected == true, this returns the detected countryCode.
 	 * @param Sets the default value for regionCode. If locationSettingsDetected == true, this returns the detected regionCode.
 	 */
-	bool static Init( bool *locationSettingsDetected = NULL, std::string *countryCode = NULL, std::string *regionCode = NULL );
+	bool static Init( bool *locationSettingsDetected = nullptr, std::string *countryCode = nullptr, std::string *regionCode = nullptr );
 
 	/**
 	 * Closes all pending connections and objects held by libfritz++.
@@ -138,7 +138,7 @@ public:
 	eLoginType getLoginType( )                        { return mConfig.loginType; }
 	void setLoginType(eLoginType type)                { mConfig.loginType = type; }
 	time_t getLastRequestTime()                       { return mConfig.lastRequestTime; }
-	void updateLastRequestTime()                      { mConfig.lastRequestTime = time(NULL); }
+	void updateLastRequestTime()                      { mConfig.lastRequestTime = time(nullptr); }
 	std::string &getSid( )                            { return mConfig.sid; }
 	void setSid(std::string sid)                      { mConfig.sid = sid; }
 	std::string &getCountryCode( )        	          { return mConfig.countryCode; }

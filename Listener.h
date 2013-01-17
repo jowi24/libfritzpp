@@ -67,7 +67,7 @@ public:
 	 * @param A pointer to the eventHandler. Subsequent calls to CreateListener, e.g., in case of
 	 * configuration changes, can omit this parameter. Then, the existing EventHandler is used.
 	 */
-	static void CreateListener(EventHandler *event = NULL);
+	static void CreateListener(EventHandler *event = nullptr);
 	static void DeleteListener();
 	virtual ~Listener();
 	virtual void run();

@@ -36,7 +36,7 @@
 
 namespace fritz{
 
-Listener *Listener::me = NULL;
+Listener *Listener::me = nullptr;
 
 Listener::Listener(EventHandler *event)
 :Thread()
@@ -53,7 +53,7 @@ Listener::~Listener()
 }
 
 void Listener::CreateListener(EventHandler *event) {
-	EventHandler *oldEvent = me ? me->event : NULL;
+	EventHandler *oldEvent = me ? me->event : nullptr;
 	DeleteListener();
 	if (event || oldEvent)
 		me = new Listener(event ? event : oldEvent);
@@ -65,7 +65,7 @@ void Listener::DeleteListener() {
 	if (me) {
 		DBG("deleting listener");
 		delete me;
-		me = NULL;
+		me = nullptr;
 	}
 }
 

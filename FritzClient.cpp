@@ -55,7 +55,7 @@ FritzClient::FritzClient() {
 	validPassword = false;
 	mutex->lock();
 	// init libgcrypt
-	gcry_check_version (NULL);
+	gcry_check_version (nullptr);
     // disable secure memory
     gcry_control (GCRYCTL_DISABLE_SECMEM, 0);
     gcry_control (GCRYCTL_INITIALIZATION_FINISHED, 0);
@@ -75,7 +75,7 @@ std::string FritzClient::CalculateLoginResponse(std::string challenge) {
 	// to make things worse, it needs this in UTF-16LE character set
 	// last but not least, for "compatibility" reasons (*LOL*) we have to replace
 	// every char > "0xFF 0x00" with "0x2e 0x00"
-	CharSetConv conv(NULL, "UTF-16LE");
+	CharSetConv conv(nullptr, "UTF-16LE");
 	char challengePwdConv[challengePwd.length()*2];
 	memcpy(challengePwdConv, conv.Convert(challengePwd.c_str()), challengePwd.length()*2);
 	for (size_t pos=1; pos < challengePwd.length()*2; pos+= 2)
@@ -118,7 +118,7 @@ std::string FritzClient::UrlEncode(std::string &s_input) {
 
 bool FritzClient::Login() {
 	// when using SIDs, a new login is only needed if the last request was more than 5 minutes ago
-	if ((gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) && (time(NULL) - gConfig->getLastRequestTime() < 300)) {
+	if ((gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) && (time(nullptr) - gConfig->getLastRequestTime() < 300)) {
 		return true;
 	}
 

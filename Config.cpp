@@ -29,7 +29,7 @@
 
 namespace fritz {
 
-Config* gConfig = NULL;
+Config* gConfig = nullptr;
 
 void Config::Setup(std::string hostname, std::string password, bool logPersonalInfo) {
 
@@ -72,7 +72,7 @@ bool Config::Shutdown() {
 	fritz::CallList::DeleteCallList();
 	if (gConfig) {
 		delete gConfig;
-		gConfig = NULL;
+		gConfig = nullptr;
 	}
 	INF("Shutdown of libfritz++ completed.");
 	return true;

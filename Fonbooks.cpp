@@ -38,7 +38,7 @@ Fonbook *Fonbooks::operator[](std::string key) const {
 			return ((*this)[i]);
 		}
 	}
-	return NULL;
+	return nullptr;
 }
 
 Fonbook *Fonbooks::operator[](size_t i) const {
