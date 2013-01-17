@@ -26,12 +26,11 @@
 #include <sstream>
 #include <vector>
 
-#include <boost/asio.hpp>
-
 #include "CallList.h"
 #include "Config.h"
 #include "FonbookManager.h"
 #include "Tools.h"
+#include "TcpClient.h"
 #include "Log.h"
 
 namespace fritz{
@@ -124,16 +123,10 @@ void Listener::run() {
 	while (true) {
 		try {
 			retry_delay = retry_delay > 1800 ? 3600 : retry_delay * 2;
-			std::stringstream port;
-			port << gConfig->getListenerPort();
-			boost::asio::ip::tcp::iostream stream(gConfig->getUrl(), port.str());
-			if (!stream)
-				throw std::runtime_error("Could not connect to server.");
+			TcpClient tcpClient(gConfig->getUrl(), gConfig->getListenerPort());
 			while (true) {
 				DBG("Waiting for a message.");
-				std::string line;
-				std::getline(stream, line);
-				line.erase(line.end()-1, line.end());
+				std::string line = tcpClient.ReadLine();
 				if (gConfig->logPersonalInfo())
 					DBG("Got message " << line);
 
