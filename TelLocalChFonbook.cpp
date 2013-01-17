@@ -46,7 +46,7 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) 
 	std::string name;
 	try {
 		DBG("sending reverse lookup request for " << Tools::NormalizeNumber(number) << " to tel.local.ch");
-		std::string host = "tel.local.ch";
+		std::string host = "mobile.tel.local.ch";
 		HttpClient tc(host);
 		msg = tc.Get(std::stringstream().flush()
 		   << "/de/q/" <<  Tools::NormalizeNumber(number)
