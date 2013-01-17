@@ -32,21 +32,24 @@
 namespace fritz {
 
 FritzFonbook::FritzFonbook()
-:Thread(), XmlFonbook(I18N_NOOP("Fritz!Box phone book"), "FRITZ", true)
+:XmlFonbook(I18N_NOOP("Fritz!Box phone book"), "FRITZ", true), thread{nullptr}
 {
-	setCancel(cancelDeferred);
 	setInitialized(false);
 }
 
 FritzFonbook::~FritzFonbook() {
-	terminate();
+	if (thread) {
+		thread->join();
+		delete thread;
+	}
 }
 
 bool FritzFonbook::Initialize() {
-	return start();
+	Reload();
+	return true;
 }
 
-void FritzFonbook::run() {
+void FritzFonbook::operator()() {
 	DBG("FritzFonbook thread started");
 	setInitialized(false);
 	Clear();
@@ -153,7 +156,11 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 }
 
 void FritzFonbook::Reload() {
-	start();
+	if (thread) {
+		thread->join();
+		delete thread;
+	}
+	thread = new std::thread(*this);
 }
 
 void FritzFonbook::Write() {

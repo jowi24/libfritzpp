@@ -21,10 +21,8 @@
 
 #include "Listener.h"
 
-#include <string>
 #include <cstdlib>
 #include <sstream>
-#include <vector>
 
 #include "CallList.h"
 #include "Config.h"
@@ -38,17 +36,17 @@ namespace fritz{
 Listener *Listener::me = nullptr;
 
 Listener::Listener(EventHandler *event)
-:Thread()
 {
-	setName("Listener");
-	setCancel(cancelDeferred);
 	this->event = event;
-	start();
+	thread = new std::thread(*this);
 }
 
 Listener::~Listener()
 {
-	terminate();
+	if (thread) {
+		thread->join();
+		delete thread;
+	}
 }
 
 void Listener::CreateListener(EventHandler *event) {
@@ -117,7 +115,7 @@ void Listener::HandleDisconnect(int connId, std::string duration) {
 	}
 }
 
-void Listener::run() {
+void Listener::operator()() {
 	DBG("Listener thread started");
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {

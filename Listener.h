@@ -22,7 +22,9 @@
 #ifndef FRITZLISTENER_H
 #define FRITZLISTENER_H
 
-#include <cc++/thread.h>
+#include <string>
+#include <thread>
+#include <vector>
 
 #include "Fonbook.h"
 
@@ -48,12 +50,12 @@ public:
 	virtual void HandleDisconnect(int connId, std::string duration) = 0;
 };
 
-class Listener : public ost::Thread
-{
+class Listener {
 private:
 	static Listener *me;
 	EventHandler *event;
 	std::vector<int> activeConnections;
+	std::thread *thread;
 	Listener(EventHandler *event);
 	void HandleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium);
 	void HandleConnect(int connId);
@@ -70,7 +72,7 @@ public:
 	static void CreateListener(EventHandler *event = nullptr);
 	static void DeleteListener();
 	virtual ~Listener();
-	virtual void run();
+	void operator()();
 };
 
 }

@@ -22,22 +22,24 @@
 #ifndef FRITZFONBOOK_H
 #define FRITZFONBOOK_H
 
-#include <cc++/thread.h>
+#include <string>
+#include <thread>
 
 #include "XmlFonbook.h"
 
 namespace fritz{
 
-class FritzFonbook : public ost::Thread, public XmlFonbook {
+class FritzFonbook : public XmlFonbook {
 			friend class FonbookManager;
 private:
+	std::thread *thread;
 	FritzFonbook();
 	void ParseHtmlFonbook(std::string *msg);
 	virtual void Write();
 public:
 	virtual ~FritzFonbook();
 	bool Initialize();
-	void run();
+	void operator()();
 	void Reload();
 };
 
