@@ -34,7 +34,7 @@ protected:
 public:
 	TcpClient(std::string &host, int port);
 	virtual ~TcpClient();
-	std::string ReadLine();
+	std::string ReadLine(bool removeNewline = true);
 	void Write(const std::string &data);
 };
 

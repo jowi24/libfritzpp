@@ -20,11 +20,13 @@
  */
 
 #include "TcpClient.h"
+#include "Log.h"
 
 namespace fritz {
 
 TcpClient::TcpClient(std::string &host, int port)
 : host{host}, port{port}, stream{host, static_cast<std::stringstream&>(std::stringstream().flush() << port).str()} {
+	DBG("Connecting to " << host << " at port " << port << ".");
 	if (!stream)
 		throw std::runtime_error("Could not connect to host.");
 }
@@ -33,10 +35,11 @@ TcpClient::TcpClient(std::string &host, int port)
 TcpClient::~TcpClient() {
 }
 
-std::string TcpClient::ReadLine() {
+std::string TcpClient::ReadLine(bool removeNewline) {
 	std::string line;
 	std::getline(stream, line);
-	line.erase(line.end()-1, line.end());
+	if (removeNewline)
+		line.erase(line.end()-1, line.end());
 	return line;
 }
 
