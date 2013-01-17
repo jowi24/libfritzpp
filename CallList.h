@@ -24,7 +24,7 @@
 
 #include <string>
 #include <vector>
-#include <cc++/thread.h>
+#include <thread>
 
 namespace fritz{
 
@@ -60,9 +60,9 @@ public:
 	bool MatchesRemoteNumber(std::string number);
 };
 
-class CallList : public ost::Thread
-{
+class CallList {
 private:
+	std::thread *thread;
 	std::vector<CallEntry> callListIn;
 	std::vector<CallEntry> callListMissed;
 	std::vector<CallEntry> callListOut;
@@ -84,7 +84,8 @@ public:
 	static void CreateCallList();
 	static void DeleteCallList();
     virtual ~CallList();
-	void run();
+	void operator()();
+	void Reload();
 	bool isValid() { return valid; }
 	CallEntry *RetrieveEntry(CallEntry::eCallType type, size_t id);
 	size_t GetSize(CallEntry::eCallType type);

@@ -114,7 +114,7 @@ void Listener::HandleDisconnect(int connId, std::string duration) {
 		// force reload of callList
 		CallList *callList = CallList::getCallList(false);
 		if (callList)
-			callList->start();
+			callList->Reload();
 	}
 }
 

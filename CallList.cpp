@@ -84,14 +84,8 @@ public:
 CallList *CallList::me = nullptr;
 
 CallList::CallList()
-:Thread()
-{
-	setName("CallList");
-	setCancel(cancelDeferred);
-	lastMissedCall = 0;
-	lastCall = 0;
-	valid = false;
-	start();
+: thread{nullptr}, lastCall{0}, lastMissedCall{0}, valid{false} {
+	Reload();
 }
 
 CallList *CallList::getCallList(bool create){
@@ -116,11 +110,12 @@ void CallList::DeleteCallList() {
 
 CallList::~CallList()
 {
-	terminate();
+	thread->join(); //TODO cancellation?
+	delete thread;
 	DBG("deleted call list");
 }
 
-void CallList::run() {
+void CallList::operator()() {
 	DBG("CallList thread started");
 
 	FritzClient *fc = gConfig->fritzClientFactory->create();
@@ -224,6 +219,15 @@ void CallList::run() {
 	DBG("CallList thread ended");
 }
 
+void CallList::Reload() {
+	if (thread) {
+		thread->join();
+		delete thread;
+	}
+	// runs operator() in threaded context
+	thread = new std::thread(*this);
+}
+
 CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
 	switch (type) {
 	case CallEntry::ALL:
@@ -271,7 +275,7 @@ size_t CallList::MissedCalls(time_t since) {
 
 void CallList::Sort(CallEntry::eElements element, bool ascending) {
 	CallEntrySort ces(element, ascending);
-	std::sort(callListAll.begin(), callListAll.end(), ces); //TODO: other lists?
+	std::sort(begin(callListAll), end(callListAll), ces); //TODO: other lists?
 }
 
 bool CallEntry::MatchesFilter() {
