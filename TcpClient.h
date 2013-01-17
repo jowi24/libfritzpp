@@ -22,19 +22,20 @@
 #ifndef TCPCLIENT_H
 #define TCPCLIENT_H
 
-#include <cc++/socket.h>
+#include <boost/asio.hpp>
 
 namespace fritz {
 
 class TcpClient {
 protected:
-	TcpClient(std::string &host, int port, ost::TCPStream *stream);
 	std::string host;
 	int port;
-	ost::TCPStream *stream;
+	boost::asio::ip::tcp::iostream stream;
 public:
 	TcpClient(std::string &host, int port);
 	virtual ~TcpClient();
+	std::string ReadLine();
+	void Write(const std::string &data);
 };
 
 }

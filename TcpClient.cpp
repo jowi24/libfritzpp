@@ -23,18 +23,25 @@
 
 namespace fritz {
 
-TcpClient::TcpClient(std::string &host, int port) {
-	TcpClient(host, port, new ost::TCPStream());
+TcpClient::TcpClient(std::string &host, int port)
+: host{host}, port{port}, stream{host, static_cast<std::stringstream&>(std::stringstream().flush() << port).str()} {
+	if (!stream)
+		throw std::runtime_error("Could not connect to host.");
 }
 
-TcpClient::TcpClient(std::string &host, int port, ost::TCPStream *stream) {
-	this->host = host;
-	this->port = port;
-    this->stream = stream;
-}
 
 TcpClient::~TcpClient() {
-	delete stream;
+}
+
+std::string TcpClient::ReadLine() {
+	std::string line;
+	std::getline(stream, line);
+	line.erase(line.end()-1, line.end());
+	return line;
+}
+
+void TcpClient::Write(const std::string &data) {
+	stream << data;
 }
 
 }
