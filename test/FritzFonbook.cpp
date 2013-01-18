@@ -37,7 +37,13 @@ TEST_F(FritzFonbook, ParseSimpleXMLFonbook) {
 	fritz::Fonbook *fb = fbm->GetFonbook();
 	//fritz::FritzFonbook *ffb = static_cast<fritz::FritzFonbook*>(fb);
 
-	while (!fb->isInitialized()) {}
+	for (size_t i=0; i<100; i++) {
+		if (fb->isInitialized())
+			break;
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
+	}
+	ASSERT_TRUE(fb->isInitialized());
+
 	const fritz::FonbookEntry* fbe = fb->RetrieveFonbookEntry(0);
 
 	ASSERT_TRUE(fb->isInitialized());
