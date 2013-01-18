@@ -49,7 +49,7 @@ bool FritzFonbook::Initialize() {
 	return true;
 }
 
-void FritzFonbook::operator()() {
+void FritzFonbook::Run() {
 	DBG("FritzFonbook thread started");
 	setInitialized(false);
 	Clear();
@@ -160,7 +160,7 @@ void FritzFonbook::Reload() {
 		thread->join();
 		delete thread;
 	}
-	thread = new std::thread(*this);
+	thread = new std::thread(&FritzFonbook::Run, this);
 }
 
 void FritzFonbook::Write() {

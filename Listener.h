@@ -72,7 +72,7 @@ public:
 	static void CreateListener(EventHandler *event = nullptr);
 	static void DeleteListener();
 	virtual ~Listener();
-	void operator()();
+	void Run();
 };
 
 }

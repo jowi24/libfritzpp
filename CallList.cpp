@@ -115,7 +115,7 @@ CallList::~CallList()
 	DBG("deleted call list");
 }
 
-void CallList::operator()() {
+void CallList::run() {
 	DBG("CallList thread started");
 
 	FritzClient *fc = gConfig->fritzClientFactory->create();
@@ -225,7 +225,7 @@ void CallList::Reload() {
 		delete thread;
 	}
 	// runs operator() in threaded context
-	thread = new std::thread(*this);
+	thread = new std::thread(&CallList::run, this);
 }
 
 CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {

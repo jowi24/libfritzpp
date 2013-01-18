@@ -38,7 +38,7 @@ Listener *Listener::me = nullptr;
 Listener::Listener(EventHandler *event)
 {
 	this->event = event;
-	thread = new std::thread(*this);
+	thread = new std::thread(&Listener::Run, this);
 }
 
 Listener::~Listener()
@@ -115,7 +115,7 @@ void Listener::HandleDisconnect(int connId, std::string duration) {
 	}
 }
 
-void Listener::operator()() {
+void Listener::Run() {
 	DBG("Listener thread started");
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {

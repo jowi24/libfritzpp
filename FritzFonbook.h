@@ -39,7 +39,7 @@ private:
 public:
 	virtual ~FritzFonbook();
 	bool Initialize();
-	void operator()();
+	void Run();
 	void Reload();
 };
 

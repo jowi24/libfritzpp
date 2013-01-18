@@ -84,7 +84,7 @@ public:
 	static void CreateCallList();
 	static void DeleteCallList();
     virtual ~CallList();
-	void operator()();
+	void run();
 	void Reload();
 	bool isValid() { return valid; }
 	CallEntry *RetrieveEntry(CallEntry::eCallType type, size_t id);
