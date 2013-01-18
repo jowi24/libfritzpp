@@ -30,7 +30,10 @@ class TcpClient {
 protected:
 	std::string host;
 	int port;
-	boost::asio::ip::tcp::iostream stream;
+	bool connected;
+	boost::asio::ip::tcp::iostream *stream;
+	void Connect();
+	void Disconnect();
 public:
 	TcpClient(std::string &host, int port);
 	virtual ~TcpClient();

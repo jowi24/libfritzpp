@@ -24,11 +24,17 @@
 
 namespace fritz {
 
+void TcpClient::Connect() {
+	DBG("Connecting to " << host << ":" << port);
+	std::string sPort = static_cast<std::stringstream&>(std::stringstream().flush() << port).str();
+	stream = new boost::asio::ip::tcp::iostream(host, sPort);
+	if (!(*stream))
+		throw std::runtime_error(stream->error().message());
+	connected = true;
+}
+
 TcpClient::TcpClient(std::string &host, int port)
-: host{host}, port{port}, stream{host, static_cast<std::stringstream&>(std::stringstream().flush() << port).str()} {
-	DBG("Connecting to " << host << " at port " << port << ".");
-	if (!stream)
-		throw std::runtime_error("Could not connect to host.");
+: host{host}, port{port}, connected{false}, stream{nullptr} {
 }
 
 
@@ -36,15 +42,27 @@ TcpClient::~TcpClient() {
 }
 
 std::string TcpClient::ReadLine(bool removeNewline) {
+	if (!connected)
+		Connect();
 	std::string line;
-	std::getline(stream, line);
-	if (removeNewline)
+	std::getline(*stream, line);
+	if (line.length() > 0 && removeNewline)
 		line.erase(line.end()-1, line.end());
 	return line;
 }
 
+void TcpClient::Disconnect() {
+	if (stream) {
+		stream->close();
+		delete stream;
+	}
+	connected = false;
+}
+
 void TcpClient::Write(const std::string &data) {
-	stream << data;
+	if (!connected)
+		Connect();
+	*stream << data;
 }
 
 }
