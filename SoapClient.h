@@ -22,14 +22,14 @@
 #ifndef SOAPCLIENT_H
 #define SOAPCLIENT_H
 
-#include "cc++/soap.h"
+//#include "cc++/soap.h"
 #include "HttpClient.h"
 
 namespace fritz {
 
-class SoapClient : protected HttpClient {
+class SoapClient {
 private:
-	ost2::SOAPStream *soapStream;
+//	ost2::SOAPStream *soapStream;
 	std::string soapAction;
 public:
 	explicit SoapClient(std::string &host, int port = 80);

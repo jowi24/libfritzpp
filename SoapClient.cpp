@@ -23,19 +23,20 @@
 
 namespace fritz {
 
-SoapClient::SoapClient(std::string &host, int port):
-	HttpClient(host, port, new ost2::SOAPStream()) {
-	soapStream = static_cast<ost2::SOAPStream *>(stream);
+SoapClient::SoapClient(std::string &host, int port) {
+//	HttpClient(host, port, new ost2::SOAPStream()) { TODO
+//	soapStream = static_cast<ost2::SOAPStream *>(stream);
 }
 
 SoapClient::~SoapClient() {
 }
 
 std::string SoapClient::Post(const std::ostream &url, const std::ostream &action, const std::ostream &postdata) {
-	const std::stringstream &_action = static_cast<const std::stringstream&>(action);
-	soapStream->setAction(_action.str().c_str());
-
-	return HttpClient::Post(url, postdata);
+//	const std::stringstream &_action = static_cast<const std::stringstream&>(action);
+//	soapStream->setAction(_action.str().c_str());
+//
+//	return HttpClient::Post(url, postdata); //TODO
+	return "";
 }
 
 }
