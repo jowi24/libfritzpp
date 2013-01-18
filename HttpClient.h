@@ -22,24 +22,38 @@
 #ifndef HTTPCLIENT_H
 #define HTTPCLIENT_H
 
-#include "cc++/url.h"
+#include <string>
+
 #include "TcpClient.h"
 
 namespace fritz {
 
 class HttpClient : public TcpClient {
-private:
-	ost2::URLStream *urlStream;
-protected:
-	HttpClient(std::string &host, int port, ost2::URLStream *stream);
-	std::string Result();
-    std::string BuildUrl(const std::ostream & url);
 public:
-	explicit HttpClient(std::string &host, int port = 80);
+	typedef std::map<std::string, std::string> param_t;
+	typedef std::map<std::string, std::string> header_t;
+	typedef std::string body_t;
+	typedef std::pair<header_t, body_t> response_t;
+private:
+	header_t defaultHeader =
+	  {
+	    {"User-Agent", "Lynx/2.8.6" },
+	    {"Connection", "Close" },
+	    {"Host", host },
+	  };
+protected:
+	std::string SendRequest(const std::ostream &request, const std::ostream &postdata = std::ostringstream(), const param_t &header = param_t());
+	response_t ParseResponse();
+public:
+	HttpClient(std::string &host, int port = 80);
 	virtual ~HttpClient();
-	std::string Get(const std::ostream& os);
-	std::string Post(const std::ostream &url, const std::ostream &postdata);
-	std::string PostMIME(const std::ostream &url, ost2::MIMEMultipartForm &form);
+	std::string Get(const std::ostream& os, const param_t &header = param_t());
+	std::string Get(const std::string& s, const param_t &header = param_t());
+	static std::string GetURL(const std::string &url, const param_t &header = param_t());
+	std::string Post(const std::string &request, param_t &postdata, const param_t &header = param_t());
+	std::string Post(const std::ostream &request, const std::ostream &postdata, const param_t &header = param_t());
+	std::string PostMIME(const std::ostream &request, const param_t &postdata, const param_t &header = param_t());
+	std::string PostMIME(const std::string &request, const param_t &postdata, const param_t &header = param_t());
 };
 
 }
