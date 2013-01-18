@@ -26,6 +26,7 @@
 #include <mutex>
 
 #include "SoapClient.h"
+#include "HttpClient.h"
 
 namespace fritz {
 
@@ -37,7 +38,7 @@ private:
 	bool Login();
 	std::string GetLang();
 	bool validPassword;
-	HttpClient *httpClient;
+	HttpClient httpClient;
 	SoapClient *soapClient;
 public:
 	FritzClient ();
