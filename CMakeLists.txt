@@ -21,17 +21,11 @@ find_package(Threads)
 # --- crypto ------------------------------------------------------------------
 find_package(crypto)
 
-# --- gnu common cpp library --------------------------------------------------
-pkg_check_modules(CC++ REQUIRED libccgnu2 libccext2)
-include_directories(${CC++_INCLUDE_DIRS})
-link_directories(${CC++_LIBRARY_DIRS})
-
 # --- compile and link --------------------------------------------------------
 include_directories(${libfritz++_SOURCE_DIR})
-set(CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS} ${GCRYPT_CFLAGS} ${CC++_CFLAGS_OTHER}")
+set(CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS} ${GCRYPT_CFLAGS}")
 
-set(SRCS cc++/url.cpp cc++/urlstring.cpp cc++/mime.cpp cc++/soap.cpp
-         CallList.cpp Config.cpp 
+set(SRCS CallList.cpp Config.cpp 
          Fonbooks.cpp Fonbook.cpp FonbookManager.cpp FritzClient.cpp FritzFonbook.cpp 
          HttpClient.cpp Listener.cpp LocalFonbook.cpp Log.cpp 
          LookupFonbook.cpp Nummerzoeker.cpp OertlichesFonbook.cpp 
@@ -45,7 +39,7 @@ if (EXISTS ${libfritz++_SOURCE_DIR}/test)
   AUX_SOURCE_DIRECTORY(test LIBTESTFILES)
   add_executable(libfritztest ${LIBTESTFILES} test/gtest/gtest-all.cc test/gtest/gtest_main.cc)
   target_link_libraries(libfritztest fritz++  ssl
-                        ${GCRYPT_LIBRARIES} ${CC++_LDFLAGS}
+                        ${GCRYPT_LIBRARIES} 
                         ${Boost_SYSTEM_LIBRARY} ${Boost_THREAD_LIBRARY} ${CMAKE_THREAD_LIBS_INIT}
                         crypto)
 endif (EXISTS ${libfritz++_SOURCE_DIR}/test)

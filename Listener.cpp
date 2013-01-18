@@ -198,7 +198,7 @@ void Listener::operator()() {
 		}
 
 		ERR("waiting " << retry_delay << " seconds before retrying");
-		ost::Thread::sleep(retry_delay*1000); // delay the retry
+		std::this_thread::sleep_for(std::chrono::seconds(retry_delay)); // delay the retry
 	}
 	DBG("Listener thread ended");
 }

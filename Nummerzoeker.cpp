@@ -54,8 +54,8 @@ Fonbook::sResolveResult NummerzoekerFonbook::Lookup(std::string number) const {
 		   << "/index.php?search=Zoeken&phonenumber="
 		   << normNumber
 		   << "&export=csv");
-	} catch (ost::SockException &se) {
-		ERR("Exception - " << se.what());
+	} catch (std::runtime_error &re) {
+		ERR("Exception - " << re.what());
 		return result;
 	}
 

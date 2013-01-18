@@ -51,7 +51,7 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) 
 		msg = tc.Get(std::stringstream().flush()
 		   << "/de/q/" <<  Tools::NormalizeNumber(number)
 		   << ".html");
-	} catch (ost::SockException &se) {
+	} catch (std::runtime_error &se) {
 		ERR("Exception - " << se.what());
 		return result;
 	}

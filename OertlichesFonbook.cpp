@@ -49,8 +49,8 @@ Fonbook::sResolveResult OertlichesFonbook::Lookup(std::string number) const {
 		HttpClient tc(host);
 		msg = tc.Get(std::stringstream().flush()
 		   << "/Controller?form_name=search_inv&ph=" << Tools::NormalizeNumber(number));
-	} catch (ost::SockException &se) {
-		ERR("Exception - " << se.what());
+	} catch (std::runtime_error &re) {
+		ERR("Exception - " << re.what());
 		return result;
 	}
 	// check that at most one result is returned

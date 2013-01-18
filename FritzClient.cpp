@@ -30,7 +30,6 @@
 #include "Log.h"
 
 #define RETRY_BEGIN                                  \
-	    ost::Thread::setException(ost::Thread::throwException); \
     	unsigned int retry_delay = RETRY_DELAY / 2;  \
 		bool dataRead = false;                       \
 		do {  				                         \
@@ -40,8 +39,8 @@
 
 #define RETRY_END																							\
 			dataRead = true;                                                                                \
-		} catch (ost::SockException &se) {																\
-			ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());								\
+		} catch (std::runtime_error &re) {																\
+			ERR("Exception in connection to " << gConfig->getUrl() << " - " << re.what());								\
 			ERR("waiting " << retry_delay << " seconds before retrying");	\
 			sleep(retry_delay); /* delay a possible retry */												\
 		}																									\
@@ -130,7 +129,7 @@ bool FritzClient::Login() {
 		try {
 		  sXml = httpClient.Get(std::stringstream().flush()
 			     << "/login_sid.lua?sid=" << gConfig->getSid());
-		} catch (ost::SockException &se) {}
+		} catch (std::runtime_error &re) {}
 		if (sXml.find("<Rights") != std::string::npos)
 			gConfig->setLoginType(Config::LUA);
 		else {
@@ -296,8 +295,8 @@ bool FritzClient::InitCall(std::string &number) {
 		};
 		msg = httpClient.Post("/cgi-bin/webcm", params);
 		INF("call initiated.");
-	} catch (ost::SockException &se) {
-		ERR("Exception - " << se.what());
+	} catch (std::runtime_error &re) {
+		ERR("Exception - " << re.what());
 		return false;
 	}
 	return true;
@@ -312,7 +311,7 @@ std::string FritzClient::RequestLocationSettings() {
 			try {
 				msg = httpClient.Get(std::stringstream().flush()
 					  << "/fon_num/sip_option.lua?sid=" << gConfig->getSid());
-			} catch (ost::SockException &se) {}
+			} catch (std::runtime_error &re) {}
 			if (msg.find("<!-- pagename:/fon_num/sip_option.lua-->") != std::string::npos)
 				return msg;
 			DBG("failed.");
@@ -339,7 +338,7 @@ std::string FritzClient::RequestSipSettings() {
 			try {
 				msg = httpClient.Get(std::stringstream().flush()
 					  << "/fon_num/fon_num_list.lua?sid=" << gConfig->getSid());
-			} catch (ost::SockException &se) {}
+			} catch (std::runtime_error &re) {}
 			if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos)
 				return msg;
 			DBG("failed.");
@@ -386,7 +385,7 @@ std::string FritzClient::RequestCallList () {
 				delete(conv);
 				return csv;
 			}
-		} catch (ost::SockException e) {}
+		} catch (std::runtime_error &re) {}
 
 		// old method, parsing url to csv from page above
 
@@ -426,7 +425,7 @@ std::string FritzClient::RequestFonbook () {
 			DBG("sending fonbook XML request.");
 			try {
 				msg = httpClient.PostMIME("/cgi-bin/firmwarecfg", postdata);
-			} catch (ost::SockException &se) {}
+			} catch (std::runtime_error &re) {}
 			if (msg.find("<phonebooks>") != std::string::npos) {
 				return msg;
 			}
@@ -478,8 +477,8 @@ bool FritzClient::reconnectISP() {
 //				   "<u:ForceTermination xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
 //				   "</s:Body>"
 //				   "</s:Envelope>");
-	} catch (ost::SockException &se) {
-		ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());
+	} catch (std::runtime_error &re) {
+		ERR("Exception in connection to " << gConfig->getUrl() << " - " << re.what());
 		return false;
 	}
 	if (msg.find("ForceTerminationResponse") == std::string::npos)
@@ -504,8 +503,8 @@ std::string FritzClient::getCurrentIP() {
 //				   "<u:GetExternalIPAddress xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
 //				   "</s:Body>"
 //				   "</s:Envelope>");
-	} catch (ost::SockException &se) {
-		ERR("Exception in connection to " << gConfig->getUrl() << " - " << se.what());
+	} catch (std::runtime_error &re) {
+		ERR("Exception in connection to " << gConfig->getUrl() << " - " << re.what());
 		return "";
 	}
 	DBG("Parsing reply...");
