@@ -50,7 +50,8 @@ TEST_F(HttpClient, HttpPostRequest) {
 	  { "param2", "value2" }
 	};
 	std::string responseBody1 = client->Post("/post", params);
-	ASSERT_TRUE(responseBody1.find("\"data\": \"param1=value1&param2=value2&\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
 }
 
 TEST_F(HttpClient, HttpPostRequestTwice) {
@@ -60,14 +61,16 @@ TEST_F(HttpClient, HttpPostRequestTwice) {
 	  { "param2", "value2" }
 	};
 	std::string responseBody1 = client->Post("/post", params1);
-	ASSERT_TRUE(responseBody1.find("\"data\": \"param1=value1&param2=value2&\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
 	fritz::HttpClient::param_t params2 =
 	{
 	  { "param3", "value3" },
 	  { "param4", "value4" }
 	};
 	std::string responseBody2 = client->Post("/post", params2);
-	ASSERT_TRUE(responseBody2.find("\"data\": \"param3=value3&param4=value4&\"") != std::string::npos);
+	ASSERT_TRUE(responseBody2.find("\"param3\": \"value3\"") != std::string::npos);
+	ASSERT_TRUE(responseBody2.find("\"param4\": \"value4\"") != std::string::npos);
 }
 
 TEST_F(HttpClient, HttpGetRequestWithHeader) {
@@ -94,7 +97,8 @@ TEST_F(HttpClient, HttpPostRequestWithHeader) {
 	  { "param2", "value2" }
 	};
 	std::string responseBody1 = client->Post("/post", params, defaultHeader);
-	ASSERT_TRUE(responseBody1.find("\"data\": \"param1=value1&param2=value2&\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
 	ASSERT_TRUE(responseBody1.find("\"Header1\": \"headervalue1\"") != std::string::npos);
 }
 
@@ -105,7 +109,8 @@ TEST_F(HttpClient, HttpPostRequestTwiceWithHeader) {
 	  { "param2", "value2" }
 	};
 	std::string responseBody1 = client->Post("/post", params1, defaultHeader);
-	ASSERT_TRUE(responseBody1.find("\"data\": \"param1=value1&param2=value2&\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
 	ASSERT_TRUE(responseBody1.find("\"Header1\": \"headervalue1\"") != std::string::npos);
 
 	fritz::HttpClient::param_t params2 =
@@ -114,9 +119,16 @@ TEST_F(HttpClient, HttpPostRequestTwiceWithHeader) {
 	  { "param4", "value4" }
 	};
 	std::string responseBody2 = client->Post("/post", params2, defaultHeader);
-	ASSERT_TRUE(responseBody2.find("\"data\": \"param3=value3&param4=value4&\"") != std::string::npos);
+	ASSERT_TRUE(responseBody2.find("\"param3\": \"value3\"") != std::string::npos);
+	ASSERT_TRUE(responseBody2.find("\"param4\": \"value4\"") != std::string::npos);
 	ASSERT_TRUE(responseBody2.find("\"Header1\": \"headervalue1\"") != std::string::npos);
 }
+
+TEST_F(HttpClient, HttpGetRequestLargeResponse) {
+	std::string responseBody1 = client->Get("/stream/100");
+	ASSERT_TRUE(responseBody1.find("\"id\": 99") != std::string::npos);
+}
+
 
 //TEST_F(HttpClient, HttpPostMimeRequest) {
 //	fritz::HttpClient::param_t params =

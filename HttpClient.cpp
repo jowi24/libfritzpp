@@ -62,7 +62,8 @@ HttpClient::response_t HttpClient::ParseResponse() {
 			header.insert(std::pair<std::string, std::string>(key, value));
 			DBG("Found header: " << key << ": " << value);
 		} else {
-			bodystream << line;
+			bodystream << stream->rdbuf();
+			break;
 		}
 	}
 	body = bodystream.str();
@@ -126,7 +127,11 @@ std::string HttpClient::Post(const std::string &request, param_t &postdata, cons
 }
 
 std::string HttpClient::Post(const std::ostream &request, const std::ostream &postdata, const param_t &header) {
-	return SendRequest(request, postdata, header);
+	header_t fullheader = {
+			{ "Content-Type", "application/x-www-form-urlencoded" }
+	};
+	fullheader.insert(begin(header), end(header));
+	return SendRequest(request, postdata, fullheader);
 }
 
 std::string HttpClient::GetURL(const std::string &url, const param_t &header) {
