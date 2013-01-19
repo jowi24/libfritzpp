@@ -45,10 +45,12 @@ Fonbook::sResolveResult OertlichesFonbook::Lookup(std::string number) const {
 	std::string name;
 	try {
 		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo()? Tools::NormalizeNumber(number) : HIDDEN) << " to www.dasoertliche.de");
-		std::string host = "www.dasoertliche.de";
-		HttpClient tc(host);
-		msg = tc.Get(std::stringstream().flush()
-		   << "/Controller?form_name=search_inv&ph=" << Tools::NormalizeNumber(number));
+		HttpClient::param_t params = {
+				{ "form_name", "search_inv"},
+				{ "ph", Tools::NormalizeNumber(number)},
+		};
+		HttpClient tc("www.dasoertliche.de");
+		msg = tc.Get("/Controller", params);
 	} catch (std::runtime_error &re) {
 		ERR("Exception - " << re.what());
 		return result;

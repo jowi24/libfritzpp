@@ -46,11 +46,10 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) 
 	std::string name;
 	try {
 		DBG("sending reverse lookup request for " << Tools::NormalizeNumber(number) << " to tel.local.ch");
-		std::string host = "mobile.tel.local.ch";
-		HttpClient tc(host);
-		msg = tc.Get(std::stringstream().flush()
-		   << "/de/q/" <<  Tools::NormalizeNumber(number)
-		   << ".html");
+		HttpClient tc("mobile.tel.local.ch");
+		std::stringstream ss;
+		ss << "/de/q/" <<  Tools::NormalizeNumber(number) << ".html";
+		msg = tc.Get(ss.str());
 	} catch (std::runtime_error &se) {
 		ERR("Exception - " << se.what());
 		return result;

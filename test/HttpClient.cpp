@@ -32,6 +32,19 @@ public:
 TEST_F(HttpClient, HttpGetRequest) {
 	std::string responseBody1 = client->Get("/get?param1=value1&param2=value2");
 	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
+}
+
+TEST_F(HttpClient, HttpGetRequestSeparatedParams) {
+	std::string responseBody1 = client->Get("/get", {{"param1", "value1"},{"param2","value2"}});
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
+}
+
+TEST_F(HttpClient, HttpGetRequestCombinedParams) {
+	std::string responseBody1 = client->Get("/get?param1=value1", {{"param2","value2"}});
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
 }
 
 TEST_F(HttpClient, HttpGetRequestTwice) {
@@ -76,6 +89,7 @@ TEST_F(HttpClient, HttpPostRequestTwice) {
 TEST_F(HttpClient, HttpGetRequestWithHeader) {
 	std::string responseBody = client->Get("/get?param1=value1&param2=value2", fritz::HttpClient::param_t(), defaultHeader);
 	ASSERT_TRUE(responseBody.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody.find("\"param2\": \"value2\"") != std::string::npos);
 	ASSERT_TRUE(responseBody.find("\"Header1\": \"headervalue1\"") != std::string::npos);
 }
 

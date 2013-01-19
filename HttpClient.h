@@ -42,7 +42,7 @@ private:
 	    {"Host", host },
 	  };
 protected:
-	std::string SendRequest(const std::ostream &request, const std::ostream &postdata = std::ostringstream(), const header_t &header = header_t());
+	std::string SendRequest(const std::string &request, const std::ostream &postdata = std::ostringstream(), const header_t &header = header_t());
 	response_t ParseResponse();
 public:
 	HttpClient(const std::string &host, int port = 80);
@@ -51,10 +51,6 @@ public:
 	std::string Get     (const std::string &request, const param_t &params = param_t(), const header_t &header = header_t());
 	std::string Post    (const std::string &request, const param_t &postdata,           const header_t &header = header_t());
 	std::string PostMIME(const std::string &request, const param_t &postdata,           const header_t &header = header_t());
-//deprecated:
-	std::string Get(const std::ostream& os, const header_t &header = header_t()) __attribute__ ((deprecated));
-	std::string Post(const std::ostream &request, const std::ostream &postdata, const header_t &header = header_t()) __attribute__ ((deprecated));
-	std::string PostMIME(const std::ostream &request, const param_t &postdata, const header_t &header = header_t()) __attribute__ ((deprecated));
 };
 
 }

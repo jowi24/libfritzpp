@@ -48,12 +48,13 @@ Fonbook::sResolveResult NummerzoekerFonbook::Lookup(std::string number) const {
 	std::string msg;
 	try {
 		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo() ? normNumber : HIDDEN) << " to www.nummerzoeker.com");
-		std::string host = "www.nummerzoeker.com";
-		HttpClient tc(host);
-		msg = tc.Get(std::stringstream().flush()
-		   << "/index.php?search=Zoeken&phonenumber="
-		   << normNumber
-		   << "&export=csv");
+		HttpClient tc("www.nummerzoeker.com");
+		HttpClient::param_t params = {
+				{ "search", "Zoeken" },
+				{ "phonenumber", normNumber },
+				{ "export", "csv" },
+		};
+		msg = tc.Get("/index.php", params);
 	} catch (std::runtime_error &re) {
 		ERR("Exception - " << re.what());
 		return result;

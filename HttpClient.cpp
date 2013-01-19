@@ -70,7 +70,7 @@ HttpClient::response_t HttpClient::ParseResponse() {
 	return response_t(header, body);
 }
 
-std::string HttpClient::SendRequest(const std::ostream &request, const std::ostream &postdata, const header_t &header) {
+std::string HttpClient::SendRequest(const std::string &request, const std::ostream &postdata, const header_t &header) {
 	if (!connected)
 		Connect();
 	std::stringstream post;
@@ -78,11 +78,8 @@ std::string HttpClient::SendRequest(const std::ostream &request, const std::ostr
 	int postContentLength = post.str().length();
 	std::string method = postContentLength ? "POST" : "GET";
 
-	std::stringstream req;
-	req << request.rdbuf();
-
-	DBG("Requesting HTTP " << method << " on " << req.str());
-	*stream << method << " " << req.str() << " HTTP/1.0\r\n";
+	DBG("Requesting HTTP " << method << " on " << request);
+	*stream << method << " " << request << " HTTP/1.0\r\n";
 	for (auto entry : defaultHeader) {
 		*stream << entry.first << ": " << entry.second << "\r\n";
 	}
@@ -109,31 +106,26 @@ std::string HttpClient::SendRequest(const std::ostream &request, const std::ostr
 
 std::string HttpClient::Get(const std::string& url, const param_t &params, const header_t &header) {
 	std::stringstream ss;
-	ss << url << "?";
+	if (url.find('?') == std::string::npos)
+		ss << url << "?";
+	else
+		ss << url << "&";
 	for (auto parameter: params)
 		ss << parameter.first << "=" << parameter.second << "&";
-	return SendRequest(ss, std::ostringstream(), header);
-}
-
-std::string HttpClient::Get(const std::ostream& url, const header_t &header) {
-	std::stringstream ss;
-	ss << url.rdbuf();
-	return Get(ss.str(), param_t(), header);
+	return SendRequest(ss.str(), std::ostringstream(), header);
 }
 
 std::string HttpClient::Post(const std::string &request, const param_t &postdata, const header_t &header) {
-	std::stringstream ss;
-	for (auto parameter : postdata)
-		ss << parameter.first << "=" << parameter.second << "&";
-	return Post(std::stringstream(request), ss, header);
-}
-
-std::string HttpClient::Post(const std::ostream &request, const std::ostream &postdata, const header_t &header) {
 	header_t fullheader = {
 			{ "Content-Type", "application/x-www-form-urlencoded" }
 	};
 	fullheader.insert(begin(header), end(header));
-	return SendRequest(request, postdata, fullheader);
+
+	std::stringstream ss;
+	for (auto parameter : postdata)
+			ss << parameter.first << "=" << parameter.second << "&";
+
+	return SendRequest(request, ss, fullheader);
 }
 
 std::string HttpClient::GetURL(const std::string &url, const header_t &header) {
@@ -156,10 +148,7 @@ std::string HttpClient::GetURL(const std::string &url, const header_t &header) {
 }
 
 std::string HttpClient::PostMIME(const std::string &request, const param_t &postdata, const header_t &header) {
-	return PostMIME(std::stringstream(request), postdata, header);
-}
 
-std::string HttpClient::PostMIME(const std::ostream &request, const param_t &postdata, const header_t &header) {
 	const std::string boundary = "----FormBoundaryZMsGfL5JxTz5LuAW";
 	header_t fullheader = {
 			{ "Content-Type", "multipart/form-data; boundary=" + boundary }
@@ -177,6 +166,5 @@ std::string HttpClient::PostMIME(const std::ostream &request, const param_t &pos
 	ss << "--" << boundary << "--\r\n";
 	return SendRequest(request, ss, fullheader);
 }
-
 
 }
