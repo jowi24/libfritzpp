@@ -37,36 +37,34 @@ HttpClient::~HttpClient() {
 }
 
 HttpClient::response_t HttpClient::ParseResponse() {
-	bool isHeader = true;
 	header_t header;
 	body_t body;
 
-	std::stringstream bodystream;
-	std::string status = ReadLine(true);
-	DBG("Response: " << status);
+    std::string http_version;
+    *stream >> http_version;
+    unsigned int status_code;
+    *stream >> status_code;
+    std::string status_message;
+    std::getline(*stream, status_message);
+    if (!(*stream) || http_version.substr(0, 5) != "HTTP/")
+      throw std::runtime_error("Invalid response");
 
-	for (;;) {
-		std::string line = ReadLine(false);
-		if (line.length() == 0) {
-			break;
-		} else if (line.length() <= 2) {
-			isHeader = false;
-			continue;
-		}
-		if (isHeader) {
-			size_t separator = line.find(':');
-			if (separator == std::string::npos)
-				throw std::runtime_error("Invalid header format detected in HTTP response.");
-			std::string key = line.substr(0, separator);
-			std::string value = line.substr(separator+2);
-			header.insert(std::pair<std::string, std::string>(key, value));
-			DBG("Found header: " << key << ": " << value);
-		} else {
-			bodystream << stream->rdbuf();
-			break;
-		}
-	}
-	body = bodystream.str();
+    // Process the response headers, which are terminated by a blank line
+    std::string headerline;
+    while (std::getline(*stream, headerline) && headerline != "\r") {
+    	size_t separator = headerline.find(':');
+    	if (separator == std::string::npos)
+    		throw std::runtime_error("Invalid header format detected in HTTP response.");
+    	std::string key = headerline.substr(0, separator);
+    	std::string value = headerline.substr(separator+2);
+    	header.insert(std::pair<std::string, std::string>(key, value));
+    	DBG("Found header: " << key << ": " << value);
+    }
+
+    // The remaining data is the body
+    std::stringstream bodystream;
+    bodystream << stream->rdbuf();
+    body = bodystream.str();
 	DBG("Body size " << body.length() << " Bytes.");
 	return response_t(header, body);
 }
