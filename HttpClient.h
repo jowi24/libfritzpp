@@ -30,7 +30,7 @@ namespace fritz {
 
 class HttpClient : public TcpClient {
 public:
-	typedef std::map<std::string, std::string> param_t;
+	typedef std::vector<std::pair<std::string, std::string>> param_t;
 	typedef std::map<std::string, std::string> header_t;
 	typedef std::string body_t;
 	typedef std::pair<header_t, body_t> response_t;
@@ -42,18 +42,18 @@ private:
 	    {"Host", host },
 	  };
 protected:
-	std::string SendRequest(const std::ostream &request, const std::ostream &postdata = std::ostringstream(), const param_t &header = param_t());
+	std::string SendRequest(const std::ostream &request, const std::ostream &postdata = std::ostringstream(), const header_t &header = header_t());
 	response_t ParseResponse();
 public:
 	HttpClient(std::string &host, int port = 80);
 	virtual ~HttpClient();
-	std::string Get(const std::ostream& os, const param_t &header = param_t());
-	std::string Get(const std::string& s, const param_t &header = param_t());
-	static std::string GetURL(const std::string &url, const param_t &header = param_t());
-	std::string Post(const std::string &request, param_t &postdata, const param_t &header = param_t());
-	std::string Post(const std::ostream &request, const std::ostream &postdata, const param_t &header = param_t());
-	std::string PostMIME(const std::ostream &request, const param_t &postdata, const param_t &header = param_t());
-	std::string PostMIME(const std::string &request, const param_t &postdata, const param_t &header = param_t());
+	std::string Get(const std::ostream& os, const header_t &header = header_t());
+	std::string Get(const std::string& s, const header_t &header = header_t());
+	static std::string GetURL(const std::string &url, const header_t &header = header_t());
+	std::string Post(const std::string &request, param_t &postdata, const header_t &header = header_t());
+	std::string Post(const std::ostream &request, const std::ostream &postdata, const header_t &header = header_t());
+	std::string PostMIME(const std::ostream &request, const param_t &postdata, const header_t &header = header_t());
+	std::string PostMIME(const std::string &request, const param_t &postdata, const header_t &header = header_t());
 };
 
 }

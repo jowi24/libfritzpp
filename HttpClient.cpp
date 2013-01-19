@@ -48,6 +48,7 @@ HttpClient::response_t HttpClient::ParseResponse() {
     std::getline(*stream, status_message);
     if (!(*stream) || http_version.substr(0, 5) != "HTTP/")
       throw std::runtime_error("Invalid response");
+    DBG("HTTP status code " << status_code);
 
     // Process the response headers, which are terminated by a blank line
     std::string headerline;
@@ -69,7 +70,7 @@ HttpClient::response_t HttpClient::ParseResponse() {
 	return response_t(header, body);
 }
 
-std::string HttpClient::SendRequest(const std::ostream &request, const std::ostream &postdata, const param_t &header) {
+std::string HttpClient::SendRequest(const std::ostream &request, const std::ostream &postdata, const header_t &header) {
 	if (!connected)
 		Connect();
 	std::stringstream post;
@@ -106,17 +107,17 @@ std::string HttpClient::SendRequest(const std::ostream &request, const std::ostr
 	return response.second;
 }
 
-std::string HttpClient::Get(const std::string& url, const param_t &header) {
+std::string HttpClient::Get(const std::string& url, const header_t &header) {
 	return SendRequest(std::stringstream(url), std::ostringstream(), header);
 }
 
-std::string HttpClient::Get(const std::ostream& url, const param_t &header) {
+std::string HttpClient::Get(const std::ostream& url, const header_t &header) {
 	std::stringstream ss;
 	ss << url.rdbuf();
 	return Get(ss.str(), header);
 }
 
-std::string HttpClient::Post(const std::string &request, param_t &postdata, const param_t &header) {
+std::string HttpClient::Post(const std::string &request, param_t &postdata, const header_t &header) {
 	std::stringstream ss;
 	for (auto parameter : postdata) {
 		ss << parameter.first << "=" << parameter.second << "&";
@@ -124,7 +125,7 @@ std::string HttpClient::Post(const std::string &request, param_t &postdata, cons
 	return Post(std::stringstream(request), ss, header);
 }
 
-std::string HttpClient::Post(const std::ostream &request, const std::ostream &postdata, const param_t &header) {
+std::string HttpClient::Post(const std::ostream &request, const std::ostream &postdata, const header_t &header) {
 	header_t fullheader = {
 			{ "Content-Type", "application/x-www-form-urlencoded" }
 	};
@@ -132,7 +133,7 @@ std::string HttpClient::Post(const std::ostream &request, const std::ostream &po
 	return SendRequest(request, postdata, fullheader);
 }
 
-std::string HttpClient::GetURL(const std::string &url, const param_t &header) {
+std::string HttpClient::GetURL(const std::string &url, const header_t &header) {
 	//TODO support other port
 	//TODO support HTTPS
 
@@ -151,12 +152,12 @@ std::string HttpClient::GetURL(const std::string &url, const param_t &header) {
 	return client.Get(request, header);
 }
 
-std::string HttpClient::PostMIME(const std::string &request, const param_t &postdata, const param_t &header) {
+std::string HttpClient::PostMIME(const std::string &request, const param_t &postdata, const header_t &header) {
 	return PostMIME(std::stringstream(request), postdata, header);
 }
 
-std::string HttpClient::PostMIME(const std::ostream &request, const param_t &postdata, const param_t &header) {
-	const std::string boundary = "---FormBoundaryZMsGfL5JxTz5LuAW";
+std::string HttpClient::PostMIME(const std::ostream &request, const param_t &postdata, const header_t &header) {
+	const std::string boundary = "----FormBoundaryZMsGfL5JxTz5LuAW";
 	header_t fullheader = {
 			{ "Content-Type", "multipart/form-data; boundary=" + boundary }
 	};
@@ -164,14 +165,14 @@ std::string HttpClient::PostMIME(const std::ostream &request, const param_t &pos
 
 	std::stringstream ss;
 	for (auto parameter : postdata) {
-		ss << boundary << "\r\n"
+		ss << "--" << boundary << "\r\n"
 		   << "Content-Disposition: form-data; name=\""+parameter.first+"\"\r\n"
 		   << "\r\n"
 		   << parameter.second
 		   << "\r\n";
 	}
-	ss << boundary << "\r\n";
-	return Post(request, ss, fullheader);
+	ss << "--" << boundary << "--\r\n";
+	return SendRequest(request, ss, fullheader);
 }
 
 

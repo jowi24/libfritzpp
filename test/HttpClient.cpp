@@ -130,16 +130,16 @@ TEST_F(HttpClient, HttpGetRequestLargeResponse) {
 }
 
 
-//TEST_F(HttpClient, HttpPostMimeRequest) {
-//	fritz::HttpClient::param_t params =
-//	{
-//	  { "param1", "value1" },
-//	  { "param2", "value2" }
-//	};
-//	std::string responseBody1 = client->PostMIME("/post", params);
-//	std::cout << responseBody1 << std::endl;
-//	ASSERT_TRUE(responseBody1.find("\"data\": \"param1=value1&param2=value2&\"") != std::string::npos);
-//}
+TEST_F(HttpClient, HttpPostMimeRequest) {
+	fritz::HttpClient::param_t params =
+	{
+	  { "param1", "value1" },
+	  { "param2", "value2" }
+	};
+	std::string responseBody1 = client->PostMIME("/post", params);
+	ASSERT_TRUE(responseBody1.find("\"param1\": \"value1\"") != std::string::npos);
+	ASSERT_TRUE(responseBody1.find("\"param2\": \"value2\"") != std::string::npos);
+}
 
 
 
