@@ -35,7 +35,7 @@ public:
 	typedef std::string body_t;
 	typedef std::pair<header_t, body_t> response_t;
 private:
-	header_t defaultHeader =
+	const header_t defaultHeader =
 	  {
 	    {"User-Agent", "Lynx/2.8.6" },
 	    {"Connection", "Close" },
@@ -45,15 +45,16 @@ protected:
 	std::string SendRequest(const std::ostream &request, const std::ostream &postdata = std::ostringstream(), const header_t &header = header_t());
 	response_t ParseResponse();
 public:
-	HttpClient(std::string &host, int port = 80);
+	HttpClient(const std::string &host, int port = 80);
 	virtual ~HttpClient();
-	std::string Get(const std::ostream& os, const header_t &header = header_t());
-	std::string Get(const std::string& s, const header_t &header = header_t());
 	static std::string GetURL(const std::string &url, const header_t &header = header_t());
-	std::string Post(const std::string &request, param_t &postdata, const header_t &header = header_t());
-	std::string Post(const std::ostream &request, const std::ostream &postdata, const header_t &header = header_t());
-	std::string PostMIME(const std::ostream &request, const param_t &postdata, const header_t &header = header_t());
-	std::string PostMIME(const std::string &request, const param_t &postdata, const header_t &header = header_t());
+	std::string Get     (const std::string &request, const param_t &params = param_t(), const header_t &header = header_t());
+	std::string Post    (const std::string &request, const param_t &postdata,           const header_t &header = header_t());
+	std::string PostMIME(const std::string &request, const param_t &postdata,           const header_t &header = header_t());
+//deprecated:
+	std::string Get(const std::ostream& os, const header_t &header = header_t()) __attribute__ ((deprecated));
+	std::string Post(const std::ostream &request, const std::ostream &postdata, const header_t &header = header_t()) __attribute__ ((deprecated));
+	std::string PostMIME(const std::ostream &request, const param_t &postdata, const header_t &header = header_t()) __attribute__ ((deprecated));
 };
 
 }

@@ -29,7 +29,7 @@
 
 namespace fritz {
 
-HttpClient::HttpClient(std::string &host, int port)
+HttpClient::HttpClient(const std::string &host, int port)
 : TcpClient{host, port} {
 }
 
@@ -107,21 +107,24 @@ std::string HttpClient::SendRequest(const std::ostream &request, const std::ostr
 	return response.second;
 }
 
-std::string HttpClient::Get(const std::string& url, const header_t &header) {
-	return SendRequest(std::stringstream(url), std::ostringstream(), header);
+std::string HttpClient::Get(const std::string& url, const param_t &params, const header_t &header) {
+	std::stringstream ss;
+	ss << url << "?";
+	for (auto parameter: params)
+		ss << parameter.first << "=" << parameter.second << "&";
+	return SendRequest(ss, std::ostringstream(), header);
 }
 
 std::string HttpClient::Get(const std::ostream& url, const header_t &header) {
 	std::stringstream ss;
 	ss << url.rdbuf();
-	return Get(ss.str(), header);
+	return Get(ss.str(), param_t(), header);
 }
 
-std::string HttpClient::Post(const std::string &request, param_t &postdata, const header_t &header) {
+std::string HttpClient::Post(const std::string &request, const param_t &postdata, const header_t &header) {
 	std::stringstream ss;
-	for (auto parameter : postdata) {
+	for (auto parameter : postdata)
 		ss << parameter.first << "=" << parameter.second << "&";
-	}
 	return Post(std::stringstream(request), ss, header);
 }
 
@@ -149,7 +152,7 @@ std::string HttpClient::GetURL(const std::string &url, const header_t &header) {
 		throw std::runtime_error("Invalid protocol in url.");
 
 	HttpClient client(host);
-	return client.Get(request, header);
+	return client.Get(request, param_t(), header);
 }
 
 std::string HttpClient::PostMIME(const std::string &request, const param_t &postdata, const header_t &header) {

@@ -33,7 +33,7 @@ void TcpClient::Connect() {
 	connected = true;
 }
 
-TcpClient::TcpClient(std::string &host, int port)
+TcpClient::TcpClient(const std::string &host, int port)
 : host{host}, port{port}, connected{false}, stream{nullptr} {
 }
 
