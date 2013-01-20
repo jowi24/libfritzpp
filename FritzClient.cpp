@@ -454,18 +454,15 @@ bool FritzClient::reconnectISP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
 	try {
-//		msg = soapClient->Post(
-//				std::stringstream().flush()
-//				<< "/upnp/control/WANIPConn1",
-//				std::stringstream().flush()
-//				<< "urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
-//				std::stringstream().flush()
-//				<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-//				   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-//				   "<s:Body>"
-//				   "<u:ForceTermination xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
-//				   "</s:Body>"
-//				   "</s:Envelope>");
+		msg = soapClient->Post(
+				"/upnp/control/WANIPConn1",
+				"urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
+				"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+				"<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
+				"<s:Body>"
+				"<u:ForceTermination xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
+				"</s:Body>"
+				"</s:Envelope>");
 	} catch (std::runtime_error &re) {
 		ERR("Exception in connection to " << gConfig->getUrl() << " - " << re.what());
 		return false;
@@ -480,18 +477,15 @@ std::string FritzClient::getCurrentIP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
 	try {
-//		msg = soapClient->Post(
-//				std::stringstream().flush()
-//				<< "/upnp/control/WANIPConn1",
-//				std::stringstream().flush()
-//				<< "urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
-//				std::stringstream().flush()
-//				<< "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-//				   "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-//				   "<s:Body>"
-//				   "<u:GetExternalIPAddress xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
-//				   "</s:Body>"
-//				   "</s:Envelope>");
+		msg = soapClient->Post(
+				"/upnp/control/WANIPConn1",
+				"urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
+				"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+				"<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">"
+				"<s:Body>"
+				"<u:GetExternalIPAddress xmlns:u=\"urn:schemas-upnp-org:service:WANIPConnection:1\" />"
+				"</s:Body>"
+				"</s:Envelope>");
 	} catch (std::runtime_error &re) {
 		ERR("Exception in connection to " << gConfig->getUrl() << " - " << re.what());
 		return "";
