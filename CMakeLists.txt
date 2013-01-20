@@ -13,7 +13,7 @@ include("FindGcryptConfig")
 gcrypt_check(GCRYPT REQUIRED gcrypt)
 
 # --- boost -------------------------------------------------------------------
-find_package(Boost COMPONENTS system date_time thread regex REQUIRED)
+find_package(Boost COMPONENTS system date_time thread REQUIRED)
 
 # --- threading ---------------------------------------------------------------
 find_package(Threads)
