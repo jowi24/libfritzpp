@@ -33,7 +33,7 @@ class TelLocalChFonbook : public LookupFonbook
 private:
 	TelLocalChFonbook();
 public:
-	virtual sResolveResult Lookup(std::string number) const;
+	sResolveResult Lookup(std::string number) const override;
 };
 
 }

@@ -32,7 +32,7 @@ class OertlichesFonbook : public LookupFonbook
 private:
 	OertlichesFonbook();
 public:
-	virtual sResolveResult Lookup(std::string number) const;
+	sResolveResult Lookup(std::string number) const override;
 };
 
 }

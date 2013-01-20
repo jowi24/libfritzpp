@@ -235,7 +235,7 @@ public:
 	 * Save pending changes.
 	 * Can be called periodically to assert pending changes in a phone book are written.
 	 */
-	void Save();
+	virtual void Save();
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.

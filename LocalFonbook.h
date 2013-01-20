@@ -32,10 +32,10 @@ private:
 	char* filePath;
 	LocalFonbook();
 	void ParseCsvFonbook(std::string filePath);
-	virtual void Write();
+	void Write() override;
 public:
-	bool Initialize();
-	void Reload();
+	bool Initialize() override;
+	void Reload() override;
 };
 
 }

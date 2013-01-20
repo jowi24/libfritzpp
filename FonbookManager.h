@@ -75,20 +75,20 @@ public:
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number);
+	sResolveResult ResolveToName(std::string number) override;
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or nullptr, if unsuccessful
 	 */
-	const FonbookEntry *RetrieveFonbookEntry(size_t id) const;
+	const FonbookEntry *RetrieveFonbookEntry(size_t id) const override;
 	/**
 	 * Changes the Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
 	 * @param fe FonbookEntry with the new content
 	 * @return true, if successful
 	 */
-	virtual bool ChangeFonbookEntry(size_t id, FonbookEntry &fe);
+	bool ChangeFonbookEntry(size_t id, FonbookEntry &fe) override;
 	/**
 	 * Sets the default number for a Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
@@ -101,72 +101,72 @@ public:
 	 * @param fe a new phonebook entry
 	 * @return true, if add was successful
 	 */
-	virtual void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos);
+	void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos) override;
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param id unique id to the entry to be deleted
 	 * @return true, if deletion was successful
 	 */
-	virtual bool DeleteFonbookEntry(size_t id);
+	bool DeleteFonbookEntry(size_t id) override;
 	/**
 	 * Clears all entries from phonebook.
 	 */
-	virtual void Clear();
+	void Clear() override;
 	/**
 	 * Save pending changes.
 	 * Can be called periodically to assert pending changes in a phone book are written.
 	 */
-	void Save();
+	void Save() override;
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.
 	 */
-	virtual bool isDisplayable() const;
+	bool isDisplayable() const override;
 	/**
 	 * Returns if this phonebook is ready to use.
 	 * @return true, if this phonebook is ready to use
 	 */
-	virtual bool isInitialized() const;
+	bool isInitialized() const override;
 	/**
 	 * Returns if this phonebook is writeable, e.g. entries can be added or modified.
 	 * @return true, if this phonebook is writeable
 	 */
-	virtual bool isWriteable() const;
+	bool isWriteable() const override;
 	/**
 	 * Returns if this phonebook has changes that are not yet written.
 	 * @return true, if changes are pending
 	 */
-	virtual bool isModified() const;
+	bool isModified() const override;
 	/**
 	 * Sets the initialized-status.
 	 * @param isInititalized the value initialized is set to
 	 */
-	virtual void setInitialized(bool isInitialized);
+	void setInitialized(bool isInitialized) override;
 	/**
 	 * Sorts the phonebook's entries by the given element and in given order.
 	 * @param the element used for sorting
 	 * @param true if sort order is ascending, false otherwise
 	 */
-	virtual void Sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true);
+	void Sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true) override;
 	/**
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries or cFonbook::npos, if requesting specific telephonebook entries is not possible for this telephonebook
 	 */
-	size_t GetFonbookSize() const;
+	size_t GetFonbookSize() const override;
 	/**
 	 *  Reloads the telephonebook's content
 	 */
-	void Reload();
+	void Reload() override;
 	/**
 	 *  Returns a string that should be displayed as title in the menu when the telephonebook is displayed.
 	 */
-	std::string GetTitle() const;
+	std::string GetTitle() const override;
 	/**
 	 * Returns the technical id of this phonebook. This id has to be unique among all phonebooks and is used when storing
 	 * the plugin's setup.
 	 * @return the technical id
 	 */
-	virtual std::string GetTechId() const;
+	virtual std::string GetTechId() const override;
 	/**
 	 *
 	 */

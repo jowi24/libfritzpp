@@ -35,12 +35,12 @@ private:
 	std::thread *thread;
 	FritzFonbook();
 	void ParseHtmlFonbook(std::string *msg);
-	virtual void Write();
+	void Write() override;
 public:
 	virtual ~FritzFonbook();
-	bool Initialize();
+	bool Initialize() override;
 	void Run();
-	void Reload();
+	void Reload() override;
 };
 
 }

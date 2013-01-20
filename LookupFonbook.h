@@ -35,13 +35,13 @@ public:
 	 * Initialize() may be called more than once per session.
 	 * @return if initialization was successful
 	 */
-	virtual bool Initialize();
+	bool Initialize() override;
 	/**
 	 * Resolves the number given to the corresponding name.
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number);
+	sResolveResult ResolveToName(std::string number) override;
 	/**
 	 * Resolves number doing a (costly) lookup
 	 * @param number to resolve
@@ -52,13 +52,13 @@ public:
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries
 	 */
-	virtual size_t GetFonbookSize() const { return 0; }
+	size_t GetFonbookSize() const override { return 0; }
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or nullptr, if unsuccessful
 	 */
-	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id __attribute__((unused))) const { return nullptr; }
+	const FonbookEntry *RetrieveFonbookEntry(size_t id __attribute__((unused))) const override { return nullptr; }
 };
 
 } /* namespace fritz */
