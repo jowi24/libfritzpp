@@ -19,12 +19,14 @@ class BasicInitFixture : public ::testing::Test {
 protected:
 	std::string countryCode;
 	std::string cityCode;
+	std::string host;
+	std::string passwd;
 
-	BasicInitFixture(std::string countryCode, std::string cityCode)
-	:countryCode(countryCode), cityCode(cityCode) {}
+	BasicInitFixture(std::string countryCode = "49", std::string cityCode = "721", std::string host = "localhost", std::string passwd = "pwd")
+	:countryCode(countryCode), cityCode(cityCode), host(host), passwd(passwd) {}
 
 	void SetUp() {
-		fritz::Config::Setup("localhost", "pwd", true);
+		fritz::Config::Setup(host, passwd, true);
 
 		delete fritz::gConfig->fritzClientFactory;
 		fritz::gConfig->fritzClientFactory = new FakeNoopClientFactory();
