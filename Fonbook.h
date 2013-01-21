@@ -87,6 +87,7 @@ public:
 	std::string GetName() const { return name; }
 	void SetName(std::string name) { this->name = name; }
 	std::string GetNumber(size_t pos) const { return numbers[pos].number; }
+	const std::vector<sNumber> &GetNumbers() const { return numbers; }
 	void SetNumber(std::string number,size_t pos) { numbers[pos].number = number; }
 	eType GetType(size_t pos) const { return numbers[pos].type; }
 	void SetType(eType type, size_t pos) { numbers[pos].type = type; }
@@ -174,6 +175,10 @@ protected:
 	 *
 	 */
 	std::string convertEntities(std::string s) const;
+	/**
+	 *
+	 */
+	const std::vector<FonbookEntry> &getFonbookList() const { return fonbookList; }
 public:
 	struct sResolveResult {
 		sResolveResult(std::string name, FonbookEntry::eType type = FonbookEntry::TYPE_NONE, bool successful = false)

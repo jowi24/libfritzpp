@@ -29,7 +29,7 @@
 
 namespace fritz {
 
-const char *Entities[97][2] = {
+const std::map<std::string, std::string> Entities = {
 	{"&nbsp;",  " "},
 	{"&iexcl;", "¡"},
 	{"&cent;",  "¢"},
@@ -161,11 +161,11 @@ std::string Fonbook::convertEntities(std::string s) const {
 		}
 
 		// convert other entities with table
-		for (int i=0; i<97; i++) {
-			std::string::size_type pos = s.find(Entities[i][0]);
-			if (pos != std::string::npos) {
-				s.replace(pos, strlen(Entities[i][0]), conv->Convert(Entities[i][1]));
-				i--; //search for the same entity again
+		for (auto entity : Entities) {
+			std::string::size_type pos = s.find(entity.first);
+			while (pos != std::string::npos) {
+				s.replace(pos, entity.first.length(), conv->Convert(entity.second.c_str()));
+				pos = s.find(entity.first, pos-1);
 			}
 		}
 		delete (conv);
@@ -254,8 +254,8 @@ bool FonbookEntry::operator<(const FonbookEntry &fe) const {
 size_t FonbookEntry::GetSize() const {
 	size_t size = 0;
 	// ignore TYPE_NONE
-	for (size_t pos = 0; pos < numbers.size(); pos++)
-		if (numbers[pos].number.size())
+	for (sNumber n : numbers)
+		if (n.number.length())
 			size++;
 	return size;
 }
@@ -321,12 +321,11 @@ void Fonbook::SetDirty() {
 Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	sResolveResult result(number);
 	if (number.length() > 0)
-		for (unsigned int pos=0; pos < fonbookList.size(); pos++)
-			for (size_t num=0; num < fonbookList[pos].GetSize(); num++) {
-				std::string fonbookNumber = fonbookList[pos].GetNumber(num);
-				if (fonbookNumber.length() > 0 && Tools::CompareNormalized(number, fonbookNumber) == 0) {
-					result.name = fonbookList[pos].GetName();
-					result.type = fonbookList[pos].GetType(num);
+		for (auto fbe : fonbookList)
+			for (auto fonbookNumber : fbe.GetNumbers()) {
+				if (fonbookNumber.number.length() > 0 && Tools::CompareNormalized(number, fonbookNumber.number) == 0) {
+					result.name = fbe.GetName();
+					result.type = fonbookNumber.type;
 					result.successful = true;
 					return result;
 				}

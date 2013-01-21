@@ -25,12 +25,12 @@ public:
 
 TEST(Fonbook, ConvertEntitiesUTF) {
 	TestFonbook f;
-	ASSERT_EQ("TestÄTestä", f.publicConvertEntities("Test&#xC4;Test&#xE4;"));
+	ASSERT_STREQ("TestÄTestä", f.publicConvertEntities("Test&#xC4;Test&#xE4;").c_str());
 }
 
 TEST(Fonbook, ConvertEntities) {
 	TestFonbook f;
-	ASSERT_EQ("TestÄTestä", f.publicConvertEntities("Test&Auml;Test&auml;"));
+	ASSERT_STREQ("TestÄTestä", f.publicConvertEntities("Test&Auml;Test&auml;").c_str());
 }
 
 }

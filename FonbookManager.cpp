@@ -72,12 +72,12 @@ FonbookManager::FonbookManager(bool saveOnShutdown)
 
 FonbookManager::~FonbookManager()
 {
-	for (size_t i= 0; i < fonbooks.size(); i++) {
-		DBG("deleting fonbook with ID: " << fonbooks[i]->GetTechId());
+	for (auto fonbook : fonbooks) {
+		DBG("deleting fonbook with ID: " << fonbook->GetTechId());
 		// save pending changes
 		if (saveOnShutdown)
-			fonbooks[i]->Save();
-		delete(fonbooks[i]);
+			fonbook->Save();
+		delete(fonbook);
 	}
 }
 
@@ -90,8 +90,8 @@ void FonbookManager::CreateFonbookManager(std::vector <std::string> vFonbookID, 
 		// check if activeFonbook is valid
 		if (activeFonbook.size() > 0) {
 			bool activeFonbookValid = false;
-			for (unsigned int pos = 0; pos < vFonbookID.size(); pos++)
-				if (vFonbookID[pos].compare(activeFonbook) == 0) {
+			for (auto id : vFonbookID)
+				if (id.compare(activeFonbook) == 0) {
 					activeFonbookValid = true;
 					break;
 				}
@@ -151,9 +151,9 @@ void FonbookManager::NextFonbook() {
 
 Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
 	sResolveResult result(number);
-	for (size_t i=0; i<gConfig->getFonbookIDs().size(); i++) {
-		result = fonbooks[gConfig->getFonbookIDs()[i]]->ResolveToName(number);
-		DBG("ResolveToName: " << gConfig->getFonbookIDs()[i] << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
+	for (auto id  : gConfig->getFonbookIDs()) {
+		result = fonbooks[id]->ResolveToName(number);
+		DBG("ResolveToName: " << id << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
 		if (result.successful)
 			return result;
 	}
@@ -237,8 +237,8 @@ std::string FonbookManager::GetTechId() const {
 }
 
 void FonbookManager::Reload() {
-	for (size_t i=0; i<gConfig->getFonbookIDs().size(); i++) {
-		fonbooks[gConfig->getFonbookIDs()[i]]->Reload();
+	for (auto id : gConfig->getFonbookIDs()) {
+		fonbooks[id]->Reload();
 	}
 }
 

@@ -123,18 +123,17 @@ std::string XmlFonbook::SerializeToXml() {
 	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>"
 			  "<phonebooks>"
 			  "<phonebook>";
-	for (size_t i = 0; i < GetFonbookSize(); i++) {
-		const FonbookEntry *fe = RetrieveFonbookEntry(i);
+	for (auto fe : getFonbookList()) {
 		result << "<contact>"
-			   << "<category>" << (fe->IsImportant() ? "1" : "0") << "</category>"
+			   << "<category>" << (fe.IsImportant() ? "1" : "0") << "</category>"
 			   << "<person>"
-		       << "<realName>" << fe->GetName() << "</realName>"
+		       << "<realName>" << fe.GetName() << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
-		for (size_t numberPos = 0; numberPos < fe->GetSize(); numberPos++)
-			if (fe->GetNumber(numberPos).length() > 0) {  //just iterate over all numbers
+		for (size_t numberPos = 0; numberPos < fe.GetSize(); numberPos++)
+			if (fe.GetNumber(numberPos).length() > 0) {  //just iterate over all numbers
 				std::string typeName = "";
-				switch (fe->GetType(numberPos)) {
+				switch (fe.GetType(numberPos)) {
 				case FonbookEntry::TYPE_NONE:
 				case FonbookEntry::TYPE_HOME:
 					typeName="home";
@@ -150,10 +149,10 @@ std::string XmlFonbook::SerializeToXml() {
 					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe->GetQuickdial(numberPos) << "\" "
-						          "vanity=\""    << fe->GetVanity(numberPos)    << "\" "
-						          "prio=\""      << fe->GetPriority(numberPos)  << "\">"
-				       << fe->GetNumber(numberPos)
+						          "quickdial=\"" << fe.GetQuickdial(numberPos) << "\" "
+						          "vanity=\""    << fe.GetVanity(numberPos)    << "\" "
+						          "prio=\""      << fe.GetPriority(numberPos)  << "\">"
+				       << fe.GetNumber(numberPos)
 				       << "</number>";
 			}
         //TODO: add <mod_time>1306951031</mod_time>

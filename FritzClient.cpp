@@ -243,15 +243,15 @@ std::string FritzClient::GetLang() {
 		langs.push_back("en");
 		langs.push_back("de");
 		langs.push_back("fr");
-		for (unsigned int p=0; p<langs.size(); p++) {
+		for (auto lang : langs) {
 			std::string sMsg;
 			sMsg = httpClient.Get("/cgi-bin/webcm",
 					{
-							{"getpage", "../html/" + langs[p] + "/menus/menu2.html"},
+							{"getpage", "../html/" + lang + "/menus/menu2.html"},
 							{"sid", gConfig->getSid() }
 					});
 			if (sMsg.find("<html>") != std::string::npos) {
-				gConfig->setLang(langs[p]);
+				gConfig->setLang(lang);
 				DBG("interface language is " << gConfig->getLang().c_str());
 				return gConfig->getLang();
 			}

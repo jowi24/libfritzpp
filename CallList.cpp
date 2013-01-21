@@ -192,9 +192,7 @@ void CallList::run() {
 	lastCall = 0;
 	lastMissedCall = 0;
 
-	for(std::vector<CallEntry>::iterator it = callListAll.begin(); it < callListAll.end(); ++it) {
-		CallEntry ce = *it;
-
+	for(auto ce : callListAll) {
 		if (lastCall < ce.timestamp)
 			lastCall = ce.timestamp;
 
@@ -260,8 +258,7 @@ size_t CallList::GetSize(CallEntry::eCallType type) {
 
 size_t CallList::MissedCalls(time_t since) {
 	size_t missedCalls = 0;
-	for (unsigned int pos=0; pos < callListMissed.size(); pos++) {
-		CallEntry ce = callListMissed[pos];
+	for (auto ce : callListMissed) {
 		// track number of new missed calls
 		if (ce.timestamp > since) {
 			if (ce.MatchesFilter())
@@ -286,8 +283,8 @@ bool CallEntry::MatchesFilter() {
 		// if local number does not contain any of the MSNs in MSN filter, we test
 		// if it does contain any number (if POTS is used fritzbox reports "Festnetz"
 		// instead of the local number)
-		for (unsigned int pos=0; pos < localNumber.size(); pos++) {
-			if (localNumber[pos] >= '0' && localNumber[pos] <= '9')
+		for (auto ch : localNumber) {
+			if (ch >= '0' && ch <= '9')
 				return false;
 		}
 		return true;

@@ -33,10 +33,9 @@ Fonbooks::~Fonbooks()
 }
 
 Fonbook *Fonbooks::operator[](std::string key) const {
-	for (size_t i=0; i<this->size(); i++) {
-		if ((*this)[i]->GetTechId() == key) {
-			return ((*this)[i]);
-		}
+	for (auto fonbook : *this) {
+		if (fonbook->GetTechId() == key)
+				return fonbook;
 	}
 	return nullptr;
 }
