@@ -1,17 +1,21 @@
+BOOST_INCLUDES ?= -I/usr/include/boost
+BOOST_LIBRARIES ?= -lboost_system -lboost_thread -lpthread
+
 LIB = libfritz++.a
-OBJS = cc++/url.o cc++/mime.o cc++/urlstring.o cc++/soap.o CallList.o Config.o Fonbooks.o Fonbook.o FonbookManager.o FritzClient.o FritzFonbook.o HttpClient.o Listener.o LookupFonbook.o Tools.o LocalFonbook.o Nummerzoeker.o OertlichesFonbook.o SoapClient.o TcpClient.o TelLocalChFonbook.o XmlFonbook.o
+OBJS = CallList.o Config.o Fonbooks.o Fonbook.o FonbookManager.o FritzClient.o FritzFonbook.o HttpClient.o Listener.o Log.o LookupFonbook.o Tools.o LocalFonbook.o Nummerzoeker.o OertlichesFonbook.o SoapClient.o TcpClient.o TelLocalChFonbook.o XmlFonbook.o
 
 CXXFLAGS ?= -g -O2 -Wall -fPIC
+CXXFLAGS += -std=c++11
+LDFLAGS  += $(BOOST_LIBRARIES) -lgcrypt
 
 .PHONY: all test clean
 
-### for cc++ dir
-INCLUDES += -I.
+CXXFLAGS += $(BOOST_INCLUDES)
 
 all: $(LIB) test
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -o $@ -c $(DEFINES) $(INCLUDES) $<
+	$(CXX) $(CXXFLAGS) -o $@ -c $(DEFINES) $<
 
 $(LIB): $(OBJS)
 	ar ru $(LIB) $(OBJS)
@@ -24,7 +28,7 @@ clean:
 ###
 # Tests
 test: 
-	@-make -C test
+	@-CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" make -C test
 
 ###
 # Dependencies:
@@ -32,6 +36,6 @@ test:
 MAKEDEP = $(CXX) -MM -MG
 DEPFILE = .dependencies
 $(DEPFILE): Makefile
-	@$(MAKEDEP) $(DEFINES) $(INCLUDES) $(OBJS:%.o=%.cpp) > $@
+	@$(MAKEDEP) $(DEFINES) $(CXXFLAGS) $(OBJS:%.o=%.cpp) > $@
 
 -include $(DEPFILE)
