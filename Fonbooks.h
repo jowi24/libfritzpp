@@ -32,7 +32,7 @@ public:
 	Fonbooks();
 	virtual ~Fonbooks();
 	Fonbook *operator[](std::string key) const;
-	Fonbook *operator[](size_t i) const override;
+	Fonbook *operator[](size_t i) const;
 };
 
 }

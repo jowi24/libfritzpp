@@ -10,7 +10,7 @@
 
 #include <FritzClient.h>
 #include <Config.h>
-#include <Log.h>
+#include <liblog++/Log.h>
 
 namespace test {
 

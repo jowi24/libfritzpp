@@ -25,8 +25,8 @@
 #include <cstdlib>
 #include <mutex>
 
-#include "SoapClient.h"
-#include "HttpClient.h"
+#include <libnet++/SoapClient.h>
+#include <libnet++/HttpClient.h>
 
 namespace fritz {
 

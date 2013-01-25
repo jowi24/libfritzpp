@@ -24,9 +24,9 @@
 #include <unistd.h>
 
 #include "Config.h"
-#include "HttpClient.h"
+#include <libnet++/HttpClient.h>
 #include "Tools.h"
-#include "Log.h"
+#include <liblog++/Log.h>
 
 namespace fritz{
 

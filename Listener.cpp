@@ -28,8 +28,8 @@
 #include "Config.h"
 #include "FonbookManager.h"
 #include "Tools.h"
-#include "TcpClient.h"
-#include "Log.h"
+#include <libnet++/TcpClient.h>
+#include <liblog++/Log.h>
 
 namespace fritz{
 

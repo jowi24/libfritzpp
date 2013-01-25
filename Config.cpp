@@ -24,7 +24,7 @@
 #include "CallList.h"
 #include "FonbookManager.h"
 #include "Listener.h"
-#include "Log.h"
+#include <liblog++/Log.h>
 #include "Tools.h"
 
 namespace fritz {

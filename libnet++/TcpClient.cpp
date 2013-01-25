@@ -20,7 +20,7 @@
  */
 
 #include "TcpClient.h"
-#include "Log.h"
+#include <liblog++/Log.h>
 
 namespace fritz {
 

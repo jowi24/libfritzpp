@@ -27,7 +27,7 @@
 
 #include "Config.h"
 #include "Tools.h"
-#include "Log.h"
+#include <liblog++/Log.h>
 
 namespace fritz {
 

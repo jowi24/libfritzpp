@@ -8,7 +8,7 @@
 
 #include "gtest/gtest.h"
 
-#include <HttpClient.h>
+#include <libnet++/HttpClient.h>
 
 namespace test {
 

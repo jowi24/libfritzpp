@@ -24,8 +24,7 @@
 #include <boost/asio.hpp>
 #include <boost/algorithm/string.hpp>
 
-#include "Config.h"
-#include "Log.h"
+#include <liblog++/Log.h>
 
 namespace fritz {
 
