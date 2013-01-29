@@ -38,8 +38,8 @@ private:
 	bool Login();
 	std::string GetLang();
 	bool validPassword;
-	HttpClient httpClient;
-	SoapClient *soapClient;
+	network::HttpClient httpClient;
+	network::SoapClient *soapClient;
 public:
 	FritzClient ();
 	virtual ~FritzClient();

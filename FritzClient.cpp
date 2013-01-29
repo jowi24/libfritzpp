@@ -60,7 +60,7 @@ FritzClient::FritzClient()
     gcry_control (GCRYCTL_DISABLE_SECMEM, 0);
     gcry_control (GCRYCTL_INITIALIZATION_FINISHED, 0);
     // init HttpClient
-    soapClient = new SoapClient(gConfig->getUrl(), gConfig->getUpnpPort());
+    soapClient = new network::SoapClient(gConfig->getUrl(), gConfig->getUpnpPort());
 }
 
 FritzClient::~FritzClient() {
@@ -127,13 +127,13 @@ bool FritzClient::Login() {
 		DBG("requesting login_sid.lua from Fritz!Box.");
 		// might return 404 with older fw-versions, our httpClient throws a SockeException for this, catched here
 		try {
-		  sXml = httpClient.Get("/login_sid.lua", {{"sid", gConfig->getSid()}});
+		  sXml = httpClient.get("/login_sid.lua", {{"sid", gConfig->getSid()}});
 		} catch (std::runtime_error &re) {}
 		if (sXml.find("<Rights") != std::string::npos)
 			gConfig->setLoginType(Config::LUA);
 		else {
 			DBG("requesting login_sid.xml from Fritz!Box.");
-			sXml = httpClient.Get("/cgi-bin/webcm", {{"getpage", "../html/login_sid.xml"}});
+			sXml = httpClient.get("/cgi-bin/webcm", {{"getpage", "../html/login_sid.xml"}});
 			if (sXml.find("<iswriteaccess>") != std::string::npos)
 				gConfig->setLoginType(Config::SID);
 			else
@@ -177,14 +177,14 @@ bool FritzClient::Login() {
             // send response to box
 			std::string sMsg;
 
-			HttpClient::param_t postdata;
+			network::HttpClient::param_t postdata;
 			if (gConfig->getLoginType() == Config::SID)
 				postdata = {{"login:command/response", response},
 				            {"getpage", "../html/de/menus/menu2.html"}};
 			else
 				postdata = {{"username", ""}, {"response", response }};
 			DBG("Sending login request...");
-			sMsg = httpClient.Post(loginPath.str(), postdata);
+			sMsg = httpClient.post(loginPath.str(), postdata);
 			size_t sidStart, sidStop;
 			if (gConfig->getLoginType() == Config::SID) {
 				sidStart = sMsg.find("name=\"sid\"");
@@ -223,7 +223,7 @@ bool FritzClient::Login() {
 
 		std::string sMsg;
 
-		sMsg = httpClient.Post("/cgi-bin/webcm",
+		sMsg = httpClient.post("/cgi-bin/webcm",
 				               {{"login:command/password", UrlEncode(gConfig->getPassword())}});
 
 		// determine if login was successful
@@ -245,7 +245,7 @@ std::string FritzClient::GetLang() {
 		langs.push_back("fr");
 		for (auto lang : langs) {
 			std::string sMsg;
-			sMsg = httpClient.Get("/cgi-bin/webcm",
+			sMsg = httpClient.get("/cgi-bin/webcm",
 					{
 							{"getpage", "../html/" + lang + "/menus/menu2.html"},
 							{"sid", gConfig->getSid() }
@@ -270,7 +270,7 @@ bool FritzClient::InitCall(std::string &number) {
 		return false;
 	try {
 		INF("sending call init request " << (gConfig->logPersonalInfo() ? number.c_str() : HIDDEN));
-		HttpClient::param_t params =
+		network::HttpClient::param_t params =
 		{
 	      { "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
 		  { "var%3Apagename", "fonbuch" },
@@ -278,7 +278,7 @@ bool FritzClient::InitCall(std::string &number) {
 		  { "telcfg%3Acommand/Dial", number },
 	      { "sid", gConfig->getSid() }
 		};
-		msg = httpClient.Post("/cgi-bin/webcm", params);
+		msg = httpClient.post("/cgi-bin/webcm", params);
 		INF("call initiated.");
 	} catch (std::runtime_error &re) {
 		ERR("Exception - " << re.what());
@@ -294,7 +294,7 @@ std::string FritzClient::RequestLocationSettings() {
 		if (gConfig->getSid().size()) {
 			DBG("Looking up Phone Settings (using lua)...");
 			try {
-				msg = httpClient.Get("/fon_num/sip_option.lua", {{"sid", gConfig->getSid()}});
+				msg = httpClient.get("/fon_num/sip_option.lua", {{"sid", gConfig->getSid()}});
 			} catch (std::runtime_error &re) {}
 			if (msg.find("<!-- pagename:/fon_num/sip_option.lua-->") != std::string::npos)
 				return msg;
@@ -302,7 +302,7 @@ std::string FritzClient::RequestLocationSettings() {
 		}
 
 		DBG("Looking up Phone Settings (using webcm)...");
-		msg = httpClient.Get("/cgi-bin/webcm",
+		msg = httpClient.get("/cgi-bin/webcm",
 				{
 						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
 						{ "var%3Alang", GetLang() },
@@ -321,7 +321,7 @@ std::string FritzClient::RequestSipSettings() {
 		if (gConfig->getSid().size()) {
 			DBG("Looking up SIP Settings (using lua)...");
 			try {
-				msg = httpClient.Get("/fon_num/fon_num_list.lua", {{"sid", gConfig->getSid()}});
+				msg = httpClient.get("/fon_num/fon_num_list.lua", {{"sid", gConfig->getSid()}});
 			} catch (std::runtime_error &re) {}
 			if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos)
 				return msg;
@@ -329,7 +329,7 @@ std::string FritzClient::RequestSipSettings() {
 		}
 
 		DBG("Looking up SIP Settings (using webcm)...");
-		msg = httpClient.Get("/cgi-bin/webcm",
+		msg = httpClient.get("/cgi-bin/webcm",
 				{
 						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
 						{ "var%3Alang", GetLang() },
@@ -348,7 +348,7 @@ std::string FritzClient::RequestCallList () {
 		// now, process call list
 		DBG("sending callList update request.");
 		// force an update of the fritz!box csv list and wait until all data is received
-		msg = httpClient.Get("/cgi-bin/webcm",
+		msg = httpClient.get("/cgi-bin/webcm",
 				{
 						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
 						{ "var%3Alang", GetLang() },
@@ -359,7 +359,7 @@ std::string FritzClient::RequestCallList () {
 		// new method to request call list (FW >= xx.05.50?)
 		try {
 			DBG("sending callList request (using lua)...");
-			csv = httpClient.Get("/fon_num/foncalls_list.lua",
+			csv = httpClient.get("/fon_num/foncalls_list.lua",
 					{
 							{ "csv", "" },
 							{ "sid", gConfig->getSid() },
@@ -384,7 +384,7 @@ std::string FritzClient::RequestCallList () {
 		std::string csvUrl    = msg.substr(urlStart, urlStop-urlStart);
 		// retrieve csv list
 		DBG("sending callList request (using webcm)...");
-		csv = httpClient.Get("/cgi-bin/webcm",
+		csv = httpClient.get("/cgi-bin/webcm",
 				{
 						{ "getpage", csvUrl },
 						{ "sid", gConfig->getSid() },
@@ -404,7 +404,7 @@ std::string FritzClient::RequestFonbook () {
 	// new method, returns an XML
 	RETRY_BEGIN {
 		if (gConfig->getSid().length()) {
-			HttpClient::param_t postdata =
+			network::HttpClient::param_t postdata =
 			{
 					{ "sid", gConfig->getSid() },
 					{ "PhonebookId", "0" },
@@ -413,7 +413,7 @@ std::string FritzClient::RequestFonbook () {
 			};
 			DBG("sending fonbook XML request.");
 			try {
-				msg = httpClient.PostMIME("/cgi-bin/firmwarecfg", postdata);
+				msg = httpClient.postMIME("/cgi-bin/firmwarecfg", postdata);
 			} catch (std::runtime_error &re) {}
 			if (msg.find("<phonebooks>") != std::string::npos) {
 				return msg;
@@ -422,7 +422,7 @@ std::string FritzClient::RequestFonbook () {
 
 	// use old fashioned website (for old FW versions)
 		DBG("sending fonbook HTML request.");
-		msg = httpClient.Get("/cgi-bin/webcm",
+		msg = httpClient.get("/cgi-bin/webcm",
 				{
 						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
 						{ "var%3Alang", GetLang() },
@@ -439,13 +439,13 @@ void FritzClient::WriteFonbook(std::string xmlData) {
 	std::string msg;
 	DBG("Saving XML Fonbook to FB...");
 	RETRY_BEGIN {
-		HttpClient::param_t postdata =
+		network::HttpClient::param_t postdata =
 		{
 				{ "sid", gConfig->getSid() },
 				{ "PhonebookId", "0" },
 				{ "PhonebookImportFile\"; filename=\"FRITZ.Box_Telefonbuch.xml", xmlData }
 		};
-		msg = httpClient.PostMIME("/cgi-bin/firmwarecfg", postdata);
+		msg = httpClient.postMIME("/cgi-bin/firmwarecfg", postdata);
 	} RETRY_END
 }
 
@@ -454,7 +454,7 @@ bool FritzClient::reconnectISP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
 	try {
-		msg = soapClient->Post(
+		msg = soapClient->post(
 				"/upnp/control/WANIPConn1",
 				"urn:schemas-upnp-org:service:WANIPConnection:1#ForceTermination",
 				"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -477,7 +477,7 @@ std::string FritzClient::getCurrentIP() {
 	std::string msg;
 	DBG("Sending reconnect request to FB.");
 	try {
-		msg = soapClient->Post(
+		msg = soapClient->post(
 				"/upnp/control/WANIPConn1",
 				"urn:schemas-upnp-org:service:WANIPConnection:1#GetExternalIPAddress",
 				"<?xml version=\"1.0\" encoding=\"utf-8\"?>"

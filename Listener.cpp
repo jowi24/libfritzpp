@@ -121,10 +121,10 @@ void Listener::Run() {
 	while (true) {
 		try {
 			retry_delay = retry_delay > 1800 ? 3600 : retry_delay * 2;
-			TcpClient tcpClient(gConfig->getUrl(), gConfig->getListenerPort());
+			network::TcpClient tcpClient(gConfig->getUrl(), gConfig->getListenerPort());
 			while (true) {
 				DBG("Waiting for a message.");
-				std::string line = tcpClient.ReadLine();
+				std::string line = tcpClient.readLine();
 				if (gConfig->logPersonalInfo())
 					DBG("Got message " << line);
 
