@@ -29,11 +29,10 @@
 
 #include "FritzClient.h"
 
-const std::string HIDDEN = "<hidden>";
-
-constexpr size_t RETRY_DELAY = 60;
-
 namespace fritz {
+
+const std::string HIDDEN = "<hidden>";
+constexpr size_t RETRY_DELAY = 60;
 
 /**
  * Global config class for libfritz++.
@@ -96,16 +95,6 @@ public:
 	 * @param the list of MSNs to filter on
 	 */
 	void static SetupMsnFilter( std::vector <std::string> vMsn );
-	/**
-	 * Modifies logging channels.
-	 * As default, logging of libfritz++ actions is performed using default c++
-	 * cout, cerr and clog objects. This method enables the application to redirect
-	 * logging to arbitrary ostream objects.
-	 * @param the ostream for debbuging messages
-	 * @param the ostream for information messages
-	 * @param the ostream for error messages
-	 */
-	void static SetupLogging( std::ostream *dsyslog, std::ostream *isyslog, std::ostream *esyslog );
 	/**
 	 * Sets up a directory for arbitrary data storage.
 	 * This is currently used by local fonbook to persist the fonbook entries to a file.

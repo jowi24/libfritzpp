@@ -97,11 +97,6 @@ void Config::SetupConfigDir(std::string dir)
 	gConfig->mConfig.configDir = dir;
 }
 
-void Config::SetupLogging(std::ostream *d, std::ostream *i, std::ostream *e) {
-	// set own logging objects
-	log.setLogStreams(e, i, d);
-}
-
 Config::Config( std::string url, std::string password) {
 	mConfig.url          	= url;
 	mConfig.password     	= password;
