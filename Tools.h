@@ -39,33 +39,33 @@ typedef unsigned char uchar;
 // following functions allow transparently accessing a "char *" string without
 // having to worry about what character set is actually used.
 
-int Utf8CharLen(const char *s);
+int Utf8CharLen(const char *s) __attribute__ ((deprecated));
     ///< Returns the number of character bytes at the beginning of the given
     ///< string that form a UTF-8 symbol.
-uint Utf8CharGet(const char *s, int Length = 0);
+uint Utf8CharGet(const char *s, int Length = 0) __attribute__ ((deprecated));
     ///< Returns the UTF-8 symbol at the beginning of the given string.
     ///< Length can be given from a previous call to Utf8CharLen() to avoid calculating
     ///< it again. If no Length is given, Utf8CharLen() will be called.
-int Utf8CharSet(uint c, char *s = nullptr);
+int Utf8CharSet(uint c, char *s = nullptr) __attribute__ ((deprecated));
     ///< Converts the given UTF-8 symbol to a sequence of character bytes and copies
     ///< them to the given string. Returns the number of bytes written. If no string
     ///< is given, only the number of bytes is returned and nothing is copied.
-int Utf8SymChars(const char *s, int Symbols);
+int Utf8SymChars(const char *s, int Symbols) __attribute__ ((deprecated));
     ///< Returns the number of character bytes at the beginning of the given
     ///< string that form at most the given number of UTF-8 symbols.
-int Utf8StrLen(const char *s);
+int Utf8StrLen(const char *s) __attribute__ ((deprecated));
     ///< Returns the number of UTF-8 symbols formed by the given string of
     ///< character bytes.
-char *Utf8Strn0Cpy(char *Dest, const char *Src, int n);
+char *Utf8Strn0Cpy(char *Dest, const char *Src, int n) __attribute__ ((deprecated));
     ///< Copies at most n character bytes from Src to Dst, making sure that the
     ///< resulting copy ends with a complete UTF-8 symbol. The copy is guaranteed
     ///< to be zero terminated.
     ///< Returns a pointer to Dest.
-int Utf8ToArray(const char *s, uint *a, int Size);
+int Utf8ToArray(const char *s, uint *a, int Size) __attribute__ ((deprecated));
     ///< Converts the given character bytes (including the terminating 0) into an
     ///< array of UTF-8 symbols of the given Size. Returns the number of symbols
     ///< in the array (without the terminating 0).
-int Utf8FromArray(const uint *a, char *s, int Size, int Max = -1);
+int Utf8FromArray(const uint *a, char *s, int Size, int Max = -1) __attribute__ ((deprecated));
     ///< Converts the given array of UTF-8 symbols (including the terminating 0)
     ///< into a sequence of character bytes of at most Size length. Returns the
     ///< number of character bytes written (without the terminating 0).
@@ -90,12 +90,12 @@ private:
   size_t length;
   static char *systemCharacterTable;
 public:
-  explicit CharSetConv(const char *FromCode = nullptr, const char *ToCode = nullptr);
+  explicit CharSetConv(const char *FromCode = nullptr, const char *ToCode = nullptr) __attribute__ ((deprecated));
      ///< Sets up a character set converter to convert from FromCode to ToCode.
      ///< If FromCode is nullptr, the previously set systemCharacterTable is used.
      ///< If ToCode is nullptr, "UTF-8" is used.
   ~CharSetConv();
-  const char *Convert(const char *From, char *To = nullptr, size_t ToLength = 0);
+  const char *Convert(const char *From, char *To = nullptr, size_t ToLength = 0) __attribute__ ((deprecated));
      ///< Converts the given Text from FromCode to ToCode (as set in the constructor).
      ///< If To is given, it is used to copy at most ToLength bytes of the result
      ///< (including the terminating 0) into that buffer. If To is not given,
@@ -105,9 +105,9 @@ public:
      ///< (even if a fixed size To buffer was given and the result didn't fit into
      ///< it). If the string could not be converted, the result points to the
      ///< original From string.
-  static void DetectCharset();
-  static const char *SystemCharacterTable(void) { return systemCharacterTable; }
-  static void SetSystemCharacterTable(const char *CharacterTable);
+  static void DetectCharset() __attribute__ ((deprecated));
+  static const char *SystemCharacterTable(void)  __attribute__ ((deprecated)) { return systemCharacterTable; }
+  static void SetSystemCharacterTable(const char *CharacterTable) __attribute__ ((deprecated));
   };
 
 class Tools

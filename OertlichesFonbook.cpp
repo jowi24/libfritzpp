@@ -74,11 +74,6 @@ Fonbook::sResolveResult OertlichesFonbook::lookup(std::string number) const {
 	std::string dataset = msg.substr(start, stop - start);
 	name = Tools::Tokenize(dataset, ',', 5);
 	name = name.substr(2, name.length()-3);
-	// convert the string from latin1 to current system character table
-	CharSetConv *conv = new CharSetConv("ISO-8859-1", CharSetConv::SystemCharacterTable());
-	const char *s_converted = conv->Convert(name.c_str());
-	name = s_converted;
-	delete (conv);
 	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
 	result.name = name;
 	result.successful = true;

@@ -67,12 +67,6 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::lookup(std::string number) 
 	size_t stop  = msg.find("</h2>", start);
 	name = msg.substr(start, stop - start);
 	
-	// convert the string from latin1 to current system character table
-	CharSetConv *conv = new CharSetConv("UTF-8", CharSetConv::SystemCharacterTable());
-	const char *s_converted = conv->Convert(name.c_str());
-	name = s_converted;
-	delete (conv);
-
 	name = convertEntities(name);
 
 	INF("resolves to " << name.c_str());

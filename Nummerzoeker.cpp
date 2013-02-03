@@ -80,12 +80,6 @@ Fonbook::sResolveResult NummerzoekerFonbook::lookup(std::string number) const {
 			break;
 	  }
 	}
-	// convert the string from latin1 to current system character table
-	// Q: is this really ISO-8859-1, the webservers' response is unclear (html pages are UTF8)
-	CharSetConv *conv = new CharSetConv("ISO-8859-1", CharSetConv::SystemCharacterTable());
-	const char *s_converted = conv->Convert(name.c_str());
-	name = s_converted;
-	delete (conv);
 	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
 	result.name = name;
 	result.successful = true;
