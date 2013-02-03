@@ -28,12 +28,12 @@
 #include "Config.h"
 #include "Tools.h"
 #include <liblog++/Log.h>
+#include <libconv++/CharsetConverter.h>
 
 namespace fritz {
 
 XmlFonbook::XmlFonbook(std::string title, std::string techId, bool writeable)
-: Fonbook(title, techId, writeable) {
-	charset = CharSetConv::SystemCharacterTable() ? CharSetConv::SystemCharacterTable() : "UTF-8";
+: Fonbook{title, techId, writeable} {
 }
 
 XmlFonbook::~XmlFonbook() {
@@ -78,10 +78,7 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 	}
 	DBG("using charset " << charset);
 
-	CharSetConv *conv = new CharSetConv(charset.c_str(), CharSetConv::SystemCharacterTable());
-	const char *s_converted = conv->Convert(msg->c_str());
-	std::string msgConv = s_converted;
-	delete (conv);
+	std::string msgConv = convert::CharsetConverter::ConvertToLocalEncoding(*msg, charset);
 
 	pos = msgConv.find("<contact>");
 	while (pos != std::string::npos) {
@@ -164,10 +161,8 @@ std::string XmlFonbook::serializeToXml() {
 	result << "</phonebook>"
 			  "</phonebooks>";
 
-	CharSetConv *conv = new CharSetConv(CharSetConv::SystemCharacterTable(), charset.c_str());
-	const char *result_converted = conv->Convert(result.str().c_str());
-	std::string xmlData = result_converted;
-	delete (conv);
+	convert::CharsetConverter conv("", charset);
+	std::string xmlData = conv.convert(result.str());
 
 	// replace '&' with '&amp;'
 	std::string::size_type pos = 0;

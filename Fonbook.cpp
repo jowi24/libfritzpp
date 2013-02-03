@@ -26,6 +26,7 @@
 #include "Config.h"
 #include "Tools.h"
 #include <liblog++/Log.h>
+#include <libconv++/CharsetConverter.h>
 
 namespace fritz {
 
@@ -132,7 +133,7 @@ const std::map<std::string, std::string> Entities = {
 std::string Fonbook::convertEntities(std::string s) const {
 	if (s.find("&") != std::string::npos) {
 		// convert the entities from UTF-8 to current system character table
-		CharSetConv *conv = new CharSetConv("UTF-8", CharSetConv::SystemCharacterTable());
+		convert::CharsetConverter conv("UTF-8");
 
 		// convert entities of format &#xFF; (unicode)
 		while (s.find("&#x") != std::string::npos) {
@@ -164,11 +165,10 @@ std::string Fonbook::convertEntities(std::string s) const {
 		for (auto entity : Entities) {
 			std::string::size_type pos = s.find(entity.first);
 			while (pos != std::string::npos) {
-				s.replace(pos, entity.first.length(), conv->Convert(entity.second.c_str()));
+				s.replace(pos, entity.first.length(), conv.convert(entity.second));
 				pos = s.find(entity.first, pos-1);
 			}
 		}
-		delete (conv);
 	}
 	return s;
 }

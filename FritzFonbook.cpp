@@ -28,6 +28,7 @@
 #include "FritzClient.h"
 #include "Tools.h"
 #include <liblog++/Log.h>
+#include <libconv++/CharsetConverter.h>
 
 namespace fritz {
 
@@ -84,10 +85,7 @@ void FritzFonbook::parseHtmlFonbook(std::string *msg) {
 	}
 	DBG("using charset " << charset);
 
-	CharSetConv *conv = new CharSetConv(charset.c_str(), CharSetConv::SystemCharacterTable());
-	const char *s_converted = conv->Convert(msg->c_str());
-	std::string msgConv = s_converted;
-	delete (conv);
+	std::string msgConv = convert::CharsetConverter::ConvertToLocalEncoding(*msg, charset);
 
 	// parse answer
 	pos = 0;

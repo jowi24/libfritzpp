@@ -28,6 +28,7 @@
 #include "Config.h"
 #include "Tools.h"
 #include <liblog++/Log.h>
+#include <libconv++/CharsetConverter.h>
 
 #define RETRY_BEGIN                                  \
     	unsigned int retry_delay = RETRY_DELAY / 2;  \
@@ -73,9 +74,9 @@ std::string FritzClient::calculateLoginResponse(std::string challenge) {
 	// to make things worse, it needs this in UTF-16LE character set
 	// last but not least, for "compatibility" reasons (*LOL*) we have to replace
 	// every char > "0xFF 0x00" with "0x2e 0x00"
-	CharSetConv conv(nullptr, "UTF-16LE");
+	convert::CharsetConverter conv("", "UTF-16LE");
 	char challengePwdConv[challengePwd.length()*2];
-	memcpy(challengePwdConv, conv.Convert(challengePwd.c_str()), challengePwd.length()*2);
+	memcpy(challengePwdConv, conv.convert(challengePwd).c_str(), challengePwd.length()*2);
 	for (size_t pos=1; pos < challengePwd.length()*2; pos+= 2)
 		if (challengePwdConv[pos] != 0x00) {
 			challengePwdConv[pos] = 0x00;
@@ -94,9 +95,8 @@ std::string FritzClient::urlEncode(const std::string &s_input) {
 	std::string result;
 	std::string s;
 	std::string hex = "0123456789abcdef";
-	CharSetConv *conv = new CharSetConv(CharSetConv::SystemCharacterTable(), "ISO-8859-15");
-	s = conv->Convert(s_input.c_str());
-	delete(conv);
+	convert::CharsetConverter conv("", "ISO-8859-15");
+	s = conv.convert(s_input);
 	for (unsigned int i=0; i<s.length(); i++) {
 		if( ('a' <= s[i] && s[i] <= 'z')
 				|| ('A' <= s[i] && s[i] <= 'Z')
@@ -108,9 +108,6 @@ std::string FritzClient::urlEncode(const std::string &s_input) {
 			result += hex[(unsigned char) s[i] & 0x0f];
 		}
 	}
-//	TODO: With introduction of libccgnu2, this implementation could be replaced by
-//	char result[4*s_input.length()];
-//	ost::urlEncode(s_input.c_str(), result, sizeof(result));
 	return result;
 }
 
@@ -365,12 +362,6 @@ std::string FritzClient::requestCallList () {
 							{ "sid", gConfig->getSid() },
 					});
 			if (csv.find("Typ;Datum;Name;") != std::string::npos) {
-				// we assume utf8 as encoding
-				// the FB sends encoding in the response, however we do not parse it, yet
-				CharSetConv *conv = new CharSetConv("utf8", CharSetConv::SystemCharacterTable());
-				const char *csv_converted = conv->Convert(csv.c_str());
-				csv = csv_converted;
-				delete(conv);
 				return csv;
 			}
 		} catch (std::runtime_error &re) {}
@@ -391,10 +382,8 @@ std::string FritzClient::requestCallList () {
 				});
 
 		// convert answer to current SystemCodeSet (we assume, Fritz!Box sends its answer in latin15)
-		CharSetConv *conv = new CharSetConv("ISO-8859-15", CharSetConv::SystemCharacterTable());
-		const char *csv_converted = conv->Convert(csv.c_str());
-		csv = csv_converted;
-		delete(conv);
+		convert::CharsetConverter conv("ISO-8859-15");
+		csv = conv.convert(csv);
 	} RETRY_END
 	return csv;
 }

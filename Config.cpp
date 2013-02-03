@@ -106,7 +106,6 @@ Config::Config( std::string url, std::string password) {
 	mConfig.loginType       = UNKNOWN;
 	mConfig.lastRequestTime = 0;
 	mConfig.logPersonalInfo = false;
-	CharSetConv::DetectCharset();
 	fritzClientFactory = new FritzClientFactory();
 }
 
