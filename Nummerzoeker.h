@@ -32,7 +32,7 @@ class NummerzoekerFonbook : public LookupFonbook
 private:
 	NummerzoekerFonbook();
 public:
-	sResolveResult Lookup(std::string number) const override;
+	sResolveResult lookup(std::string number) const override;
 };
 
 }

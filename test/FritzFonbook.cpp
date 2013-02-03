@@ -44,17 +44,17 @@ TEST_F(FritzFonbook, ParseSimpleXMLFonbook) {
 	}
 	ASSERT_TRUE(fb->isInitialized());
 
-	const fritz::FonbookEntry* fbe = fb->RetrieveFonbookEntry(0);
+	const fritz::FonbookEntry* fbe = fb->retrieveFonbookEntry(0);
 
 	ASSERT_TRUE(fb->isInitialized());
-	ASSERT_STREQ("FRITZ", fb->GetTechId().c_str());
-	ASSERT_EQ(1, (int) fb->GetFonbookSize());
+	ASSERT_STREQ("FRITZ", fb->getTechId().c_str());
+	ASSERT_EQ(1, (int) fb->getFonbookSize());
 
-	ASSERT_EQ(4, (int) fbe->GetSize());
-	ASSERT_STREQ("00493062810000", fbe->GetNumber(0).c_str());
-	ASSERT_STREQ("00493062820000", fbe->GetNumber(1).c_str());
-	ASSERT_STREQ("004917186000000", fbe->GetNumber(2).c_str());
-	ASSERT_STREQ("004930254600000", fbe->GetNumber(3).c_str());
+	ASSERT_EQ(4, (int) fbe->getSize());
+	ASSERT_STREQ("00493062810000", fbe->getNumber(0).c_str());
+	ASSERT_STREQ("00493062820000", fbe->getNumber(1).c_str());
+	ASSERT_STREQ("004917186000000", fbe->getNumber(2).c_str());
+	ASSERT_STREQ("004930254600000", fbe->getNumber(3).c_str());
 }
 
 

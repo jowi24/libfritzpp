@@ -35,7 +35,7 @@ TelLocalChFonbook::TelLocalChFonbook()
 : LookupFonbook(I18N_NOOP("tel.local.ch"), "LOCCH")
 {}
 
-TelLocalChFonbook::sResolveResult TelLocalChFonbook::Lookup(std::string number) const {
+TelLocalChFonbook::sResolveResult TelLocalChFonbook::lookup(std::string number) const {
 	TelLocalChFonbook::sResolveResult result(number);
 
 	// resolve only (swiss) phone numbers

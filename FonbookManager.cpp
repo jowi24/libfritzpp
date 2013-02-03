@@ -50,7 +50,7 @@ FonbookManager::FonbookManager(bool saveOnShutdown)
 	for (int i=gConfig->getFonbookIDs().size()-1; i>=0; i--) {
 		Fonbook *fb = fonbooks[gConfig->getFonbookIDs()[i]];
 		if (fb)
-			fb->Initialize();
+			fb->initialize();
 		else
 			gConfig->getFonbookIDs().erase(gConfig->getFonbookIDs().begin()+i);
 	}
@@ -66,17 +66,17 @@ FonbookManager::FonbookManager(bool saveOnShutdown)
 			activeFonbookPos = pos;
 	}
 	// if no valid phone book is selected, advance to the next valid one
-	if (!GetActiveFonbook())
-		NextFonbook();
+	if (!getActiveFonbook())
+		nextFonbook();
 }
 
 FonbookManager::~FonbookManager()
 {
 	for (auto fonbook : fonbooks) {
-		DBG("deleting fonbook with ID: " << fonbook->GetTechId());
+		DBG("deleting fonbook with ID: " << fonbook->getTechId());
 		// save pending changes
 		if (saveOnShutdown)
-			fonbook->Save();
+			fonbook->save();
 		delete(fonbook);
 	}
 }
@@ -123,7 +123,7 @@ void FonbookManager::DeleteFonbookManager() {
 	}
 }
 
-void FonbookManager::NextFonbook() {
+void FonbookManager::nextFonbook() {
 	size_t pos = activeFonbookPos + 1;
     // no phonebooks -> no switching
 	if ( gConfig->getFonbookIDs().size() == 0)
@@ -149,10 +149,10 @@ void FonbookManager::NextFonbook() {
 	}
 }
 
-Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
+Fonbook::sResolveResult FonbookManager::resolveToName(std::string number) {
 	sResolveResult result(number);
 	for (auto id  : gConfig->getFonbookIDs()) {
-		result = fonbooks[id]->ResolveToName(number);
+		result = fonbooks[id]->resolveToName(number);
 		DBG("ResolveToName: " << id << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
 		if (result.successful)
 			return result;
@@ -160,89 +160,89 @@ Fonbook::sResolveResult FonbookManager::ResolveToName(std::string number) {
 	return result;
 }
 
-Fonbook *FonbookManager::GetActiveFonbook() const {
+Fonbook *FonbookManager::getActiveFonbook() const {
 	if (activeFonbookPos == std::string::npos) {
 		return nullptr;
 	}
 	return fonbooks[gConfig->getFonbookIDs()[activeFonbookPos]];
 }
 
-const FonbookEntry *FonbookManager::RetrieveFonbookEntry(size_t id) const {
-	return GetActiveFonbook() ? GetActiveFonbook()->RetrieveFonbookEntry(id) : nullptr;
+const FonbookEntry *FonbookManager::retrieveFonbookEntry(size_t id) const {
+	return getActiveFonbook() ? getActiveFonbook()->retrieveFonbookEntry(id) : nullptr;
 }
 
-bool FonbookManager::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
-	return GetActiveFonbook() ? GetActiveFonbook()->ChangeFonbookEntry(id, fe) : false;
+bool FonbookManager::changeFonbookEntry(size_t id, FonbookEntry &fe) {
+	return getActiveFonbook() ? getActiveFonbook()->changeFonbookEntry(id, fe) : false;
 }
 
-bool FonbookManager::SetDefault(size_t id, size_t pos) {
-	return GetActiveFonbook() ? GetActiveFonbook()->SetDefault(id, pos) : false;
+bool FonbookManager::setDefault(size_t id, size_t pos) {
+	return getActiveFonbook() ? getActiveFonbook()->setDefault(id, pos) : false;
 }
 
-void FonbookManager::AddFonbookEntry(FonbookEntry &fe, size_t position) {
-	if (GetActiveFonbook())
-		GetActiveFonbook()->AddFonbookEntry(fe, position);
+void FonbookManager::addFonbookEntry(FonbookEntry &fe, size_t position) {
+	if (getActiveFonbook())
+		getActiveFonbook()->addFonbookEntry(fe, position);
 }
 
-bool FonbookManager::DeleteFonbookEntry(size_t id) {
-	return GetActiveFonbook() ? GetActiveFonbook()->DeleteFonbookEntry(id) : false;
+bool FonbookManager::deleteFonbookEntry(size_t id) {
+	return getActiveFonbook() ? getActiveFonbook()->deleteFonbookEntry(id) : false;
 }
 
-void FonbookManager::Clear() {
-	if (GetActiveFonbook())
-		GetActiveFonbook()->Clear();
+void FonbookManager::clear() {
+	if (getActiveFonbook())
+		getActiveFonbook()->clear();
 }
 
-void FonbookManager::Save() {
-	if (GetActiveFonbook())
-			GetActiveFonbook()->Save();
+void FonbookManager::save() {
+	if (getActiveFonbook())
+			getActiveFonbook()->save();
 }
 
 bool FonbookManager::isDisplayable() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->isDisplayable() : false;
+	return getActiveFonbook() ? getActiveFonbook()->isDisplayable() : false;
 }
 
 bool FonbookManager::isInitialized() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->isInitialized() : false;
+	return getActiveFonbook() ? getActiveFonbook()->isInitialized() : false;
 }
 
 bool FonbookManager::isWriteable() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->isWriteable() : false;
+	return getActiveFonbook() ? getActiveFonbook()->isWriteable() : false;
 }
 
 bool FonbookManager::isModified() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->isModified() : false;
+	return getActiveFonbook() ? getActiveFonbook()->isModified() : false;
 }
 
 void FonbookManager::setInitialized(bool isInitialized) {
-	if (GetActiveFonbook())
-		GetActiveFonbook()->setInitialized(isInitialized);
+	if (getActiveFonbook())
+		getActiveFonbook()->setInitialized(isInitialized);
 }
 
-void FonbookManager::Sort(FonbookEntry::eElements element, bool ascending){
-	if (GetActiveFonbook())
-		GetActiveFonbook()->Sort(element, ascending);
+void FonbookManager::sort(FonbookEntry::eElements element, bool ascending){
+	if (getActiveFonbook())
+		getActiveFonbook()->sort(element, ascending);
 }
 
-size_t FonbookManager::GetFonbookSize() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->GetFonbookSize() : 0;
+size_t FonbookManager::getFonbookSize() const {
+	return getActiveFonbook() ? getActiveFonbook()->getFonbookSize() : 0;
 }
 
-std::string FonbookManager::GetTitle() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->GetTitle() : "";
+std::string FonbookManager::getTitle() const {
+	return getActiveFonbook() ? getActiveFonbook()->getTitle() : "";
 }
 
-std::string FonbookManager::GetTechId() const {
-	return GetActiveFonbook() ? GetActiveFonbook()->GetTechId() : "";
+std::string FonbookManager::getTechId() const {
+	return getActiveFonbook() ? getActiveFonbook()->getTechId() : "";
 }
 
-void FonbookManager::Reload() {
+void FonbookManager::reload() {
 	for (auto id : gConfig->getFonbookIDs()) {
-		fonbooks[id]->Reload();
+		fonbooks[id]->reload();
 	}
 }
 
-Fonbooks *FonbookManager::GetFonbooks() {
+Fonbooks *FonbookManager::getFonbooks() {
 	return &fonbooks;
 }
 

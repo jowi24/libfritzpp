@@ -34,7 +34,7 @@
 		bool dataRead = false;                       \
 		do {  				                         \
 			try {                                    \
-				validPassword = Login();                             \
+				validPassword = login();                             \
 				retry_delay = retry_delay > 1800 ? 3600 : retry_delay * 2;
 
 #define RETRY_END																							\
@@ -67,7 +67,7 @@ FritzClient::~FritzClient() {
 	mutex->unlock();
 }
 
-std::string FritzClient::CalculateLoginResponse(std::string challenge) {
+std::string FritzClient::calculateLoginResponse(std::string challenge) {
 	std::string challengePwd = challenge + '-' + gConfig->getPassword();
 	// the box needs an md5 sum of the string "challenge-password"
 	// to make things worse, it needs this in UTF-16LE character set
@@ -90,7 +90,7 @@ std::string FritzClient::CalculateLoginResponse(std::string challenge) {
 	return response.str();
 }
 
-std::string FritzClient::UrlEncode(std::string &s_input) {
+std::string FritzClient::urlEncode(const std::string &s_input) {
 	std::string result;
 	std::string s;
 	std::string hex = "0123456789abcdef";
@@ -114,7 +114,7 @@ std::string FritzClient::UrlEncode(std::string &s_input) {
 	return result;
 }
 
-bool FritzClient::Login() {
+bool FritzClient::login() {
 	// when using SIDs, a new login is only needed if the last request was more than 5 minutes ago
 	if ((gConfig->getLoginType() == Config::SID || gConfig->getLoginType() == Config::LUA) && (time(nullptr) - gConfig->getLastRequestTime() < 300)) {
 		return true;
@@ -173,7 +173,7 @@ bool FritzClient::Login() {
 			challengeStart += 11;
 			size_t challengeStop = sXml.find("<", challengeStart);
             std::string challenge = sXml.substr(challengeStart, challengeStop - challengeStart);
-            std::string response = CalculateLoginResponse(challenge);
+            std::string response = calculateLoginResponse(challenge);
             // send response to box
 			std::string sMsg;
 
@@ -224,7 +224,7 @@ bool FritzClient::Login() {
 		std::string sMsg;
 
 		sMsg = httpClient.post("/cgi-bin/webcm",
-				               {{"login:command/password", UrlEncode(gConfig->getPassword())}});
+				               {{"login:command/password", urlEncode(gConfig->getPassword())}});
 
 		// determine if login was successful
 		if (sMsg.find("class=\"errorMessage\"") != std::string::npos) {
@@ -237,7 +237,7 @@ bool FritzClient::Login() {
 	return false;
 }
 
-std::string FritzClient::GetLang() {
+std::string FritzClient::getLang() {
 	if ( gConfig && gConfig->getLang().size() == 0) {
 		std::vector<std::string> langs;
 		langs.push_back("en");
@@ -262,17 +262,17 @@ std::string FritzClient::GetLang() {
 	return gConfig->getLang();
 }
 
-bool FritzClient::InitCall(std::string &number) {
+bool FritzClient::initCall(std::string &number) {
 	std::string msg;
 	if (number.length() == 0)
 		return false;
-	if (!Login())
+	if (!login())
 		return false;
 	try {
 		INF("sending call init request " << (gConfig->logPersonalInfo() ? number.c_str() : HIDDEN));
 		network::HttpClient::param_t params =
 		{
-	      { "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
+	      { "getpage", "../html/" + getLang() + "/menus/menu2.html" },
 		  { "var%3Apagename", "fonbuch" },
 		  { "var%3Amenu", "home" },
 		  { "telcfg%3Acommand/Dial", number },
@@ -287,7 +287,7 @@ bool FritzClient::InitCall(std::string &number) {
 	return true;
 }
 
-std::string FritzClient::RequestLocationSettings() {
+std::string FritzClient::requestLocationSettings() {
 	std::string msg;
 
 	RETRY_BEGIN {
@@ -304,8 +304,8 @@ std::string FritzClient::RequestLocationSettings() {
 		DBG("Looking up Phone Settings (using webcm)...");
 		msg = httpClient.get("/cgi-bin/webcm",
 				{
-						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
-						{ "var%3Alang", GetLang() },
+						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
+						{ "var%3Alang", getLang() },
 						{ "var%3Apagename", "sipoptionen" },
 						{ "var%3Amenu", "fon" },
 						{ "sid", gConfig->getSid() },
@@ -314,7 +314,7 @@ std::string FritzClient::RequestLocationSettings() {
 	return msg;
 }
 
-std::string FritzClient::RequestSipSettings() {
+std::string FritzClient::requestSipSettings() {
 	std::string msg;
 
 	RETRY_BEGIN {
@@ -331,8 +331,8 @@ std::string FritzClient::RequestSipSettings() {
 		DBG("Looking up SIP Settings (using webcm)...");
 		msg = httpClient.get("/cgi-bin/webcm",
 				{
-						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
-						{ "var%3Alang", GetLang() },
+						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
+						{ "var%3Alang", getLang() },
 						{ "var%3Apagename", "siplist" },
 						{ "var%3Amenu", "fon" },
 						{ "sid", gConfig->getSid() },
@@ -341,7 +341,7 @@ std::string FritzClient::RequestSipSettings() {
 	return msg;
 }
 
-std::string FritzClient::RequestCallList () {
+std::string FritzClient::requestCallList () {
 	std::string msg = "";
 	std::string csv = "";
 	RETRY_BEGIN {
@@ -350,8 +350,8 @@ std::string FritzClient::RequestCallList () {
 		// force an update of the fritz!box csv list and wait until all data is received
 		msg = httpClient.get("/cgi-bin/webcm",
 				{
-						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
-						{ "var%3Alang", GetLang() },
+						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
+						{ "var%3Alang", getLang() },
 						{ "var%3Apagename", "foncall" },
 						{ "var%3Amenu", "fon" },
 						{ "sid", gConfig->getSid() },
@@ -399,7 +399,7 @@ std::string FritzClient::RequestCallList () {
 	return csv;
 }
 
-std::string FritzClient::RequestFonbook () {
+std::string FritzClient::requestFonbook () {
 	std::string msg;
 	// new method, returns an XML
 	RETRY_BEGIN {
@@ -424,8 +424,8 @@ std::string FritzClient::RequestFonbook () {
 		DBG("sending fonbook HTML request.");
 		msg = httpClient.get("/cgi-bin/webcm",
 				{
-						{ "getpage", "../html/" + GetLang() + "/menus/menu2.html" },
-						{ "var%3Alang", GetLang() },
+						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
+						{ "var%3Alang", getLang() },
 						{ "var%3Apagename", "fonbuch" },
 						{ "var%3Amenu", "fon" },
 						{ "sid", gConfig->getSid() },
@@ -435,7 +435,7 @@ std::string FritzClient::RequestFonbook () {
 	return msg;
 }
 
-void FritzClient::WriteFonbook(std::string xmlData) {
+void FritzClient::writeFonbook(std::string xmlData) {
 	std::string msg;
 	DBG("Saving XML Fonbook to FB...");
 	RETRY_BEGIN {

@@ -34,13 +34,13 @@ class FritzFonbook : public XmlFonbook {
 private:
 	std::thread *thread;
 	FritzFonbook();
-	void ParseHtmlFonbook(std::string *msg);
-	void Write() override;
+	void parseHtmlFonbook(std::string *msg);
+	void write() override;
 public:
 	virtual ~FritzFonbook();
-	bool Initialize() override;
-	void Run();
-	void Reload() override;
+	bool initialize() override;
+	void run();
+	void reload() override;
 };
 
 }

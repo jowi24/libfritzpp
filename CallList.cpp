@@ -85,10 +85,10 @@ CallList *CallList::me = nullptr;
 
 CallList::CallList()
 : thread{nullptr}, lastCall{0}, lastMissedCall{0}, valid{false} {
-	Reload();
+	reload();
 }
 
-CallList *CallList::getCallList(bool create){
+CallList *CallList::GetCallList(bool create){
 	if(!me && create){
 		me = new CallList();
 	}
@@ -119,7 +119,7 @@ void CallList::run() {
 	DBG("CallList thread started");
 
 	FritzClient *fc = gConfig->fritzClientFactory->create();
-	std::string msg = fc->RequestCallList();
+	std::string msg = fc->requestCallList();
 	delete fc;
 
 	std::vector<CallEntry> callList;
@@ -217,7 +217,7 @@ void CallList::run() {
 	DBG("CallList thread ended");
 }
 
-void CallList::Reload() {
+void CallList::reload() {
 	if (thread) {
 		thread->join();
 		delete thread;
@@ -226,7 +226,7 @@ void CallList::Reload() {
 	thread = new std::thread(&CallList::run, this);
 }
 
-CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
+CallEntry *CallList::retrieveEntry(CallEntry::eCallType type, size_t id) {
 	switch (type) {
 	case CallEntry::ALL:
 		return &callListAll[id];
@@ -241,7 +241,7 @@ CallEntry *CallList::RetrieveEntry(CallEntry::eCallType type, size_t id) {
 	}
 }
 
-size_t CallList::GetSize(CallEntry::eCallType type) {
+size_t CallList::getSize(CallEntry::eCallType type) {
 	switch (type) {
 	case CallEntry::ALL:
 		return callListAll.size();
@@ -256,12 +256,12 @@ size_t CallList::GetSize(CallEntry::eCallType type) {
 	}
 }
 
-size_t CallList::MissedCalls(time_t since) {
+size_t CallList::missedCalls(time_t since) {
 	size_t missedCalls = 0;
 	for (auto ce : callListMissed) {
 		// track number of new missed calls
 		if (ce.timestamp > since) {
-			if (ce.MatchesFilter())
+			if (ce.matchesFilter())
 				missedCalls++;
 		} else {
 			break; // no older calls will match the missed-calls condition
@@ -270,12 +270,12 @@ size_t CallList::MissedCalls(time_t since) {
 	return missedCalls;
 }
 
-void CallList::Sort(CallEntry::eElements element, bool ascending) {
+void CallList::sort(CallEntry::eElements element, bool ascending) {
 	CallEntrySort ces(element, ascending);
 	std::sort(begin(callListAll), end(callListAll), ces); //TODO: other lists?
 }
 
-bool CallEntry::MatchesFilter() {
+bool CallEntry::matchesFilter() {
 	// entries are filtered according to the MSN filter)
 	if ( Tools::MatchesMsnFilter(localNumber))
 		return true;
@@ -291,7 +291,7 @@ bool CallEntry::MatchesFilter() {
 	}
 }
 
-bool CallEntry::MatchesRemoteNumber(std::string number) {
+bool CallEntry::matchesRemoteNumber(std::string number) {
 	return (Tools::NormalizeNumber(number).compare(Tools::NormalizeNumber(remoteNumber)) == 0);
 }
 

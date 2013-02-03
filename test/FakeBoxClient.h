@@ -35,27 +35,27 @@ public:
 	FakeBoxClient(std::string version)
 	: version(version) {}
 
-	virtual bool InitCall(std::string &number) {
+	virtual bool initCall(std::string &number) {
 		return false;
 	}
 
-	virtual std::string RequestLocationSettings() {
+	virtual std::string requestLocationSettings() {
 		return getFile("sipoptionen");
 	}
 
-	virtual std::string RequestSipSettings() {
+	virtual std::string requestSipSettings() {
 		return getFile("siplist");
 	}
 
-	virtual std::string RequestCallList() {
+	virtual std::string requestCallList() {
 		return getFile("foncalls_csv");
 	}
 
-	virtual std::string RequestFonbook() {
+	virtual std::string requestFonbook() {
 		return getFile("fonbuch_xml");
 	}
 
-	virtual void WriteFonbook(std::string xmlData) {
+	virtual void writeFonbook(std::string xmlData) {
 	}
 
 	virtual bool reconnectISP() {

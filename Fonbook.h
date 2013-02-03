@@ -83,32 +83,32 @@ public:
 	 * @param vanity The vanity extension
 	 * @param prority '1' marks the default number of this contact, otherwise 0
 	 */
-	void AddNumber(size_t pos, std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
-	std::string GetName() const { return name; }
-	void SetName(std::string name) { this->name = name; }
-	std::string GetNumber(size_t pos) const { return numbers[pos].number; }
-	const std::vector<sNumber> &GetNumbers() const { return numbers; }
-	void SetNumber(std::string number,size_t pos) { numbers[pos].number = number; }
-	eType GetType(size_t pos) const { return numbers[pos].type; }
-	void SetType(eType type, size_t pos) { numbers[pos].type = type; }
-	bool IsImportant() const { return important; }
-	void SetImportant(bool important) { this->important = important; }
-	size_t GetDefault() const;
-	void SetDefault(size_t pos);
-	std::string GetQuickdialFormatted( size_t pos = std::string::npos) const;
-	std::string GetQuickdial(size_t pos = std::string::npos) const;
-	void SetQuickdial(std::string quickdial, size_t pos = std::string::npos);
-	std::string GetVanity(size_t pos = std::string::npos) const;
-	std::string GetVanityFormatted(size_t pos = std::string::npos) const;
-	void SetVanity(std::string vanity, size_t pos = std::string::npos);
-	int GetPriority(size_t pos) const { return numbers[pos].priority; }
-	void SetPrioriy(int priority, size_t pos) { numbers[pos].priority = priority; }
+	void addNumber(size_t pos, std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
+	std::string getName() const { return name; }
+	void setName(std::string name) { this->name = name; }
+	std::string getNumber(size_t pos) const { return numbers[pos].number; }
+	const std::vector<sNumber> &getNumbers() const { return numbers; }
+	void setNumber(std::string number,size_t pos) { numbers[pos].number = number; }
+	eType getType(size_t pos) const { return numbers[pos].type; }
+	void setType(eType type, size_t pos) { numbers[pos].type = type; }
+	bool isImportant() const { return important; }
+	void setImportant(bool important) { this->important = important; }
+	size_t getDefault() const;
+	void setDefault(size_t pos);
+	std::string getQuickdialFormatted( size_t pos = std::string::npos) const;
+	std::string getQuickdial(size_t pos = std::string::npos) const;
+	void setQuickdial(std::string quickdial, size_t pos = std::string::npos);
+	std::string getVanity(size_t pos = std::string::npos) const;
+	std::string getVanityFormatted(size_t pos = std::string::npos) const;
+	void setVanity(std::string vanity, size_t pos = std::string::npos);
+	int getPriority(size_t pos) const { return numbers[pos].priority; }
+	void setPrioriy(int priority, size_t pos) { numbers[pos].priority = priority; }
 	bool operator<(const FonbookEntry & fe) const;
 	/*
 	 * Get number of typed numbers (TYPE_NONE is ignored)
 	 * @return count of different numbers available
 	 */
-	size_t GetSize() const;
+	size_t getSize() const;
 };
 
 inline FonbookEntry::eType& operator++(FonbookEntry::eType& t) {
@@ -166,7 +166,7 @@ protected:
 	/**
 	 * Method to persist contents of the phone book (if writeable)
 	 */
-	virtual void Write() { }
+	virtual void write() { }
 	/**
 	 * True, if this phonebook has displayable entries.
 	 */
@@ -193,54 +193,54 @@ public:
 	 * Initialize() may be called more than once per session.
 	 * @return if initialization was successful
 	 */
-	virtual bool Initialize(void) { return true; }
+	virtual bool initialize(void) { return true; }
 	/**
 	 * Resolves the number given to the corresponding name.
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	virtual sResolveResult ResolveToName(std::string number);
+	virtual sResolveResult resolveToName(std::string number);
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or nullptr, if unsuccessful
 	 */
-	virtual const FonbookEntry *RetrieveFonbookEntry(size_t id) const;
+	virtual const FonbookEntry *retrieveFonbookEntry(size_t id) const;
 	/**
 	 * Changes the Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
 	 * @param fe FonbookEntry with the new content
 	 * @return true, if successful
 	 */
-	virtual bool ChangeFonbookEntry(size_t id, FonbookEntry &fe);
+	virtual bool changeFonbookEntry(size_t id, FonbookEntry &fe);
 	/**
 	 * Sets the default number for a Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
 	 * @param pos the new default number
 	 * @return true, if successful
 	 */
-	virtual bool SetDefault(size_t id, size_t pos);
+	virtual bool setDefault(size_t id, size_t pos);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
 	 * @param position position at which fe is added (at the end of the list per default)
 	 */
-	virtual void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos);
+	virtual void addFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param id unique id to the entry to be deleted
 	 * @return true, if deletion was successful
 	 */
-	virtual bool DeleteFonbookEntry(size_t id);
+	virtual bool deleteFonbookEntry(size_t id);
 	/**
 	 * Clears all entries from phonebook.
 	 */
-	virtual void Clear() { SetDirty(); fonbookList.clear(); }
+	virtual void clear() { SetDirty(); fonbookList.clear(); }
 	/**
 	 * Save pending changes.
 	 * Can be called periodically to assert pending changes in a phone book are written.
 	 */
-	virtual void Save();
+	virtual void save();
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.
@@ -274,28 +274,28 @@ public:
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries
 	 */
-	virtual size_t GetFonbookSize() const;
+	virtual size_t getFonbookSize() const;
 	/**
 	 *  Reloads the telephonebook's content
 	 */
-	virtual void Reload() { }
+	virtual void reload() { }
 	/**
 	 *  Returns a string that should be displayed as title in the menu when the telephonebook is displayed.
 	 * @return the long title of this phonebook
 	 */
-	virtual std::string GetTitle() const { return title; }
+	virtual std::string getTitle() const { return title; }
 	/**
 	 * Returns the technical id of this phonebook. This id has to be unique among all phonebooks and is used when storing
 	 * the plugin's setup.
 	 * @return the technical id
 	 */
-	virtual std::string GetTechId() const { return techId; }
+	virtual std::string getTechId() const { return techId; }
 	/**
 	 * Sorts the phonebook's entries by the given element and in given order.
 	 * @param the element used for sorting
 	 * @param true if sort order is ascending, false otherwise
 	 */
-	virtual void Sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true);
+	virtual void sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true);
 };
 
 }

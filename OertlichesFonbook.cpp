@@ -34,7 +34,7 @@ OertlichesFonbook::OertlichesFonbook()
 :LookupFonbook(I18N_NOOP("das-oertliche.de"), "OERT")
 {}
 
-Fonbook::sResolveResult OertlichesFonbook::Lookup(std::string number) const {
+Fonbook::sResolveResult OertlichesFonbook::lookup(std::string number) const {
 	Fonbook::sResolveResult result(number);
 
 	// resolve only (german) phone numbers

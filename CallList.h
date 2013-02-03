@@ -56,8 +56,8 @@ public:
 	std::string localNumber;
 	std::string duration;
 	time_t      timestamp;
-	bool MatchesFilter();
-	bool MatchesRemoteNumber(std::string number);
+	bool matchesFilter();
+	bool matchesRemoteNumber(std::string number);
 };
 
 class CallList {
@@ -73,7 +73,7 @@ private:
 	static CallList *me;
     CallList();
 public:
-	static CallList *getCallList(bool create = true);
+	static CallList *GetCallList(bool create = true);
 	/**
 	 * Activate call list support.
 	 * This method fetches the call list from the fritz box. Following calls to
@@ -85,19 +85,19 @@ public:
 	static void DeleteCallList();
     virtual ~CallList();
 	void run();
-	void Reload();
+	void reload();
 	bool isValid() { return valid; }
-	CallEntry *RetrieveEntry(CallEntry::eCallType type, size_t id);
-	size_t GetSize(CallEntry::eCallType type);
-	size_t MissedCalls(time_t since);
-	time_t LastCall() { return lastCall; }
-	time_t LastMissedCall() { return lastMissedCall; }
+	CallEntry *retrieveEntry(CallEntry::eCallType type, size_t id);
+	size_t getSize(CallEntry::eCallType type);
+	size_t missedCalls(time_t since);
+	time_t getLastCall() { return lastCall; }
+	time_t getLastMissedCall() { return lastMissedCall; }
 	/**
 	 * Sorts the calllist's entries by the given element and in given order.
 	 * @param the element used for sorting
 	 * @param true if sort order is ascending, false otherwise
 	 */
-	void Sort(CallEntry::eElements element = CallEntry::ELEM_DATE, bool ascending = true);
+	void sort(CallEntry::eElements element = CallEntry::ELEM_DATE, bool ascending = true);
 
 };
 

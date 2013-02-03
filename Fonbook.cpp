@@ -178,7 +178,7 @@ FonbookEntry::FonbookEntry(std::string name, bool important) {
 	this->important = important;
 }
 
-void FonbookEntry::AddNumber(size_t pos, std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
+void FonbookEntry::addNumber(size_t pos, std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
 	sNumber sn;
 	sn.number = number;
 	sn.type = type;
@@ -188,60 +188,60 @@ void FonbookEntry::AddNumber(size_t pos, std::string number, eType type, std::st
 	numbers.push_back(sn);
 }
 
-size_t FonbookEntry::GetDefault() const {
+size_t FonbookEntry::getDefault() const {
 	size_t t = 0;
 	while (t < numbers.size()) {
-		if (GetPriority(t) == 1)
+		if (getPriority(t) == 1)
 			return t;
 		t++;
 	}
 	return 0;
 }
 
-void FonbookEntry::SetDefault(size_t pos) {
-	size_t oldPos = GetDefault();
+void FonbookEntry::setDefault(size_t pos) {
+	size_t oldPos = getDefault();
 	if (pos != oldPos) {
-		SetPrioriy(0, oldPos);
-		SetPrioriy(1, pos);
-		SetQuickdial(GetQuickdial(oldPos), pos);
-		SetVanity(GetVanity(oldPos), pos);
-		SetQuickdial("", oldPos);
-		SetVanity("", oldPos);
+		setPrioriy(0, oldPos);
+		setPrioriy(1, pos);
+		setQuickdial(getQuickdial(oldPos), pos);
+		setVanity(getVanity(oldPos), pos);
+		setQuickdial("", oldPos);
+		setVanity("", oldPos);
 	}
 }
 
-std::string FonbookEntry::GetQuickdialFormatted(size_t pos) const {
-	switch (GetQuickdial(pos).length()) {
+std::string FonbookEntry::getQuickdialFormatted(size_t pos) const {
+	switch (getQuickdial(pos).length()) {
 	case 1:
-		return "**70" + GetQuickdial(pos);
+		return "**70" + getQuickdial(pos);
 	case 2:
-		return "**7"  + GetQuickdial(pos);
+		return "**7"  + getQuickdial(pos);
 	default:
 		return "";
 	}
 }
 
-std::string FonbookEntry::GetQuickdial(size_t pos) const {
+std::string FonbookEntry::getQuickdial(size_t pos) const {
 	// if no special type is given, the default "TYPES_COUNT" indicates,
 	// that the correct type has to be determined first, i.e., priority == 1
 
-	return numbers[pos == std::string::npos ? GetDefault() : pos].quickdial;
+	return numbers[pos == std::string::npos ? getDefault() : pos].quickdial;
 }
 
-void FonbookEntry::SetQuickdial(std::string quickdial, size_t pos) { //TODO: sanity check
-	numbers[pos == std::string::npos ? GetDefault() : pos].quickdial = quickdial;
+void FonbookEntry::setQuickdial(std::string quickdial, size_t pos) { //TODO: sanity check
+	numbers[pos == std::string::npos ? getDefault() : pos].quickdial = quickdial;
 }
 
-std::string FonbookEntry::GetVanity(size_t pos) const {
-	return numbers[pos == std::string::npos ? GetDefault() : pos].vanity;
+std::string FonbookEntry::getVanity(size_t pos) const {
+	return numbers[pos == std::string::npos ? getDefault() : pos].vanity;
 }
 
-std::string FonbookEntry::GetVanityFormatted(size_t pos) const {
-	return GetVanity(pos).length() ? "**8"+GetVanity(pos) : "";
+std::string FonbookEntry::getVanityFormatted(size_t pos) const {
+	return getVanity(pos).length() ? "**8"+getVanity(pos) : "";
 }
 
-void FonbookEntry::SetVanity(std::string vanity, size_t pos) { //TODO: sanity check
-	numbers[pos == std::string::npos ? GetDefault() : pos].vanity = vanity;
+void FonbookEntry::setVanity(std::string vanity, size_t pos) { //TODO: sanity check
+	numbers[pos == std::string::npos ? getDefault() : pos].vanity = vanity;
 }
 
 bool FonbookEntry::operator<(const FonbookEntry &fe) const {
@@ -251,7 +251,7 @@ bool FonbookEntry::operator<(const FonbookEntry &fe) const {
 	return (cresult < 0);
 }
 
-size_t FonbookEntry::GetSize() const {
+size_t FonbookEntry::getSize() const {
 	size_t size = 0;
 	// ignore TYPE_NONE
 	for (sNumber n : numbers)
@@ -272,7 +272,7 @@ public:
 	bool operator() (FonbookEntry fe1, FonbookEntry fe2){
 		switch(element) {
 		case FonbookEntry::ELEM_NAME:
-			return (ascending ? (fe1.GetName() < fe2.GetName()) : (fe1.GetName() > fe2.GetName()));
+			return (ascending ? (fe1.getName() < fe2.getName()) : (fe1.getName() > fe2.getName()));
 			break;
 //		case FonbookEntry::ELEM_TYPE:
 //			return (ascending ? (fe1.getType() < fe2.getType()) : (fe1.getType() > fe2.getType()));
@@ -281,17 +281,17 @@ public:
 //			return (ascending ? (fe1.getNumber() < fe2.getNumber()) : (fe1.getNumber() > fe2.getNumber()));
 //			break;
 		case FonbookEntry::ELEM_IMPORTANT:
-			return (ascending ? (fe1.IsImportant() < fe2.IsImportant()) : (fe1.IsImportant() > fe2.IsImportant()));
+			return (ascending ? (fe1.isImportant() < fe2.isImportant()) : (fe1.isImportant() > fe2.isImportant()));
 			break;
 		case FonbookEntry::ELEM_QUICKDIAL: {
-			int qd1 = atoi(fe1.GetQuickdial().c_str());
-			int qd2 = atoi(fe2.GetQuickdial().c_str());
+			int qd1 = atoi(fe1.getQuickdial().c_str());
+			int qd2 = atoi(fe2.getQuickdial().c_str());
 			return (ascending ? (qd1 < qd2) : (qd1 > qd2));
 		}
 			break;
 		case FonbookEntry::ELEM_VANITY: {
-			int vt1 = atoi(fe1.GetVanity().c_str());
-			int vt2 = atoi(fe2.GetVanity().c_str());
+			int vt1 = atoi(fe1.getVanity().c_str());
+			int vt2 = atoi(fe2.getVanity().c_str());
 			return (ascending ? (vt1 < vt2) : (vt1 > vt2));
 		}
 //			break;
@@ -318,13 +318,13 @@ void Fonbook::SetDirty() {
 		dirty = true;
 }
 
-Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
+Fonbook::sResolveResult Fonbook::resolveToName(std::string number) {
 	sResolveResult result(number);
 	if (number.length() > 0)
 		for (auto fbe : fonbookList)
-			for (auto fonbookNumber : fbe.GetNumbers()) {
+			for (auto fonbookNumber : fbe.getNumbers()) {
 				if (fonbookNumber.number.length() > 0 && Tools::CompareNormalized(number, fonbookNumber.number) == 0) {
-					result.name = fbe.GetName();
+					result.name = fbe.getName();
 					result.type = fonbookNumber.type;
 					result.successful = true;
 					return result;
@@ -333,14 +333,14 @@ Fonbook::sResolveResult Fonbook::ResolveToName(std::string number) {
 	return result;
 }
 
-const FonbookEntry *Fonbook::RetrieveFonbookEntry(size_t id) const {
-	if (id >= GetFonbookSize())
+const FonbookEntry *Fonbook::retrieveFonbookEntry(size_t id) const {
+	if (id >= getFonbookSize())
 		return nullptr;
 	return &fonbookList[id];
 }
 
-bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
-	if (id < GetFonbookSize()) {
+bool Fonbook::changeFonbookEntry(size_t id, FonbookEntry &fe) {
+	if (id < getFonbookSize()) {
 		fonbookList[id] = fe;
 		SetDirty();
 		return true;
@@ -349,9 +349,9 @@ bool Fonbook::ChangeFonbookEntry(size_t id, FonbookEntry &fe) {
 	}
 }
 
-bool Fonbook::SetDefault(size_t id, size_t pos) {
-	if (id < GetFonbookSize()) {
-		fonbookList[id].SetDefault(pos);
+bool Fonbook::setDefault(size_t id, size_t pos) {
+	if (id < getFonbookSize()) {
+		fonbookList[id].setDefault(pos);
 		SetDirty();
 		return true;
 	} else {
@@ -359,7 +359,7 @@ bool Fonbook::SetDefault(size_t id, size_t pos) {
 	}
 }
 
-void Fonbook::AddFonbookEntry(FonbookEntry &fe, size_t position) {
+void Fonbook::addFonbookEntry(FonbookEntry &fe, size_t position) {
 	if (position == std::string::npos || position > fonbookList.size())
 		fonbookList.push_back(fe);
 	else
@@ -367,8 +367,8 @@ void Fonbook::AddFonbookEntry(FonbookEntry &fe, size_t position) {
 	SetDirty();
 }
 
-bool Fonbook::DeleteFonbookEntry(size_t id) {
-	if (id < GetFonbookSize()) {
+bool Fonbook::deleteFonbookEntry(size_t id) {
+	if (id < getFonbookSize()) {
 		fonbookList.erase(fonbookList.begin() + id);
 		SetDirty();
 		return true;
@@ -377,9 +377,9 @@ bool Fonbook::DeleteFonbookEntry(size_t id) {
 	}
 }
 
-void Fonbook::Save() {
+void Fonbook::save() {
 	if (dirty && writeable) {
-		Write();
+		write();
 		dirty = false;
 	}
 }
@@ -387,17 +387,17 @@ void Fonbook::Save() {
 void Fonbook::setInitialized(bool isInitialized) {
 	initialized = isInitialized;
 	if (displayable && isInitialized)
-		INF(title << " initialized (" << GetFonbookSize() << " entries).");
+		INF(title << " initialized (" << getFonbookSize() << " entries).");
 }
 
-size_t Fonbook::GetFonbookSize() const {
+size_t Fonbook::getFonbookSize() const {
 	if (initialized)
 		return fonbookList.size();
 	else
 		return 0;
 }
 
-void Fonbook::Sort(FonbookEntry::eElements element, bool ascending) {
+void Fonbook::sort(FonbookEntry::eElements element, bool ascending) {
 	FonbookEntrySort fes(element, ascending);
 	std::sort(fonbookList.begin(), fonbookList.end(), fes);
 }

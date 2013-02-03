@@ -77,9 +77,9 @@ LocalFonbook::LocalFonbook()
 	filePath    = nullptr;
 }
 
-bool LocalFonbook::Initialize() {
+bool LocalFonbook::initialize() {
 	setInitialized(false);
-	Clear();
+	clear();
 
 	// first, try xml phonebook
 	int ret = asprintf(&filePath, "%s/localphonebook.xml", gConfig->getConfigDir().c_str());
@@ -91,7 +91,7 @@ bool LocalFonbook::Initialize() {
 		if (!file.good())
 			return false;
 		std::string xmlData((std::istreambuf_iterator<char>(file)),std::istreambuf_iterator<char>());
-		ParseXmlFonbook(&xmlData);
+		parseXmlFonbook(&xmlData);
 		setInitialized(true);
 		return true;
 	} else
@@ -115,7 +115,7 @@ bool LocalFonbook::Initialize() {
 		filePath = nullptr;
 	}
 	if (filePath) {
-		ParseCsvFonbook(filePath);
+		parseCsvFonbook(filePath);
 		free(filePath);
 		setInitialized(true);
 		// convert to xml when saving
@@ -137,11 +137,11 @@ bool LocalFonbook::Initialize() {
 	return false;
 }
 
-void LocalFonbook::Reload() {
-	Initialize();
+void LocalFonbook::reload() {
+	initialize();
 }
 
-void LocalFonbook::ParseCsvFonbook(std::string filePath) {
+void LocalFonbook::parseCsvFonbook(std::string filePath) {
 	INF("loading " << filePath);
 	FILE *f = fopen(filePath.c_str(), "r");
 	if (f) {
@@ -158,30 +158,30 @@ void LocalFonbook::ParseCsvFonbook(std::string filePath) {
 				std::string number 			= number_buffer;
 				// search for existing fe
 				bool feExists = false;
-				for (size_t feNr = 0; feNr < GetFonbookSize(); feNr++)
-					if (RetrieveFonbookEntry(feNr)->GetName() == name) {
-						FonbookEntry fe(RetrieveFonbookEntry(feNr));
-						fe.AddNumber(type, number, type); //TODO: quickdial, vanity and priority not supported here
-						ChangeFonbookEntry(feNr, fe);
+				for (size_t feNr = 0; feNr < getFonbookSize(); feNr++)
+					if (retrieveFonbookEntry(feNr)->getName() == name) {
+						FonbookEntry fe(retrieveFonbookEntry(feNr));
+						fe.addNumber(type, number, type); //TODO: quickdial, vanity and priority not supported here
+						changeFonbookEntry(feNr, fe);
 						feExists = true;
 					}
 				// add to new fe
 				if (!feExists) {
 					FonbookEntry fe(name, false); //TODO: important not supported here
-					fe.AddNumber(type, number, type);
-					AddFonbookEntry(fe);
+					fe.addNumber(type, number, type);
+					addFonbookEntry(fe);
 				}
 			}
 			else {
 				ERR("parse error at " << s);
 			}
 		}
-		Sort(FonbookEntry::ELEM_NAME, true);
+		sort(FonbookEntry::ELEM_NAME, true);
 		fclose(f);
 	}
 }
 
-void LocalFonbook::Write() {
+void LocalFonbook::write() {
 	DBG("Saving to " << filePath << ".");
 	// filePath should always contain a valid content, this is just to be sure
 	if (!filePath)
@@ -191,7 +191,7 @@ void LocalFonbook::Write() {
 	if (file.fail())
 		return;
 	// write all entries to the file
-	file << SerializeToXml();
+	file << serializeToXml();
 	// close file
 	file.close();
 	DBG("Saving successful.");

@@ -32,7 +32,7 @@ private:
 	static FonbookManager* me;
 	Fonbooks fonbooks;
 	FonbookManager(bool saveOnShutdown);
-	Fonbook *GetActiveFonbook() const;
+	Fonbook *getActiveFonbook() const;
 	size_t activeFonbookPos;
 	bool saveOnShutdown;
 public:
@@ -69,54 +69,54 @@ public:
 	 * Switch to next displayable phonebook.
 	 * @return void
 	 */
-	void NextFonbook();
+	void nextFonbook();
 	/**
 	 * Resolves the number given to the corresponding name.
 	 * @param number to resolve
 	 * @return resolved name and type or the number, if unsuccessful
 	 */
-	sResolveResult ResolveToName(std::string number) override;
+	sResolveResult resolveToName(std::string number) override;
 	/**
 	 * Returns a specific telephonebook entry.
 	 * @param id unique identifier of the requested entry
 	 * @return the entry with key id or nullptr, if unsuccessful
 	 */
-	const FonbookEntry *RetrieveFonbookEntry(size_t id) const override;
+	const FonbookEntry *retrieveFonbookEntry(size_t id) const override;
 	/**
 	 * Changes the Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
 	 * @param fe FonbookEntry with the new content
 	 * @return true, if successful
 	 */
-	bool ChangeFonbookEntry(size_t id, FonbookEntry &fe) override;
+	bool changeFonbookEntry(size_t id, FonbookEntry &fe) override;
 	/**
 	 * Sets the default number for a Fonbook entry with the given id
 	 * @param id unique identifier to the entry to be changed
 	 * @param type the new default
 	 * @return true, if successful
 	 */
-	virtual bool SetDefault(size_t id, size_t pos);
+	virtual bool setDefault(size_t id, size_t pos);
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param fe a new phonebook entry
 	 * @return true, if add was successful
 	 */
-	void AddFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos) override;
+	void addFonbookEntry(FonbookEntry &fe, size_t position = std::string::npos) override;
 	/**
 	 * Adds a new entry to the phonebook.
 	 * @param id unique id to the entry to be deleted
 	 * @return true, if deletion was successful
 	 */
-	bool DeleteFonbookEntry(size_t id) override;
+	bool deleteFonbookEntry(size_t id) override;
 	/**
 	 * Clears all entries from phonebook.
 	 */
-	void Clear() override;
+	void clear() override;
 	/**
 	 * Save pending changes.
 	 * Can be called periodically to assert pending changes in a phone book are written.
 	 */
-	void Save() override;
+	void save() override;
 	/**
 	 * Returns if it is possible to display the entries of this phonebook.
 	 * @return true, if this phonebook has displayable entries. "Reverse lookup only" phonebooks must return false here.
@@ -147,30 +147,30 @@ public:
 	 * @param the element used for sorting
 	 * @param true if sort order is ascending, false otherwise
 	 */
-	void Sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true) override;
+	void sort(FonbookEntry::eElements element = FonbookEntry::ELEM_NAME, bool ascending = true) override;
 	/**
 	 *  Returns the number of entries in the telephonebook.
 	 * @return the number of entries or cFonbook::npos, if requesting specific telephonebook entries is not possible for this telephonebook
 	 */
-	size_t GetFonbookSize() const override;
+	size_t getFonbookSize() const override;
 	/**
 	 *  Reloads the telephonebook's content
 	 */
-	void Reload() override;
+	void reload() override;
 	/**
 	 *  Returns a string that should be displayed as title in the menu when the telephonebook is displayed.
 	 */
-	std::string GetTitle() const override;
+	std::string getTitle() const override;
 	/**
 	 * Returns the technical id of this phonebook. This id has to be unique among all phonebooks and is used when storing
 	 * the plugin's setup.
 	 * @return the technical id
 	 */
-	virtual std::string GetTechId() const override;
+	virtual std::string getTechId() const override;
 	/**
 	 *
 	 */
-	Fonbooks *GetFonbooks();
+	Fonbooks *getFonbooks();
 };
 
 }

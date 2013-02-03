@@ -16,7 +16,7 @@ namespace test {
 
 class FakeSimpleClient : public fritz::FritzClient {
 public:
-	virtual std::string RequestFonbook() {
+	virtual std::string requestFonbook() {
 		DBG("Returning simple fonbook.");
 		return "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\
                 <phonebooks><phonebook name=\"Telefonbuch\"><contact><category>0</category><person><realName>A. Muster</realName></person>\

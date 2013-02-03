@@ -14,10 +14,10 @@ namespace test {
 
 class FakeNoopClient : public fritz::FritzClient {
 public:
-	virtual std::string RequestLocationSettings() {
+	virtual std::string requestLocationSettings() {
 		return "";
 	}
-	virtual std::string RequestSipSettings() {
+	virtual std::string requestSipSettings() {
 		return "";
 	}
 

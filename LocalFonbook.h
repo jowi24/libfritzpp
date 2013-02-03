@@ -31,11 +31,11 @@ class LocalFonbook : public XmlFonbook {
 private:
 	char* filePath;
 	LocalFonbook();
-	void ParseCsvFonbook(std::string filePath);
-	void Write() override;
+	void parseCsvFonbook(std::string filePath);
+	void write() override;
 public:
-	bool Initialize() override;
-	void Reload() override;
+	bool initialize() override;
+	void reload() override;
 };
 
 }

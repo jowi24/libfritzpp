@@ -40,7 +40,7 @@ XmlFonbook::~XmlFonbook() {
 }
 
 
-std::string XmlFonbook::ExtractXmlAttributeValue(std::string element, std::string attribute, std::string xml) {
+std::string XmlFonbook::extractXmlAttributeValue(std::string element, std::string attribute, std::string xml) {
 	size_t posStart = xml.find('<'+element);
 	if (posStart != std::string::npos) {
 		posStart = xml.find(attribute+"=\"", posStart);
@@ -53,7 +53,7 @@ std::string XmlFonbook::ExtractXmlAttributeValue(std::string element, std::strin
 	return "";
 }
 
-std::string XmlFonbook::ExtractXmlElementValue(std::string element, std::string xml) {
+std::string XmlFonbook::extractXmlElementValue(std::string element, std::string xml) {
 	size_t posStart = xml.find('<'+element);
 	if (posStart != std::string::npos) {
 		posStart = xml.find(">", posStart);
@@ -66,7 +66,7 @@ std::string XmlFonbook::ExtractXmlElementValue(std::string element, std::string 
 	return "";
 }
 
-void XmlFonbook::ParseXmlFonbook(std::string *msg) {
+void XmlFonbook::parseXmlFonbook(std::string *msg) {
 	DBG("Parsing fonbook using xml parser.")
 	// determine charset
 	size_t pos, posStart, posEnd;
@@ -86,18 +86,18 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 	pos = msgConv.find("<contact>");
 	while (pos != std::string::npos) {
 		std::string msgPart = msgConv.substr(pos, msgConv.find("</contact>", pos) - pos + 10);
-		std::string category = ExtractXmlElementValue("category", msgPart);
-		std::string name     = convertEntities(ExtractXmlElementValue("realName", msgPart));
+		std::string category = extractXmlElementValue("category", msgPart);
+		std::string name     = convertEntities(extractXmlElementValue("realName", msgPart));
 		FonbookEntry fe(name, category == "1");
 		size_t posNumber = msgPart.find("<number");
 		size_t numberCount = 0;
 		while (posNumber != std::string::npos) {
 			std::string msgPartofPart = msgPart.substr(posNumber, msgPart.find("</number>", posNumber) - posNumber + 9);
-			std::string number    = ExtractXmlElementValue  ("number",              msgPartofPart);
-			std::string typeStr   = ExtractXmlAttributeValue("number", "type",      msgPartofPart);
-			std::string quickdial = ExtractXmlAttributeValue("number", "quickdial", msgPartofPart);
-			std::string vanity    = ExtractXmlAttributeValue("number", "vanity",    msgPartofPart);
-			std::string prio      = ExtractXmlAttributeValue("number", "prio",      msgPartofPart);
+			std::string number    = extractXmlElementValue  ("number",              msgPartofPart);
+			std::string typeStr   = extractXmlAttributeValue("number", "type",      msgPartofPart);
+			std::string quickdial = extractXmlAttributeValue("number", "quickdial", msgPartofPart);
+			std::string vanity    = extractXmlAttributeValue("number", "vanity",    msgPartofPart);
+			std::string prio      = extractXmlAttributeValue("number", "prio",      msgPartofPart);
 
 			if (number.size()) { // the xml may contain entries without a number!
 				FonbookEntry::eType type = FonbookEntry::TYPE_NONE;
@@ -108,16 +108,16 @@ void XmlFonbook::ParseXmlFonbook(std::string *msg) {
 				if (typeStr == "work")
 					type = FonbookEntry::TYPE_WORK;
 
-				fe.AddNumber(numberCount++, number, type, quickdial, vanity, atoi(prio.c_str()));
+				fe.addNumber(numberCount++, number, type, quickdial, vanity, atoi(prio.c_str()));
 			}
 			posNumber = msgPart.find("<number", posNumber+1);
 		}
-		AddFonbookEntry(fe);
+		addFonbookEntry(fe);
 		pos = msgConv.find("<contact>", pos+1);
 	}
 }
 
-std::string XmlFonbook::SerializeToXml() {
+std::string XmlFonbook::serializeToXml() {
 
 	std::stringstream result;
 	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>"
@@ -125,15 +125,15 @@ std::string XmlFonbook::SerializeToXml() {
 			  "<phonebook>";
 	for (auto fe : getFonbookList()) {
 		result << "<contact>"
-			   << "<category>" << (fe.IsImportant() ? "1" : "0") << "</category>"
+			   << "<category>" << (fe.isImportant() ? "1" : "0") << "</category>"
 			   << "<person>"
-		       << "<realName>" << fe.GetName() << "</realName>"
+		       << "<realName>" << fe.getName() << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
-		for (size_t numberPos = 0; numberPos < fe.GetSize(); numberPos++)
-			if (fe.GetNumber(numberPos).length() > 0) {  //just iterate over all numbers
+		for (size_t numberPos = 0; numberPos < fe.getSize(); numberPos++)
+			if (fe.getNumber(numberPos).length() > 0) {  //just iterate over all numbers
 				std::string typeName = "";
-				switch (fe.GetType(numberPos)) {
+				switch (fe.getType(numberPos)) {
 				case FonbookEntry::TYPE_NONE:
 				case FonbookEntry::TYPE_HOME:
 					typeName="home";
@@ -149,10 +149,10 @@ std::string XmlFonbook::SerializeToXml() {
 					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe.GetQuickdial(numberPos) << "\" "
-						          "vanity=\""    << fe.GetVanity(numberPos)    << "\" "
-						          "prio=\""      << fe.GetPriority(numberPos)  << "\">"
-				       << fe.GetNumber(numberPos)
+						          "quickdial=\"" << fe.getQuickdial(numberPos) << "\" "
+						          "vanity=\""    << fe.getVanity(numberPos)    << "\" "
+						          "prio=\""      << fe.getPriority(numberPos)  << "\">"
+				       << fe.getNumber(numberPos)
 				       << "</number>";
 			}
         //TODO: add <mod_time>1306951031</mod_time>

@@ -33,22 +33,22 @@ namespace fritz {
 class FritzClient {
 private:
 	static std::mutex *mutex;
-    std::string CalculateLoginResponse(std::string challenge);
-	std::string UrlEncode(std::string &s);
-	bool Login();
-	std::string GetLang();
+    std::string calculateLoginResponse(std::string challenge);
+	std::string urlEncode(const std::string &s);
+	bool login();
+	std::string getLang();
 	bool validPassword;
 	network::HttpClient httpClient;
 	network::SoapClient *soapClient;
 public:
 	FritzClient ();
 	virtual ~FritzClient();
-	virtual bool InitCall(std::string &number);
-	virtual std::string RequestLocationSettings();
-	virtual std::string RequestSipSettings();
-	virtual std::string RequestCallList();
-	virtual std::string RequestFonbook();
-	virtual void WriteFonbook(std::string xmlData);
+	virtual bool initCall(std::string &number);
+	virtual std::string requestLocationSettings();
+	virtual std::string requestSipSettings();
+	virtual std::string requestCallList();
+	virtual std::string requestFonbook();
+	virtual void writeFonbook(std::string xmlData);
 	virtual bool hasValidPassword() { return validPassword; }
 	virtual bool reconnectISP();
 	virtual std::string getCurrentIP();

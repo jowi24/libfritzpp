@@ -4,8 +4,8 @@ EXEC = $(notdir $(subst /test,test,$(CURDIR)))
 
 all: $(EXEC)
 
-$(EXEC): $(OBJS) $(GTEST_LIB)
-	$(CXX) $(CXXFLAGS) $(OBJS) $(GTEST_LIB) $(LDFLAGS) -o $(EXEC)  
+$(EXEC): $(OBJS) $(GTEST_LIB) $(STATIC_LIBS)
+	$(CXX) $(CXXFLAGS) $(OBJS) $(GTEST_LIB) $(STATIC_LIBS) $(LDFLAGS) -o $(EXEC)  
 
 %.o: %.cpp
 	$(CXX) -I.. $(CXXFLAGS) -o $@ -c $<

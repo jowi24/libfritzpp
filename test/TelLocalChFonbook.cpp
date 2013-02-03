@@ -36,12 +36,12 @@ protected:
 };
 
 TEST_F(TelLocalChFonbook, Resolve) {
-	fritz::Fonbook::sResolveResult result = fbm->ResolveToName("0713700426");
+	fritz::Fonbook::sResolveResult result = fbm->resolveToName("0713700426");
 	ASSERT_STREQ("TÜV AUSTRIA SCHWEIZ GMBH  ", result.name.c_str());
 }
 
 TEST_F(TelLocalChFonbook, NoResolve) {
-	fritz::Fonbook::sResolveResult result = fbm->ResolveToName("998877");
+	fritz::Fonbook::sResolveResult result = fbm->resolveToName("998877");
 	ASSERT_STREQ("998877", result.name.c_str());
 }
 

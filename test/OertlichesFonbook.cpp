@@ -34,12 +34,17 @@ protected:
 };
 
 TEST_F(OertlichesFonbook, Resolve) {
-	fritz::Fonbook::sResolveResult result = fbm->ResolveToName("740");
+	fritz::Fonbook::sResolveResult result = fbm->resolveToName("740");
 	ASSERT_EQ("Finanzamt Bruchsal", result.name);
 }
 
+TEST_F(OertlichesFonbook, ResolveWithUmlaut) {
+	fritz::Fonbook::sResolveResult result = fbm->resolveToName("03091203821");
+	ASSERT_EQ("Chamäleon Marketing und Organsisation GmbH", result.name);
+}
+
 TEST_F(OertlichesFonbook, NoResolve) {
-	fritz::Fonbook::sResolveResult result = fbm->ResolveToName("998877");
+	fritz::Fonbook::sResolveResult result = fbm->resolveToName("998877");
 	ASSERT_EQ("998877", result.name);
 }
 

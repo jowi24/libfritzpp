@@ -34,7 +34,7 @@ NummerzoekerFonbook::NummerzoekerFonbook()
 : LookupFonbook(I18N_NOOP("nummerzoeker.com"), "ZOEK")
 {}
 
-Fonbook::sResolveResult NummerzoekerFonbook::Lookup(std::string number) const {
+Fonbook::sResolveResult NummerzoekerFonbook::lookup(std::string number) const {
 	Fonbook::sResolveResult result(number);
 
 	// resolve only NL phone numbers

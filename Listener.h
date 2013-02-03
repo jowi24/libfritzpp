@@ -45,9 +45,9 @@ public:
 	EventHandler() { }
 	virtual ~EventHandler() { }
 
-	virtual void HandleCall(bool outgoing, int connId, std::string remoteNumber, std::string remoteName, fritz::FonbookEntry::eType remoteType, std::string localParty, std::string medium, std::string mediumName) = 0;
-	virtual void HandleConnect(int connId) = 0;
-	virtual void HandleDisconnect(int connId, std::string duration) = 0;
+	virtual void handleCall(bool outgoing, int connId, std::string remoteNumber, std::string remoteName, fritz::FonbookEntry::eType remoteType, std::string localParty, std::string medium, std::string mediumName) = 0;
+	virtual void handleConnect(int connId) = 0;
+	virtual void handleDisconnect(int connId, std::string duration) = 0;
 };
 
 class Listener {
@@ -57,9 +57,9 @@ private:
 	std::vector<int> activeConnections;
 	std::thread *thread;
 	Listener(EventHandler *event);
-	void HandleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium);
-	void HandleConnect(int connId);
-	void HandleDisconnect(int connId, std::string duration);
+	void handleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium);
+	void handleConnect(int connId);
+	void handleDisconnect(int connId, std::string duration);
 public:
 	/**
 	 * Activate listener support.
@@ -72,7 +72,7 @@ public:
 	static void CreateListener(EventHandler *event = nullptr);
 	static void DeleteListener();
 	virtual ~Listener();
-	void Run();
+	void run();
 };
 
 }

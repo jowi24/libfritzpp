@@ -38,7 +38,7 @@ Listener *Listener::me = nullptr;
 Listener::Listener(EventHandler *event)
 {
 	this->event = event;
-	thread = new std::thread(&Listener::Run, this);
+	thread = new std::thread(&Listener::run, this);
 }
 
 Listener::~Listener()
@@ -66,10 +66,10 @@ void Listener::DeleteListener() {
 	}
 }
 
-void Listener::HandleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium) {
+void Listener::handleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium) {
 	if ( Tools::MatchesMsnFilter(localParty) ) {
 		// do reverse lookup
-		Fonbook::sResolveResult result = FonbookManager::GetFonbook()->ResolveToName(remoteNumber);
+		Fonbook::sResolveResult result = FonbookManager::GetFonbook()->resolveToName(remoteNumber);
 		// resolve SIP names
 		std::string mediumName;
 		if (medium.find("SIP")           != std::string::npos &&
@@ -78,12 +78,12 @@ void Listener::HandleNewCall(bool outgoing, int connId, std::string remoteNumber
 		else
 			mediumName = medium;
 		// notify application
-		if (event) event->HandleCall(outgoing, connId, remoteNumber, result.name, result.type, localParty, medium, mediumName);
+		if (event) event->handleCall(outgoing, connId, remoteNumber, result.name, result.type, localParty, medium, mediumName);
 		activeConnections.push_back(connId);
 	}
 }
 
-void Listener::HandleConnect(int connId) {
+void Listener::handleConnect(int connId) {
 	// only notify application if this connection is part of activeConnections
 	bool notify = false;
 	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); ++it) {
@@ -93,10 +93,10 @@ void Listener::HandleConnect(int connId) {
 		}
 	}
 	if (notify)
-		if (event) event->HandleConnect(connId);
+		if (event) event->handleConnect(connId);
 }
 
-void Listener::HandleDisconnect(int connId, std::string duration) {
+void Listener::handleDisconnect(int connId, std::string duration) {
 	// only notify application if this connection is part of activeConnections
 	bool notify = false;
 	for (std::vector<int>::iterator it = activeConnections.begin(); it < activeConnections.end(); ++it) {
@@ -107,15 +107,15 @@ void Listener::HandleDisconnect(int connId, std::string duration) {
 		}
 	}
 	if (notify) {
-		if (event) event->HandleDisconnect(connId, duration);
+		if (event) event->handleDisconnect(connId, duration);
 		// force reload of callList
-		CallList *callList = CallList::getCallList(false);
+		CallList *callList = CallList::GetCallList(false);
 		if (callList)
-			callList->Reload();
+			callList->reload();
 	}
 }
 
-void Listener::Run() {
+void Listener::run() {
 	DBG("Listener thread started");
 	unsigned int retry_delay = RETRY_DELAY / 2;
 	while (true) {
@@ -156,7 +156,7 @@ void Listener::Run() {
 					if (partC[partC.length()-1] == '#')
 						partC = partC.substr(0, partC.length()-1);
 
-					HandleNewCall(true, connId, partC, partB, partD);
+					handleNewCall(true, connId, partC, partB, partD);
 
 				} else if (type.compare("RING") == 0) {
 					// partA => caller Id (remote)
@@ -166,7 +166,7 @@ void Listener::Run() {
 							    << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN)
 		                        << ", " << partC);
 
-					HandleNewCall(false, connId, partA, partB, partC);
+					handleNewCall(false, connId, partA, partB, partC);
 
 				} else if (type.compare("CONNECT") == 0) {
 					// partA => box port
@@ -174,13 +174,13 @@ void Listener::Run() {
 					DBG("CONNECT " << ", " << partA
 							       << ", " << (gConfig->logPersonalInfo() ? partB : HIDDEN));
 
-					HandleConnect(connId);
+					handleConnect(connId);
 
 				} else if (type.compare("DISCONNECT") == 0) {
 					// partA => call duration
 					DBG("DISCONNECT " << ", " << partA );
 
-					HandleDisconnect(connId, partA);
+					handleDisconnect(connId, partA);
 
 				} else {
 					DBG("Got unknown message " << line);

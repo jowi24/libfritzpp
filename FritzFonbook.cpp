@@ -44,34 +44,34 @@ FritzFonbook::~FritzFonbook() {
 	}
 }
 
-bool FritzFonbook::Initialize() {
-	Reload();
+bool FritzFonbook::initialize() {
+	reload();
 	return true;
 }
 
-void FritzFonbook::Run() {
+void FritzFonbook::run() {
 	DBG("FritzFonbook thread started");
 	setInitialized(false);
-	Clear();
+	clear();
 
 	FritzClient *fc = gConfig->fritzClientFactory->create();
-	std::string msg = fc->RequestFonbook();
+	std::string msg = fc->requestFonbook();
 	delete fc;
 
 	if (msg.find("<?xml") == std::string::npos)
-		ParseHtmlFonbook(&msg);
+		parseHtmlFonbook(&msg);
 	else {
-		ParseXmlFonbook(&msg);
+		parseXmlFonbook(&msg);
 		setWriteable(); // we can write xml back to the FB
 	}
 
 	setInitialized(true);
 
-	Sort(FonbookEntry::ELEM_NAME, true);
+	sort(FonbookEntry::ELEM_NAME, true);
 	DBG("FritzFonbook thread ended");
 }
 
-void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
+void FritzFonbook::parseHtmlFonbook(std::string *msg) {
 	DBG("Parsing fonbook using html parser.")
 	// determine charset (default for old firmware versions is iso-8859-15)
 	size_t pos;
@@ -107,8 +107,8 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 		std::string numberPart = msgConv.substr(numberStart, numberStop - numberStart+1);
 		if (namePart2.length() && numberPart.length()) {
 			FonbookEntry fe(namePart2, false); // TODO: important is not parsed here
-			fe.AddNumber(0, numberPart, FonbookEntry::TYPE_NONE);
-			AddFonbookEntry(fe);
+			fe.addNumber(0, numberPart, FonbookEntry::TYPE_NONE);
+			addFonbookEntry(fe);
 			//DBG("(%s / %s)", fe.number.c_str(), fe.name.c_str());
 		}
 		pos += 10;
@@ -146,28 +146,28 @@ void FritzFonbook::ParseHtmlFonbook(std::string *msg) {
 				type = FonbookEntry::TYPE_WORK;
 
 			if (namePartConv.length() && numberPart.length()) {
-				fe.AddNumber(numberCount++, numberPart, type); // TODO: quickdial, vanity and priority not parsed here
+				fe.addNumber(numberCount++, numberPart, type); // TODO: quickdial, vanity and priority not parsed here
 				//DBG("(%s / %s / %i)", fe.number.c_str(), fe.name.c_str(), fe.type);
 			}
 			count++;
 		}
-		AddFonbookEntry(fe);
+		addFonbookEntry(fe);
 	}
 }
 
-void FritzFonbook::Reload() {
+void FritzFonbook::reload() {
 	if (thread) {
 		thread->join();
 		delete thread;
 	}
-	thread = new std::thread(&FritzFonbook::Run, this);
+	thread = new std::thread(&FritzFonbook::run, this);
 }
 
-void FritzFonbook::Write() {
+void FritzFonbook::write() {
 	if (isWriteable()) {
 		INF("Uploading phonebook to Fritz!Box.");
 		FritzClient *fc = gConfig->fritzClientFactory->create();
-		fc->WriteFonbook(SerializeToXml());
+		fc->writeFonbook(serializeToXml());
 		delete fc;
 	}
 }

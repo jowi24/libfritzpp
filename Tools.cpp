@@ -238,7 +238,7 @@ int Tools::CompareNormalized(std::string number1, std::string number2) {
 bool Tools::GetLocationSettings() {
 	//	get settings from Fritz!Box.
 	FritzClient *fc = gConfig->fritzClientFactory->create();
-	std::string msg = fc->RequestLocationSettings();
+	std::string msg = fc->requestLocationSettings();
 
 	size_t lkzStart = msg.find("telcfg:settings/Location/LKZ");
 	if (lkzStart == std::string::npos) {
@@ -285,7 +285,7 @@ void Tools::GetSipSettings() {
 		return;
 	// ...otherwise get settings from Fritz!Box.
 	FritzClient *fc = gConfig->fritzClientFactory->create();
-	std::string msg = fc->RequestSipSettings();
+	std::string msg = fc->requestSipSettings();
 	delete fc;
 
 	std::vector<std::string> sipNames;

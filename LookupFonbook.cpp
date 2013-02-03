@@ -32,26 +32,26 @@ LookupFonbook::LookupFonbook(std::string title, std::string techId, bool writeab
 
 LookupFonbook::~LookupFonbook() {}
 
-bool LookupFonbook::Initialize() {
+bool LookupFonbook::initialize() {
 	setInitialized(true);
 	return true;
 }
 
-Fonbook::sResolveResult LookupFonbook::ResolveToName(std::string number) {
+Fonbook::sResolveResult LookupFonbook::resolveToName(std::string number) {
 	// First, try to get a cached result
-	sResolveResult resolve = Fonbook::ResolveToName(number);
+	sResolveResult resolve = Fonbook::resolveToName(number);
 	// Second, to lookup (e.g., via HTTP)
 	if (! resolve.successful) {
-		resolve = Lookup(number);
+		resolve = lookup(number);
 		// cache result despite it was successful
 		FonbookEntry fe(resolve.name, false);
-		fe.AddNumber(0, number, resolve.type, "", "", 0);
-		AddFonbookEntry(fe);
+		fe.addNumber(0, number, resolve.type, "", "", 0);
+		addFonbookEntry(fe);
 	}
 	return resolve;
 }
 
-Fonbook::sResolveResult LookupFonbook::Lookup(std::string number) const {
+Fonbook::sResolveResult LookupFonbook::lookup(std::string number) const {
 	sResolveResult result(number);
 	return result;
 }
