@@ -29,6 +29,7 @@
 #include "Tools.h"
 #include <liblog++/Log.h>
 #include <libconv++/CharsetConverter.h>
+#include <libconv++/EntityConverter.h>
 
 namespace fritz {
 
@@ -84,7 +85,7 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 	while (pos != std::string::npos) {
 		std::string msgPart = msgConv.substr(pos, msgConv.find("</contact>", pos) - pos + 10);
 		std::string category = extractXmlElementValue("category", msgPart);
-		std::string name     = convertEntities(extractXmlElementValue("realName", msgPart));
+		std::string name     = convert::EntityConverter::DecodeEntities(extractXmlElementValue("realName", msgPart));
 		FonbookEntry fe(name, category == "1");
 		size_t posNumber = msgPart.find("<number");
 		size_t numberCount = 0;

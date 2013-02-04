@@ -28,6 +28,7 @@
 #include <libnet++/HttpClient.h>
 #include "Tools.h"
 #include <liblog++/Log.h>
+#include <libconv++/EntityConverter.h>
 
 namespace fritz{
 
@@ -67,7 +68,7 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::lookup(std::string number) 
 	size_t stop  = msg.find("</h2>", start);
 	name = msg.substr(start, stop - start);
 	
-	name = convertEntities(name);
+	name = convert::EntityConverter::DecodeEntities(name);
 
 	INF("resolves to " << name.c_str());
 	result.name = name;

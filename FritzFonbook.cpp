@@ -29,6 +29,7 @@
 #include "Tools.h"
 #include <liblog++/Log.h>
 #include <libconv++/CharsetConverter.h>
+#include <libconv++/EntityConverter.h>
 
 namespace fritz {
 
@@ -101,7 +102,7 @@ void FritzFonbook::parseHtmlFonbook(std::string *msg) {
 		if (msgConv[nameStart] == '!') // skip '!' char, older firmware versions use to mark important
 			nameStart++;
 		std::string namePart = msgConv.substr(nameStart, nameStop - nameStart+1);
-		std::string namePart2 = convertEntities(namePart);
+		std::string namePart2 = convert::EntityConverter::DecodeEntities(namePart);
 		std::string numberPart = msgConv.substr(numberStart, numberStop - numberStart+1);
 		if (namePart2.length() && numberPart.length()) {
 			FonbookEntry fe(namePart2, false); // TODO: important is not parsed here
@@ -122,7 +123,7 @@ void FritzFonbook::parseHtmlFonbook(std::string *msg) {
 		int nameStart     = msgConv.find(',', pos+7)          +3;
 		int nameStop      = msgConv.find('"', nameStart)   -1;
 		std::string namePart   = msgConv.substr(nameStart, nameStop - nameStart+1);
-		std::string namePartConv  = convertEntities(namePart);
+		std::string namePartConv  = convert::EntityConverter::DecodeEntities(namePart);
 		FonbookEntry fe(namePartConv, false); // TODO: important is not parsed here
 
 		size_t posInner = pos;

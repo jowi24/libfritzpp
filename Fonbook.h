@@ -174,10 +174,6 @@ protected:
 	/**
 	 *
 	 */
-	std::string convertEntities(std::string s) const;
-	/**
-	 *
-	 */
 	const std::vector<FonbookEntry> &getFonbookList() const { return fonbookList; }
 public:
 	struct sResolveResult {
