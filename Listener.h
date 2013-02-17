@@ -52,6 +52,7 @@ public:
 
 class Listener {
 private:
+	bool cancelRequested = false;
 	static Listener *me;
 	EventHandler *event;
 	std::vector<int> activeConnections;
