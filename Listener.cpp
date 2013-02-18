@@ -128,7 +128,7 @@ void Listener::run() {
 			while (!cancelRequested) {
 				DBG("Waiting for a message.");
 
-				auto future = std::async([&tcpClient]()
+				auto future = std::async(std::launch::async, [&tcpClient]()
 				{
 				  return tcpClient.readLine();
 				});
