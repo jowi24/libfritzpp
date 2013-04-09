@@ -25,6 +25,8 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <libnet++/TcpClient.h>
+
 
 #include "Fonbook.h"
 
@@ -57,10 +59,12 @@ private:
 	EventHandler *event;
 	std::vector<int> activeConnections;
 	std::thread *thread;
+	network::TcpClient *tcpClientPtr = nullptr;
 	Listener(EventHandler *event);
 	void handleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium);
 	void handleConnect(int connId);
 	void handleDisconnect(int connId, std::string duration);
+	void cancelThread();
 public:
 	/**
 	 * Activate listener support.

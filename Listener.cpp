@@ -46,10 +46,16 @@ Listener::Listener(EventHandler *event)
 Listener::~Listener()
 {
 	if (thread) {
-		cancelRequested = true;
+		cancelThread();
 		thread->join();
 		delete thread;
 	}
+}
+
+void Listener::cancelThread() {
+	cancelRequested = true;
+	if (tcpClientPtr)
+		tcpClientPtr->expireStreamNow();
 }
 
 void Listener::CreateListener(EventHandler *event) {
@@ -125,20 +131,13 @@ void Listener::run() {
 		try {
 			retry_delay = retry_delay > 1800 ? 3600 : retry_delay * 2;
 			network::TcpClient tcpClient(gConfig->getUrl(), gConfig->getListenerPort());
+			tcpClientPtr = &tcpClient;
 			while (!cancelRequested) {
 				DBG("Waiting for a message.");
 
-				auto future = std::async(std::launch::async, [&tcpClient]()
-				{
-				  return tcpClient.readLine();
-				});
-				std::future_status status;
-				do {
-				  status = future.wait_for(std::chrono::seconds(1));
-				} while (status != std::future_status::ready && !cancelRequested);
+				std::string line = tcpClient.readLine();
 				if (cancelRequested)
 					break;
-				std::string line = future.get();
 
 				if (gConfig->logPersonalInfo())
 					DBG("Got message " << line);
@@ -211,6 +210,7 @@ void Listener::run() {
 		} catch (Listener *listener) {
 			ERR("Exception unknown data received.");
 		}
+		tcpClientPtr = nullptr;
 		if (cancelRequested)
 			break;
 		ERR("waiting " << retry_delay << " seconds before retrying");
