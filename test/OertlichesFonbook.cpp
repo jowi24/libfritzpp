@@ -35,17 +35,17 @@ protected:
 
 TEST_F(OertlichesFonbook, Resolve) {
 	fritz::Fonbook::sResolveResult result = fbm->resolveToName("740");
-	ASSERT_EQ("Finanzamt Bruchsal", result.name);
+	ASSERT_STREQ("Finanzamt Bruchsal", result.name.c_str());
 }
 
 TEST_F(OertlichesFonbook, ResolveWithUmlaut) {
 	fritz::Fonbook::sResolveResult result = fbm->resolveToName("03091203821");
-	ASSERT_EQ("Chamäleon Marketing und Organsisation GmbH", result.name);
+	ASSERT_STREQ("Chamäleon Marketing und Organsisation GmbH Marketingberatung", result.name.c_str());
 }
 
 TEST_F(OertlichesFonbook, NoResolve) {
 	fritz::Fonbook::sResolveResult result = fbm->resolveToName("998877");
-	ASSERT_EQ("998877", result.name);
+	ASSERT_STREQ("998877", result.name.c_str());
 }
 
 }
