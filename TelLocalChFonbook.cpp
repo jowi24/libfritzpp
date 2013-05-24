@@ -29,6 +29,7 @@
 #include "Tools.h"
 #include <liblog++/Log.h>
 #include <libconv++/EntityConverter.h>
+#include <boost/regex.hpp>
 
 namespace fritz{
 
@@ -56,23 +57,18 @@ TelLocalChFonbook::sResolveResult TelLocalChFonbook::lookup(std::string number) 
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("<h2 class");
+	boost::regex expression("<h2 class[^>]+><a [^>]+>(.+)</a></h2>");
+	boost::smatch what;
+	if (boost::regex_search(msg, what, expression)) {
+		name = what[1];
+		name = convert::EntityConverter::DecodeEntities(name);
 
-	if (start == std::string::npos) {
+		INF("resolves to " << name.c_str());
+		result.name = name;
+		result.successful = true;
+	} else
 		INF("no entry found.");
-		return result;
-	}
-	// add the length of search pattern
-	start += 15;
-
-	size_t stop  = msg.find("</h2>", start);
-	name = msg.substr(start, stop - start);
 	
-	name = convert::EntityConverter::DecodeEntities(name);
-
-	INF("resolves to " << name.c_str());
-	result.name = name;
-	result.successful = true;
 	return result;
 }
 

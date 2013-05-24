@@ -37,7 +37,7 @@ protected:
 
 TEST_F(TelLocalChFonbook, Resolve) {
 	fritz::Fonbook::sResolveResult result = fbm->resolveToName("0713700426");
-	ASSERT_STREQ("TÜV AUSTRIA SCHWEIZ GMBH  ", result.name.c_str());
+	ASSERT_STREQ("TÜV AUSTRIA SCHWEIZ GMBH", result.name.c_str());
 }
 
 TEST_F(TelLocalChFonbook, NoResolve) {
