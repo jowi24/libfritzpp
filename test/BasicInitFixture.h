@@ -26,7 +26,7 @@ protected:
 	:countryCode(countryCode), cityCode(cityCode), host(host), passwd(passwd) {}
 
 	void SetUp() {
-		fritz::Config::Setup(host, passwd, true);
+        fritz::Config::Setup(host, "", passwd, true);
 
 		delete fritz::gConfig->fritzClientFactory;
 		fritz::gConfig->fritzClientFactory = new FakeNoopClientFactory();

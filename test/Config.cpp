@@ -16,7 +16,7 @@ class Config : public ::testing::Test {
 protected:
 
 	void SetUp() {
-		fritz::Config::Setup("localhost", "pwd", true);
+        fritz::Config::Setup("localhost", "", "pwd", true);
 
 		delete fritz::gConfig->fritzClientFactory;
 		fritz::gConfig->fritzClientFactory = new FakeBoxClientFactory();

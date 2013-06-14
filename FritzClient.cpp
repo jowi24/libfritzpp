@@ -179,9 +179,13 @@ bool FritzClient::login() {
 				postdata = {{"login:command/response", response},
 				            {"getpage", "../html/de/menus/menu2.html"}};
 			else
-				postdata = {{"username", ""}, {"response", response }};
-			DBG("Sending login request...");
-			sMsg = httpClient.post(loginPath.str(), postdata);
+                postdata = {{"username", gConfig->getUsername()}, {"response", response }};
+
+            DBG("Sending login request "
+             << ( gConfig->getUsername().size() ? "for user " : "" )
+             << gConfig->getUsername() << "...");
+
+            sMsg = httpClient.post(loginPath.str(), postdata);
 			size_t sidStart, sidStop;
 			if (gConfig->getLoginType() == Config::SID) {
 				sidStart = sMsg.find("name=\"sid\"");

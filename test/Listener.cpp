@@ -31,7 +31,7 @@ class MyEventHandler : public fritz::EventHandler {
 };
 
 TEST_F(Listener, CreateAndDeleteListenerWithConnect) {
-	fritz::Config::Setup("www.joachim-wilke.de", "", true);
+    fritz::Config::Setup("www.joachim-wilke.de", "", "", true);
 	fritz::Config::SetupPorts(80, 8080, 47000);
 
 	MyEventHandler e;
@@ -41,7 +41,7 @@ TEST_F(Listener, CreateAndDeleteListenerWithConnect) {
 }
 
 TEST_F(Listener, CreateAndDeleteListenerWithoutConnect) {
-	fritz::Config::Setup("localhost", "", true);
+    fritz::Config::Setup("localhost", "", "", true);
 	fritz::Config::SetupPorts(64999, 8080, 47000);
 
 	MyEventHandler e;

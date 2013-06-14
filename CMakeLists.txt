@@ -13,23 +13,21 @@ include("FindGcryptConfig")
 gcrypt_check(GCRYPT REQUIRED gcrypt)
 
 # --- boost -------------------------------------------------------------------
-find_package(Boost COMPONENTS system date_time thread REQUIRED)
+find_package(Boost COMPONENTS system date_time thread regex REQUIRED)
 
 # --- threading ---------------------------------------------------------------
 find_package(Threads)
 
-# --- crypto ------------------------------------------------------------------
-find_package(crypto)
-
 # --- compile and link --------------------------------------------------------
 include_directories(${libfritz++_SOURCE_DIR})
+include_directories(${libfritz++_SOURCE_DIR}/..)
 set(CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS} ${GCRYPT_CFLAGS}")
 
 set(SRCS CallList.cpp Config.cpp 
          Fonbooks.cpp Fonbook.cpp FonbookManager.cpp FritzClient.cpp FritzFonbook.cpp 
-         HttpClient.cpp Listener.cpp LocalFonbook.cpp Log.cpp 
+         Listener.cpp LocalFonbook.cpp
          LookupFonbook.cpp Nummerzoeker.cpp OertlichesFonbook.cpp 
-         SoapClient.cpp TcpClient.cpp TelLocalChFonbook.cpp Tools.cpp XmlFonbook.cpp)
+         TelLocalChFonbook.cpp Tools.cpp XmlFonbook.cpp)
 add_library(fritz++ STATIC ${SRCS})
 
 # --- tests -------------------------------------------------------------------
@@ -38,9 +36,9 @@ if (EXISTS ${libfritz++_SOURCE_DIR}/test)
   include_directories(${libfritz++_SOURCE_DIR}/test)
   AUX_SOURCE_DIRECTORY(test LIBTESTFILES)
   add_executable(libfritztest ${LIBTESTFILES} test/gtest/gtest-all.cc test/gtest/gtest_main.cc)
-  target_link_libraries(libfritztest fritz++  ssl
-                        ${GCRYPT_LIBRARIES} 
-                        ${Boost_SYSTEM_LIBRARY} ${Boost_THREAD_LIBRARY} ${CMAKE_THREAD_LIBS_INIT}
-                        crypto)
+  target_link_libraries(libfritztest fritz++ log++ net++ conv++
+                        ${Boost_SYSTEM_LIBRARY} ${Boost_THREAD_LIBRARY} ${Boost_REGEX_LIBRARY}
+                        ${GCRYPT_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT}
+                        )
 endif (EXISTS ${libfritz++_SOURCE_DIR}/test)
 

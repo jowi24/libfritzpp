@@ -31,11 +31,11 @@ namespace fritz {
 
 Config* gConfig = nullptr;
 
-void Config::Setup(std::string hostname, std::string password, bool logPersonalInfo) {
+void Config::Setup(std::string hostname, std::string username, std::string password, bool logPersonalInfo) {
 
 	if (gConfig)
 		delete gConfig;
-	gConfig = new Config( hostname, password);
+    gConfig = new Config( hostname, username, password);
 	gConfig->mConfig.logPersonalInfo = logPersonalInfo;
 
 }
@@ -97,8 +97,9 @@ void Config::SetupConfigDir(std::string dir)
 	gConfig->mConfig.configDir = dir;
 }
 
-Config::Config( std::string url, std::string password) {
+Config::Config( std::string url, std::string username, std::string password) {
 	mConfig.url          	= url;
+    mConfig.username        = username;
 	mConfig.password     	= password;
 	mConfig.uiPort       	= 80;
 	mConfig.listenerPort    = 1012;

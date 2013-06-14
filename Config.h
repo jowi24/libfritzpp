@@ -55,6 +55,7 @@ private:
 		int uiPort;						                // the port of the fritz box web interface
 		int upnpPort;									// the port of the UPNP server of the fritz box
 		int listenerPort;					            // the port of the fritz box call monitor
+        std::string username;                           // fritz!box web interface username, if applicable
 		std::string password;               			// fritz!box web interface password
 		time_t lastRequestTime;                         // with eLoginType::SID: time of last request sent to fritz box
 		eLoginType loginType;                           // type of login procedure
@@ -69,7 +70,7 @@ private:
 		bool logPersonalInfo;							// log sensitive information like passwords, phone numbers, ...
 	} mConfig;
 
-	Config( std::string url, std::string password );
+    Config( std::string url, std::string username, std::string password );
 
 public:
 	/**
@@ -79,7 +80,7 @@ public:
 	 * @param the password of the Fritz!Box device, defaults to an empty one
 	 * @param allows personal information to be logged
 	 */
-	void static Setup( std::string hostname="fritz.box", std::string password="", bool logPersonalInfo = false );
+    void static Setup(std::string hostname="fritz.box", std::string username="", std::string password="", bool logPersonalInfo = false );
 	/**
 	 * Sets arbitrary ports for connections to the Fritz!Box's listener and webinterface.
 	 * @param the port to connect to the listener
@@ -124,6 +125,7 @@ public:
 	int getListenerPort( )				              { return mConfig.listenerPort; }
 	int getUpnpPort( )                                { return mConfig.upnpPort; }
 	std::string &getPassword( )                       { return mConfig.password; }
+    std::string &getUsername( )                       { return mConfig.username; }
 	eLoginType getLoginType( )                        { return mConfig.loginType; }
 	void setLoginType(eLoginType type)                { mConfig.loginType = type; }
 	time_t getLastRequestTime()                       { return mConfig.lastRequestTime; }
