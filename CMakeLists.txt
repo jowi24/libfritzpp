@@ -21,7 +21,7 @@ find_package(Threads)
 # --- compile and link --------------------------------------------------------
 include_directories(${libfritz++_SOURCE_DIR})
 include_directories(${libfritz++_SOURCE_DIR}/..)
-set(CMAKE_CXX_FLAGS "-std=gnu++11 ${CMAKE_CXX_FLAGS} ${GCRYPT_CFLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCRYPT_CFLAGS} -std=gnu++11")
 
 set(SRCS CallList.cpp Config.cpp 
          Fonbooks.cpp Fonbook.cpp FonbookManager.cpp FritzClient.cpp FritzFonbook.cpp 
