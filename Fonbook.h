@@ -83,7 +83,7 @@ public:
 	 * @param vanity The vanity extension
 	 * @param prority '1' marks the default number of this contact, otherwise 0
 	 */
-	void addNumber(size_t pos, std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
+	void addNumber(std::string number, eType type = TYPE_NONE, std::string quickdial = "", std::string vanity = "", int priority = 0);
 	std::string getName() const { return name; }
 	void setName(std::string name) { this->name = name; }
 

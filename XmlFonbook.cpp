@@ -88,7 +88,6 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 		std::string name     = convert::EntityConverter::DecodeEntities(extractXmlElementValue("realName", msgPart));
 		FonbookEntry fe(name, category == "1");
 		size_t posNumber = msgPart.find("<number");
-		size_t numberCount = 0;
 		while (posNumber != std::string::npos) {
 			std::string msgPartofPart = msgPart.substr(posNumber, msgPart.find("</number>", posNumber) - posNumber + 9);
 			std::string number    = extractXmlElementValue  ("number",              msgPartofPart);
@@ -106,7 +105,7 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 				if (typeStr == "work")
 					type = FonbookEntry::TYPE_WORK;
 
-				fe.addNumber(numberCount++, number, type, quickdial, vanity, atoi(prio.c_str()));
+				fe.addNumber(number, type, quickdial, vanity, atoi(prio.c_str()));
 			}
 			posNumber = msgPart.find("<number", posNumber+1);
 		}
