@@ -24,9 +24,9 @@ public:
 };
 
 class MyEventHandler : public fritz::EventHandler {
-	virtual void handleCall(bool outgoing, int connId, std::string remoteNumber, std::string remoteName, fritz::FonbookEntry::eType remoteType, std::string localParty, std::string medium, std::string mediumName)  {}
-	virtual void handleConnect(int connId) {}
-	virtual void handleDisconnect(int connId, std::string duration) {}
+	virtual void handleCall(bool, int, std::string, std::string, fritz::FonbookEntry::eType, std::string, std::string, std::string)  {}
+	virtual void handleConnect(int) {}
+	virtual void handleDisconnect(int, std::string) {}
 
 };
 

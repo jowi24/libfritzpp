@@ -35,7 +35,7 @@ public:
 	FakeBoxClient(std::string version)
 	: version(version) {}
 
-	virtual bool initCall(std::string &number) {
+	virtual bool initCall(std::string& ) {
 		return false;
 	}
 
@@ -55,7 +55,7 @@ public:
 		return getFile("fonbuch_xml");
 	}
 
-	virtual void writeFonbook(std::string xmlData) {
+	virtual void writeFonbook(std::string) {
 	}
 
 	virtual bool reconnectISP() {
