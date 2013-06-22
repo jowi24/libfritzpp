@@ -35,7 +35,7 @@ FonbookEntry::FonbookEntry(std::string name, bool important) {
 	this->important = important;
 }
 
-void FonbookEntry::addNumber(size_t pos, std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
+void FonbookEntry::addNumber(std::string number, eType type, std::string quickdial, std::string vanity, int priority) {
 	sNumber sn;
 	sn.number = number;
 	sn.type = type;

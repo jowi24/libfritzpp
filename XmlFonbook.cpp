@@ -106,7 +106,7 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 				if (typeStr == "work")
 					type = FonbookEntry::TYPE_WORK;
 
-				fe.addNumber(numberCount++, number, type, quickdial, vanity, atoi(prio.c_str()));
+				fe.addNumber(number, type, quickdial, vanity, atoi(prio.c_str()));
 			}
 			posNumber = msgPart.find("<number", posNumber+1);
 		}

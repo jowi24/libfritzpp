@@ -161,14 +161,14 @@ void LocalFonbook::parseCsvFonbook(std::string filePath) {
 				for (size_t feNr = 0; feNr < getFonbookSize(); feNr++)
 					if (retrieveFonbookEntry(feNr)->getName() == name) {
 						FonbookEntry fe(retrieveFonbookEntry(feNr));
-						fe.addNumber(type, number, type); //TODO: quickdial, vanity and priority not supported here
+						fe.addNumber(number, type); //TODO: quickdial, vanity and priority not supported here
 						changeFonbookEntry(feNr, fe);
 						feExists = true;
 					}
 				// add to new fe
 				if (!feExists) {
 					FonbookEntry fe(name, false); //TODO: important not supported here
-					fe.addNumber(type, number, type);
+					fe.addNumber(number, type);
 					addFonbookEntry(fe);
 				}
 			}

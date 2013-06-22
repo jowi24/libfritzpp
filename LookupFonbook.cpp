@@ -45,7 +45,7 @@ Fonbook::sResolveResult LookupFonbook::resolveToName(std::string number) {
 		resolve = lookup(number);
 		// cache result despite it was successful
 		FonbookEntry fe(resolve.name, false);
-		fe.addNumber(0, number, resolve.type, "", "", 0);
+		fe.addNumber(number, resolve.type, "", "", 0);
 		addFonbookEntry(fe);
 	}
 	return resolve;
