@@ -283,5 +283,14 @@
 - Fix resolving test in tel.local.ch phonebook
 - Add support for FB phonebooks with >3 numbers per entry, fixes a sigsev 
   on startup using such phonebooks
+- Various refactoring to split loggin, networking and char conversion in
+  separate libraries
+- New dependency boost::asio, dropped dependency to commoncpp 
  
+ 2013-05:
+ - Fix resolve in TelLocalChFonbook
+ 
+ 2013-06:
+ - Add support for username authentication
+ - Fix some warning about unused parameters
 
