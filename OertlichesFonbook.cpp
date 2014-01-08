@@ -62,18 +62,16 @@ Fonbook::sResolveResult OertlichesFonbook::lookup(std::string number) const {
 		return result;
 	}
 	// parse answer
-	size_t start = msg.find("getItemData(");
+	size_t start = msg.find("preview iname\"><span class=\"\">");
 	if (start == std::string::npos) {
 		INF("no entry found.");
 		return result;
 	}
 	// add the length of the last search pattern
-	start += 12;
+	start += 30;
 
-	size_t stop  = msg.find(");", start);
-	std::string dataset = msg.substr(start, stop - start);
-	name = Tools::Tokenize(dataset, ',', 5);
-	name = name.substr(2, name.length()-3);
+	size_t stop  = msg.find("&nbsp;", start);
+	name = msg.substr(start, stop - start);
 	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
 	result.name = name;
 	result.successful = true;
