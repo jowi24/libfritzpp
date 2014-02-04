@@ -82,7 +82,11 @@ std::string FonbookEntry::getQuickdial(size_t pos) const {
 	// if no special type is given, the default "TYPES_COUNT" indicates,
 	// that the correct type has to be determined first, i.e., priority == 1
 
-	return numbers[pos == std::string::npos ? getDefault() : pos].quickdial;
+	size_t index = pos == std::string::npos ? getDefault() : pos;
+	if (numbers.size() > index)
+		return numbers[index].quickdial;
+	else
+		return "";
 }
 
 void FonbookEntry::setQuickdial(std::string quickdial, size_t pos) { //TODO: sanity check
@@ -90,7 +94,10 @@ void FonbookEntry::setQuickdial(std::string quickdial, size_t pos) { //TODO: san
 }
 
 std::string FonbookEntry::getVanity(size_t pos) const {
-	return numbers[pos == std::string::npos ? getDefault() : pos].vanity;
+	if (numbers.size() > pos)
+		return numbers[pos == std::string::npos ? getDefault() : pos].vanity;
+	else
+		return "";
 }
 
 std::string FonbookEntry::getVanityFormatted(size_t pos) const {
