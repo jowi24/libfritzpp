@@ -348,15 +348,6 @@ std::string FritzClient::requestCallList () {
 	RETRY_BEGIN {
 		// now, process call list
 		DBG("sending callList update request.");
-		// force an update of the fritz!box csv list and wait until all data is received
-		msg = httpClient.get("/cgi-bin/webcm",
-				{
-						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
-						{ "var%3Alang", getLang() },
-						{ "var%3Apagename", "foncall" },
-						{ "var%3Amenu", "fon" },
-						{ "sid", gConfig->getSid() },
-				});
 		// new method to request call list (FW >= xx.05.50?)
 		try {
 			DBG("sending callList request (using lua)...");
@@ -372,6 +363,15 @@ std::string FritzClient::requestCallList () {
 
 		// old method, parsing url to csv from page above
 
+		// force an update of the fritz!box csv list and wait until all data is received
+		msg = httpClient.get("/cgi-bin/webcm",
+				{
+						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
+						{ "var%3Alang", getLang() },
+						{ "var%3Apagename", "foncall" },
+						{ "var%3Amenu", "fon" },
+						{ "sid", gConfig->getSid() },
+				});
 		// get the URL of the CSV-File-Export
 		unsigned int urlPos   = msg.find(".csv");
 		unsigned int urlStop  = msg.find('"', urlPos);
