@@ -356,8 +356,10 @@ std::string FritzClient::requestCallList () {
 							{ "csv", "" },
 							{ "sid", gConfig->getSid() },
 					});
-			if (csv.find("Typ;Datum;Name;") != std::string::npos) {
+			if (csv.find("sep=;") != std::string::npos) {
 				return csv;
+			} else {
+				ERR("Unexpected file received, does not look like CSV.")
 			}
 		} catch (std::runtime_error &re) {}
 
