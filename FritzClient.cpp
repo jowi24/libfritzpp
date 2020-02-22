@@ -353,7 +353,7 @@ std::string FritzClient::requestCallList () {
 				{
 						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
 						{ "var%3Alang", getLang() },
-						{ "var%3Apagename", "foncall" },
+						{ "var%3Apagename", "foncalls" },
 						{ "var%3Amenu", "fon" },
 						{ "sid", gConfig->getSid() },
 				});
