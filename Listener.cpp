@@ -41,13 +41,17 @@ Listener::Listener(EventHandler *event)
 {
 	this->event = event;
 	thread = new std::thread(&Listener::run, this);
+	threadNativeHandle = thread->native_handle();
+	thread->detach();
 }
 
 Listener::~Listener()
 {
 	if (thread) {
 		cancelThread();
-		thread->join();
+		int r = pthread_cancel(threadNativeHandle);
+		if (r != 0)
+			ERR(std::string{"could not cancel thread: "} + strerror(r));
 		delete thread;
 	}
 }
