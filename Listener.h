@@ -59,6 +59,7 @@ private:
 	EventHandler *event;
 	std::vector<int> activeConnections;
 	std::thread *thread;
+	pthread_t threadNativeHandle;
 	network::TcpClient *tcpClientPtr = nullptr;
 	Listener(EventHandler *event);
 	void handleNewCall(bool outgoing, int connId, std::string remoteNumber, std::string localParty, std::string medium);
