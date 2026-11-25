@@ -134,14 +134,15 @@ void CallList::run() {
 			DBG("parser skipped line in calllist");
 			continue;
 		}
-		int dateStart     = msg.find(';', type)          +1;
-		int timeStart	  = msg.find(' ', dateStart)     +1;
-		int nameStart     = msg.find(';', timeStart)     +1;
-		int numberStart   = msg.find(';', nameStart)     +1;
-		int lNameStart    = msg.find(';', numberStart)   +1;
-		int lNumberStart  = msg.find(';', lNameStart)    +1;
-		int durationStart = msg.find(';', lNumberStart)  +1;
-		int durationStop  = msg.find("\n", durationStart)-1;
+		int dateStart     = msg.find(';', type)          + 1;
+		int timeStart     = msg.find(' ', dateStart)     + 1;
+		int nameStart     = msg.find(';', timeStart)     + 1;
+		int numberStart   = msg.find(';', nameStart)     + 1;
+		int locationStart = msg.find(';', numberStart)   + 1;
+		int lNameStart    = msg.find(';', locationStart) + 1;
+		int lNumberStart  = msg.find(';', lNameStart)    + 1;
+		int durationStart = msg.find(';', lNumberStart)  + 1;
+		int durationStop  = msg.find("\n", durationStart) - 1;
 		if (msg[durationStop] == '\r') // fix for new Fritz!Box Firmwares that use "\r\n" on linebreak
 			durationStop--;
 
@@ -151,10 +152,10 @@ void CallList::run() {
 		ce.type           = (CallEntry::eCallType) (type == 4 ? 3: type);
 		ce.date           = msg.substr(dateStart,     timeStart     - dateStart     -1);
 		ce.time           = msg.substr(timeStart,     nameStart     - timeStart     -1);
-		ce.remoteName     = msg.substr(nameStart,     numberStart   - nameStart     -1);
-		ce.remoteNumber   = msg.substr(numberStart,   lNameStart    - numberStart   -1);
-		ce.localName      = msg.substr(lNameStart,    lNumberStart  - lNameStart    -1);
-		ce.localNumber    = msg.substr(lNumberStart,  durationStart - lNumberStart  -1);
+		ce.remoteName     = msg.substr(nameStart,     numberStart   - nameStart     - 1);
+		ce.remoteNumber   = msg.substr(numberStart,   locationStart - numberStart   - 1);
+		ce.localName      = msg.substr(lNameStart,    lNumberStart  - lNameStart    - 1);
+		ce.localNumber    = msg.substr(lNumberStart,  durationStart - lNumberStart  - 1);
 		ce.duration       = msg.substr(durationStart, durationStop -  durationStart +1);
 
 		// put the number into the name field if name is not available
