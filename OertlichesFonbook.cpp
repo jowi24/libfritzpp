@@ -22,13 +22,34 @@
 #include "OertlichesFonbook.h"
 
 #include <unistd.h>
+#include <sstream>
+#include <iomanip>
 
 #include "Config.h"
 #include <libnet++/HttpClient.h>
 #include "Tools.h"
 #include <liblog++/Log.h>
+#include <libconv++/EntityConverter.h>
+#include <cctype>
 
 namespace fritz{
+
+namespace {
+std::string urlEncode(const std::string &value) {
+    std::ostringstream encoded;
+    encoded << std::uppercase << std::hex;
+    for (unsigned char c : value) {
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
+            (c >= '0' && c <= '9') || c == '-' || c == '_' || c == '.' || c == '~') {
+            encoded << c;
+        } else {
+            encoded << '%' << std::setw(2) << std::setfill('0') << static_cast<int>(c);
+        }
+    }
+    return encoded.str();
+}
+}
+
 
 OertlichesFonbook::OertlichesFonbook()
 :LookupFonbook(I18N_NOOP("das-oertliche.de"), "OERT")
@@ -45,34 +66,61 @@ Fonbook::sResolveResult OertlichesFonbook::lookup(std::string number) const {
 	std::string name;
 	try {
 		DBG("sending reverse lookup request for " << (gConfig->logPersonalInfo()? Tools::NormalizeNumber(number) : HIDDEN) << " to www.dasoertliche.de");
-		network::HttpClient::param_t params = {
-				{ "form_name", "search_inv"},
-				{ "ph", Tools::NormalizeNumber(number)},
-		};
-		network::HttpClient tc("www.dasoertliche.de");
-		msg = tc.get("/Controller", params);
+		const std::string normalized = Tools::NormalizeNumber(number);
+		const std::string url =
+			"https://www.dasoertliche.de/rueckwaertssuche/?ph=" + urlEncode(normalized);
+		msg = network::HttpClient::getURL(url);
 	} catch (std::runtime_error &re) {
 		ERR("Exception - " << re.what());
 		return result;
 	}
-	// check that at most one result is returned
+	// Check for multiple results
 	size_t second_result = msg.find("id=\"entry_1\"");
 	if (second_result != std::string::npos) {
 		INF("multiple entries found, not returning any.");
 		return result;
 	}
-	// parse answer
-	size_t start = msg.find("preview iname\"><span class=\"\">");
-	if (start == std::string::npos) {
-		INF("no entry found.");
+
+	// Find address block
+	size_t addressStart = msg.find("class=\"addressblock\"");
+	if (addressStart == std::string::npos) {
+		INF("no address block found.");
 		return result;
 	}
-	// add the length of the last search pattern
-	start += 30;
 
-	size_t stop  = msg.find("&nbsp;", start);
-	name = msg.substr(start, stop - start);
+	// Find name in h1 element
+	size_t nameStart = msg.find("<h1>", addressStart);
+	if (nameStart == std::string::npos) {
+		INF("no name found.");
+		return result;
+	}
+
+	nameStart += 4;
+
+	size_t nameStop = msg.find("</h1>", nameStart);
+	if (nameStop == std::string::npos) {
+		INF("invalid name element.");
+		return result;
+	}
+
+	name = msg.substr(nameStart, nameStop - nameStart);
+
+	// Decode HTML entities
+	name = convert::EntityConverter::DecodeEntities(name);
+
+	// Trim whitespace
+	size_t first = name.find_first_not_of(" \t\r\n");
+	size_t last = name.find_last_not_of(" \t\r\n");
+
+	if (first == std::string::npos) {
+		INF("empty name found.");
+		return result;
+	}
+
+	name = name.substr(first, last - first + 1);
+
 	INF("resolves to " << (gConfig->logPersonalInfo() ? name.c_str() : HIDDEN));
+
 	result.name = name;
 	result.successful = true;
 	return result;

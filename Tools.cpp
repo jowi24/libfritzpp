@@ -33,6 +33,11 @@
 #include "FritzClient.h"
 #include <liblog++/Log.h>
 
+#include <vector>
+#include <exception>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+
 namespace fritz{
 Tools::Tools()
 {
@@ -96,53 +101,62 @@ int Tools::CompareNormalized(std::string number1, std::string number2) {
 }
 
 bool Tools::GetLocationSettings() {
-	//	get settings from Fritz!Box.
+	// get location settings from Fritz!Box
 	FritzClient *fc = gConfig->fritzClientFactory->create();
 	std::string msg = fc->requestLocationSettings();
 
-	size_t lkzStart = msg.find("telcfg:settings/Location/LKZ");
-	if (lkzStart == std::string::npos) {
-		ERR("Parser error in GetLocationSettings(). Could not find LKZ.");
-		ERR("LKZ/OKZ not set! Resolving phone numbers may not always work.");
-		bool returnValue = fc->hasValidPassword();
-		delete fc;
-		return returnValue;
-	}
-	lkzStart += 30;
-	lkzStart        = msg.find("\"", lkzStart) +1;
-	size_t lkzStop  = msg.find("\"", lkzStart);
-	size_t okzStart = msg.find("telcfg:settings/Location/OKZ");
-	if (okzStart == std::string::npos) {
-		ERR("Parser error in GetLocationSettings(). Could not find OKZ.");
-		ERR("OKZ not set! Resolving phone numbers may not always work.");
-		bool returnValue = fc->hasValidPassword();
-		delete fc;
-		return returnValue;
-	}
-	okzStart += 30;
-	okzStart       = msg.find("\"", okzStart) +1;
-	size_t okzStop = msg.find("\"", okzStart);
-	gConfig->setCountryCode( msg.substr(lkzStart, lkzStop - lkzStart) );
-	gConfig->setRegionCode( msg.substr(okzStart, okzStop - okzStart) );
-	if (gConfig->getCountryCode().size() > 0) {
-		DBG("Found LKZ " << (gConfig->logPersonalInfo() ? gConfig->getCountryCode() : HIDDEN));
-	} else {
-		ERR("LKZ not set! Resolving phone numbers may not always work.");
-	}
-	if (gConfig->getRegionCode().size() > 0) {
-		DBG("Found OKZ " << (gConfig->logPersonalInfo() ? gConfig->getRegionCode() : HIDDEN));
-	} else {
-		ERR("OKZ not set! Resolving phone numbers may not always work.");
-	}
-	bool returnValue = fc->hasValidPassword();
+	bool validPassword = fc->hasValidPassword();
 	delete fc;
-	return returnValue;
+
+	try {
+		std::stringstream stream(msg);
+		boost::property_tree::ptree tree;
+
+		boost::property_tree::read_json(stream, tree);
+
+		const boost::property_tree::ptree &location =
+			tree.get_child("data.location");
+
+		std::string lkz =
+			location.get<std::string>("LKZ.value", "");
+
+		std::string okz =
+		location.get<std::string>("OKZ.value", "");
+
+		if (lkz.empty()) {
+			ERR("Could not find LKZ in Fritz!Box response.");
+			return validPassword;
+		}
+
+		if (okz.empty()) {
+			ERR("Could not find OKZ in Fritz!Box response.");
+			return validPassword;
+		}
+
+		gConfig->setCountryCode(lkz);
+		gConfig->setRegionCode(okz);
+
+		DBG("Found LKZ "
+			<< (gConfig->logPersonalInfo() ? lkz : HIDDEN));
+
+		DBG("Found OKZ "
+			<< (gConfig->logPersonalInfo() ? okz : HIDDEN));
+
+		INF("Successfully parsed location settings.");
+
+	} catch (const std::exception &e) {
+		ERR("Error parsing location settings JSON: " << e.what());
+		return validPassword;
+	}
+
+	return validPassword;
 }
 
 void Tools::GetSipSettings() {
 	// if SIP settings are already set, exit here...
-	if ( gConfig->getSipNames().size() > 0 )
+	if (gConfig->getSipNames().size() > 0)
 		return;
+
 	// ...otherwise get settings from Fritz!Box.
 	FritzClient *fc = gConfig->fritzClientFactory->create();
 	std::string msg = fc->requestSipSettings();
@@ -151,113 +165,86 @@ void Tools::GetSipSettings() {
 	std::vector<std::string> sipNames;
 	std::vector<std::string> sipMsns;
 
-	// new parser for lua page
-	if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos) {
-		std::string name, msn;
+	// search for JavaScript-Arrays
+	size_t arrayStart = msg.find("var gFonNums");
 
-		for (size_t i = 0; i < 10; i++) {
-			std::stringstream msnTag, nameTag;
-			msnTag << "telcfg:settings/SIP" << i << "/MSN";
-			nameTag << "telcfg:settings/SIP" << i << "/Name";
-			size_t msnPos = msg.find(msnTag.str());
-			size_t namePos = msg.find(nameTag.str());
-			if (msnPos == std::string::npos) {
-				sipNames.push_back("");
-				sipMsns.push_back("");
+	if (arrayStart == std::string::npos) {
+		ERR("Parser error in GetSipSettings(). Could not find gFonNums.");
+		ERR("SIP provider names not set!");
+		return;
+	}
+
+	arrayStart = msg.find('[', arrayStart);
+
+	if (arrayStart == std::string::npos) {
+		ERR("Parser error in GetSipSettings(). Could not find SIP array.");
+		return;
+	}
+
+	size_t arrayEnd = msg.find("];", arrayStart);
+
+	if (arrayEnd == std::string::npos) {
+		ERR("Parser error in GetSipSettings(). Could not find end of SIP array.");
+		return;
+	}
+
+	// JSON-Array in ein JSON-Objekt einbetten.
+	std::string json =
+	"{\"gFonNums\":" +
+	msg.substr(arrayStart, arrayEnd - arrayStart + 1) +
+	"}";
+
+	try {
+		std::stringstream stream(json);
+		boost::property_tree::ptree tree;
+
+		boost::property_tree::read_json(stream, tree);
+
+		const boost::property_tree::ptree &numbers =
+		tree.get_child("gFonNums");
+
+		for (const auto &entry : numbers) {
+			const boost::property_tree::ptree &number = entry.second;
+
+			std::string type =
+			number.get<std::string>("type", "");
+
+			// Nur SIP-Rufnummern übernehmen.
+			if (type != "sip")
 				continue;
-			}
-			msnPos = msg.find("\"", msnPos + msnTag.str().length() + 1);
-			namePos = msg.find("\"", namePos + nameTag.str().length() + 1);
-			msn = msg.substr(msnPos + 1, msg.find("\"", msnPos + 1) - msnPos -1);
-			name = msg.substr(namePos + 1, msg.find("\"", namePos + 1) - namePos -1);
+
+			std::string name =
+			number.get<std::string>("providername", "");
+
+			if (name.empty())
+				name = number.get<std::string>("name", "");
+
+			std::string msn =
+			number.get<std::string>("msnnum", "");
+
 			sipNames.push_back(name);
 			sipMsns.push_back(msn);
-			DBG("Found SIP" << i << " provider name " << name << " / MSN " << (gConfig->logPersonalInfo() ? msn : HIDDEN));
+
+			DBG("Found SIP provider name " << name
+			<< " / MSN "
+			<< (gConfig->logPersonalInfo() ? msn : HIDDEN));
 		}
+
+		if (sipNames.empty()) {
+			ERR("No SIP numbers found in gFonNums.");
+			return;
+		}
+
 		gConfig->setSipNames(sipNames);
 		gConfig->setSipMsns(sipMsns);
+
+		INF("Successfully parsed " << sipNames.size()
+		<< " SIP numbers from Fritz!Box.");
+
+	} catch (const std::exception &e) {
+		ERR("Error parsing gFonNums JSON: " << e.what());
 		return;
 	}
-
-	// old parser
-	// check if the structure of the HTML page matches our search pattern
-	if (msg.find("function AuswahlDisplay") == std::string::npos){
-		ERR("Parser error in GetSipSettings(). Could not find SIP list.");
-		ERR("SIP provider names not set! Usage of SIP provider names not possible.");
-		return;
-	}
-
-	size_t sipStart = 0;
-	for(size_t i=0; i < 10; i++){
-		sipStart = msg.find("AuswahlDisplay(\"", sipStart +1);
-		if (sipStart == std::string::npos) {
-			// end of list reached
-			break;
-		}
-		size_t msnStart = msg.rfind("<td class=\"c2\">", sipStart);
-		if (msnStart == std::string::npos) {
-			// something is wrong with the structure of the HTML page
-			ERR("Parser error in GetSipSettings(). Could not find SIP provider name.");
-			ERR("SIP provider names not set! Usage of SIP provider names not possible.");
-			return;
-		}
-		msnStart += 15;
-		size_t msnStop = msg.find("</td>", msnStart);
-		std::string msn = msg.substr(msnStart, msnStop - msnStart);
-
-		size_t hostStart = msg.rfind("ProviderDisplay(\"",sipStart);
-		if (hostStart == std::string::npos) {
-			// something is wrong with the structure of the HTML page
-			ERR("Parser error in GetSipSettings(). Could not find SIP provider name.");
-			ERR("SIP provider names not set! Usage of SIP provider names not possible.");
-			return;
-		}
-		hostStart += 17;
-		size_t hostStop      = msg.find("\"", hostStart);
-		std::string hostName = msg.substr(hostStart, hostStop - hostStart);
-		std::string sipName  = hostName;
-
-		// now translate hostname into real provider name according to internal translation table of fritzbox
-		size_t tableStart     = msg.find("function ProviderDisplay");
-		size_t tableStop      = msg.find("}", tableStart);
-		size_t tableHostStart = msg.find("case \"",   tableStart);
-		if (tableStart     == std::string::npos || tableStop     == std::string::npos ||
-			tableHostStart == std::string::npos) {
-				// something is wrong with the structure of the HTML page
-				ERR("Parser error in GetSipSettings(). Could not find SIP provider name.");
-				ERR("SIP provider names not set! Usage of SIP provider names not possible.");
-				return;
-			}
-		while (tableHostStart <= tableStop && tableHostStart != std::string::npos) {
-			size_t tableHostStop  = msg.find("\"",        tableHostStart + 6);
-			size_t tableNameStart = msg.find("return \"", tableHostStop);
-			size_t tableNameStop  = msg.find("\"",        tableNameStart + 8);
-			if (tableHostStart == std::string::npos || tableHostStop == std::string::npos ||
-				tableNameStart == std::string::npos || tableNameStop == std::string::npos) {
-				// something is wrong with the structure of the HTML page
-				ERR("Parser error in GetSipSettings(). Could not find SIP provider name.");
-				ERR("SIP provider names not set! Usage of SIP provider names not possible.");
-				return;
-			}
-			tableHostStart += 6;
-			std::string tableHost = msg.substr(tableHostStart, tableHostStop - tableHostStart);
-			tableNameStart += 8;
-			std::string tableName = msg.substr(tableNameStart, tableNameStop - tableNameStart);
-			if (hostName.find(tableHost) != std::string::npos) {
-				// we found a match in the table
-				sipName = tableName;
-				break;
-			}
-			// search the next table line
-			tableHostStart = msg.find("case \"",   tableNameStop);
-		}
-
-		sipNames.push_back(sipName);
-		sipMsns.push_back(msn);
-		DBG("Found SIP" << i << " (" << hostName << ") provider name " << sipName << " / MSN " << (gConfig->logPersonalInfo() ? msn : HIDDEN));
-	}
-	gConfig->setSipNames(sipNames);
-	gConfig->setSipMsns(sipMsns);
 }
 
 std::string Tools::Tokenize(const std::string &buffer, const char delimiter, size_t pos) {

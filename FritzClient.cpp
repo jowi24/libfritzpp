@@ -292,26 +292,22 @@ std::string FritzClient::requestLocationSettings() {
 	std::string msg;
 
 	RETRY_BEGIN {
-		if (gConfig->getSid().size()) {
-			DBG("Looking up Phone Settings (using lua)...");
-			try {
-				msg = httpClient.get("/fon_num/sip_option.lua", {{"sid", gConfig->getSid()}});
-			} catch (std::runtime_error &re) {}
-			if (msg.find("<!-- pagename:/fon_num/sip_option.lua-->") != std::string::npos)
-				return msg;
-			DBG("failed.");
-		}
+		DBG("Looking up Location Settings (using data.lua)...");
 
-		DBG("Looking up Phone Settings (using webcm)...");
-		msg = httpClient.get("/cgi-bin/webcm",
-				{
-						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
-						{ "var%3Alang", getLang() },
-						{ "var%3Apagename", "sipoptionen" },
-						{ "var%3Amenu", "fon" },
-						{ "sid", gConfig->getSid() },
-				});
+		msg = httpClient.post(
+		"/data.lua",
+			{
+				{"xhr", "1"},
+				{"sid", gConfig->getSid()},
+				{"page", "phoneline"}
+			},
+			{
+				{"Authorization", "AVM-SID " + gConfig->getSid()}
+			}
+		);
+
 	} RETRY_END
+
 	return msg;
 }
 
@@ -319,26 +315,22 @@ std::string FritzClient::requestSipSettings() {
 	std::string msg;
 
 	RETRY_BEGIN {
-		if (gConfig->getSid().size()) {
-			DBG("Looking up SIP Settings (using lua)...");
-			try {
-				msg = httpClient.get("/fon_num/fon_num_list.lua", {{"sid", gConfig->getSid()}});
-			} catch (std::runtime_error &re) {}
-			if (msg.find("<!-- pagename:/fon_num/fon_num_list.lua-->") != std::string::npos)
-				return msg;
-			DBG("failed.");
-		}
+		DBG("Looking up SIP Settings (using data.lua)...");
 
-		DBG("Looking up SIP Settings (using webcm)...");
-		msg = httpClient.get("/cgi-bin/webcm",
-				{
-						{ "getpage", "../html/" + getLang() + "/menus/menu2.html" },
-						{ "var%3Alang", getLang() },
-						{ "var%3Apagename", "siplist" },
-						{ "var%3Amenu", "fon" },
-						{ "sid", gConfig->getSid() },
-				});
+		msg = httpClient.post(
+			"/data.lua",
+			{
+				{"xhr", "1"},
+				{"sid", gConfig->getSid()},
+							  {"page", "numLi"}
+			},
+			{
+				{"Authorization", "AVM-SID " + gConfig->getSid()}
+			}
+		);
+
 	} RETRY_END
+
 	return msg;
 }
 

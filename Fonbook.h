@@ -63,6 +63,10 @@ private:
 	std::string name;
 	bool important;
 	std::vector<sNumber> numbers;
+
+	bool isValidPosition(size_t pos) const {
+		return pos < numbers.size();
+	}
 public:
 	/*
 	 * Constructs a new FonbookEntry object
@@ -87,13 +91,23 @@ public:
 	std::string getName() const { return name; }
 	void setName(std::string name) { this->name = name; }
 
-    #define CHECK(x) if (numbers.size() <= pos) return x;
-
-    std::string getNumber(size_t pos) const { CHECK(""); return numbers[pos].number; }
+	std::string getNumber(size_t pos) const {
+		if (!isValidPosition(pos)) return "";
+		return numbers[pos].number;
+	}
 	const std::vector<sNumber> &getNumbers() const { return numbers; }
-    void setNumber(std::string number,size_t pos) { CHECK(); numbers[pos].number = number; }
-    eType getType(size_t pos) const { CHECK(FonbookEntry::TYPE_NONE); return numbers[pos].type; }
-	void setType(eType type, size_t pos) { numbers[pos].type = type; }
+	void setNumber(std::string number, size_t pos) {
+		if (!isValidPosition(pos)) return;
+		numbers[pos].number = number;
+	}
+	eType getType(size_t pos) const {
+		if (!isValidPosition(pos)) return TYPE_NONE;
+		return numbers[pos].type;
+	}
+	void setType(eType type, size_t pos) {
+		if (!isValidPosition(pos)) return;
+		numbers[pos].type = type;
+	}
 	bool isImportant() const { return important; }
 	void setImportant(bool important) { this->important = important; }
 	size_t getDefault() const;
@@ -104,8 +118,14 @@ public:
 	std::string getVanity(size_t pos = std::string::npos) const;
 	std::string getVanityFormatted(size_t pos = std::string::npos) const;
 	void setVanity(std::string vanity, size_t pos = std::string::npos);
-    int getPriority(size_t pos) const { CHECK(0); return numbers[pos].priority; }
-	void setPrioriy(int priority, size_t pos) { numbers[pos].priority = priority; }
+	int getPriority(size_t pos) const {
+		if (!isValidPosition(pos)) return 0;
+		return numbers[pos].priority;
+	}
+	void setPrioriy(int priority, size_t pos) {
+		if (!isValidPosition(pos)) return;
+		numbers[pos].priority = priority;
+	}
 	bool operator<(const FonbookEntry & fe) const;
 	/*
 	 * Get number of typed numbers (TYPE_NONE is ignored)
