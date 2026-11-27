@@ -33,6 +33,37 @@
 
 namespace fritz {
 
+namespace {
+
+std::string escapeXml(const std::string &value) {
+	std::string result;
+	for (char ch : value) {
+		switch (ch) {
+		case '&':
+			result += "&amp;";
+			break;
+		case '<':
+			result += "&lt;";
+			break;
+		case '>':
+			result += "&gt;";
+			break;
+		case '"':
+			result += "&quot;";
+			break;
+		case '\'':
+			result += "&apos;";
+			break;
+		default:
+			result += ch;
+			break;
+		}
+	}
+	return result;
+}
+
+}
+
 XmlFonbook::XmlFonbook(std::string title, std::string techId, bool writeable)
 : Fonbook{title, techId, writeable} {
 }
@@ -117,16 +148,16 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 std::string XmlFonbook::serializeToXml() {
 
 	std::stringstream result;
-	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>\n"
-		      "<phonebooks>\n"
-		      "  <phonebook>\n";
+	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>"
+			  "<phonebooks>"
+			  "<phonebook>";
 	for (auto fe : getFonbookList()) {
-		result << "    <contact>\n"
-			   << "      <category>" << (fe.isImportant() ? "1" : "0") << "</category>\n"
-			   << "      <person>\n"
-		       << "        <realName>" << fe.getName() << "</realName>\n"
-		       << "      </person>\n"
-		       << "      <telephony>\n";
+		result << "<contact>"
+			   << "<category>" << (fe.isImportant() ? "1" : "0") << "</category>"
+			   << "<person>"
+		       << "<realName>" << escapeXml(fe.getName()) << "</realName>"
+		       << "</person>"
+		       << "<telephony>";
 		for (size_t numberPos = 0; numberPos < fe.getSize(); numberPos++)
 			if (fe.getNumber(numberPos).length() > 0) {  //just iterate over all numbers
 				std::string typeName = "";
@@ -145,33 +176,24 @@ std::string XmlFonbook::serializeToXml() {
 					// should not happen
 					break;
 				}
-				result << "        <number type=\"" << typeName << "\" "
-							  "quickdial=\"" << fe.getQuickdial(numberPos) << "\" "
-							  "vanity=\""    << fe.getVanity(numberPos)    << "\" "
-							  "prio=\""      << fe.getPriority(numberPos)  << "\">"
-				       << fe.getNumber(numberPos)
-				       << "</number>\n";
+				result << "<number type=\"" << typeName << "\" "
+						          "quickdial=\"" << escapeXml(fe.getQuickdial(numberPos)) << "\" "
+						          "vanity=\""    << escapeXml(fe.getVanity(numberPos))    << "\" "
+						          "prio=\""      << fe.getPriority(numberPos)  << "\">"
+				       << escapeXml(fe.getNumber(numberPos))
+				       << "</number>";
 			}
         //TODO: add <mod_time>1306951031</mod_time>
-		result << "      </telephony>\n"
-			   << "      <services/>\n"
-               << "      <setup/>\n"
-               << "    </contact>\n";
+		result << "</telephony>"
+			   << "<services/>"
+               << "<setup/>"
+               << "</contact>";
 	}
-	result << "  </phonebook>\n"
-		      "</phonebooks>\n";
+	result << "</phonebook>"
+			  "</phonebooks>";
 
 	convert::CharsetConverter conv("", charset);
-	std::string xmlData = conv.convert(result.str());
-
-	// replace '&' with '&amp;'
-	std::string::size_type pos = 0;
-	while ((pos = xmlData.find('&', pos)) != std::string::npos) {
-		xmlData.replace(pos, 1, "&amp;");
-		pos += 5;
-	}
-
-	return xmlData;
+	return conv.convert(result.str());
 }
 
 }

@@ -173,13 +173,29 @@ Fonbook::sResolveResult FonbookManager::resolveToName(std::string number) {
 	for (auto id : gConfig->getFonbookIDs()) {
 		if (id == "LOCL")
 			continue;
-		result = fonbooks[id]->resolveToName(number);
+		Fonbook *fonbook = fonbooks[id];
+		if (!fonbook)
+			continue;
+		result = fonbook->resolveToName(number);
 		DBG("ResolveToName: " << id << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
 		if (result.successful) {
 			if (localFonbook && !result.name.empty()) {
-				FonbookEntry entry(result.name);
-				entry.addNumber(number, result.type);
-				localFonbook->addFonbookEntry(entry);
+				bool merged = false;
+				for (size_t pos = 0; pos < localFonbook->getFonbookSize(); pos++) {
+					const FonbookEntry *cachedEntry = localFonbook->retrieveFonbookEntry(pos);
+					if (cachedEntry && cachedEntry->getName() == result.name) {
+						FonbookEntry entry(cachedEntry);
+						entry.addNumber(number, result.type);
+						localFonbook->changeFonbookEntry(pos, entry);
+						merged = true;
+						break;
+					}
+				}
+				if (!merged) {
+					FonbookEntry entry(result.name);
+					entry.addNumber(number, result.type);
+					localFonbook->addFonbookEntry(entry);
+				}
 				localFonbook->save();
 			}
 			return result;
