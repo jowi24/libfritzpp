@@ -117,16 +117,16 @@ void XmlFonbook::parseXmlFonbook(std::string *msg) {
 std::string XmlFonbook::serializeToXml() {
 
 	std::stringstream result;
-	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>"
-			  "<phonebooks>"
-			  "<phonebook>";
+	result << "<?xml version=\"1.0\" encoding=\"" << charset << "\"?>\n"
+		      "<phonebooks>\n"
+		      "  <phonebook>\n";
 	for (auto fe : getFonbookList()) {
-		result << "<contact>"
-			   << "<category>" << (fe.isImportant() ? "1" : "0") << "</category>"
-			   << "<person>"
-		       << "<realName>" << fe.getName() << "</realName>"
-		       << "</person>"
-		       << "<telephony>";
+		result << "    <contact>\n"
+			   << "      <category>" << (fe.isImportant() ? "1" : "0") << "</category>\n"
+			   << "      <person>\n"
+		       << "        <realName>" << fe.getName() << "</realName>\n"
+		       << "      </person>\n"
+		       << "      <telephony>\n";
 		for (size_t numberPos = 0; numberPos < fe.getSize(); numberPos++)
 			if (fe.getNumber(numberPos).length() > 0) {  //just iterate over all numbers
 				std::string typeName = "";
@@ -145,21 +145,21 @@ std::string XmlFonbook::serializeToXml() {
 					// should not happen
 					break;
 				}
-				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe.getQuickdial(numberPos) << "\" "
-						          "vanity=\""    << fe.getVanity(numberPos)    << "\" "
-						          "prio=\""      << fe.getPriority(numberPos)  << "\">"
+				result << "        <number type=\"" << typeName << "\" "
+							  "quickdial=\"" << fe.getQuickdial(numberPos) << "\" "
+							  "vanity=\""    << fe.getVanity(numberPos)    << "\" "
+							  "prio=\""      << fe.getPriority(numberPos)  << "\">"
 				       << fe.getNumber(numberPos)
-				       << "</number>";
+				       << "</number>\n";
 			}
         //TODO: add <mod_time>1306951031</mod_time>
-		result << "</telephony>"
-			   << "<services/>"
-               << "<setup/>"
-               << "</contact>";
+		result << "      </telephony>\n"
+			   << "      <services/>\n"
+               << "      <setup/>\n"
+               << "    </contact>\n";
 	}
-	result << "</phonebook>"
-			  "</phonebooks>";
+	result << "  </phonebook>\n"
+		      "</phonebooks>\n";
 
 	convert::CharsetConverter conv("", charset);
 	std::string xmlData = conv.convert(result.str());
