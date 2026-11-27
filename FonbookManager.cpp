@@ -151,11 +151,55 @@ void FonbookManager::nextFonbook() {
 
 Fonbook::sResolveResult FonbookManager::resolveToName(std::string number) {
 	sResolveResult result(number);
-	for (auto id  : gConfig->getFonbookIDs()) {
-		result = fonbooks[id]->resolveToName(number);
-		DBG("ResolveToName: " << id << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
+	if (number.empty())
+		return result;
+
+	// The local phone book is also the persistent reverse-lookup cache.
+	// Initialize it even if it is not selected for display, so an existing
+	// localphonebook.csv (or localphonebook.xml) is used for lookups.
+	Fonbook *localFonbook = fonbooks["LOCL"];
+	if (localFonbook && !localFonbook->isInitialized())
+		localFonbook->initialize();
+
+	if (localFonbook) {
+		result = localFonbook->resolveToName(number);
 		if (result.successful)
 			return result;
+	}
+
+	// Search the configured online/Fritz!Box phone books. A successful result
+	// is added to the local book and saved immediately for the next call-list
+	// opening. Skip LOCL because it was already checked above.
+	for (auto id : gConfig->getFonbookIDs()) {
+		if (id == "LOCL")
+			continue;
+		Fonbook *fonbook = fonbooks[id];
+		if (!fonbook)
+			continue;
+		result = fonbook->resolveToName(number);
+		DBG("ResolveToName: " << id << " " << (gConfig->logPersonalInfo() ? result.name : HIDDEN));
+		if (result.successful) {
+			if (localFonbook && !result.name.empty()) {
+				bool merged = false;
+				for (size_t pos = 0; pos < localFonbook->getFonbookSize(); pos++) {
+					const FonbookEntry *cachedEntry = localFonbook->retrieveFonbookEntry(pos);
+					if (cachedEntry && cachedEntry->getName() == result.name) {
+						FonbookEntry entry(cachedEntry);
+						entry.addNumber(number, result.type);
+						localFonbook->changeFonbookEntry(pos, entry);
+						merged = true;
+						break;
+					}
+				}
+				if (!merged) {
+					FonbookEntry entry(result.name);
+					entry.addNumber(number, result.type);
+					localFonbook->addFonbookEntry(entry);
+				}
+				localFonbook->save();
+			}
+			return result;
+		}
 	}
 	return result;
 }

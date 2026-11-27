@@ -33,6 +33,37 @@
 
 namespace fritz {
 
+namespace {
+
+std::string escapeXml(const std::string &value) {
+	std::string result;
+	for (char ch : value) {
+		switch (ch) {
+		case '&':
+			result += "&amp;";
+			break;
+		case '<':
+			result += "&lt;";
+			break;
+		case '>':
+			result += "&gt;";
+			break;
+		case '"':
+			result += "&quot;";
+			break;
+		case '\'':
+			result += "&apos;";
+			break;
+		default:
+			result += ch;
+			break;
+		}
+	}
+	return result;
+}
+
+}
+
 XmlFonbook::XmlFonbook(std::string title, std::string techId, bool writeable)
 : Fonbook{title, techId, writeable} {
 }
@@ -124,7 +155,7 @@ std::string XmlFonbook::serializeToXml() {
 		result << "<contact>"
 			   << "<category>" << (fe.isImportant() ? "1" : "0") << "</category>"
 			   << "<person>"
-		       << "<realName>" << fe.getName() << "</realName>"
+		       << "<realName>" << escapeXml(fe.getName()) << "</realName>"
 		       << "</person>"
 		       << "<telephony>";
 		for (size_t numberPos = 0; numberPos < fe.getSize(); numberPos++)
@@ -146,10 +177,10 @@ std::string XmlFonbook::serializeToXml() {
 					break;
 				}
 				result << "<number type=\"" << typeName << "\" "
-						          "quickdial=\"" << fe.getQuickdial(numberPos) << "\" "
-						          "vanity=\""    << fe.getVanity(numberPos)    << "\" "
+						          "quickdial=\"" << escapeXml(fe.getQuickdial(numberPos)) << "\" "
+						          "vanity=\""    << escapeXml(fe.getVanity(numberPos))    << "\" "
 						          "prio=\""      << fe.getPriority(numberPos)  << "\">"
-				       << fe.getNumber(numberPos)
+				       << escapeXml(fe.getNumber(numberPos))
 				       << "</number>";
 			}
         //TODO: add <mod_time>1306951031</mod_time>
@@ -162,16 +193,7 @@ std::string XmlFonbook::serializeToXml() {
 			  "</phonebooks>";
 
 	convert::CharsetConverter conv("", charset);
-	std::string xmlData = conv.convert(result.str());
-
-	// replace '&' with '&amp;'
-	std::string::size_type pos = 0;
-	while ((pos = xmlData.find('&', pos)) != std::string::npos) {
-		xmlData.replace(pos, 1, "&amp;");
-		pos += 5;
-	}
-
-	return xmlData;
+	return conv.convert(result.str());
 }
 
 }
